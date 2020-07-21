@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Assets/Client/Css/Register/RegisterForEnterprise.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <title>RegisterForEnterprise</title>
+</head>
+<body>
+    <button id="submit-first">BUTTON</button>
+    <div id="choose-box-second">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <div class="container-input">
+            <span>Tên doanh nghiệp : </span><br />
+            <input type="text" id="enterpriseName" />
+        </div>
+        <div class="container-input">
+            <span>Logo : </span><br />
+            <img id="targetImg" alt="" />
+            <div id="container-button">
+                <input type="file" id="imageBrowse" />
+                <input type="button" value="Upload" id="chooseImage" />
+                <input type="button" value="Submit" id="uploadImage" />
+            </div>
+        </div>
+        <div class="container-input">
+            <span>Số điện thoại : </span><br />
+            <input type="text" value="" id="mobile" placeholder="VD : 0123456789" />
+        </div>
+        <div class="container-input">
+            <span>Năm thành lập : </span><br />
+            <input id="establishYear" type="number" value="" />
+        </div>
+        <div class="container-input" style="width: 38% !important;">
+            <span>Quy mô công ty : </span><br />
+            <select></select>
+        </div>
+        <div class="container-input" style="width: 38% !important;">
+            <span>Loại hình công ty : </span><br />
+            <select id="typeOfCompany"></select>
+        </div>
+        <div class="container-input">
+            <span>Các chi nhánh : </span><br />
+            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
+            <div id="container-suggest">
+            </div>
+            <div id="container-option">
+            </div>
+        </div>
+        <div id="container-choose-major-important" class="container-choose-major">
+            <div class="hr-title"></div>
+            <div class="major-title">Chuyên ngành, ngành nghề tham gia tuyển dụng</div>
+            <div class="hr-title"></div>
+            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
+            <div class="container-suggest">
+            </div>
+            <div class="container-option">
+            </div>
+        </div>
+        <div id="container-choose-major-sub" class="container-choose-major">
+            <div class="hr-title"></div>
+            <div class="major-title">Chuyên ngành, ngành nghề tham gia tuyển dụng</div>
+            <div class="hr-title"></div>
+            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
+            <div class="container-suggest">
+            </div>
+            <div class="container-option">
+            </div>
+        </div>
+        <button>SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise.js"></script>
+</body>
+</html>
