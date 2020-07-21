@@ -6,7 +6,7 @@
         }
     })
     $("#submit-first").click(function () {
-        var string = "123";
+        var string = "12";
         $.ajax({
             data: {name : string},
             url: '/TypeOfEnterprise/ReturnListType',
