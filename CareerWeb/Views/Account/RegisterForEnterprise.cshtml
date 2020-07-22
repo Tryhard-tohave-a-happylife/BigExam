@@ -40,43 +40,72 @@
         </div>
         <div class="container-input" style="width: 38% !important;">
             <span>Quy mô công ty : </span><br />
-            <select></select>
+            <select id="enterprise-size">
+                @foreach (var item in ViewBag.ListEnterpriseSize)
+                {
+                    <option value="@item.SizeID">@item.AmountSize</option>
+                }
+            </select>
         </div>
         <div class="container-input" style="width: 38% !important;">
             <span>Loại hình công ty : </span><br />
-            <select id="typeOfCompany"></select>
+            <select id="type-company">
+                @foreach (var item in ViewBag.ListTypeOfEnterprise)
+                {
+                    <option value="@item.TypeOfEnterpriseID">@item.NameOfEnterprise</option>
+                }
+            </select>
         </div>
-        <div class="container-input">
+        <div class="container-choose-major">
             <span>Các chi nhánh : </span><br />
-            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
-            <div id="container-suggest">
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên tỉnh thành" class="search" id="search-area" value="" />
+                <div class="container-suggest" id="suggest-area">
+                </div>
             </div>
-            <div id="container-option">
+            <div class="container-option" id="option-area">
             </div>
+            <div class="hr-line"></div>
         </div>
         <div id="container-choose-major-important" class="container-choose-major">
-            <div class="hr-title"></div>
-            <div class="major-title">Chuyên ngành, ngành nghề tham gia tuyển dụng</div>
-            <div class="hr-title"></div>
-            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
-            <div class="container-suggest">
+            <div class="major-title">Chuyên ngành, ngành nghề chính</div>
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên ngành nghề..." class="search" id="search-important" value="" />
+                <div class="add-more" atr="job-imp">+</div>
+                <div class="container-suggest" id="suggest-important">
+                </div>
             </div>
-            <div class="container-option">
+            <div class="container-option" id="option-important">
             </div>
+            <div class="hr-line"></div>
         </div>
         <div id="container-choose-major-sub" class="container-choose-major">
-            <div class="hr-title"></div>
-            <div class="major-title">Chuyên ngành, ngành nghề tham gia tuyển dụng</div>
-            <div class="hr-title"></div>
-            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
-            <div class="container-suggest">
+            <div class="major-title">Chuyên ngành, ngành nghề phụ</div>
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên ngành nghề..." class="search" id="search-sub" value="" />
+                <div class="add-more" atr="job-sub">+</div>
+                <div class="container-suggest" id="suggest-sub">
+                </div>
             </div>
-            <div class="container-option">
+            <div class="container-option" id="option-sub">
             </div>
+            <div class="hr-line"></div>
         </div>
         <button>SUBMIT</button>
+        <div id="cover">
+            <div id="container-add">
+                <div id="add-title">Thêm ngành nghề doanh nghiệp</div>
+                <input type="text" placeholder="Nhập tên ngành nghề của doanh nghiệp" />
+                <input type="submit" job-id="" value="SUBMIT" id="add" />
+                <input type="submit" value="CANCEL" id="cancel"/>
+                <div id="note">
+                    Note <span style="color: red">*</span> : Thêm khi không tìm thầy ngành nghề phù hợp trong
+                    thanh tìm kiếm
+                </div>
+            </div>
+        </div>
         <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
     </div>
-    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise.js"></script>
+    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise1.js"></script>
 </body>
 </html>

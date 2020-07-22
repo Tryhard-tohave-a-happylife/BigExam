@@ -24,6 +24,8 @@ namespace CareerWeb.Controllers
         }
         public ActionResult RegisterForEnterprise()
         {
+            ViewBag.ListTypeOfEnterprise = new TypeOfEnterpriseDao().ReturnList();
+            ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
             return View();
         }
         public ActionResult RegisterForUniversity()

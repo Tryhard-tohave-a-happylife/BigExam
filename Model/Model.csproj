@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Dao\AccountDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
+    <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
     <Compile Include="EF\EnterpriseJob.cs" />
+    <Compile Include="EF\EnterpriseSize.cs" />
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />

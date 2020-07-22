@@ -23,6 +23,7 @@ namespace Model.EF
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<EnterpriseArea> EnterpriseAreas { get; set; }
         public virtual DbSet<EnterpriseJob> EnterpriseJobs { get; set; }
+        public virtual DbSet<EnterpriseSize> EnterpriseSizes { get; set; }
         public virtual DbSet<OfferJobMajor> OfferJobMajors { get; set; }
         public virtual DbSet<UserCertificate> UserCertificates { get; set; }
         public virtual DbSet<UserMajor> UserMajors { get; set; }
@@ -63,10 +64,6 @@ namespace Model.EF
 
             modelBuilder.Entity<Enterprise>()
                 .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Enterprise>()
-                .Property(e => e.EnterpriseSize)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Enterprise>()
@@ -119,6 +116,10 @@ namespace Model.EF
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Sex)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<EnterpriseSize>()
+                .Property(e => e.AmountSize)
                 .IsUnicode(false);
 
             modelBuilder.Entity<UserCertificate>()

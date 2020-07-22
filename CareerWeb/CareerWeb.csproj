@@ -144,7 +144,7 @@
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
-    <Content Include="Assets\Client\Js\Register\RegisterForEnterprise.js" />
+    <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -238,6 +238,8 @@
           <DevelopmentServerPort>50779</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44301/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44301/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

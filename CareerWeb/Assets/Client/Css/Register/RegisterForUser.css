@@ -163,11 +163,12 @@ optgroup{
     float: left;
 }
 
-.hr-title {
+.hr-line {
     float: left;
     height: 1px;
     background-color: black;
-    width: calc(50% - 33%);
+    width: 80%;
+    margin-left: 10%;
     margin-top: 15px;
 }
 
@@ -278,11 +279,4 @@ optgroup{
     margin-top: 20px;
     font-size: 15pt;
     text-align: justify;
-}
-#hr-line{
-    margin-top: 50px;
-    width: 60%;
-    margin-left: 20%;
-    height: 1px;
-    background-color: black;
 }

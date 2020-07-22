@@ -27,10 +27,9 @@ namespace Model.EF
         [StringLength(50)]
         public string Email { get; set; }
 
-        [StringLength(20)]
-        public string EnterpriseSize { get; set; }
+        public int EnterpriseSize { get; set; }
 
-        public int? TypeOfEnterprise { get; set; }
+        public int TypeOfEnterprise { get; set; }
 
         [Required]
         [StringLength(20)]
