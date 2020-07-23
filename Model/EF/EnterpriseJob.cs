@@ -16,9 +16,9 @@ namespace Model.EF
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ParentJob { get; set; }
+        public int JobId { get; set; }
 
-        public int? ChildJob { get; set; }
+        public int? JobIdParent { get; set; }
 
         [Key]
         [Column(Order = 2)]

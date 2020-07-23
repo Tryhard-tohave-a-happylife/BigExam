@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     //common
-    $("input[type='text']").blur(function () {
+    $("#choose-box-second input[type='text']").blur(function () {
         var str = $(this).val().trim();
         var ret = "";
         for (var i = 0; i < str.length; i += 1) {
@@ -15,20 +15,126 @@
         $(this).val(ret);
         return;
     })
-    $("#submit-first").click(function () {
-        $.ajax({
-            data: { accountName: emailReg, accountPass: passReg, typeOfAccount : "Enterprise" },
-            url: '/Account/CreateAccount',
-            dataType: 'json',
-            method: 'POST',
-            beforeSend: function () {
-
-            },
-            success: function (res) {
-                listArea = res.listArea;
-                listJob = res.listJob;
-            }
-        })
+    // Part 1
+    // Hàm check email
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+    // Hàm check nhập email
+    $("#choose-box-first #email").blur(function () {
+        var inputEmail = $("#choose-box-first #email");
+        var email = $(inputEmail).val();
+        if (validateEmail(email)) {
+            $(inputEmail).removeClass("errorEmail");
+            $(inputEmail).addClass("correctInput");
+        }
+        else {
+            $(inputEmail).removeClass("correctInput");
+            $(inputEmail).addClass("errorEmail");
+        }
+    })
+    // Hàm check nhập mật khẩu
+    $("#choose-box-first #password").blur(function () {
+        var inputPassword = $("#choose-box-first #password");
+        var pass = $(inputPassword).val();
+        if (pass.length >= 8) {
+            $(inputPassword).removeClass("errorPass");
+            $(inputPassword).addClass("correctInput");
+        }
+        else {
+            $(inputPassword).removeClass("correctInput");
+            $(inputPassword).addClass("errorPass");
+        }
+    });
+    // Hàm check nhập lại mật khẩu
+    $("#choose-box-first #retype").blur(function () {
+        var inputRetype = $("#choose-box-first #retype");
+        var retype = $(inputRetype).val();
+        var pass = $("#choose-box-first #password").val();
+        if (pass == retype && pass != null && pass != "") {
+            $(inputRetype).removeClass("errorRetype");
+            $(inputRetype).addClass("correctInput");
+        }
+        else {
+            $(inputRetype).removeClass("correctInput");
+            $(inputRetype).addClass("errorRetype");
+        }
+    });
+    // Hàm check all thông tin
+    // Part 1
+    $("#choose-box-first #submit-first").click(function () {
+        var email = $("#choose-box-first #email").val();
+        var pass = $("#choose-box-first #password").val();
+        var retype = $("#choose-box-first #retype").val();
+        var coverLoad = $("#choose-box-first .cover-load");
+        if (validateEmail(email) && pass.length >= 8 && retype == pass) {
+            $.ajax({
+                data: { email: email, pass: pass },
+                url: '/Account/SendVertify',
+                dataType: 'json',
+                method: 'POST',
+                beforeSend: function () {
+                    $(coverLoad).css("display", "block");
+                },
+                success: function (res) {
+                    $(coverLoad).css("display", "none")
+                    if (res.status) {
+                        $("#choose-box-first #title-vertify").css("display", "block");
+                        $("#choose-box-first #codeVertify").css("display", "block");
+                        $("#choose-box-first #submit-second").css("display", "block");
+                        $("#choose-box-first #submit-first").css("display", "none");
+                        $("#choose-box-first #email").attr("disabled", "disabled");
+                        $("#choose-box-first #password").attr("disabled", "disabled");
+                        $("#choose-box-first #retype").attr("disabled", "disabled");
+                        emailReg = email;
+                        passReg = pass;
+                        code = res.code;
+                    }
+                    else {
+                        if (res.checkEmail) {
+                            alert("Đăng ký gặp trục trặc");
+                        }
+                        else {
+                            alert("Gmail này đã tồn tại");
+                        }
+                    }
+                }
+            })
+        }
+        else {
+            alert("Bạn cần nhập đầy đủ và chính xác thông tin!")
+        }
+    })
+    $("#choose-box-first #submit-second").click(function () {
+        var codeInput = $("#choose-box-first #codeVertify").val();
+        var coverLoad = $("#choose-box-first .cover-load");
+        var hiddenBox = $("#choose-box-first");
+        var appearBox = $("#choose-box-second");
+        if (codeInput == code) {
+            code = "";
+            $.ajax({
+                data: { accountName: emailReg, accountPass: passReg, typeOfAccount: 'Enterprise' },
+                url: '/Account/CreateAccount',
+                dataType: 'json',
+                method: 'POST',
+                beforeSend: function () {
+                    $(coverLoad).css("display", "block");
+                },
+                success: function (res) {
+                    $(coverLoad).css("display", "none");
+                    $(hiddenBox).css("display", "none");
+                    $(appearBox).css("display", "block");
+                    userID = res.userId;
+                    listJob = res.listJob;
+                    passReg = "";
+                    listArea = res.listArea;
+                }
+            })
+        }
+        else {
+            alert("Mã code sai");
+        }
     })
     //Part 2
     $("#search-area").keyup(function () {
@@ -192,7 +298,7 @@
         newListJobImp[removeID] = swap;
         newListJobImp.pop();
     })
-    $("#option-sub").on("click", ".option-add sub", function () {
+    $("#option-sub").on("click", ".option-add span", function () {
         var ind = $("#option-sub .option-add span").index(this);
         var opt = $("#option-sub .option-add");
         var removeID = newListJobSub.indexOf($(opt).text().toLowerCase());
@@ -213,6 +319,51 @@
         var establishYear = $("#establishYear").val();
         var enterpriseSize = Number($("#enterprise-size").val());
         var typeEnterprise = Number($("#type-company").val());
+        if (name == "" || !name || mobile == "" || !mobile || establishYear == "" || !establishYear ||
+            srcImage == "" || addIdListArea.length < 1 || (addIdListJobImp.length < 1 && newListJobImp.length < 1)) {
+            alert("Bạn cần nhập đầy đủ thông tin(trừ các chuyên ngành phụ)!")
+            return;
+        }
+        console.log(addIdListJobImp + " " + addIdListJobSub + " " + newListJobImp + " " + newListJobSub);
+        var data = new FormData;
+        data.append("Id", userID);
+        data.append("Name", name);
+        data.append("Logo", srcImage);
+        data.append("EstablishYear", Number(establishYear));
+        data.append("Email", emailReg);
+        data.append("Size", enterpriseSize);
+        data.append("Type", typeEnterprise);
+        data.append("Mobile", mobile);
+        for (var i = 0; i < addIdListArea.length; i++) {
+            data.append("ListArea", addIdListArea[i]);
+        }
+        for (var i = 0; i < addIdListJobImp.length; i++) {
+            data.append("ListJobImp", addIdListJobImp[i]);
+        }
+        for (var i = 0; i < addIdListJobSub.length; i++) {
+            data.append("ListJobSub", addIdListJobSub[i]);
+        }
+        for (var i = 0; i < newListJobImp.length; i++) {
+            data.append("NewJobImp", newListJobImp[i]);
+        }
+        for (var i = 0; i < newListJobSub.length; i++) {
+            data.append("NewJobSub", newListJobSub[i]);
+        }
+        $.ajax({
+            data: data,
+            url: '/Enterprise/CreateAccountInfor',
+            dataType: 'json',
+            method: 'POST',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+               // $(coverLoad).css("display", "block");
+            },
+            success: function (res) {
+               // $(coverLoad).css("display", "none");
+            }
+        })
+       
     })
     ///Upload Image;
     $("#uploadImage").click(function () {
@@ -234,6 +385,7 @@
             },
             success: function (res) {
                 srcImage = res.srcImage;
+                alert("Upload ảnh thành công");
             }
         })
     })

@@ -7,28 +7,24 @@ using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class JobMajorDao
+    public class EnterpriseJobDao
     {
         CareerWeb db = null;
-        public JobMajorDao()
+        public EnterpriseJobDao()
         {
             db = new CareerWeb();
         }
-        public List<JobMajor> ListJobMain()
-        {
-            return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
-        }
-        public int Insert(JobMajor ins)
+        public bool Insert(EnterpriseJob ins)
         {
             try
             {
-                db.JobMajors.Add(ins);
+                db.EnterpriseJobs.Add(ins);
                 db.SaveChanges();
-                return ins.JobID;
+                return true;
             }
             catch(Exception e)
             {
-                return -1;
+                return false;
             }
         }
     }

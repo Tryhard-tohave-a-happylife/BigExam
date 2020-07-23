@@ -55,6 +55,9 @@
   <ItemGroup>
     <Compile Include="Dao\AccountDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
+    <Compile Include="Dao\EnterpriseAreaDao.cs" />
+    <Compile Include="Dao\EnterpriseDao.cs" />
+    <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />

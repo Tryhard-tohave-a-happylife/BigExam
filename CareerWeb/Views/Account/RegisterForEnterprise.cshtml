@@ -13,7 +13,24 @@
     <title>RegisterForEnterprise</title>
 </head>
 <body>
-    <button id="submit-first">BUTTON</button>
+    <div id="choose-box-first">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <span>Tài khoản : </span><br />
+        <input type="text" placeholder="Nhập tài khoản gmail example : abcd@gmail.com" id="email" /><br />
+        <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
+        <span>Mật khẩu : </span><br />
+        <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
+        <div id="alert-error-pass" class="alert-error" style="top: 190px;">Nhập mật khẩu quá ít ký tự</div>
+        <span>Nhập lại mật khẩu : </span><br />
+        <input type="password" id="retype" /><br />
+        <div id="alert-error-retype" class="alert-error" style="top: 275px;">Mật khẩu không trùng khớp</div>
+        <button id="submit-first">SUBMIT</button><br />
+        <span id="title-vertify">Nhập mã xác nhận chúng tôi đã gửi đến email của bạn : </span><br />
+        <input type="text" id="codeVertify" placeholder="Nhập 6 chữ số trong mã code" />
+        <button id="submit-second">SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
     <div id="choose-box-second">
         <div class="title">NHẬP THÔNG TIN</div>
         <br />
@@ -97,7 +114,7 @@
                 <div id="add-title">Thêm ngành nghề doanh nghiệp</div>
                 <input type="text" placeholder="Nhập tên ngành nghề của doanh nghiệp" />
                 <input type="submit" job-id="" value="SUBMIT" id="add" />
-                <input type="submit" value="CANCEL" id="cancel"/>
+                <input type="submit" value="CANCEL" id="cancel" />
                 <div id="note">
                     Note <span style="color: red">*</span> : Thêm khi không tìm thầy ngành nghề phù hợp trong
                     thanh tìm kiếm
