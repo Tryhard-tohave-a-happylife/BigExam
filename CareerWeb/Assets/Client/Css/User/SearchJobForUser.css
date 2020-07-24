@@ -1,0 +1,260 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+}
+
+#bannerHeader {
+    height: 10em;
+}
+
+#letterHeader {
+    float: left;
+    width: 100%;
+    padding-top: 7%;
+    color: rgb(0, 25, 252);
+    height: 80%;
+    background-image: url("../Tìm việc nhanh/img/subheader-bg.jpg");
+    background-size: cover;
+    z-index: 0;
+}
+
+#pathHeader {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-top: 1%;
+    background-color: black;
+    color: white;
+    height: 20%;
+    font-size: 1.3em;
+}
+
+#homeLetter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#criteriaSelected {
+    border: 1px solid #d1d0cf;
+    box-shadow: 0 0 5px #d1d0cf;
+    float: left;
+    margin-left: calc(50% - 550px);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 1100px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jobBrowser {
+    float: left;
+    width: 25%;
+    height: 2em;
+    margin-left: 3%;
+}
+
+#findIcon {
+    background-image: url("../Tìm việc nhanh/img/blue-search-icon.png");
+    background-size: cover;
+    float: left;
+    width: 3em;
+    height: 3em;
+    margin-left: 3%;
+}
+
+    #findIcon :hover {
+        cursor: pointer;
+    }
+
+#clearAll {
+    color: red;
+    font-size: 1.3em;
+    position: relative;
+    float: right;
+    margin-right: calc(50% - 540px);
+}
+
+@media screen and (max-width : 1160px) {
+    #criteriaSelected {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    #clearAll {
+        margin-right: 2.5%;
+    }
+}
+
+@media screen and (max-width : 980px) {
+    .jobBrowser {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 5%;
+    }
+
+    #findIcon {
+        float: right;
+        margin-right: 5%;
+    }
+}
+
+#colJobLeftMenu {
+    max-width: 18%;
+    float: left;
+    margin-left: 6.5%;
+}
+
+.borderColJobMenu {
+    border: 1px solid #d1d0cf;
+    box-shadow: 0 0 5px #d1d0cf;
+    float: left;
+    position: relative;
+    width: 100%;
+    padding-left: 1em;
+    padding-bottom: 0em;
+    margin-top: 10px;
+}
+
+#loctionCheckbox {
+    font-size: 1.3em;
+}
+
+.colClick:hover {
+    cursor: pointer;
+}
+
+.borderColJobMenu form {
+    display: none;
+}
+
+#colJobRightMenu {
+    float: left;
+    width: 66%;
+    margin-left: 6%;
+}
+
+#showResult {
+    position: absolute;
+    float: left;
+    font-size: 1.5em;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.jobContainer {
+    border: 1px solid gray;
+    width: 100%;
+    background-color: #ebedeb;
+    position: relative;
+    height: 9em;
+    margin-top: 6em;
+}
+
+    .jobContainer:hover {
+        cursor: pointer;
+        border: 1px solid red;
+    }
+
+.logo img {
+    position: relative;
+    background-size: cover;
+    margin: 0 0;
+    height: 9em;
+    width: 12em;
+}
+
+.jobName {
+    position: absolute;
+    margin-left: 12em;
+    margin-top: -7em;
+    color: orangered;
+}
+
+.companyName {
+    position: absolute;
+    margin-left: 14em;
+    margin-top: -6em;
+}
+
+.address {
+    margin-left: 14em;
+    margin-top: -4.25em;
+}
+
+.salary {
+    position: absolute;
+    margin-left: 26em;
+    margin-top: -1em;
+}
+
+.deadline {
+    position: absolute;
+    margin-left: 14em;
+    margin-top: 0.5em;
+}
+
+.reward {
+    margin-left: 26em;
+    margin-top: 0.5em;
+}
+
+@media (max-width: 980px) {
+    #colJobLeftMenu {
+        display: none;
+    }
+
+    #colJobRightMenu {
+        margin-left: 2.5%;
+        width: 47%;
+        height: auto;
+    }
+
+        #colJobRightMenu b {
+            display: none;
+        }
+
+    .jobContainer {
+        height: auto;
+    }
+
+    .logo img {
+        height: 4em;
+        width: 6em;
+        margin: 0.5em;
+    }
+
+    .jobName {
+        position: absolute;
+        margin-left: 6.7em;
+        margin-top: -4em;
+        font-size: 1.1em;
+    }
+
+    .companyName {
+        margin-left: 7.3em;
+        margin-top: -3em;
+    }
+
+    .address {
+        margin-left: 1em;
+        margin-top: 0em;
+    }
+
+    .salary {
+        position: absolute;
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+
+    .deadline {
+        position: absolute;
+        margin-left: 27vw;
+        margin-top: -1.1em;
+    }
+
+    .reward {
+        margin-left: 27vw;
+        margin-top: 1em;
+    }
+}

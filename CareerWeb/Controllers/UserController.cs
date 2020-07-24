@@ -11,6 +11,10 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
+        public ActionResult SearchJobForUser()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

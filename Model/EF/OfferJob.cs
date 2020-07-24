@@ -53,5 +53,9 @@ namespace Model.EF
         [Required]
         [StringLength(50)]
         public string ContactEmail { get; set; }
+
+        public int? Application { get; set; }
+
+        public int? Views { get; set; }
     }
 }
