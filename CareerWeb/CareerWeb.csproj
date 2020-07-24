@@ -144,11 +144,13 @@
     <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
+    <Content Include="Assets\Client\Css\User\SearchJobForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
     <Content Include="Assets\Client\Js\Register\RegisterForEmployee.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
+    <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -189,6 +191,7 @@
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
     <Content Include="Views\Account\RegisterForEmployee.cshtml" />
+    <Content Include="Views\User\SearchJobForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -202,7 +205,6 @@
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="Views\Enterprise\" />
     <Folder Include="Views\TypeOfEnterprise\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css.map" />
