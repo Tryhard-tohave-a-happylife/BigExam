@@ -60,6 +60,7 @@
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
+    <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />
+    <Compile Include="EF\PositionEmployee.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />
     <Compile Include="EF\User.cs" />

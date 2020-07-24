@@ -141,10 +141,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
+    <Content Include="Assets\Client\Js\Register\RegisterForEmployee.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
@@ -186,6 +188,7 @@
     <Content Include="Views\Account\RegisterCommon.cshtml" />
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
+    <Content Include="Views\Account\RegisterForEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

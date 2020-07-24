@@ -27,5 +27,9 @@ namespace Model.Dao
                 return false;
             }
         }
+        public List<Enterprise> ReturnList()
+        {
+            return db.Enterprises.ToList();
+        }
     }
 }
