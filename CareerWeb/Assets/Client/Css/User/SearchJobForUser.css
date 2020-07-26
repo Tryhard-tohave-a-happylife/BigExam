@@ -69,7 +69,7 @@
 
 #clearAll {
     color: red;
-    font-size: 1.3em;
+    font-size: 1.2em;
     position: relative;
     float: right;
     margin-right: calc(50% - 540px);
@@ -128,17 +128,25 @@
     display: none;
 }
 
+.textOverflowLine {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+}
+
 #colJobRightMenu {
     float: left;
-    width: 66%;
+    width: 63%;
     margin-left: 6%;
 }
 
 #showResult {
     position: absolute;
     float: left;
-    font-size: 1.5em;
-    margin-top: 3%;
+    font-size: 1.2em;
+    margin-top: 2%;
     font-weight: bold;
 }
 
@@ -148,7 +156,7 @@
     background-color: #ebedeb;
     position: relative;
     height: 9em;
-    margin-top: 6em;
+    margin-top: 5em;
 }
 
     .jobContainer:hover {
@@ -171,11 +179,19 @@
     color: orangered;
 }
 
+    .jobName .textOverflowLine {
+        -webkit-line-clamp: 2;
+    }
+
 .companyName {
     position: absolute;
     margin-left: 14em;
     margin-top: -6em;
 }
+
+    .companyName .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
 
 .address {
     margin-left: 14em;
@@ -233,13 +249,21 @@
 
     .companyName {
         margin-left: 7.3em;
-        margin-top: -3em;
+        margin-top: -2em;
     }
+
+        .companyName .textOverflowLine {
+            -webkit-line-clamp: 2;
+        }
 
     .address {
         margin-left: 1em;
         margin-top: 0em;
     }
+
+        .address .textOverflowLine {
+            -webkit-line-clamp: 1;
+        }
 
     .salary {
         position: absolute;

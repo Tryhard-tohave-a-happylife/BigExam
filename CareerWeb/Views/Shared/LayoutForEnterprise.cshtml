@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <!--CSS-->
+
+    <link href="~/Assets/Client/Css/Common/Header-FooterForEnterprise.css" rel="stylesheet" />
+
+    <title>A+</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <!--responsive-->
+                <div class="responsive_menu_icon">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </div>
+                <!--Logo-->
+                <div class="logo">
+                    <div class="logo_box">
+                        <img src="img/uet-1.pNg">
+                    </div>
+                </div>
+                <!--Menu-->
+                <div class="menu">
+                    <div class="element">
+                        <div class="element_box">
+                            <i class="fas fa-search"></i>
+                            <span>TÌM VIỆC LÀM</span>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_box">
+                            <i class="fas fa-leaf"></i>
+                            <span>CÔNG TY</span>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_box">
+                            <i class="fas fa-list"></i>
+                            <span>CẨM NANG VIỆC LÀM</span>
+                        </div>
+                    </div>
+                    <div class="element">
+                        <div class="element_box">
+                            <i class="fas fa-file-alt"></i>
+                            <span>TẠO CV</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="user">
+                    <!--Account-->
+                    <div class="account">
+                        <div class="log_in">
+                            <i class="fas fa-user"></i>
+                            <span>Đăng nhập</span>
+                        </div>
+                        <div class="registration">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Đăng kí</span>
+                        </div>
+                    </div>
+                    <!--Searching-->
+                    <div class="searching">NHÀ TUYỂN DỤNG</div>
+                </div>
+            </div>
+        </div>
+        <div class="responsive_menu">
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-search"></i>
+                    <span>TÌM VIỆC LÀM</span>
+                </div>
+            </div>
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-leaf"></i>
+                    <span>CÔNG TY</span>
+                </div>
+            </div>
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-list"></i>
+                    <span>CẨM NANG VIỆC LÀM</span>
+                </div>
+            </div>
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-file-alt"></i>
+                    <span>TẠO CV</span>
+                </div>
+            </div>
+            <div class="res_searching">
+                <span>NHÀ TUYỂN DỤNG</span>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+    <div class="content">
+    </div>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_element_1">
+                <span>GIỚI THIỆU VỀ WEBSITE</span>
+                <p><b>NAME OF WEB</b> là website <a href="#">đăng tin tuyển dụng miễn phí</a> và <a href="#">tìm việc làm</a> theo lĩnh vực, khu vực, từ khóa để tìm công việc phù hợp với bạn! Bạn có thể <a href="#">tạo CV ấn tượng</a> ở đây.</p>
+            </div>
+            <div class="footer_element_2">
+                <span>THÔNG TIN LIÊN HỆ</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-home"></i><a href="#">E3, 144 Xuân Thủy, Cầu Giấy, Hà Nội</a></li>
+                        <li><i class="fas fa-globe-americas"></i><a href="#">uet@vnu.edu.vn</a></li>
+                        <li><i class="fas fa-phone-alt"></i><a href="#">024.37547.461, 024.37547.460</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i><a href="#">https://uet.vnu.edu.vn/</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_element_3">
+                <span>MENU</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm việc làm</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Cẩm nang nghề nghiệp</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Đăng tin tuyển dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm hồ sơ xin việc</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Thoải thuận sử dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Sơ đồ Website</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_element_3">
+                <span>LINK</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tạo CV miễn phí</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm việc IT</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm việc Nhật Bản</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Dịch vụ tuyển dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Làm clip quảng cáo</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Dịch vụ Quản lí nhân sự</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="developer">
+            <span></span>
+        </div>
+    </footer>
+
+    <!--JAVASCRIPT-->
+    <script src="~/Assets/Client/Js/Header-Footer/Header-FooterForEnterprise.js"></script>
+</body>
+</html>
