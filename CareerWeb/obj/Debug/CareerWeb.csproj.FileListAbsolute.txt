@@ -86,10 +86,6 @@ C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.pdb
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.dll
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.pdb
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.dll.config
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.pdb
@@ -173,4 +169,8 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.R
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Newtonsoft.Json.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Antlr3.Runtime.pdb
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.dll
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.pdb
