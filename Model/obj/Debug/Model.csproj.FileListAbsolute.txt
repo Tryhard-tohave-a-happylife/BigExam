@@ -17,7 +17,6 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\EntityFramework.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\EntityFramework.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.dll

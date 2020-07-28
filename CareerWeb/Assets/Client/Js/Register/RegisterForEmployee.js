@@ -1,11 +1,11 @@
-﻿$(function () {
+﻿$(document).ready(function() {
 
-    $("#button").click(function () {
-        var val = $('#item').val()
-        var xyz = $('#items option').filter(function () {
-            return this.value == val;
-        }).data('xyz');
-        var msg = xyz ? 'xyz=' + xyz : 'No Match';
+    $("button").click(function () {
+        var val = $('#NameEnteprise').val();
+        var id = $('#selectedCareer option').filter(function () {
+            return $(this).val() == val;
+        }).data('id');
+        var msg = id ? 'xyz=' + id : 'No Match';
         alert(msg)
 
     })
