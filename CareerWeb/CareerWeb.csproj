@@ -141,25 +141,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Client\Css\Common\Header-FooterForEnterprise.css" />
-    <Content Include="Assets\Client\Css\Common\Header-FooterForUser.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
-    <Content Include="Assets\Client\Css\User\HandbookForUser.css" />
-    <Content Include="Assets\Client\Css\User\MoreNewsFromHandbook.css" />
     <Content Include="Assets\Client\Css\User\SearchJobForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
-    <Content Include="Assets\Client\Img\User\ImageSearchJob\blue-search-icon.png" />
-    <Content Include="Assets\Client\Img\User\ImageSearchJob\subheader-bg.jpg" />
-    <Content Include="Assets\Client\Js\Header-Footer\Header-FooterForEnterprise.js" />
-    <Content Include="Assets\Client\Js\Header-Footer\Header-FooterForUser.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEmployee.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
-    <Content Include="Assets\Client\Js\User\HandbookForUser.js" />
-    <Content Include="Assets\Client\Js\User\MoreNewsFromHandbook.js" />
     <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -193,7 +183,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\LayoutForEnterprise.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -201,10 +191,7 @@
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
     <Content Include="Views\Account\RegisterForEmployee.cshtml" />
-    <Content Include="Views\Shared\LayoutForUser.cshtml" />
     <Content Include="Views\User\SearchJobForUser.cshtml" />
-    <Content Include="Views\User\HandbookForUser.cshtml" />
-    <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,6 +202,7 @@
     <Folder Include="Assets\Client\Img\Enterprise\LogoEnterprise\" />
     <Folder Include="Assets\Client\Img\Offer\" />
     <Folder Include="Assets\Client\Img\School\" />
+    <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="Views\Enterprise\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>
