@@ -4,3 +4,8 @@ C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.csprojAssemblyRefe
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.dll
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.pdb
+C:\Users\ADMIN\source\repos\BigExam\Common\bin\Debug\Common.dll
+C:\Users\ADMIN\source\repos\BigExam\Common\bin\Debug\Common.pdb
+C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.dll
+C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.pdb

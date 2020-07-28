@@ -18,5 +18,6 @@ namespace Model.Dao
         {
             return db.Areas.ToList();
         }
+
     }
 }

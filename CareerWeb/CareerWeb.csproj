@@ -130,6 +130,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -141,10 +142,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Client\Css\Employee\SearchCandidate.css" />
+    <Content Include="Assets\Client\Css\Employee\SearchCandidateResult.css" />
+    <Content Include="Assets\Client\Css\Layout\LayoutForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
+    <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
+    <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
+    <Content Include="Assets\Client\Js\Layout\LayoutForEnterprise.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
@@ -186,6 +193,8 @@
     <Content Include="Views\Account\RegisterCommon.cshtml" />
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
+    <Content Include="Views\Employee\SearchCandidate.cshtml" />
+    <Content Include="Views\Employee\SearchCandidateResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
