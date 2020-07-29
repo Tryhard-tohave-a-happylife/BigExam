@@ -186,8 +186,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\RegisterCommon.cshtml" />
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
@@ -204,6 +202,7 @@
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="Views\Enterprise\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Shared\" />
     <Folder Include="Views\TypeOfEnterprise\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
