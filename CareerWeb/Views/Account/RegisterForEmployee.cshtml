@@ -17,7 +17,7 @@
         <div class="title">NHẬP THÔNG TIN</div>
         <br />
         <span>Tài khoản : </span><br />
-        <input type="text" placeholder="Nhập tài khoản gmail example : abcd@gmail.com" id="email" /><br />
+        <input type="text" placeholder="abcd@gmail.com" id="email" /><br />
         <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
         <span>Mật khẩu : </span><br />
         <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
@@ -41,22 +41,12 @@
         <div class="container-input">
             <span>Công ty :</span><br />
             <input type="text" value="" id="NameEnteprise" placeholder="Tên công ty" list="selectedCareer" />
-            <datalist id="selectedCareer">
-                <option value="Kinh doanh" data-id="1">
-                <option value="bán hàng" data-id="2">
-                <option value="Kinh doanh" data-id="3">
-                <option value="bán hàng" data-id="2">
-                <option value="Kinh doanh" data-id="1">
-                <option value="bán hàng" data-id="2">
-                <option value="Kinh doanh" data-id="1">
-                <option value="bán hàng" data-id="2">
-                <option value="Kinh doanh" data-id="1">
-                <option value="bán hàng" data-id="2">
-                <option value="Kinh doanh" data-id="1">
-                <option value="bán hàng" data-id="2">
-
-                    <!-- điền thêm database -->
-            </datalist>
+            <datalist id="NameEnterprise">
+                @foreach(var item in ViewBag.ListNameEnterprise)
+                {
+                    <option value="@item.EnterpriseName" data-id="EnterpriseID" />
+                }
+                </datalist>
         </div>
         <div class="container-input">
             <span>Ngày sinh : </span><br />

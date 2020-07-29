@@ -24,6 +24,7 @@ namespace CareerWeb.Controllers
         }
         public ActionResult RegisterForEnterprise()
         {
+            ViewBag.ListNameEnterprise = new EnterpriseDao().ReturnList();
             ViewBag.ListTypeOfEnterprise = new TypeOfEnterpriseDao().ReturnList();
             ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
             return View();
