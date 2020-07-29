@@ -82,6 +82,8 @@
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserCertificate.cs" />
     <Compile Include="EF\UserMajor.cs" />
+    <Compile Include="Models\EnterpriseAreaFull.cs" />
+    <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

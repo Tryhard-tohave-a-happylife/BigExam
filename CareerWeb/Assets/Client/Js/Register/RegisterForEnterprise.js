@@ -260,9 +260,9 @@
             alert("Bạn cần nhập tên công việc!");
             return;
         }
-        if ($(this).attr("atr") == "job-imp") {
-            if (newListJobImp.indexOf(jobAdd.toLowerCase()) == -1) {
-                newListJobImp.push(jobAdd.toLowerCase());
+        if ($(this).attr("job-id") == "job-imp") {
+            if (newListJobImp.indexOf(jobAdd) == -1) {
+                newListJobImp.push(jobAdd);
                 var eachHTML = $(`<div class = "option-add" atr = 'job-imp'><div>` + jobAdd + `</div> <span>x</span></div>`);
                 $("#container-add input[type='text']").val("");
                 $("#choose-box-second #cover").css("display", "none");
@@ -274,8 +274,8 @@
             }
         }
         else {
-            if (newListJobSub.indexOf(jobAdd.toLowerCase()) == -1) {
-                newListJobSub.push(jobAdd.toLowerCase());
+            if (newListJobSub.indexOf(jobAdd) == -1) {
+                newListJobSub.push(jobAdd);
                 var eachHTML = $(`<div class = "option-add" atr = 'job-sub'><div>` + jobAdd + `</div> <span>x</span></div>`);
                 $("#container-add input[type='text']").val("");
                 $("#choose-box-second #cover").css("display", "none");
@@ -290,7 +290,7 @@
     $("#option-important").on("click", ".option-add span", function () {
         var ind = $("#option-important .option-add span").index(this);
         var opt = $("#option-important .option-add");
-        var removeID = newListJobImp.indexOf($(opt).text().toLowerCase());
+        var removeID = newListJobImp.indexOf($(opt).text());
         $(opt[ind]).remove();
         var swap = 0;
         swap = newListJobImp[newListJobImp.length - 1];
@@ -301,7 +301,7 @@
     $("#option-sub").on("click", ".option-add span", function () {
         var ind = $("#option-sub .option-add span").index(this);
         var opt = $("#option-sub .option-add");
-        var removeID = newListJobSub.indexOf($(opt).text().toLowerCase());
+        var removeID = newListJobSub.indexOf($(opt).text());
         $(opt[ind]).remove();
         var swap = 0;
         swap = newListJobSub[newListJobSub.length - 1];
@@ -314,6 +314,7 @@
         $("#choose-box-second #cover").css("display", "none");
     })
     $("#choose-box-second button").click(function () {
+        var coverLoad = $("#choose-box-second .cover-load");
         var name = $("#enterpriseName").val();
         var mobile = $("#mobile").val();
         var establishYear = $("#establishYear").val();
@@ -357,10 +358,17 @@
             contentType: false,
             processData: false,
             beforeSend: function () {
-               // $(coverLoad).css("display", "block");
+               $(coverLoad).css("display", "block");
             },
             success: function (res) {
-               // $(coverLoad).css("display", "none");
+                $(coverLoad).css("display", "none");
+                if (res.status) {
+                    $("#choose-box-second").css("display", "none");
+                    $("#finish-box").css("display", "block");
+                }
+                else {
+                    alert("Đăng ký gặp trục trặc");
+                }
             }
         })
        

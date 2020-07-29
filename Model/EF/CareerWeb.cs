@@ -71,6 +71,10 @@ namespace Model.EF
                 .Property(e => e.Mobile)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Enterprise>()
+                .Property(e => e.Code)
+                .IsUnicode(false);
+
             modelBuilder.Entity<OfferJob>()
                 .Property(e => e.OfferDescription)
                 .IsUnicode(false);

@@ -45,5 +45,43 @@ namespace Model.Dao
             db.SaveChanges();
             return newAccount.UserId;
         }
+        public Account FindAccountByUserId(Guid userId)
+        {
+            try
+            {
+                return db.Accounts.SingleOrDefault(x => x.UserId == userId);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+        public bool RemoveAccountByUserID(Guid id)
+        {
+            try
+            {
+                var rmAcc = db.Accounts.SingleOrDefault(x => x.UserId == id);
+                db.Accounts.Remove(rmAcc);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+        public bool ChangeStatus(Guid id)
+        {
+            try{
+                var acc = db.Accounts.SingleOrDefault(x => x.UserId == id);
+                acc.Status = "Complete";
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
