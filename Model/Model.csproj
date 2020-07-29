@@ -60,6 +60,7 @@
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
+    <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />

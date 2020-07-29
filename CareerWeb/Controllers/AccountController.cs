@@ -34,6 +34,8 @@ namespace CareerWeb.Controllers
         }
         public ActionResult RegisterForEmployee()
         {
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListEnterprise = new EnterpriseDao().ReturnList();
             return View();
         }
         private string RandomCode()
