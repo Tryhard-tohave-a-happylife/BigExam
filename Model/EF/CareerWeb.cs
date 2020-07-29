@@ -18,6 +18,7 @@ namespace Model.EF
         public virtual DbSet<Enterprise> Enterprises { get; set; }
         public virtual DbSet<JobMajor> JobMajors { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
+        public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
         public virtual DbSet<University> Universities { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -68,6 +69,10 @@ namespace Model.EF
 
             modelBuilder.Entity<Enterprise>()
                 .Property(e => e.Mobile)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Enterprise>()
+                .Property(e => e.Code)
                 .IsUnicode(false);
 
             modelBuilder.Entity<OfferJob>()

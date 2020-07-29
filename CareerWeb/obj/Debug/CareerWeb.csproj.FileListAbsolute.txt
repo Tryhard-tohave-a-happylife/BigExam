@@ -51,6 +51,9 @@ C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\roslyn\vbc.rsp
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\roslyn\VBCSCompiler.exe
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Antlr3.Runtime.dll
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.dll
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.dll
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Model.dll
@@ -63,9 +66,11 @@ C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.WebPages.Deployme
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.WebPages.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.WebPages.Razor.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\WebGrease.dll
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.dll
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.pdb
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Model.pdb
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Model.dll.config
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.xml
+C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.xml
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.Helpers.xml
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.Mvc.xml
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.Optimization.xml
@@ -76,13 +81,8 @@ C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\System.Web.WebPages.Razor.xm
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Newtonsoft.Json.xml
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Antlr3.Runtime.pdb
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.xml
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.pdb
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.dll
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\Common.pdb
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.dll
-C:\Users\Admin\source\repos\CareerWeb\CareerWeb\bin\EntityFramework.SqlServer.xml

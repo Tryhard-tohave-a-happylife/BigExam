@@ -74,11 +74,14 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />
+    <Compile Include="EF\PositionEmployee.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserCertificate.cs" />
     <Compile Include="EF\UserMajor.cs" />
+    <Compile Include="Models\EnterpriseAreaFull.cs" />
+    <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

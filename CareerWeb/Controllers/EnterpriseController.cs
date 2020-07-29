@@ -41,67 +41,86 @@ namespace CareerWeb.Controllers
                 var check = new EnterpriseAreaDao().Insert(enterpriseArea);
                 if (!check) ret = false;
             }
-            foreach(var item in model.ListJobImp)
+            if (model.ListJobImp != null)
             {
-                if (!ret) break;
-                var enterpriseJob = new EnterpriseJob();
-                enterpriseJob.EnterpriseID = model.Id;
-                enterpriseJob.JobId = item;
-                enterpriseJob.JobIdParent = null;
-                enterpriseJob.Important = true;
-                var check = new EnterpriseJobDao().Insert(enterpriseJob);
-                if (!check) ret = false;
-            }
-            foreach (var item in model.ListJobSub)
-            {
-                if (!ret) break;
-                var enterpriseJob = new EnterpriseJob();
-                enterpriseJob.EnterpriseID = model.Id;
-                enterpriseJob.JobId = item;
-                enterpriseJob.JobIdParent = null;
-                enterpriseJob.Important = false;
-                var check = new EnterpriseJobDao().Insert(enterpriseJob);
-                if (!check) ret = false;
-            }
-            foreach(var item in model.NewJobImp)
-            {
-                if (!ret) break;
-                var newJob = new JobMajor();
-                newJob.JobName = item;
-                newJob.Status = false;
-                var checkJob = new JobMajorDao().Insert(newJob);
-                if(checkJob == -1)
+                foreach (var item in model.ListJobImp)
                 {
-                    ret = false;
-                    continue;
+                    if (!ret) break;
+                    var enterpriseJob = new EnterpriseJob();
+                    enterpriseJob.EnterpriseID = model.Id;
+                    enterpriseJob.JobId = item;
+                    enterpriseJob.JobIdParent = null;
+                    enterpriseJob.Important = true;
+                    var check = new EnterpriseJobDao().Insert(enterpriseJob);
+                    if (!check) ret = false;
                 }
-                var enterpriseJob = new EnterpriseJob();
-                enterpriseJob.EnterpriseID = model.Id;
-                enterpriseJob.JobId = checkJob;
-                enterpriseJob.JobIdParent = null;
-                enterpriseJob.Important = true;
-                var check = new EnterpriseJobDao().Insert(enterpriseJob);
-                if (!check) ret = false;
             }
-            foreach (var item in model.NewJobSub)
+            if (model.ListJobSub != null)
             {
-                if (!ret) break;
-                var newJob = new JobMajor();
-                newJob.JobName = item;
-                newJob.Status = false;
-                var checkJob = new JobMajorDao().Insert(newJob);
-                if (checkJob == -1)
+                foreach (var item in model.ListJobSub)
                 {
-                    ret = false;
-                    continue;
+                    if (!ret) break;
+                    var enterpriseJob = new EnterpriseJob();
+                    enterpriseJob.EnterpriseID = model.Id;
+                    enterpriseJob.JobId = item;
+                    enterpriseJob.JobIdParent = null;
+                    enterpriseJob.Important = false;
+                    var check = new EnterpriseJobDao().Insert(enterpriseJob);
+                    if (!check) ret = false;
                 }
-                var enterpriseJob = new EnterpriseJob();
-                enterpriseJob.EnterpriseID = model.Id;
-                enterpriseJob.JobId = checkJob;
-                enterpriseJob.JobIdParent = null;
-                enterpriseJob.Important = false;
-                var check = new EnterpriseJobDao().Insert(enterpriseJob);
-                if (!check) ret = false;
+            }
+            if (model.NewJobImp != null)
+            {
+                foreach (var item in model.NewJobImp)
+                {
+                    if (!ret) break;
+                    var newJob = new JobMajor();
+                    newJob.JobName = item;
+                    newJob.Status = false;
+                    var checkJob = new JobMajorDao().Insert(newJob);
+                    if (checkJob == -1)
+                    {
+                        ret = false;
+                        continue;
+                    }
+                    var enterpriseJob = new EnterpriseJob();
+                    enterpriseJob.EnterpriseID = model.Id;
+                    enterpriseJob.JobId = checkJob;
+                    enterpriseJob.JobIdParent = null;
+                    enterpriseJob.Important = true;
+                    var check = new EnterpriseJobDao().Insert(enterpriseJob);
+                    if (!check) ret = false;
+                }
+            }
+            if (model.NewJobSub != null)
+            {
+                foreach (var item in model.NewJobSub)
+                {
+                    if (!ret) break;
+                    var newJob = new JobMajor();
+                    newJob.JobName = item;
+                    newJob.Status = false;
+                    var checkJob = new JobMajorDao().Insert(newJob);
+                    if (checkJob == -1)
+                    {
+                        ret = false;
+                        continue;
+                    }
+                    var enterpriseJob = new EnterpriseJob();
+                    enterpriseJob.EnterpriseID = model.Id;
+                    enterpriseJob.JobId = checkJob;
+                    enterpriseJob.JobIdParent = null;
+                    enterpriseJob.Important = false;
+                    var check = new EnterpriseJobDao().Insert(enterpriseJob);
+                    if (!check) ret = false;
+                }
+            }
+            if (!ret)
+            {
+                return Json(new
+                {
+                    status = false
+                });
             }
             return Json(new
             {
