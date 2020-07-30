@@ -93,5 +93,16 @@ namespace Model.Dao
                 return false;
             }
         }
+        public List<Enterprise> ReturnList()
+        {
+            try
+            {
+                return db.Enterprises.Where(x => x.Status == true).ToList();
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

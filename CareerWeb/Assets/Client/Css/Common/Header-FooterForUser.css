@@ -15,24 +15,26 @@ header {
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1000;
     width: 100%;
+    float: left;
 }
 
-.container {
+header .container {
     display: block;
     height: 75px;
     width: 100%;
     margin: 0 auto;
 }
 
-.row {
+header .row {
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-.responsive_menu_icon {
+header .responsive_menu_icon {
     display: none;
 }
 
@@ -52,7 +54,7 @@ header {
         cursor: pointer;
     }
 
-.logo {
+header .logo {
     display: flex;
     align-items: center;
     height: 100%;
@@ -60,29 +62,29 @@ header {
     text-align: center;
 }
 
-    .logo:hover {
+    header .logo:hover {
         cursor: pointer;
     }
 
-.logo_box {
+header .logo_box {
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-    .logo_box img {
+    header .logo_box img {
         max-height: 100%;
         width: 100%;
     }
 
-.menu {
+header .menu {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.element {
+header .element {
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -113,18 +115,18 @@ header {
         display: block;
     }
 
-.user {
+header .user {
     margin-left: auto;
     display: flex;
     align-items: center;
 }
 
-.account {
+header .account {
     display: flex;
     align-items: center;
 }
 
-.log_in {
+header .log_in {
     padding: 0 10px;
     border-right: solid grey 0.5px;
 }
@@ -169,7 +171,7 @@ header {
         color: orangered;
     }
 
-.searching {
+header .searching {
     font-weight: bold;
     color: orangered;
     padding: 10px 10px;
@@ -179,7 +181,7 @@ header {
     transition: 0.2s;
 }
 
-    .searching:hover {
+    header .searching:hover {
         background-color: orangered;
         color: white;
         box-shadow: none;
@@ -238,7 +240,7 @@ header {
         font-weight: bold;
     }
 
-.res_searching {
+header .res_searching {
     margin: 15px 0;
     font-weight: bold;
     font-size: 18pt;
@@ -253,6 +255,16 @@ header {
     display: flex;
     align-items: center;
 }
+header #box-logIn{
+    position: fixed;
+    width: 40%;
+    height: 200px;
+    top: 200px;
+    left: 30%;
+    background-color: white;
+    display: none;
+    z-index: 1001;
+}
 
     .res_searching:hover {
         background-color: orangered;
@@ -264,18 +276,13 @@ header {
     .res_searching span {
         margin: 0 auto;
     }
-
-.content {
-    height: 1000px;
-    width: 100%;
-}
-
 footer {
     background-color: #222;
     padding: 0 7.5%;
     height: 500px;
     width: 100%;
     border-top: solid 5px #aaa;
+    float: left;
 }
 
 .footer_container {
@@ -395,15 +402,15 @@ footer {
         padding: 0 5%;
     }
 
-    .menu {
+    header .menu {
         display: none;
     }
 
-    .searching {
+    header .searching {
         display: none;
     }
 
-    .responsive_menu_icon {
+    header .responsive_menu_icon {
         display: flex;
         align-items: center;
         margin-right: auto;
