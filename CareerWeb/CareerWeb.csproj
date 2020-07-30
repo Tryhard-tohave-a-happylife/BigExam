@@ -132,6 +132,7 @@
     <Compile Include="Areas\Admin\Controllers\JobMajorController.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -150,8 +151,16 @@
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
+    <Content Include="Assets\Client\Img\User\ImageSearchJob\blue-search-icon.png" />
+    <Content Include="Assets\Client\Img\User\ImageSearchJob\subheader-bg.jpg" />
+    <Content Include="Assets\Client\Js\Header-Footer\Header-FooterForEnterprise.js" />
+    <Content Include="Assets\Client\Js\Header-Footer\Header-FooterForUser.js" />
+    <Content Include="Assets\Client\Js\Register\RegisterForEmployee.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
+    <Content Include="Assets\Client\Js\User\HandbookForUser.js" />
+    <Content Include="Assets\Client\Js\User\MoreNewsFromHandbook.js" />
+    <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
     <Content Include="Assets\Client\Template\SendAcceptEnterprise.html" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -191,6 +200,7 @@
     <Content Include="Views\Account\RegisterCommon.cshtml" />
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
+    <Content Include="Views\Account\RegisterForEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -202,6 +212,7 @@
     <Folder Include="Assets\Client\Img\Offer\" />
     <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
+    <Folder Include="Views\Employee\" />
     <Folder Include="Views\Enterprise\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\TypeOfEnterprise\" />

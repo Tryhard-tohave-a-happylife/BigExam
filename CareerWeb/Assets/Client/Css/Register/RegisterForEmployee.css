@@ -139,6 +139,7 @@ optgroup {
     float: left;
     position: relative;
     box-shadow: 0 0 10px black;
+    display: none;
 }
 
     #choose-box-second .container-input {
