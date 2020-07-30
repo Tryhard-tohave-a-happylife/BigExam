@@ -98,8 +98,7 @@ namespace Model.Dao
             try
             {
                 return db.Enterprises.Where(x => x.Status == true).ToList();
-            }
-            catch(Exception e)
+            } catch
             {
                 return null;
             }

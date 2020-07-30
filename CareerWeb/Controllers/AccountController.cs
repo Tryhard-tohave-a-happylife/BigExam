@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace CareerWeb.Controllers
 {
@@ -25,7 +24,6 @@ namespace CareerWeb.Controllers
         }
         public ActionResult RegisterForEnterprise()
         {
-            //ViewBag.ListNameEnterprise = new EnterpriseDao().ReturnList();
             ViewBag.ListTypeOfEnterprise = new TypeOfEnterpriseDao().ReturnList();
             ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
             return View();
@@ -99,31 +97,6 @@ namespace CareerWeb.Controllers
                 listJob = listJob
             });
         }
-        [HttpPost]
-        [AllowAnonymous]
-        public JsonResult Login(string accName, string passWord)
-        {
-            int userId = 1;
-            var typeAccount = new AccountDao().CheckLogin(accName, Encryptor.MD5Hash(passWord), out userId);
-            if (typeAccount == -1 || typeAccount == -2)
-            {
-                return Json(new
-                {
-                    status = false,
-                    error = typeAccount
-                });
-            }
-            FormsAuthentication.SetAuthCookie(userId.ToString(), true);
-            return Json(new
-            {
-                status = true,
-                type = typeAccount
-            });
-        }
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "User");
-        }
+        
     }
 }

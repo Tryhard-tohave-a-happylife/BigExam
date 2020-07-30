@@ -13,7 +13,7 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-    @*<div id="choose-box-first">
+    <div id="choose-box-first">
         <div class="title">NHẬP THÔNG TIN</div>
         <br />
         <span>Tài khoản : </span><br />
@@ -30,7 +30,7 @@
         <input type="text" id="codeVertify" placeholder="Nhập 6 chữ số trong mã code" />
         <button id="submit-second">SUBMIT</button>
         <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
-    </div>*@
+    </div>
     <div id="choose-box-second">
         <div class="title">NHẬP THÔNG TIN</div>
         <br />
@@ -40,11 +40,11 @@
         </div>
         <div class="container-input">
             <span>Công ty :</span><br />
-            <input type="text" value="" id="NameEnteprise" placeholder="Tên công ty" list="selectedCareer" />
-            <datalist id="NameEnterprise">
-                @foreach(var item in ViewBag.ListNameEnterprise)
+            <input type="text" value="" id="NameEnteprise" placeholder="Tên công ty" list="ListEnterprise" />
+            <datalist id="ListEnterprise">
+                @foreach(var item in ViewBag.ListEnterprise)
                 {
-                    <option value="@item.EnterpriseName" data-id="EnterpriseID" />
+                    <option value="@item.EnterpriseName" data-id="@item.EnterpriseID" />
                 }
                 </datalist>
         </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="container-input">
             <span>Nhập mã công ty :</span>
-            <input type="text" valua="" id="CodeEnterprise" placeholder="324546" />
+            <input type="text" value="" id="CodeEnterprise" placeholder="324546" />
         </div>
 
         <div class="container-input">
@@ -80,7 +80,7 @@
         </div>
         <div class="container-input">
             <span>Chức vụ, vị trí : </span><br />
-            <select id="area" style="margin-left: 10%; width: 250px;">
+            <select id="position" style="margin-left: 10%; width: 250px;">
                 @foreach (var item in ViewBag.ListPositionEmployee)
                 {
                     <option value="@item.ID">@item.NamePosition</option>
