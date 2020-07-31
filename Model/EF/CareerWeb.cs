@@ -8,7 +8,7 @@ namespace Model.EF
     public partial class CareerWeb : DbContext
     {
         public CareerWeb()
-            : base("name=CareerWeb1")
+            : base("name=CareerWeb")
         {
         }
 

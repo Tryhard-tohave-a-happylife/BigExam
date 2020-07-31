@@ -1,19 +1,17 @@
-﻿body {
-    padding: 0;
-    margin: 0;
-}
-
-#bannerHeader {
-    height: 10em;
+﻿#bannerHeader {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 75px;
 }
 
 #letterHeader {
     float: left;
     width: 100%;
-    padding-top: 7%;
+    padding-top: 20px;
     color: rgb(0, 25, 252);
-    height: 80%;
-    background-image: url("../Tìm việc nhanh/img/subheader-bg.jpg");
+    height: 200px;
+    background-image: url('../../Img/User/ImageSearchJob/subheader-bg.jpg');
     background-size: cover;
     z-index: 0;
 }
@@ -38,10 +36,10 @@
     border: 1px solid #d1d0cf;
     box-shadow: 0 0 5px #d1d0cf;
     float: left;
-    margin-left: calc(50% - 550px);
+    margin-left: calc(50% - 589px);
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 1100px;
+    width: 1178px;
     height: auto;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -101,6 +99,7 @@
 
 #colJobLeftMenu {
     max-width: 18%;
+    width: auto;
     float: left;
     margin-left: 6.5%;
 }

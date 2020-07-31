@@ -25,7 +25,14 @@ namespace CareerWeb.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Account");
+            }
+            var accID = int.Parse(User.Identity.Name);
+            var acc = new AccountDao().FindAccountById(accID);
+            var user = new UserDao().FindById(acc.UserId);
+            return View(user);
         }
         [HttpPost]
         public JsonResult CreateAccountInfor(Guid userID, string email, string name, string mobile, string dateBirth, string sex, string atSchool, int area, List<int> listJob)

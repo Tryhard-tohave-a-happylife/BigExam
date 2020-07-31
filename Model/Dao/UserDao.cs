@@ -27,5 +27,16 @@ namespace Model.Dao
                 return false;
             }
         }
+        public User FindById(Guid userId)
+        {
+            try
+            {
+                return db.Users.Find(userId);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
     }
 }
