@@ -19,5 +19,9 @@ namespace Model.Dao
             return db.Areas.ToList();
         }
 
+        public string FindNameArea(int areaID)
+        {
+            return db.Areas.Find(areaID).NameArea;
+        }
     }
 }

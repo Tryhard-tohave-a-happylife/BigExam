@@ -1,0 +1,48 @@
+﻿main {
+    margin-top: 75px;
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: #f3f3f3;
+    padding-bottom: 50px;
+}
+#introduce-link{
+    background-color: red;
+    float: left;
+    width: 1100px;
+    margin-left: calc(50% - 550px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#container-left{
+    float: left;
+    margin-left: calc(50% - 550px);
+    height: auto;
+    min-height: 100px;
+    width: 320px;
+    background-color: yellow;
+}
+#container-right{
+    float: left;
+    margin-left: 15px;
+    width: 765px;
+    height: auto;
+}
+#container-right .box-infor{
+    float: left;
+    width: 100%;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: white;
+}
+    #container-right .box-infor .first-title{
+        float: left;
+        font-size: 15pt;
+        width: calc(100% - 10px);
+        border-left: 3px solid orange;
+        height: auto;
+        font-weight: 500;
+        padding-left: 15px;
+    }
+

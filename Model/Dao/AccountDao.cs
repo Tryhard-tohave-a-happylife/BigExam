@@ -45,5 +45,85 @@ namespace Model.Dao
             db.SaveChanges();
             return newAccount.UserId;
         }
+        public Account FindAccountByUserId(Guid userId)
+        {
+            try
+            {
+                return db.Accounts.SingleOrDefault(x => x.UserId == userId);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+        public Account FindAccountById(int accountId)
+        {
+            try
+            {
+                return db.Accounts.Find(accountId);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
+        public bool RemoveAccountByUserID(Guid id)
+        {
+            try
+            {
+                var rmAcc = db.Accounts.SingleOrDefault(x => x.UserId == id);
+                db.Accounts.Remove(rmAcc);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+        public bool ChangeStatus(Guid id)
+        {
+            try{
+                var acc = db.Accounts.SingleOrDefault(x => x.UserId == id);
+                acc.Status = "Complete";
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public int CheckLogin(string userName, string passWord, out int userId)
+        {
+            var acc = db.Accounts.SingleOrDefault(x => x.AccountName == userName);
+            userId = -1;
+            if (acc == null)
+            {
+                return -1;
+            }
+            if (acc.AccountPassword != passWord)
+            {
+                return -2;
+            }
+            userId = acc.AccountId;
+            if (acc.TypeOfAccount == "User") return 1;
+            if (acc.TypeOfAccount == "Enterprise") return 2;
+            if (acc.TypeOfAccount == "Employee") return 3;
+            return 4;
+        }
+        public string GetName(int accountId)
+        {
+            var acc = db.Accounts.Find(accountId);
+            if (acc.TypeOfAccount == "User")
+            {
+                return db.Users.SingleOrDefault(x => x.UserId == acc.UserId).UserName;
+            }
+            if(acc.TypeOfAccount == "Employee")
+            {
+                return db.Employees.SingleOrDefault(x => x.EmployeeID == acc.UserId).EmployeeName;
+            }
+            return "";
+        }
     }
 }

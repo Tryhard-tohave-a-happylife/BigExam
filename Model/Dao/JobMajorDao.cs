@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,6 +41,34 @@ namespace Model.Dao
             catch(Exception e)
             {
                 return -1;
+            }
+        }
+        public bool ConfirmJob(int jobID)
+        {
+            try
+            {
+                var job = db.JobMajors.Find(jobID);
+                job.Status = true;
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+        public bool DeleteJob(int jobID)
+        {
+            try
+            {
+                var job = db.JobMajors.Find(jobID);
+                db.JobMajors.Remove(job);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
             }
         }
     }

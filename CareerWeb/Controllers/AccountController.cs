@@ -34,15 +34,17 @@ namespace CareerWeb.Controllers
         }
         public ActionResult RegisterForEmployee()
         {
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListEnterprise = new EnterpriseDao().ReturnList();
             return View();
         }
-        public string RandomCode()
+        private string RandomCode()
         {
             Random rd = new Random();
-            string code = "";
-            int mod = rd.Next(0, 100);
+            string code = "";    
             for(int i = 0; i < 6; i++)
             {
+                int mod = rd.Next(0, 100);
                 code += ((rd.Next(0, 9) + mod) % 10) + "";
             }
             return code;

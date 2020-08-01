@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/Assets/Client/Css/Register/RegisterForEnterprise.css" rel="stylesheet" />
+    <link href="~/Assets/Client/Css/Register/RegisterForEnterprise1.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <title>RegisterForEnterprise</title>
 </head>
@@ -17,7 +17,7 @@
         <div class="title">NHẬP THÔNG TIN</div>
         <br />
         <span>Tài khoản : </span><br />
-        <input type="text" placeholder="Nhập tài khoản gmail example : abcd@gmail.com" id="email" /><br />
+        <input type="text" placeholder="abcd@gmail.com" id="email" /><br />
         <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
         <span>Mật khẩu : </span><br />
         <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
@@ -49,7 +49,7 @@
         </div>
         <div class="container-input">
             <span>Số điện thoại : </span><br />
-            <input type="text" value="" id="mobile" placeholder="VD : 0123456789" />
+            <input type="text" value="" id="mobile" placeholder="0123456789" />
         </div>
         <div class="container-input">
             <span>Năm thành lập : </span><br />
@@ -123,6 +123,15 @@
         </div>
         <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
     </div>
-    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise1.js"></script>
+    <div id="finish-box">
+        <div class="title">Đăng ký thành công</div>
+        <div id="text">
+            Bạn đã đăng ký thành công tài khoản và hoàn thành những thông tin cơ bản của mình.
+            Trang web sẽ chuyển hướng đến trang chủ sau vài giây nữa, mong rằng bạn sẽ có những
+            trải nghiệm thú vị và tìm được công việc phù hợp cùng với tên trang web.
+        </div>
+        <div id="hr-line"></div>
+    </div>
+    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise.js"></script>
 </body>
 </html>

@@ -37,6 +37,7 @@ namespace Model.EF
 
         public bool? Status { get; set; }
 
-        public Guid? Code { get; set; }
+        [StringLength(10)]
+        public string Code { get; set; }
     }
 }

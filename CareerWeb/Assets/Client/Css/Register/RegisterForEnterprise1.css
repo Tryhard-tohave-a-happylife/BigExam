@@ -403,3 +403,22 @@
     outline: none;
     border-radius: 10px;
 }
+#finish-box {
+    width: 500px;
+    height: 360px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: calc(50% - 250px);
+    margin-top: 110px;
+    float: left;
+    display: none;
+}
+
+    #finish-box #text {
+        width: 84%;
+        margin-left: 8%;
+        margin-top: 20px;
+        font-size: 15pt;
+        text-align: justify;
+    }

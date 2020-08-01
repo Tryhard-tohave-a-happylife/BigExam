@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    ViewBag.Title = "Index";
+}
+@model Model.EF.User
+@using Model.Dao
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/IndexUser.css" rel="stylesheet" />
+}
+@{
+    var areaName = new AreaDao().FindNameArea(Model.UserArea);
+}
+<main>
+    <div id="introduce-link">
+        <a>Việc làm</a>
+        <span> / Người tìm việc : Quản lý</span>
+    </div>
+    <div id="container-left">
+        <div id="sumary-infor"></div>
+        <div id="list-part-use"></div>
+    </div>
+    <div id="container-right">
+        <div id="contact-id" class="box-infor">
+            <div class="first-title">
+                THÔNG TIN LIÊN HỆ
+            </div>
+            <div id="container-img">
+                <img id="img-profile" />
+            </div>
+            <div class="infor-details">
+                <div id="name-user">
+                    Họ và tên:
+                    <span>@Model.UserName</span>
+                </div>
+                <div id="dob-user">
+                    Ngày sinh:
+                    <span>@Model.UserBirthDay.ToShortDateString()</span>
+                </div>
+                <div id="sex-user">
+                    Giới tính:
+                    <span>@(Model.Sex == "male" ? "Nam" : "Nữ")</span>
+                </div>
+                <div id="email-user">
+                    Email:
+                    <span>@Model.UserEmail</span>
+                </div>
+                <div id="phoneNumber-user">
+                    Mobile:
+                    <span>@Model.UserMobile</span>
+                </div>
+                <div id="area-user">
+                    Khu vực:
+                    <span>@areaName</span>
+                </div>
+                <div id="address-user">
+                    Địa chỉ:
+                    <span>@(Model.UserAddress == null ? "" : Model.UserAddress)</span>
+                </div>
+            </div>
+        </div>
+        <div id="cv-attached" class="box-infor">
+            <div class="first-title">
+                ĐÍNH KÈM CV FILE
+            </div>
+        </div>
+        <div id="findding-job-infor" class="box-infor">
+            <div class="first-title">
+                THÔNG TIN XIN VIỆC
+            </div>
+        </div>
+        <div id="study-level" class="box-infor">
+            <div class="first-title">
+                TRÌNH ĐỘ HỌC VẤN
+            </div>
+        </div>
+        <div id="work-experience" class="box-infor">
+            <div class="first-title">
+                KINH NGHIỆM LÀM VIỆC
+            </div>
+        </div>
+        <div id="foreign-language" class="box-infor">
+            <div class="first-title">
+                NGOẠI NGỮ
+            </div>
+        </div>
+        <div id="skill-job" class="box-infor">
+            <div class="first-title">
+                KĨ NĂNG
+            </div>
+        </div>
+    </div>
+</main>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/IndexUser.js"></script>
+}
+
