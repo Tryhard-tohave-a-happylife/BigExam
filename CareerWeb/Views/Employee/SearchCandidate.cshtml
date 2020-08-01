@@ -101,7 +101,7 @@
             <div id="list" class="list">
                 @foreach (var item in ViewBag.JobListMain)
                 {
-                    <a href="#">@item.JobName</a>
+                    <a href="/SearchCandidateResult?JobID=@item.JobID">@item.JobName</a>
                 }
             </div>
         </div>
