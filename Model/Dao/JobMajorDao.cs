@@ -19,6 +19,17 @@ namespace Model.Dao
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
+
+        public List<JobMajor> ListJobSub()
+        {
+            return db.JobMajors.Where(x => x.JobIDParent != null).ToList();
+        }
+
+        public List<JobMajor> ListJob()
+        {
+            return db.JobMajors.ToList();
+        }
+
         public int Insert(JobMajor ins)
         {
             try

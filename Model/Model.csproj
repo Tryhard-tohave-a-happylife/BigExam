@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,8 @@
     <Compile Include="Dao\UserMajorDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\Area.cs" />
+    <Compile Include="EF\CareerWeb.cs" />
+    <Compile Include="Models\CandidateInfo.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />
+    <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />

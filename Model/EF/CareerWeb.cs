@@ -18,6 +18,7 @@ namespace Model.EF
         public virtual DbSet<Enterprise> Enterprises { get; set; }
         public virtual DbSet<JobMajor> JobMajors { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
         public virtual DbSet<University> Universities { get; set; }
