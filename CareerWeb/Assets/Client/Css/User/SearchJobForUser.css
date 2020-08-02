@@ -8,7 +8,7 @@
 #letterHeader {
     float: left;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 50px;
     color: rgb(0, 25, 252);
     height: 200px;
     background-image: url('../../Img/User/ImageSearchJob/subheader-bg.jpg');
@@ -21,6 +21,7 @@
     width: 100%;
     text-align: center;
     padding-top: 1%;
+    padding-bottom: 1%;
     background-color: black;
     color: white;
     height: 20%;
@@ -160,7 +161,7 @@
 
     .jobContainer:hover {
         cursor: pointer;
-        border: 1px solid red;
+        border: 5px solid #f07e1d;
     }
 
 .logo img {

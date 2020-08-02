@@ -86,8 +86,6 @@ C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.csproj.CoreC
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.dll
 C:\Users\Admin\source\repos\CareerWeb\CareerWeb\obj\Debug\CareerWeb.pdb
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.dll.config
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\CareerWeb.pdb
@@ -163,14 +161,16 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\EntityFramework.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\EntityFramework.SqlServer.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Helpers.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Mvc.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Optimization.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Razor.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.Deployment.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Optimization.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Newtonsoft.Json.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Antlr3.Runtime.pdb
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.pdb
