@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "SearchCompanyForUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/User/SearchCompanyForUser.css" rel="stylesheet" />
+}
+
+
+<div class="page-wrapper">
+    <div class="subheader">
+        <span class="banner-transparent"></span>
+
+        <div class="page-title">
+            <h1>Nhà tuyển dụng hàng đầu</h1>
+            <p>Hãy tỏa sáng tài năng của bạn tại những doanh nghiệp hàng đầu</p>
+        </div>
+
+    </div>
+    <div class="career-breadcrumb">
+        <div>
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <i class="fas fa-angle-right"></i>
+                    <span style="padding-left: 15px;">Companies</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="career-main-content">
+        <div class="career-main-section">
+            <div class="page-container">
+                <div class="row">
+                    <div class="sub-header-form">
+                        <form action="">
+                            <input list="selecteCompanyName" name="companyBrowser" class="jobBrowser" style="height: 3em;"
+                                   placeholder="Nhập tên công ty">
+                            <datalist id="selecteCompanyName">
+                                <option value="SM Town">
+                                <option value="YG Family">
+                                <option value="JYP Nation">
+                                    <!-- điền thêm database -->
+                            </datalist>
+                        </form>
+                        <form action="">
+                            <input list="selectIndustry" name="industryBrowser" class="jobBrowser" style="height: 3em;"
+                                   placeholder="Tất cả ngành nghề">
+                            <datalist id="selectIndustry">
+                                <option value="IT">
+                                <option value="Sales">
+                                    <!-- điền thêm database -->
+                            </datalist>
+                        </form>
+                        <form action="">
+                            <input list="selectedState" name="areaBrowser" class="jobBrowser" style="height: 3em;"
+                                   placeholder="Tất cả địa điểm">
+                            <datalist id="selectedState">
+                                <option value="Hà Nội">
+                                <option value="TP Hồ Chí Minh">
+                                    <!-- điền thêm database -->
+                            </datalist>
+                        </form>
+                        <button style="margin-left: 25px;">
+                            <i class="fa fa-search" style="font-size: 40px;"></i>
+                        </button>
+                    </div>
+                    <aside class="job-left-menu">
+                        <div class="career-typo-wrap">
+                            <form class="career-search-filter">
+                                <div class="career-filter-responsive-wrap">
+                                    <div class="career-search-filter-wrap career-search-filter-toggle">
+                                        <h2 class="colClick">
+                                            <span>Dia diem</span>
+                                            <i class="fa fa-angle-down" style="float: right;"></i>
+                                        </h2>
+                                        <div class="career-checkbox-toggle">
+                                            <ul class="career-checkbox" style="margin: 0 0 15px 0">
+                                                <li class="jobsearch">
+                                                    <label>Country</label>
+                                                    <div class="jobsearch-select">
+                                                        <select class="form-control" name="countryId">
+                                                            <option value="1">Viet Nam</option>
+                                                        </select>
+                                                    </div>
+                                                </li>
+                                                <li class="jobsearch">
+                                                    <label>State</label>
+                                                    <div class="jobsearch-select">
+                                                        <select class="form-control" name="countryId">
+                                                            <option value="1">Ha Noi</option>
+                                                        </select>
+                                                    </div>
+                                                </li>
+                                                <button style="margin-top: 5px;">Tim kiem</button>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="career-filter-responsive-wrap">
+                                    <div class="career-search-filter-wrap career-search-filter-toggle">
+                                        <h2 class="colClick">
+                                            <span>Nganh nghe</span>
+                                            <i class="fa fa-angle-down" style="float: right;"></i>
+                                        </h2>
+                                        <div class="career-checkbox-toggle">
+                                            <ul class="career-checkbox">
+                                                <li>
+                                                    <input type="checkbox" id="id1" name="Industry">
+                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="id1" name="Industry">
+                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" id="id1" name="Industry">
+                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </aside>
+                    <div class="job-right-menu">
+                        <div class="career-typo-wrap">
+                            <div class="filterable" style="float:right;">Xoa het</div><br>
+                            <div class="filterable">Hien thi ... ket qua</div>
+                            <div class="career-employer-list">
+                                <ul class="row">
+                                    <li class="employer">
+                                        <div class="box-star">
+                                            <i class="fas fa-heart star " style="cursor: pointer;"></i>
+                                        </div>
+                                        <div class="career-table-row">
+                                            <a href="" class="career-table-cell">
+                                                <image class="employer-image"></image>
+                                            </a>
+                                            <div class="company-info career-table-cell">
+                                                <small>
+                                                    <a class="link-to-company" href="">ten cac nganh hangfhoiehgihalfksldnvhgieowge</a>
+                                                </small>
+                                                <h2 style="margin: 0; padding: 0;">
+                                                    <a class="link-to-company" href="" style="font-size: 24px; color: black; ">Black on black nct in the house neo got my back</a>
+                                                </h2>
+                                                <span>
+                                                    <i class="fa fa-map-marker"></i> Ha noi
+                                                </span>
+                                            </div>
+                                            <div class="find-button career-table-cell">
+                                                <button>xem cac viec lam</button>
+                                            </div>
+                                        </div>
+
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/cf01f2dc2a.js" crossorigin="anonymous"></script>
+
+

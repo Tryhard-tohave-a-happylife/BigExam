@@ -1,0 +1,287 @@
+﻿body {
+    line-height: 20px;
+    font-weight: 400;
+    color: #333333;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-wrapper {
+    position: relative;
+}
+
+.career-subheader {
+    position: relative;
+    min-height: 320px;
+    margin-bottom: -190px;
+}
+
+.banner {
+    background-color: #1e3142;
+    opacity: .76;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content {
+    padding: 25px 0 10px 0;
+    float: left;
+    width: 100%;
+}
+
+.main-section {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    ;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    ;
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+
+    ;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.company-info {
+    float: left;
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #ececec;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+@media screen and (min-width: 960px) {
+    .company-info {
+        width: 100%;
+    }
+}
+
+.img-thumbnail {
+    float: left;
+    width: 150px;
+    height: 150px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+i {
+    color: #f07e1d;
+}
+
+.company-rating {
+    display: inline-block;
+    height: 22px;
+    position: relative;
+}
+
+#company-name {
+    margin-bottom: 13px;
+    font-size: 26;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.company-info-option {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-inline-start: 0;
+}
+
+    .company-info-option li {
+        list-style: none;
+        float: left;
+        width: 100%;
+    }
+
+a {
+    text-decoration: none;
+}
+
+.add-review {
+    float: left;
+    color: #f07e1d;
+    font-weight: 600;
+    padding: 13px 15px;
+    border: 1px solid #f07e1d;
+}
+
+.company-detail-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .company-detail-wrap {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.company-detail-content {
+    padding: 30px;
+    margin-bottom: 0;
+    float: left;
+    width: 95%;
+    border: 1px solid #efefef;
+}
+
+.company-overview {
+    float: left;
+    width: 100%;
+    margin: 8px 0;
+}
+
+    .company-overview ul li {
+        list-style: none;
+        margin-bottom: 24px;
+    }
+
+@media screen and (min-width: 768px) {
+    .overview-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .overview-item {
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -4px;
+        width: 100%;
+    }
+}
+
+.company-overview ul li i {
+    font-size: 30px;
+}
+
+.item-text {
+    font-weight: 600px;
+    padding-left: 53px;
+    position: relative;
+    top: -30px;
+}
+
+    .item-text small {
+        font-size: 14px;
+        font-weight: 400px;
+        display: block;
+        line-height: 1;
+    }
+
+.company-joblist {
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+    .company-joblist ul {
+        padding-inline-start: 0;
+    }
+
+        .company-joblist ul li {
+            list-style: none;
+            margin-bottom: 20px;
+            position: relative;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+
+@media screean and (min-width: 768px) {
+    .job {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.joblist-title {
+    float: left;
+    width: 100%;
+}
+
+.job {
+    float: left;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.job-wrap {
+    float: left;
+    width: 100%;
+    border: 1px solid #ececec;
+    padding: 15px;
+    position: relative;
+}
+
+.company-img {
+    width: 150px;
+    border: 1px solid #ececec;
+    float: left;
+}
+
+.job-info {
+    margin-left: 180px;
+}
+
+#job-info-option {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+    #job-info-option li {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }

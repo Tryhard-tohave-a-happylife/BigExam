@@ -11,34 +11,21 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult ResultForSearchJob()
-        {
-            return View();
-        }
-        public ActionResult MoreNewsFromHandbook()
-        {
-            return View();
-        }
-        public ActionResult HandbookForUser()
+        public ActionResult JobListInCompany()
         {
             return View();
         }
         public ActionResult SearchJobForUser()
         {
-            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
-            ViewBag.ListArea = new AreaDao().ListArea();
+            return View();
+        }
+        public ActionResult SearchCompanyForUser()
+        {
             return View();
         }
         public ActionResult Index()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Account");
-            }
-            var accID = int.Parse(User.Identity.Name);
-            var acc = new AccountDao().FindAccountById(accID);
-            var user = new UserDao().FindById(acc.UserId);
-            return View(user);
+            return View();
         }
         [HttpPost]
         public JsonResult CreateAccountInfor(Guid userID, string email, string name, string mobile, string dateBirth, string sex, string atSchool, int area, List<int> listJob)
