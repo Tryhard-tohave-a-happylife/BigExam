@@ -32,9 +32,6 @@ namespace Model.EF
 
         public string UserImage { get; set; }
 
-        [Column(TypeName = "text")]
-        public string UserExperience { get; set; }
-
         [Required]
         [StringLength(10)]
         public string Sex { get; set; }
@@ -45,7 +42,12 @@ namespace Model.EF
 
         public double? GPA { get; set; }
 
-        public string Interest { get; set; }
+        [StringLength(200)]
+        public string CVLink { get; set; }
+
+        public int? Salary { get; set; }
+
+        public int? PositionApply { get; set; }
 
         public int CompleteProfile { get; set; }
     }
