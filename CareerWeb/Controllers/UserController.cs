@@ -15,6 +15,10 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
+        public ActionResult ResultForSearchJob()
+        {
+            return View();
+        }
         public ActionResult MoreNewsFromHandbook()
         {
             return View();
@@ -25,6 +29,8 @@ namespace CareerWeb.Controllers
         }
         public ActionResult SearchJobForUser()
         {
+            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
+            ViewBag.ListArea = new AreaDao().ListArea();
             return View();
         }
         public ActionResult Index()

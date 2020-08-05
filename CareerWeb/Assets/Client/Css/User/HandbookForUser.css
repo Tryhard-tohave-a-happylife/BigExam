@@ -87,6 +87,7 @@ vr {
     width: calc(100% - 30px);
     height: 145px;
     margin: 15px 15px 0px 15px;
+    overflow: hidden;
 }
 
     .horizontalNews:hover {
@@ -148,7 +149,7 @@ vr {
     margin-left: 80px;
     margin-top: 5px;
     color: #6e6e6e;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .textNews {
@@ -164,6 +165,7 @@ vr {
     width: 195px;
     height: 275px;
     margin-bottom: 30px;
+    overflow: hidden;
 }
 
     .verticalNews img {
@@ -178,7 +180,7 @@ vr {
     }
 
     .verticalNews .headerNews {
-        margin: 15px 5px;
+        margin: 10px 5px;
     }
 
     .verticalNews .submitDate {
@@ -187,8 +189,8 @@ vr {
     }
 
     .verticalNews .view {
-        margin-left: 17px;
-        margin-top: -11px;
+        margin-left: 110px;
+        margin-top: -18px;
     }
 
     .verticalNews .textNews {

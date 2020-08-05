@@ -21,6 +21,7 @@ namespace Model.EF
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<LevelLearning> LevelLearnings { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
