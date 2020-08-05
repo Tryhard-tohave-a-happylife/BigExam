@@ -8,12 +8,17 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CareerWeb.Controllers
 {
     public class AccountController : Controller
     {
         // GET: Account
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult RegisterCommon()
         {
             return View();
@@ -95,6 +100,26 @@ namespace CareerWeb.Controllers
                 userId = checkCreate,
                 listArea = listArea,
                 listJob = listJob
+            });
+        }
+        [HttpPost]
+        public JsonResult Login(string accName, string passWord)
+        {
+            int userId = 0;
+            var acc = new AccountDao().CheckLogin(accName, Encryptor.MD5Hash(passWord), out userId);
+            if(acc == -1 || acc == -2)
+            {
+                return Json(new
+                {
+                    status = false,
+                    error = acc
+                });
+            }
+            FormsAuthentication.SetAuthCookie(userId.ToString(), true);
+            return Json(new
+            {
+                status = true,
+                type = acc
             });
         }
         
