@@ -24,7 +24,7 @@ namespace CareerWeb.Areas.Admin.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult GetInfor(Guid id)
+        public JsonResult GetInfor(Guid id)
         {
             var ent = new EnterpriseDao().FindById(id);
             var accCreate = new AccountDao().FindAccountByUserId(id);

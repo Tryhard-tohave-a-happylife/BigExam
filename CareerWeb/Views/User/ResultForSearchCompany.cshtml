@@ -1,0 +1,215 @@
+﻿
+@{
+    ViewBag.Title = "ResultForSearchCompany";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/ResultForSearchCompany.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+}
+
+
+<div class="page-wrapper">
+    <div class="career-subheader">
+        <span class="banner"></span>
+    </div>
+    <div class="main-content">
+        <div class="main-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="company-info">
+                        <span class="img-thumbnail">
+                            <img src=https://talentbold.com/Upload/employer/logo/img000000005373.JPG>
+                        </span>
+                        <div style="margin-left: 230px; padding-top: 5px;">
+
+                            <h2 id="company-name">SM COEX</h2>
+                            <ul class="company-info-option">
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>Seoul, South Korea</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-globe"></i>
+                                    <a></a>
+                                </li>
+                            </ul>
+                            <a href="#company-rating" class="add-review">
+                                <i class="fa fa-plus"></i>
+                                <span>Thêm nhận xét</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="company-detail-wrap">
+                        <div class="company-detail-content">
+                            <h2>Tổng quan về SM COEX</h2>
+                            <div class="company-overview">
+                                <ul class="row">
+                                    <li class="overview-item">
+                                        <i class="fa fa-users"></i>
+                                        <div class="item-text">Quy mô:<small>> 50-100</small></div>
+                                    </li>
+                                    <li class="overview-item">
+                                        <i class="fa fa-calendar-alt"></i>
+                                        <div class="item-text">Thời gian thành lập<small>2000</small></div>
+                                    </li>
+                                    <li class="overview-item">
+                                        <i class="fa fa-briefcase"></i>
+                                        <div class="item-text">Công việc đã đăng<small>10</small></div>
+                                    </li>
+                                    <li class="overview-item">
+                                        <i class="fa fa-object-ungroup"></i>
+                                        <div class="item-text">Lĩnh vực kinh doanh<small>siêu thị làm tiền</small></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3>Mô tả công ty</h3>
+                            <p>SMTOWN COEX ARTIUM chính thức mở cửa vào ngày 13/1/2015, là tòa nhà 6 tầng nằm trong không gian văn hóa phức hợp được SM Entertainment đầu tư phát triển ở giữa trung tâm Seoul, nằm trong tổ hợp COEX và được ví như là thành phố thu nhỏ của SM Town hay “thiên đường của SMstan (fan nhà SM)”. Nơi đây mỗi tầng đều có những chủ đề đa dạng khiến người hâm mộ khi đến đây hầu như đều không muốn trở về.</p>
+                        </div>
+                        <div class="joblist-title">
+                            <h2>Việc làm của SM COEX</h2>
+                        </div>
+                        <div class="company-joblist">
+                            <ul class="row">
+                                <li class="job">
+                                    <div class="job-wrap">
+                                        <span class="company-img">
+                                            <img src=https://talentbold.com/Upload/employer/logo/img000000005373.JPG>
+                                        </span>
+                                        <div class="job-info">
+                                            <h3 style="margin: 10px">
+                                                <a href="">Lao công dọn dẹp vệ sinh</a>
+                                            </h3>
+                                            <ul id="job-info-option">
+                                                <li>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>Seoul, South Korea</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-filter"></i>
+                                                    <span>Lao công/Dọn dẹp vệ sinh</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-dollar-sign"></i>
+                                                    <span>Lương: </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="job">
+                                    <div class="job-wrap">
+                                        <span class="company-img">
+                                            <img src=https://talentbold.com/Upload/employer/logo/img000000005373.JPG>
+                                        </span>
+                                        <div class="job-info">
+                                            <h3 style="margin: 10px">
+                                                <a href="">Lao công dọn dẹp vệ sinh</a>
+                                            </h3>
+                                            <ul id="job-info-option">
+                                                <li>
+                                                    <i class="fa fa-map-marker"></i>
+                                                    <span>Seoul, South Korea</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-filter"></i>
+                                                    <span>Lao công/Dọn dẹp vệ sinh</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-dollar-sign"></i>
+                                                    <span>Lương: </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="company-rating">
+                            <h2>Đánh giá</h2>
+                            <div class="row">
+                                <div class="comment">
+                                    <div class="text-center">
+                                        <p>Viết đánh giá của bạn tại đây</p>
+                                        <div class="stars">
+                                            <form action="">
+                                                <input class="star star-5" id="star-5" type="radio" name="star" />
+                                                <label class="star star-5" for="star-5"></label>
+                                                <input class="star star-4" id="star-4" type="radio" name="star" />
+                                                <label class="star star-4" for="star-4"></label>
+                                                <input class="star star-3" id="star-3" type="radio" name="star" />
+                                                <label class="star star-3" for="star-3"></label>
+                                                <input class="star star-2" id="star-2" type="radio" name="star" />
+                                                <label class="star star-2" for="star-2"></label>
+                                                <input class="star star-1" id="star-1" type="radio" name="star" />
+                                                <label class="star star-1" for="star-1"></label>
+                                            </form>
+                                        </div>
+
+                                        <div>
+                                            <textarea id="comment-area" placeholder="Vui lòng nhập nội dung..."></textarea>
+                                            <input class="add-comment" type="button" value="Đánh giá">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="star-rating">
+                                    <div class="rating-sumary-wrap">
+                                        <div class="rating">
+                                            <span class="empty-stars">
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon"></span>
+                                                </span>
+                                            </span>
+                                            <span class="filled-stars">
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon-filled"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon-filled"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon-filled"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon-filled"></span>
+                                                </span>
+                                                <span class="uncontrol-star">
+                                                    <span class="star-icon-filled"></span>
+                                                </span>
+                                            </span>
+                                            <span style="margin-left: 15px;"><b>0</b>(0 đánh giá)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/ResultForSearchCompany.js"></script>
+}
+

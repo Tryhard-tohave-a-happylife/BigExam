@@ -60,6 +60,10 @@ namespace Model.EF
 
         public int LearningLevelRequest { get; set; }
 
-        public int PositionJobID { get; set; }
+        public int? Views { get; set; }
+
+        public int ExperienceRequest { get; set; }
+
+        public int? LearningLevelRequest { get; set; }
     }
 }

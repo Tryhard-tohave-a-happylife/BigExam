@@ -44,7 +44,7 @@ namespace CareerWeb.Controllers
             employeeInfor.EnterpriseID = EnterpriseID;
             employeeInfor.EmployeeName = EmployeeName;
             employeeInfor.Position = Position;
-            employeeInfor.Sex = Sex;
+            //employeeInfor.Sex = Sex;
             employeeInfor.Email = Email;
             employeeInfor.Mobile = Mobile;
             string[] splitDate = BirthDay.Split('-');

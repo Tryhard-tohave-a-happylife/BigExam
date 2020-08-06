@@ -135,6 +135,10 @@ namespace Model.EF
                 .Property(e => e.ImageCertificate)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<UserCertificate>()
+                .Property(e => e.GetDate)
+                .IsUnicode(false);
+
             modelBuilder.Entity<UserExperience>()
                 .Property(e => e.StartTime)
                 .IsUnicode(false);

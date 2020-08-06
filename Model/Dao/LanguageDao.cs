@@ -2,25 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class PositionEmployeeDao
+    public class LanguageDao
     {
         CareerWeb db = null;
-        public PositionEmployeeDao()
+        public LanguageDao()
         {
             db = new CareerWeb();
         }
-        public List<PositionEmployee> ReturnList()
+        public List<Language> ReturnList()
         {
-            return db.PositionEmployees.ToList();
+            return db.Languages.ToList();
         }
-        public string NamePosition(int id)
+        public string NameLanguage(int id)
         {
-            return db.PositionEmployees.Find(id).NamePosition;
+            return db.Languages.Find(id).LanguageName;
         }
     }
 }

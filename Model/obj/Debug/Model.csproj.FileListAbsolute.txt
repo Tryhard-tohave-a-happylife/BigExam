@@ -34,3 +34,15 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csprojAssembl
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.pdb
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll.config
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.pdb
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.dll
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.xml
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.dll
+D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.pdb
