@@ -4,4 +4,7 @@
         var listForm = $(".borderColJobMenu form");
         $(listForm[index]).slideToggle();
     })
+    $("#clearAll").click(function() {
+        location.reload();
+    })
 })

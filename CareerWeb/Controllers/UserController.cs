@@ -23,10 +23,15 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
-        public ActionResult SearchJobForUser()
+        public ActionResult SearchJobForUser(String OfferName = "", int Area = 0, String JobAddress = "0", int OfferSalary = 0, int PositionJobID = 0, String Sex = "0",  int ExperienceRequest = 0, int LearningLevelRequest = 0, DateTime OfferCreateDate = new DateTime())
         {
             ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
             ViewBag.ListArea = new AreaDao().ListArea();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnLevelLearning();
+            ViewBag.ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, JobAddress, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest, OfferCreateDate);
             return View();
         }
         public ActionResult Index()

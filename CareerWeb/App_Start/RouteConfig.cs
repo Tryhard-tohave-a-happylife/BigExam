@@ -29,6 +29,21 @@ namespace CareerWeb
             );
 
             routes.MapRoute(
+                name: "Tim-kiem-viec-lam",
+                url: "SearchJobForUser",
+                defaults: new { controller = "User", action = "SearchJobForUser", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+                name: "Result",
+                url: "ResultForSearchJob",
+                defaults: new { controller = "User", action = "ResultForSearchJob", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

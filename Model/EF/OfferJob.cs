@@ -32,9 +32,7 @@ namespace Model.EF
         [Required]
         public string JobAddress { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string OfferSalary { get; set; }
+        public int OfferSalary { get; set; }
 
         [StringLength(50)]
         public string Sex { get; set; }
@@ -54,8 +52,14 @@ namespace Model.EF
         [StringLength(50)]
         public string ContactEmail { get; set; }
 
-        public int? Applications { get; set; }
+        public int Applications { get; set; }
 
-        public int? Views { get; set; }
+        public int Views { get; set; }
+
+        public int ExperienceRequest { get; set; }
+
+        public int LearningLevelRequest { get; set; }
+
+        public int PositionJobID { get; set; }
     }
 }
