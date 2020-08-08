@@ -9,8 +9,9 @@
     <!--CSS-->
 
     <link href="~/Assets/Client/Css/Common/Header-FooterForEnterprise.css" rel="stylesheet" />
+    @RenderSection("cssInsert", required: false)
 
-    <title>A+</title>
+    
 </head>
 <body>
     <header>
@@ -158,5 +159,6 @@
 
     <!--JAVASCRIPT-->
     <script src="~/Assets/Client/Js/Header-Footer/Header-FooterForEnterprise.js"></script>
+    @RenderSection("jsInsert", required: false)
 </body>
 </html>

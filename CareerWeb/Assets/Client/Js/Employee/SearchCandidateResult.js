@@ -1,5 +1,5 @@
 ﻿
-var AreaID = 0, JobID = 0, Name = "";
+var AreaID = 0, JobID = 0, Name = 0;
 
 $(document).ready(function () {
     GetURLParameter();
@@ -24,7 +24,7 @@ function GetURLParameter() {
             JobID = sParameterName[1];
         }
         else if (sParameterName[0] == "Name") {
-            Name = sParameterName[1];
+            NameID = sParameterName[1];
            
         }
     }
@@ -37,8 +37,8 @@ function setSelectValue() {
     if (JobID != 0) {
         document.getElementById("linh-vuc").value = JobID;
     }
-    if (Name != "") {
-        document.getElementById("key-word").value = Name;
+    if (Name != 0) {
+        document.getElementById("key-word").value = NameID;
 
         console.log(Name);
     }
@@ -48,7 +48,7 @@ function search() {
     var area = document.getElementById("dia-diem").value;
     var job = document.getElementById("linh-vuc").value;
     var name = document.getElementById("key-word").value;
-    var dbParam = "Name=" + name + "&AreaID=" + area + "&JobID=" + job;
+    var dbParam = "&AreaID=" + name + "&AreaID=" + area + "&JobID=" + job;
     window.location.href = "/SearchCandidateResult?" + dbParam;
 }
 

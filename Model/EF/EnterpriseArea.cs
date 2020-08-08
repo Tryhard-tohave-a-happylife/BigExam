@@ -12,14 +12,14 @@ namespace Model.EF
         [Key]
         [Column(Order = 0)]
         public Guid EnterpriseId { get; set; }
+        public Guid EnterpriseName { get; set; }
+
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int AreaID { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
         public string DetailDescription { get; set; }
     }
 }

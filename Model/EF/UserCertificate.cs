@@ -9,20 +9,18 @@ namespace Model.EF
     [Table("UserCertificate")]
     public partial class UserCertificate
     {
-        [Key]
-        [Column(Order = 0)]
+        public int ID { get; set; }
+
         public Guid UserId { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(10)]
+        [Required]
+        [StringLength(250)]
         public string NameCertificate { get; set; }
 
         [StringLength(50)]
         public string ImageCertificate { get; set; }
 
-        [Key]
-        [Column(Order = 2, TypeName = "date")]
+        [Column(TypeName = "date")]
         public DateTime GetDate { get; set; }
     }
 }

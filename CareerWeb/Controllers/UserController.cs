@@ -11,8 +11,13 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult ResultForSearchJob()
+        public ActionResult UserHome()
         {
+
+            
+            ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
+            ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
+            ViewBag.ListArea = new EnterpriseAreaDao().ListEnterpriseArea();
             return View();
         }
         public ActionResult MoreNewsFromHandbook()
@@ -29,6 +34,7 @@ namespace CareerWeb.Controllers
             ViewBag.ListArea = new AreaDao().ListArea();
             return View();
         }
+       
         public ActionResult Index()
         {
             if (!User.Identity.IsAuthenticated)
