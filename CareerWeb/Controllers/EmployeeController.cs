@@ -1,10 +1,11 @@
 ﻿using Model.Dao;
+<<<<<<< HEAD
 ﻿using Model.EF;
 
+=======
+using Model.EF;
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CareerWeb.Controllers
@@ -48,7 +49,7 @@ namespace CareerWeb.Controllers
             employeeInfor.EnterpriseID = EnterpriseID;
             employeeInfor.EmployeeName = EmployeeName;
             employeeInfor.Position = Position;
-            employeeInfor.Sex = Sex;
+            //employeeInfor.Sex = Sex;
             employeeInfor.Email = Email;
             employeeInfor.Mobile = Mobile;
             string[] splitDate = BirthDay.Split('-');

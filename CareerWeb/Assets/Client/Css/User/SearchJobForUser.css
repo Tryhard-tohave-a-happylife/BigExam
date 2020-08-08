@@ -54,7 +54,7 @@
 }
 
 #findIcon {
-    background-image: url("../Tìm việc nhanh/img/blue-search-icon.png");
+    background-image: url('../../Img/User/ImageSearchJob/blue-search-icon.png');
     background-size: cover;
     float: left;
     width: 3em;
@@ -67,12 +67,16 @@
     }
 
 #clearAll {
-    color: red;
+    color: orangered;
     font-size: 1.2em;
     position: relative;
     float: right;
     margin-right: calc(50% - 540px);
 }
+    #clearAll:hover {
+        color: #034efc;
+        cursor: pointer;
+    }
 
 @media screen and (max-width : 1160px) {
     #criteriaSelected {
@@ -161,7 +165,7 @@
 
     .jobContainer:hover {
         cursor: pointer;
-        border: 5px solid #f07e1d;
+        border: 1px solid #f07e1d;
     }
 
 .logo img {

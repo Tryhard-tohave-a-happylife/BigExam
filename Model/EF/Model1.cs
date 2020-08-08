@@ -35,6 +35,7 @@ namespace Model.EF
         public virtual DbSet<EnterpriseSize> EnterpriseSizes { get; set; }
         public virtual DbSet<OfferJobMajor> OfferJobMajors { get; set; }
         public virtual DbSet<UserMajor> UserMajors { get; set; }
+        public object Salary { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -134,11 +135,23 @@ namespace Model.EF
                 .Property(e => e.ImageCertificate)
                 .IsUnicode(false);
 
+<<<<<<< HEAD:Model/EF/Model1.cs
             modelBuilder.Entity<UserExperience>()
                 .Property(e => e.StartTime)
                 .IsUnicode(false);
 
             modelBuilder.Entity<UserExperience>()
+=======
+            modelBuilder.Entity<UserCertificate>()
+                .Property(e => e.GetDate)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserExperience>()
+                .Property(e => e.StartTime)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserExperience>()
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c:Model/EF/CareerWeb.cs
                 .Property(e => e.EndTime)
                 .IsUnicode(false);
 

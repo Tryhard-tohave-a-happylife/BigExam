@@ -7,9 +7,14 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <!--CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Assets/Client/Css/Common/Header-FooterForUser.css" rel="stylesheet" />
     @RenderSection("cssInsert", required: false)
+<<<<<<< HEAD
    
+=======
+    <title>@ViewBag.Title</title>
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 </head>
 <body>
     <header>
@@ -72,7 +77,7 @@
                     }
                     else
                     {
-                        <span>@getName(int.Parse(User.Identity.Name))</span>
+                        <span>Quản lý tài khoản</span>
                     }
                     <!--Searching-->
                     <div class="searching">NHÀ TUYỂN DỤNG</div>
@@ -174,9 +179,3 @@
     @RenderSection("jsInsert", required: false)
 </body>
 </html>
-@functions{ 
-    public string getName(int accountId)
-    {
-        return new Model.Dao.AccountDao().GetName(accountId);
-    }
-}

@@ -144,6 +144,7 @@
     <Content Include="Assets\Client\Css\Layout\LayoutForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
+    <Content Include="Assets\Client\Css\User\ResultForSearchJob.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
@@ -167,6 +168,7 @@
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Js\User\HandbookForUser.js" />
     <Content Include="Assets\Client\Js\User\MoreNewsFromHandbook.js" />
+    <Content Include="Assets\Client\Js\User\ResultForSearchJob.js" />
     <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
     <Content Include="Assets\Client\Js\User\UserHome.js" />
     <Content Include="Assets\Client\Template\SendAcceptEnterprise.html" />
@@ -230,6 +232,10 @@
     <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="Views\Area\" />
+<<<<<<< HEAD
+=======
+    <Folder Include="Views\Enterprise\" />
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Folder Include="Views\Home\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>

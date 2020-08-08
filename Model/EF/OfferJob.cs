@@ -52,7 +52,13 @@ namespace Model.EF
         [StringLength(50)]
         public string ContactEmail { get; set; }
 
-        public int? Applications { get; set; }
+        public int Applications { get; set; }
+
+        public int Views { get; set; }
+
+        public int ExperienceRequest { get; set; }
+
+        public int LearningLevelRequest { get; set; }
 
         public int? Views { get; set; }
 

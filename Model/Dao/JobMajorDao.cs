@@ -19,17 +19,11 @@ namespace Model.Dao
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
-
-        public List<JobMajor> ListJobSub()
+        public List<JobMajor> ListJobSubByUser(Guid userId)
         {
-            return db.JobMajors.Where(x => x.JobIDParent != null).ToList();
+            var listJobMain = db.UserMajors.Where(x => x.UserID == userId).Select(x => x.MajorID).ToList();
+            return db.JobMajors.Where(x => x.JobIDParent != null && listJobMain.Contains(x.JobIDParent.Value)).ToList();
         }
-
-        public List<JobMajor> ListJob()
-        {
-            return db.JobMajors.ToList();
-        }
-
         public int Insert(JobMajor ins)
         {
             try
@@ -69,6 +63,20 @@ namespace Model.Dao
             catch(Exception e)
             {
                 return false;
+            }
+        }
+        public List<JobMajor> ReturnParentListByUser(Guid userId)
+        {
+            try
+            {
+                var list = db.UserMajors.Where(x => x.UserID == userId && x.MajorParent == null)
+                                        .Select(x => x.MajorID).ToList();
+                var model = db.JobMajors.Where(x => list.Contains(x.JobID)).ToList();
+                return model;
+            }
+            catch
+            {
+                return null;
             }
         }
     }
