@@ -17,6 +17,13 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
+        public ActionResult EnterpriseHome()
+        {
+            ViewBag.UserList = new UserDao().ListUser();
+            ViewBag.AreaList = new AreaDao().ListArea();
+            ViewBag.JobList = new JobMajorDao().ListJobMain();
+            return View();
+        }
         [HttpPost]
         public JsonResult CreateAccountInfor(InsertEnterpriseForm model)
         {

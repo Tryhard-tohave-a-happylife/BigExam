@@ -1,0 +1,265 @@
+﻿body {
+    background-color: #F3F3F3;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.baner {
+    background-image: url(https://viecoi.cdn.vccloud.vn/public/images/bg-nhatuyendung.png);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-width: 0.0625em;
+    border-style: solid;
+    height: 27em;
+    width: 100%;
+    font-weight: bold;
+    font-family: Tahoma;
+    padding: 0.75em 0 9.375em 0;
+    text-align: center;
+    color: black;
+    border-color: white;
+    font-size: 1em;
+    margin-top: 5%;
+}
+
+.content {
+    width: 60%;
+    height: 20%;
+    font-size: 22px;
+    margin-left: 20%;
+    text-align: center;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 1.9px;
+    margin-top: 0.75em;
+}
+
+.dropdown {
+    float: left;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06)) repeat scroll 0 0 #F2F2F2;
+    border-color: #FFFFFF #F7F7F7 #F5F5F5;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    height: 28px;
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    margin-left: 20%;
+    color: black;
+    margin-top: 3%;
+}
+
+    .dropdown:before, .dropdown:after {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #888888 rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: dashed;
+        border-width: 4px;
+        content: "";
+        height: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+        width: 0;
+        z-index: 2;
+    }
+
+    .dropdown:before {
+
+        border-bottom-style: solid;
+        border-top: medium none;
+    }
+
+    .dropdown:after {
+        margin-top:15px;
+        border-bottom: medium none;
+        border-top-style: solid;
+        margin-top: 7px;
+    }
+
+.dropdown-select {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0) !important;
+    border: 0 none;
+    border-radius: 0;
+    color: black;
+    font-size: 18px;
+    height: 100%;
+    line-height: 14px;
+    margin: 0;
+    padding: 6px 8px 6px 10px;
+    position: relative;
+    text-shadow: 0 1px #FFFFFF;
+    width: 130%;
+}
+
+    .dropdown-select:focus {
+        color: #394349;
+        outline: 2px solid #49AFF2;
+        outline-offset: -2px;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .dropdown-select > option {
+        background: none repeat scroll 0 0 #F2F2F2;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 3px;
+        padding: 6px 8px;
+        text-shadow: none;
+    }
+.search-box {
+    width: 22em;
+    height: 4em;
+    margin-top: 0;
+    margin-left: 12%;
+    margin-top: 2%;
+    float: left;
+    border: 1px solid #FFFFFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+}
+
+.select-box {
+    width: 22em;
+    height: 4em;
+    margin-top: 0;
+    margin-top: 2%;
+    float: left;
+    border: 1px solid #FFFFFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+}
+
+.select-box1 {
+    margin-left: 1%;
+}
+
+.select-box2 {
+    margin-left: 1%;
+}
+
+.submit-box {
+    width: 12em;
+    height: 3em;
+
+    margin-left: 1%;
+    margin-top: 3%;
+    float: left;
+    background-color: #E95F06;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: 1px solid #E95F06;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+}
+
+.function-box {
+    width: 88%;
+    height: 4.4em;
+    float: left;
+    text-align: right;
+    right: 15%;
+    color: white;
+    padding-top: 20px;
+}
+
+.service-box {
+    width: 100%;
+    height: 36em;
+    margin-top: 5%;
+}
+
+.name-service-box {
+    width: 100%;
+    height: 14%;
+    color: #333333;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2em;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.info-service-box {
+    margin-top: 5%;
+    float: left;
+    width: 25%;
+    height: 81%;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #AAA;
+}
+
+.info-service-box1 {
+    margin-left: 12%;
+}
+
+.info-service-box2 {
+    margin-left: 1%;
+}
+
+.info-service-box3 {
+    margin-left: 1%;
+}
+
+.handbook-box {
+    width: 100%;
+    height: 40em;
+    margin-top: 8%;
+}
+
+.name-handbook-box {
+    width: 100%;
+    height: 25%;
+    color: #333333;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.handbook-box1 {
+    margin-top: 5%;
+    width: 45%;
+    margin-left: 10%;
+    height: 40%;
+    font-family: Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+.handbook-box2 {
+    width: 45%;
+    margin-left: 10%;
+    height: 40%;
+    font-family: Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+.handbook-box3 {
+    margin-top: 4%;
+    width: 35%;
+    margin-left: 57%;
+    height: 80%;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 10px 10px 10px 10px;
+}

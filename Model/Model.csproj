@@ -74,7 +74,10 @@
     <Compile Include="Dao\UserMajorDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\Area.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="EF\CareerWeb.cs" />
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
@@ -84,6 +87,10 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
+<<<<<<< HEAD
+    <Compile Include="EF\Model1.cs" />
+=======
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
