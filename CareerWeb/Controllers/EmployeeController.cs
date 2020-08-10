@@ -1,5 +1,10 @@
 ﻿using Model.Dao;
+<<<<<<< HEAD
+﻿using Model.EF;
+
+=======
 using Model.EF;
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 using System;
 using System.Web.Mvc;
 

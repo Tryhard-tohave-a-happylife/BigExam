@@ -16,6 +16,7 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+     
         public bool Insert(Enterprise ins)
         {
             try
@@ -97,7 +98,7 @@ namespace Model.Dao
         {
             try
             {
-                return db.Enterprises.Where(x => x.Status == true).ToList();
+                return db.Enterprises.ToList();
             } catch
             {
                 return null;

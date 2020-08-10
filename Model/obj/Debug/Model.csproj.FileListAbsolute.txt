@@ -34,6 +34,20 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csprojAssembl
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.pdb
+<<<<<<< HEAD
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.pdb
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.dll.config
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.pdb
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
+=======
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll.config
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.pdb
@@ -46,3 +60,4 @@ D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.ca
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.dll
 D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.pdb
+>>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c

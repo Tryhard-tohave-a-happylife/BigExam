@@ -14,6 +14,11 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<Enterprise> ListEnterpriseName()
+        {
+            return db.Enterprises.ToList();
+        }
+
         public bool InsertEmployee(Employee employee)
         {
             try

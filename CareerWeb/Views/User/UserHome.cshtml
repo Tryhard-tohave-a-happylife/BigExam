@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "UserHome";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/UserHome.css" rel="stylesheet" />
+
+}
+<div class="banner">
+
+    <form>
+
+
+        <div class="title">
+            Tìm việc làm - đăng tin tuyển dụng miễn phí
+        </div>
+
+        <!--  <div class="dropdown" style="margin-left:10%">
+
+            <select class="dropdown-select">
+                <option hidden value="0">Tìm kiếm theo doanh nghiệp</option>
+
+            </select>
+
+        </div>
+        <div class="dropdown" style="margin-left:2%">
+
+            <select class="dropdown-select">
+
+            </select>
+
+        </div>
+
+        <div class="dropdown" style="margin-left:2%">
+
+            <select class="dropdown-select">
+                <option hidden value="0">Tìm kiếm theo địa điểm</option>
+
+            </select>
+
+        </div>
+         -->
+
+
+
+        <div>
+            <div class="container-1" style="color: #999999; margin-top:3%;">
+
+                <input type="submit" id="submit" value="Tìm kiếm" onclick="search()" />
+
+            </div>
+
+        </div>
+
+
+        <div class="criterialSelected">
+            <form action="">
+                <input list="Vị trí" name="Vị trí" class="select-box select-box1" placeholder="Vị trí" />
+                <datalist id="Vị trí">
+
+                    <option>Trưởng nhóm/Giám sát</option>;
+                    <option>Nhân viên/Staff</option>;
+                    <option>Thực tập/Internship</option>;
+                    <option>Quản lí/Giám đốc</option>;
+                </datalist>
+                <input list="Kinh nghiệm" name="Kinh nghiệm" class="select-box select-box2" placeholder="Kinh nghiệm" />
+                <datalist id="Kinh nghiệm">
+                    <option>Không yêu cầu</option>;
+                    <option>Kinh nghiệm 1~2 năm</option>;
+                    <option>Kinh nghiệm 2~5 năm</option>;
+                    <option>Kinh nghiệm 5~10 năm</option>;
+                    <option>Kinh nghiệm 10~20 năm</option>;
+                    <option>Kinh nghiệm hơn 20 năm</option>;
+                </datalist>
+                <input list="Mức lương" name="Mức lương" class="select-box select-box3" placeholder="Mức lương" />
+                <datalist id="Mức lương">
+
+                    <option>Dưới 5tr</option>;
+                    <option>5tr ~ 10tr</option>;
+                    <option>10tr ~ 20tr</option>;
+                    <option>Trên 20tr</option>;
+                </datalist>
+                <input list="Tiền thưởng" name="Tiền thưởng" class="select-box select-box4" placeholder="Tiền thưởng" />
+                <datalist id="Tiền thưởng">
+
+                    <option>Không có thưởng</option>;
+                    <option>Có thưởng</option>;
+                </datalist>
+                <button type="reset" style="color: black; font-family:Tahoma; font-size: 0.8em" class="select-box select-box5">Xóa điều kiện tìm</button>
+            </form>
+
+        </div>
+
+        <div class="container">
+            <h3 class="serif">
+                MyCV là dịch vụ tuyển dụng
+                <a class="link" href="https://MyCV.vn/tim-viec-lam.html">tìm việc làm</a>,
+                <a class="link" href="https://MyCV.vn/gioi-thieu-dang-tin-tuyen-dung.html">đăng tin tuyển dụng</a>
+                và <a class="link" href="https://MyCV.vn/tim-ho-so.html">tìm hồ sơ xin việc</a> theo khu vực, lĩnh vực, kỹ năng và nhiều điều kiện khác
+            </h3>
+        </div>
+
+</div> 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="home-box home-box1">
+    <a class="examp" title="Việc làm IT/ Phần mềm/ CNTT" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img loading="lazy" alt="Việc làm IT/ Phần mềm/ CNTT" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-5.png">
+               </p>
+        <h2 style="color: red">IT/ PHẦN MỀM/ CNTT</h2>
+        <h2 style="color : black"><p>1231 việc làm</p></h2>
+        </a>
+</div>
+<div class="home-box home-box2">
+    <a class="examp" title="Việc làm Bán hàng/ Kinh doanh" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img loading="lazy" alt="Việc làm Bán hàng/ Kinh doanh" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-6.png">
+               </p>
+        <h2 style="color: red">BÁN HÀNG/ KINH DOANH</h2style="color:>
+        <p><h2 style="color : black">2764 việc làm</h2></p>
+        </a>
+</div>
+<div class="home-box home-box3">
+    <a class="examp" title="Việc làm Chuyên Môn" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img loading="lazy" alt="Việc làm Chuyên Môn" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-8.png">
+               </p>
+        <h2 style="color: red"> CHUYÊN MÔN</h2>
+        <h2 style="color : black"><p>2646 việc làm</p></h2>
+        </a>
+</div>
+<div class="home-box home-box4">
+    <a class="examp" title="Việc làm Lao Động Phổ Thông" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img loading="lazy" alt="Việc làm Lao Động Phổ Thông" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-2.png">
+               </p>
+        <h2 style="color: red">LAO ĐỘNG PHỔ THÔNG</h2>
+        <h2 style="color : black"><p>1065 việc làm</p></h2>
+    </a>
+</div>
+<div class="home-box home-box5">
+    <a class="examp" title="Việc làm Kĩ Thuật" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img loading="lazy" alt="Việc làm Kĩ Thuật" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-9.png">
+               </p>
+        <h2 style="color: red">KĨ THUẬT</h2>
+        <h2 style="color : black"><p>105 việc làm</p></h2>
+        </a>
+</div>
+<button class="button button1"><b><i>Việc làm mới</i></b></button>
+<button class="button button2"><b><i>Cần tuyển gấp</i></b></button>
+<div class="job-box box1">
+    <img class="box-img" src="https://viecoi.cdn.vccloud.vn/public/images/rand/thums-bh-01.jpg" ; />
+    <div style="width: 100%; margin-left:22%; margin-top: 2%; font-size:13px; text-align:left; padding-left: 6%;">
+        <a style=" text-decoration: none; font-size: 15px;color: #F07E1D;" href="">Phân Phối Hàng</a><br /><br />
+        <b class="fa fa-building-o"></b><b> Công ty: </b> <a> ĐẠI LÍ PHÂN PHỐI THỰC PHẨM SẠCH MIỀN TRUNG</a><br /><br />
+        <b class="fa fa-map-pin"></b> <b>Nơi làm việc:</b> <a>Đà Nẵng</a>
+        <b style="margin-left:20%" class="fa fa-dollar"></b> <b>Lương: </b> <a>  5,000,000 - 7,000,000 VNĐ</a><br /><br />
+        <b class="fa fa-calendar-o"></b> <b>Hạn nộp: </b> <a> 30/08/2020</a>
+        <b style="margin-left:20%" class="fa fa-gift"></b> <b>Thưởng </b> <a>0 VNĐ</a><br />
+
+    </div>
+</div>
+<div class="job-box box2">
+    <img class="box-img" src="https://viecoi.cdn.vccloud.vn/public/images/rand/thums-cm-01.jpg" ; />
+
+
+</div>
+<div class="job-box box3">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<div class="job-box box4">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<div class="job-box box6">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<div class="job-box box7">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<div class="job-box box8">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<div class="job-box box9">
+    <img class="box-img" src="" ; />
+
+
+</div>
+<button class="button button3">
+    <b><i>Lĩnh vực</i></b>
+</button>
+<button class="button button4">
+    <b><i>Khu vực</i></b>
+</button>
+<div class="job-box box5"></div>
+
+       
+
+@section jsInsert{
+
+    <script src="~/Assets/Client/Js/User/UserHome.js"></script>
+}
