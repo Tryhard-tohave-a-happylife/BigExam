@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Assets/Client/Css/Common/Header-FooterForUser.css" rel="stylesheet" />
     @RenderSection("cssInsert", required: false)
-<<<<<<< HEAD
-   
-=======
     <title>@ViewBag.Title</title>
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 </head>
 <body>
     <header>
@@ -27,10 +23,10 @@
                 </div>
                 <!--Logo-->
                 @*<div class="logo">
-                        <div class="logo_box">
-                            <img src="img/uet-1.pNg">
-                        </div>
-                    </div>*@
+                    <div class="logo_box">
+                        <img src="img/uet-1.pNg">
+                    </div>
+                </div>*@
                 <!--Menu-->
                 <div class="menu">
                     <div class="element">
@@ -60,8 +56,7 @@
                 </div>
                 <div class="user">
                     <!--Account-->
-                    @if (!User.Identity.IsAuthenticated)
-                    {
+                    @if(!User.Identity.IsAuthenticated){
                         <div class="account">
                             <div class="log_in">
                                 <i class="fas fa-user"></i>
@@ -114,16 +109,12 @@
             </div>
         </div>
         <div id="box-logIn">
-            <input type="text" id="acc" />
-            <input type="password" id="pass" />
-            <input type="button" value="Đăng nhập" id="submit" />
+            <input type="text" id="acc"/>
+            <input type="password" id="pass"/>
+            <input type="button" value="Đăng nhập" id="submit"/>
         </div>
     </header>
-   
-    <div class="content">
-        @RenderBody()
-    </div>
-
+    @RenderBody()
     <footer>
         <div class="footer_container">
             <div class="footer_element_1">

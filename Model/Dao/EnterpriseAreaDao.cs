@@ -15,10 +15,6 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-        public List<EnterpriseArea> ListEnterpriseArea()
-        {
-            return db.EnterpriseAreas.ToList();
-        }
         public bool Insert(EnterpriseArea ins)
         {
             try

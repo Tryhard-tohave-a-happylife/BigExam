@@ -5,10 +5,10 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class Model1 : DbContext
+    public partial class CareerWeb : DbContext
     {
-        public Model1()
-            : base("name=Model1")
+        public CareerWeb()
+            : base("name=CareerWeb")
         {
         }
 
@@ -135,13 +135,6 @@ namespace Model.EF
                 .Property(e => e.ImageCertificate)
                 .IsUnicode(false);
 
-<<<<<<< HEAD:Model/EF/Model1.cs
-            modelBuilder.Entity<UserExperience>()
-                .Property(e => e.StartTime)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<UserExperience>()
-=======
             modelBuilder.Entity<UserCertificate>()
                 .Property(e => e.GetDate)
                 .IsUnicode(false);
@@ -151,7 +144,6 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<UserExperience>()
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c:Model/EF/CareerWeb.cs
                 .Property(e => e.EndTime)
                 .IsUnicode(false);
 

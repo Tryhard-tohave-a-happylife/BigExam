@@ -17,8 +17,6 @@ namespace Model.EF
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int JobId { get; set; }
-        public int JobName { get; set; }
-
 
         public int? JobIdParent { get; set; }
 

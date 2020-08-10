@@ -28,7 +28,6 @@ header .container {
 }
 
 header .row {
-    background-color: #FFFFFF;
     display: flex;
     align-items: center;
     height: 100%;
@@ -277,12 +276,7 @@ header #box-logIn{
     .res_searching span {
         margin: 0 auto;
     }
-.content{
-    width: 100%;
-    height: auto;
-}
 footer {
-    margin-bottom:0;
     background-color: #222;
     padding: 0 7.5%;
     height: 500px;
