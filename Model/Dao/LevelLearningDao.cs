@@ -14,7 +14,7 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-        public List<LevelLearning> ReturnLevelLearning()
+        public List<LevelLearning> ReturnList()
         {
             return db.LevelLearnings.ToList();
         }

@@ -36,31 +36,28 @@
             <div class="page-container">
                 <div class="row">
                     <div class="sub-header-form">
-                        <form action="" method="">
-                            <input type="text" list="selectedJobTitle" name="jobBrowser" class="jobBrowser" style="height: 3em;"
-                                   placeholder="Job Title, positon, skill...">
-                            <datalist id="selectedJobTitle">
-                                <option value="Kinh doanh">
-                                <option value="bán hàng">
-                                    <!-- điền thêm database -->
-                            </datalist>
+                        <form>
+                            <input type="text" list="selectedCompany" name="company" class="jobBrowser" style="height: 3em;"
+                                   placeholder="CompanyName" />
                         </form>
-                        <form action="" method="">
+                        <form>
                             <input type="text" list="selectedCareer" name="careerBrowser" class="jobBrowser" style="height: 3em;"
                                    placeholder="All career">
                             <datalist id="selectedCareer">
-                                <option value="Kinh doanh">
-                                <option value="bán hàng">
-                                    <!-- điền thêm database -->
+                                @foreach(var item in ViewBag.ListJobMain)
+                                {
+                                <option value="@item.JobName" data-id="@item.JobID" />
+                                }
                             </datalist>
                         </form>
-                        <form action="" method="">
+                        <form>
                             <input type="text" list="selectedState" name="areaBrowser" class="jobBrowser" style="height: 3em;"
                                    placeholder="All state">
                             <datalist id="selectedState">
-                                <option value="Kinh doanh">
-                                <option value="bán hàng">
-                                    <!-- điền thêm database -->
+                                @foreach(var item in ViewBag.ListArea)
+                                {
+                                <option value="@item.NameArea" data-id="@item.AreaId" />
+                                }
                             </datalist>
                         </form>
                         <button style="margin-left: 25px;">
@@ -103,25 +100,16 @@
                                 <div class="career-filter-responsive-wrap">
                                     <div class="career-search-filter-wrap career-search-filter-toggle">
                                         <h2 class="colClick">
-                                            <span>Nganh nghe</span>
+                                            <span>Quy mô</span>
                                             <i class="fa fa-angle-down" style="float: right;"></i>
                                         </h2>
-                                        <div class="career-checkbox-toggle">
-                                            <ul class="career-checkbox">
-                                                <li>
-                                                    <input type="checkbox" id="id1" name="Industry">
-                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" id="id1" name="Industry">
-                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" id="id1" name="Industry">
-                                                    <label for="id1"><span></span>Ngành nghề số 1</label>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <form style="font-size: 1.2em; margin-left: 0.3em;">
+                                            @foreach (var item in ViewBag.ListEnterpriseSize)
+                                            {
+                                            <input type="radio" name="selectSize" value="@item.SizeID" style="margin-right: 10px;" /> @item.AmountSize<br />
+                                            }
+
+                                        </form>
                                     </div>
                                 </div>
                             </form>
@@ -129,7 +117,7 @@
                     </aside>
                     <div class="job-right-menu">
                         <div class="career-typo-wrap">
-                            <div class="filterable" style="float:right;">Xoa het</div><br>
+                            <div class="filterable" style="float:right;">Clear All</div><br>
                             <div class="filterable">Hien thi ... ket qua</div>
                             <div class="career-employer-list">
                                 <ul class="row">

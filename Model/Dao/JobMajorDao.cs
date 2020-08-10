@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,12 @@ namespace Model.Dao
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
+
+        public dynamic ListJobSubByUser(IPrincipal user)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<JobMajor> ListJobSubByUser(Guid userId)
         {
             var listJobMain = db.UserMajors.Where(x => x.UserID == userId).Select(x => x.MajorID).ToList();

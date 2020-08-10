@@ -15,14 +15,6 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult ResultForSearchCompany()
-        {
-            return View();
-        }
-        public ActionResult SearchCompanyForUser()
-        {
-            return View();
-        }
         public ActionResult ResultForSearchJob()
         {
             return View();
@@ -42,8 +34,15 @@ namespace CareerWeb.Controllers
             ViewBag.ListExperience = new ExperienceDao().ListExperience();
             ViewBag.ListSalary = new SalaryDao().ListSalary();
             ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
-            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnLevelLearning();
-            ViewBag.ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, JobAddress, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest, OfferCreateDate);
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+            //ViewBag.ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, JobAddress, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest, OfferCreateDate);
+            return View();
+        }
+        public ActionResult SearchCompanyForUser()
+        {
+            ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
+            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
+            ViewBag.ListArea = new AreaDao().ListArea();
             return View();
         }
         public ActionResult Index()

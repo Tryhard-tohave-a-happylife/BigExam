@@ -26,8 +26,8 @@
                placeholder="Job Title, positon, skill...">
     </form>
     <form>
-        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" list="ListJobMain" />
-        <datalist id="ListJobMain" style="height:5.1em">
+        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" name="ListCareer" list="ListCareer" />
+        <datalist id="ListCareer" style="height:5.1em">
             @foreach(var item in ViewBag.ListJobMain)
             {
             <option value="@item.JobName" data-id="@item.JobID" />
@@ -35,7 +35,7 @@
         </datalist>
     </form>
     <form>
-        <input list="ListArea"  class="jobBrowser" style="height: 3em;"
+        <input list="ListArea" name="ListArea"  class="jobBrowser" style="height: 3em;"
                placeholder="All state">
         <datalist id="ListArea">
             @foreach(var item in ViewBag.ListArea)
