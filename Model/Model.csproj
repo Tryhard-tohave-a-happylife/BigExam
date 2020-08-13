@@ -64,6 +64,8 @@
     <Compile Include="Dao\JobMajorDao.cs" />
     <Compile Include="Dao\LanguageDao.cs" />
     <Compile Include="Dao\LevelLearningDao.cs" />
+    <Compile Include="Dao\OfferJobDao.cs" />
+    <Compile Include="Dao\OfferJobSkillDao.cs" />
     <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\SalaryDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
@@ -73,28 +75,24 @@
     <Compile Include="Dao\UserForeignLanguageDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />
     <Compile Include="EF\Account.cs" />
+    <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="EF\CareerWeb.cs" />
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
     <Compile Include="EF\EnterpriseJob.cs" />
     <Compile Include="EF\EnterpriseSize.cs" />
     <Compile Include="EF\Experience.cs" />
+    <Compile Include="EF\Interview.cs" />
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
-<<<<<<< HEAD
-    <Compile Include="EF\Model1.cs" />
-=======
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Compile Include="EF\OfferJob.cs" />
-    <Compile Include="EF\OfferJobMajor.cs" />
+    <Compile Include="EF\OfferJobSkill.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
     <Compile Include="EF\Salary.cs" />
+    <Compile Include="EF\SavedCandidate.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />
     <Compile Include="EF\User.cs" />

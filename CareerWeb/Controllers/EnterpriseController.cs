@@ -19,7 +19,7 @@ namespace CareerWeb.Controllers
         }
         public ActionResult EnterpriseHome()
         {
-            ViewBag.UserList = new UserDao().ListUser();
+            //ViewBag.UserList = new UserDao().ListUser();
             ViewBag.AreaList = new AreaDao().ListArea();
             ViewBag.JobList = new JobMajorDao().ListJobMain();
             return View();

@@ -19,75 +19,85 @@ namespace Model.Dao
             return db.OfferJobs.ToList();
         }
 
-        //public List<OfferJob> ReturnFilterList(String OfferName = "0", int Area = 0, 
-        //    String listCareer = "0", int OfferSalary = 0, int PositionJobID = 0, 
-        //    String Sex = "0", int ExperienceRequest = 0, int LearningLevelRequest = 0, 
-        //    DateTime OfferCreateDate = new DateTime())
-        //{
-        //    try
-        //    {
-        //        var listOfferJob = ListOfferJob();
-        //        var listOfferJobMajor = new OfferJobMajorDao().ReturnList();
+        public List<OfferJob> ReturnFilterList(string offerName = "0", int Area = 0,
+            int OfferMajor = 0, int offerSalary = 0, int positionJobId = 0,
+            string sex = "0", int experienceRequest = 0, int learningLevelRequest = 0)
+        {
+     
+            try
+            {
+                var listOfferJob = new OfferJobDao().ListOfferJob();
+                var listOfferJobMajor = new OfferJobSkillDao().ReturnList();
+                var result = (from job in listOfferJob
+                              join jobMajor in listOfferJobMajor on job.OfferID equals jobMajor.OfferID
+                              where (Area == 0 || job.Area == Area)
+                              && (OfferMajor == 0 || job.OfferMajor == OfferMajor)
+                              && (offerSalary == 0 || job.OfferSalary == offerSalary)
+                              && (positionJobId == 0 || job.OfferPosition == positionJobId)
+                              && (sex == "0" || job.Sex == sex)
+                              && (experienceRequest == 0 || job.ExperienceRequest == experienceRequest)
+                              && (learningLevelRequest == 0 || job.LearningLevelRequest == learningLevelRequest)
+                              && (offerName == "0" || job.OfferName.Contains(offerName))
 
-        //        var result = (from Job in listOfferJob
-        //                      join JobMajor in listOfferJobMajor on Job.OfferID equals JobMajor.OfferID
-        //                      where (Area == 0 || Job.Area == Area)
-        //                      where (listCareer == "0" || Job.listCareer == db.JobMajor.JobName)
-        //                      where (OfferSalary == 0 || Job.OfferSalary == OfferSalary)
-        //                      where (PositionJobID == 0 || Job.PositionJobID == PositionJobID)
-        //                      where (Sex == "0" || Job.Sex == Sex)
-        //                      where (ExperienceRequest == 0 || Job.ExperienceRequest == ExperienceRequest)
-        //                      where (LearningLevelRequest == 0 || Job.LearningLevelRequest == LearningLevelRequest)
-        //                      where (OfferName == "0" || Job.OfferName.Contains(OfferName))
-        //                      //date posted
-        //                      select new
-        //                      {
-        //                          OfferID = Job.OfferID,
-        //                          OfferName = Job.OfferName,
-        //                          EnterpriseID = Job.EnterpriseID,
-        //                          EnterpriseName = db.Enterprises.Find(Job.EnterpriseID).EnterpriseName,
-        //                          JobAddress = Job.JobAddress,
-        //                          Amount = db.Salaries.Find(Job.OfferSalary).Amount,
-        //                          OfferLimitDate = Job.OfferLimitDate,
-        //                          Bonus = Job.Bonus,
-        //                          OfferImage = Job.OfferImage,
-                                    
-        //                      });
+                              select new
+                              {
+                                  OfferID = job.OfferID,
+                                  OfferName = job.OfferName,
+                                  EnterpriseID = job.EnterpriseID,
+                                  EnterpriseName = db.Enterprises.Find(job.EnterpriseID).EnterpriseName,
+                                  JobAddress = job.JobAddress,
+                                  OfferSalary = job.OfferSalary,
+                                  Amount = db.Salaries.Find(job.OfferSalary).Amount,
+                                  OfferLimitDate = job.OfferLimitDate,
+                                  Bonus = job.Bonus,
+                                  OfferImage = job.OfferImage,
 
-        //        List<CandidateInfo> finalResult = result.ToList();
-        //        int n = finalResult.Count;
-        //        if (n == 0 || n == 1) return finalResult;
+                              }).AsEnumerable().Select(x => new OfferJob()
+                              {
+                                  OfferID = x.OfferID,
+                                  OfferName = x.OfferName,
+                                  EnterpriseID = x.EnterpriseID,
+                                  JobAddress = x.JobAddress,
+                                  OfferSalary = x.OfferSalary,
+                                  OfferLimitDate = x.OfferLimitDate,
+                                  Bonus = x.Bonus,
+                                  OfferImage = x.OfferImage
+                              })   ;
 
-        //        List<CandidateInfo> finalResult2 = new List<CandidateInfo>();
+                List<OfferJob> finalResult = result.ToList();
+                int n = finalResult.Count;
+                if (n == 0 || n == 1) return finalResult;
 
-        //        for (int i = 0; i < n; i++)
-        //        {
-        //            bool check = true;
-        //            for (int j = 0; j < finalResult2.Count; j++)
-        //            {
-        //                if (finalResult[i].UserId == finalResult2[j].UserId)
-        //                {
-        //                    check = false;
-        //                    break;
-        //                }
-        //            }
-        //            if (check == true)
-        //            {
-        //                finalResult2.Add(finalResult[i]);
-        //            }
+                List<OfferJob> finalResult2 = new List<OfferJob>();
 
-
-        //        }
-        //        return finalResult2;
+                for (int i = 0; i < n; i++)
+                {
+                    bool check = true;
+                    for (int j = 0; j < finalResult2.Count; j++)
+                    {
+                        if (finalResult[i].OfferID == finalResult2[j].OfferID)
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check == true)
+                    {
+                        finalResult2.Add(finalResult[i]);
+                    }
 
 
-        //    }
-        //    catch (exception e)
-        //    {
-        //        return null;
-        //    }
+                }
+                return finalResult2;
 
-        //}
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
 
     }
 }

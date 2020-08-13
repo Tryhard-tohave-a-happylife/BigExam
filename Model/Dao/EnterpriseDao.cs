@@ -104,5 +104,9 @@ namespace Model.Dao
                 return null;
             }
         }
+        public string EnterpriseName(Guid id)
+        {
+            return db.Enterprises.Find(id).EnterpriseName;
+        }
     }
 }

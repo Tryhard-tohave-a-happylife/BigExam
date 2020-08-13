@@ -6,8 +6,8 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("EnterpriseJob")]
-    public partial class EnterpriseJob
+    [Table("AppliedCandidate")]
+    public partial class AppliedCandidate
     {
         [Key]
         [Column(Order = 0)]
@@ -15,13 +15,19 @@ namespace Model.EF
 
         [Key]
         [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int JobId { get; set; }
-
-        public int? JobIdParent { get; set; }
+        public Guid UserID { get; set; }
 
         [Key]
         [Column(Order = 2)]
-        public bool Important { get; set; }
+        public Guid OfferID { get; set; }
+
+        [StringLength(50)]
+        public string Status { get; set; }
+
+        [StringLength(10)]
+        public string CreateDate { get; set; }
+
+        [StringLength(250)]
+        public string LinkCV { get; set; }
     }
 }

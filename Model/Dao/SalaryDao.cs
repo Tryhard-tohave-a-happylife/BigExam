@@ -14,9 +14,13 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-    public List<Salary> ListSalary()
+        public List<Salary> ListSalary()
         {
             return db.Salaries.ToList();
-        }        
+        }
+        public string AmountSalary(int id)
+        {
+            return db.Salaries.Find(id).Amount;
+        }
     }
 }

@@ -1,7 +1,12 @@
-﻿
+﻿@model List<Model.EF.OfferJob>
+@using Model.Dao
 @{
     ViewBag.Title = "SearchJobForUser";
     Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var OfferJobDao = new OfferJobDao();
+    var OfferJobSkillDao = new OfferJobSkillDao();
+    var EnterpriseDao = new EnterpriseDao();
+    var SalaryDao = new SalaryDao();
 }
 @section cssInsert{
     <link href="~/Assets/Client/Css/User/SearchJobForUser.css" rel="stylesheet" />
@@ -26,23 +31,23 @@
                placeholder="Job Title, positon, skill...">
     </form>
     <form>
-        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" name="ListCareer" list="ListCareer" />
-        <datalist id="ListCareer" style="height:5.1em">
-            @foreach(var item in ViewBag.ListJobMain)
+        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" name="OfferMajor" list="OfferMajor" id="as" />
+        <datalist id="OfferMajor" style="height:5.1em">
+            @foreach (var item in ViewBag.ListJobMain)
             {
-            <option value="@item.JobName" data-id="@item.JobID" />
+                <option value="@item.JobName" data-id="@item.JobID" />
             }
         </datalist>
     </form>
     <form>
-        <input list="ListArea" name="ListArea"  class="jobBrowser" style="height: 3em;"
-               placeholder="All state">
+        <input list="ListArea" name="ListArea" class="jobBrowser" style="height: 3em;"
+               placeholder="All state" id="bs">
         <datalist id="ListArea">
-            @foreach(var item in ViewBag.ListArea)
+            @foreach (var item in ViewBag.ListArea)
             {
-            <option value="@item.NameArea" data-id="@item.AreaId"/>
+                <option value="@item.NameArea" data-id="@item.AreaId" />
             }
-            
+
         </datalist>
     </form>
     <div id="findIcon"></div>
@@ -50,30 +55,7 @@
 <div id="clearAll" onclick="reload()">Clear all</div>
 <div>
     <div id="colJobLeftMenu">
-        <div id="location" class="borderColJobMenu">
-            <h3 class="colClick">
-                Khu vực
-            </h3>
-            <form id="loctionCheckbox">
-                Quốc gia<br>
-                <select name="country"
-                        style="width: 90%; height: 2.5em; padding-left: 1em; border-radius: 5px 5px; border-color: #b3b3b3; margin-top: 0.2em; margin-bottom: 0.3em; font-size: 0.8em;">
-                    <option value="Vietnam" selected>Việt Nam</option>
-                    <!--  Load đất nước-->
-                </select>
-                <br>
-                Tỉnh <br>
-                <select name="state"
-                        style="width: 90%; height: 2.5em; padding-left: 1em; border-radius: 5px 5px; border-color: #b3b3b3; margin-top: 0.2em; font-size: 0.8em;">
-                    <option value="Hanoi" selected>Hà Nội</option>
-                    <!-- Load các tỉnh -->
-                </select>
-                <br>
-                <button style="width: 90%; height: 2.5em; padding-left: 1em; border-radius: 5px 5px; border-color: #b3b3b3; margin-top: 0.5em; margin-bottom: 0.5em; font-size: 0.8em; background-color: #0568fc; color: white;">
-                    Search
-                </button>
-            </form>
-        </div>
+        
         <div id="salary" class="borderColJobMenu" style="margin-top: 2em;">
             <h3 class="colClick" style="display: inline-flex;">
                 Lương (tháng) <i class='fas fa-angle-down'
@@ -133,100 +115,70 @@
                 }
             </form>
         </div>
-        <div id="datePosted" class="borderColJobMenu" style="margin-top: 2em;">
-            <h3 class="colClick" style="display: inline-flex;">
-                Ngày đăng <i class='fas fa-angle-down'
-                             style="position: absolute; float: right; margin-left: 80%;"></i>
-            </h3>
-            <form style="font-size: 1.2em; margin: 0.3em;">
-                <input type="radio" name="selectDate" value="24hours"> 24 giờ<br>
-                <input type="radio" name="selectDate" value="7days"> 7 ngày trước<br>
-                <input type="radio" name="selectDate" value="14days"> 14 ngày trước<br>
-                <input type="radio" name="selectDate" value="30days"> 30 ngày trước<br>
-            </form>
-        </div>
     </div>
     <div id="colJobRightMenu">
-        <div id="showResult"> Hiển thị ... - ... của  kết quả</div>
-        <!-- điền số results -->
-        <div class="jobContainer">
-            <div class="logo">
-                <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" alt="" />
-            </div>
-            <h3 class="jobName">
-                <div class="textOverflowLine">Nhân viên kinh doanh</div>
-            </h3>
-            <div class="companyName">
-                <div class="textOverflowLine">
-                    <i class="fa fa-building"></i>
-                    <b>Công ty:</b>
-                    <span>Tập đoàn tài chính Strongman</span>
-                </div>
-            </div>
-            <div class="address">
-                <div class="textOverflowLine">
-                    <i class="fa fa-map-marker"></i>
-                    <b>Nơi làm việc:</b>
-                    <span> Hà Nội</span>
-                </div>
-            </div>
-            <div class="salary">
-                <i class="fas fa-dollar-sign"></i>
-                <b>Lương:</b>
-                <span>800-1000 USD</span>
-            </div>
-            <div class="deadline">
-                <i class="far fa-calendar-alt"></i>
-                <b>Hạn nộp:</b>
-                <span>07/10/2000</span>
-            </div>
-            <div class="reward">
-                <i class="fa fa-gift"></i>
-                <b>Thưởng:</b>
-                <span>800-1000 USD</span>
-            </div>
-        </div>
-        <div class="jobContainer">
-            <div class="logo">
-                <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" alt="" />
-            </div>
-            <h3 class="jobName">
-                <div class="textOverflowLine">Nhân viên kinh doanh</div>
-            </h3>
-            <div class="companyName">
-                <div class="textOverflowLine">
-                    <i class="fa fa-building"></i>
-                    <b>Công ty:</b>
-                    <span>Tập đoàn tài chính Strongman</span>
-                </div>
-            </div>
-            <div class="address">
-                <div class="textOverflowLine">
-                    <i class="fa fa-map-marker"></i>
-                    <b>Nơi làm việc:</b>
-                    <span> Hà Nội</span>
-                </div>
-            </div>
-            <div class="salary">
-                <i class="fas fa-dollar-sign"></i>
-                <b>Lương:</b>
-                <span>800-1000 USD</span>
-            </div>
-            <div class="deadline">
-                <i class="far fa-calendar-alt"></i>
-                <b>Hạn nộp:</b>
-                <span>07/10/2000</span>
-            </div>
-            <div class="reward">
-                <i class="fa fa-gift"></i>
-                <b>Thưởng:</b>
-                <span>800-1000 USD</span>
-            </div>
-        </div>
-    </div>
-</div>
+        @if (Model != null && Model.Count != 0)
+        {
+            <div id="showResult"> Hiển thị 1 - @Model.Count của @Model.Count kết quả</div>
+        }
+        else
+        {
+            <div id="showResult"> Không tìm thấy công việc như yêu cầu</div>
+        }
+        <div style="margin-bottom: 5em;"></div>
 
-@section jsInsert{
-    <script src="~/Assets/Client/Js/User/SearchJobForUser.js"></script>
-}
+        @if (Model != null && Model.Count != 0)
+        {
+            foreach (var item in Model)
+            {
+
+                var linkImage = item.OfferImage;
+                <div class="jobContainer">
+                    <div class="logo">
+                        <img src="@linkImage" alt="" />
+                    </div>
+                    <h3 class="jobName">
+                        <div class="textOverflowLine">@item.OfferName</div>
+                    </h3>
+                    <div class="companyName">
+                        <div class="textOverflowLine">
+                            <i class="fa fa-building"></i>
+                            <b>Công ty:</b>
+                            <span>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</span>
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="textOverflowLine">
+                            <i class="fa fa-map-marker"></i>
+                            <b>Nơi làm việc:</b>
+                            <span>@item.JobAddress</span>
+                        </div>
+                    </div>
+                    <div class="salary">
+                        <div class="textOverflowLine">
+                            <i class="fas fa-dollar-sign"></i>
+                            <b>Lương:</b>
+                            <span>@(SalaryDao.AmountSalary(item.OfferSalary))</span>
+                            <span>USD</span>
+                        </div>
+                    </div>
+                    <div class="deadline">
+                        <i class="far fa-calendar-alt"></i>
+                        <b>Hạn nộp:</b>
+                        <span>@item.OfferLimitDate</span>
+                    </div>
+                    <div class="reward">
+                        <i class="fa fa-gift"></i>
+                        <b>Thưởng:</b>
+                        <span>@item.Bonus</span>
+                    </div>
+
+                </div>
+            }
+
+        }
+    </div>
+    @section jsInsert{
+        <script src="~/Assets/Client/Js/User/SearchJobForUser.js"></script>
+    }
 

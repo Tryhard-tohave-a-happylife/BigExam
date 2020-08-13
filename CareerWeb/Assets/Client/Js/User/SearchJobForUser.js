@@ -8,19 +8,18 @@
         location.reload();
     })
     $("#findIcon").click(function () {
-        var jobBrowser = $("input[name='jobBrowser']");
-        var listCareer = $("input[name='ListCareer']");
-        var listArea = $("input[name='ListArea']");
-        var salary = $("input[name='selectSalary']");
-        var positionEmployee = $("input[name='selectPosition']");
-        var experience = $("input[name='selectExperience']");
-        var sex = $("input[name='selectGender']");
-        var levelLearning = $("input[name='selectLevel']");
-        var datePosted = $("input[name='selectDate']");
-        var dbParam = "OfferName=" + jobBrowser + "&Area=" + listArea + "&listCareer=" + listCareer
+        var jobBrowser = $("input[name='jobBrowser']").val();
+        var OfferMajor = $('#OfferMajor option[value="' + $('#as').val() + '"]').data('id');
+        var listArea = $('#ListArea option[value="' + $('#bs').val() + '"]').data('id');
+        var salary = ($("input[name='selectSalary']:checked").val() != null) ? $("input[name='selectSalary']:checked").val() : 0;
+        var positionEmployee = ($("input[name='selectPosition']:checked").val() != null) ? $("input[name='selectPosition']:checked").val() : 0;
+        var experience = ($("input[name='selectExperience']:checked").val() != null) ? $("input[name='selectExperience']:checked").val() : 0;
+        var sex = ($("input[name='selectGender']:checked").val() != null) ? $("input[name='selectGender']:checked").val() : 0;
+        var levelLearning = ($("input[name='selectLevel']:checked").val() != null) ? $("input[name='selectLevel']:checked").val() : 0;
+        var dbParam = "OfferName=" + jobBrowser + "&Area=" + listArea + "&OfferMajor=" + OfferMajor
             + "&OfferSalary=" + salary + "&PositionJobID=" + positionEmployee + "&Sex=" + sex + "&ExperienceRequest=" + experience
-             + "&LearningLevelRequest=" + levelLearning + "&OfrerCreateDate=" + datePosted;
-        window.location.href = "/SearchCandidateResult?" + dbParam;
+             + "&LearningLevelRequest=" + levelLearning;
+        window.location.href = "/SearchJobForUser?" + dbParam;
     })
 
     function checkName() {

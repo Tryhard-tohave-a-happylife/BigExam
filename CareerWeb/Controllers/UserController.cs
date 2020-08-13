@@ -20,10 +20,6 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
-        public ActionResult SearchCompanyForUser()
-        {
-            return View();
-        }
         public ActionResult ResultForSearchJob()
         {
             ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
@@ -39,7 +35,7 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
-        public ActionResult SearchJobForUser(String OfferName = "", int Area = 0, String JobAddress = "0", int OfferSalary = 0, int PositionJobID = 0, String Sex = "0",  int ExperienceRequest = 0, int LearningLevelRequest = 0, DateTime OfferCreateDate = new DateTime())
+        public ActionResult SearchJobForUser(string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0, string Sex = "0",  int ExperienceRequest = 0, int LearningLevelRequest = 0, string OfferCreateDate = "")
         {
             ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
             ViewBag.ListArea = new AreaDao().ListArea();
@@ -47,8 +43,9 @@ namespace CareerWeb.Controllers
             ViewBag.ListSalary = new SalaryDao().ListSalary();
             ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
             ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
-            //ViewBag.ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, JobAddress, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest, OfferCreateDate);
-            return View();
+
+            var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest);
+            return View(ListJobContainer);
         }
         public ActionResult SearchCompanyForUser()
         {

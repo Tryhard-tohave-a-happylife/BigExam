@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class OfferJobMajorDao
+    public class OfferJobSkillDao
     {
         CareerWeb db = null;
-        public OfferJobMajorDao()
+        public OfferJobSkillDao()
         {
             db = new CareerWeb();
         }
 
-        public List<OfferJobMajor> ReturnList()
+        public List<OfferJobSkill> ReturnList()
         {
-            return db.OfferJobMajors.ToList();
+            return db.OfferJobSkills.ToList();
         }
 
-        public bool InsertJobMajor(OfferJobMajor JobMajor)
+        public bool InsertJobMajor(OfferJobSkill JobMajor)
         {
             try
             {
-                db.OfferJobMajors.Add(JobMajor);
+                db.OfferJobSkills.Add(JobMajor);
                 db.SaveChanges();
                 return true;
             }

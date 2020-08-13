@@ -1,10 +1,5 @@
 ﻿using Model.Dao;
-<<<<<<< HEAD
-﻿using Model.EF;
-
-=======
 using Model.EF;
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 using System;
 using System.Web.Mvc;
 
@@ -23,7 +18,7 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-            ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser(User);
+           // ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser();
             ViewBag.AreaList = new AreaDao().ListArea();
             return View();
         
