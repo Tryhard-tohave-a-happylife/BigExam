@@ -19,7 +19,7 @@ namespace Model.EF
 
         [Required]
         [StringLength(50)]
-        public string Sex { get; set; }
+        public string PositionName { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime BirthDay { get; set; }

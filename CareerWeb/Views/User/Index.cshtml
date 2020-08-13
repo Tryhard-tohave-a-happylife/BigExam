@@ -1,60 +1,187 @@
-﻿@{
-    Layout = "~/Views/Shared/LayoutForUser.cshtml";
-    ViewBag.Title = "Index";
-}
-@model Model.EF.User
+﻿@model Model.EF.User
 @using Model.Dao
+@{
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    ViewBag.Title = Model.UserName + " - Quản lý hồ sơ";
+}
 @section cssInsert{
     <link href="~/Assets/Client/Css/User/IndexUser.css" rel="stylesheet" />
 }
 @{
     var areaName = new AreaDao().FindNameArea(Model.UserArea);
+    var dob = Model.UserBirthDay.ToString("dd/MM/yyyy");
+    var linkImage = Model.UserImage == null ? "/Assets/Client/Img/Common/default-user-image.png" : Model.UserImage;
 }
+
 <main>
+    <img src="~/Assets/Client/Img/Common/Ring-Loading-1.gif" id="load-cover"/>
     <div id="introduce-link">
-        <a>Việc làm</a>
+        <a><i class='fas fa-house-user'></i> Việc làm</a>
         <span> / Người tìm việc : Quản lý</span>
     </div>
     <div id="container-left">
-        <div id="sumary-infor"></div>
-        <div id="list-part-use"></div>
+        <div id="sumary-infor" class="statistical">
+            <div id="chart-infor" data-percent="20%">20%</div>
+            <div id="note-data">
+                * Cập nhật từ 80% trở lên để nhà tuyển dụng tiếp cận hồ sơ xin việc của bạn nhanh hơn.
+            </div>
+            <div class="statistical-number" id="interview">
+                PHỎNG VẤN
+                <span>0</span>
+            </div>
+            <div class="statistical-number" id="candidate">
+                ỨNG TUYỂN
+                <span>0</span>
+            </div>
+        </div>
+        <div id="list-part-use" class="statistical">
+            <div class="list-part" data-link="contact-id">
+                <i class='far fa-list-alt'></i>
+                Thông tin liên hệ
+            </div>
+            <div class="list-part" data-link="cv-attached">
+                <i class='far fa-list-alt'></i>
+                File CV
+            </div>
+            <div class="list-part" data-link="finding-job-infor">
+                <i class='far fa-list-alt'></i>
+                Thông tin xin việc
+            </div>
+            <div class="list-part" data-link="study-level">
+                <i class='far fa-list-alt'></i>
+                Trình độ học vấn
+            </div>
+            <div class="list-part" data-link="work-experience">
+                <i class='far fa-list-alt'></i>
+                Kinh nghiệm làm việc
+            </div>
+            <div class="list-part" data-link="foreign-language">
+                <i class='far fa-list-alt'></i>
+                Ngoại ngữ
+            </div>
+            <div class="list-part" data-link="skill-job">
+                <i class='far fa-list-alt'></i>
+                Kĩ năng
+            </div>
+            <div class="list-part" data-link="award">
+                <i class='far fa-list-alt'></i>
+                Chứng chỉ, thành tích
+            </div>
+        </div>
     </div>
     <div id="container-right">
         <div id="contact-id" class="box-infor">
             <div class="first-title">
                 THÔNG TIN LIÊN HỆ
+                <div id="edit-profile" class="button-edit">
+                    <i class='far fa-edit' style="color: white;"></i>
+                </div>
+                <div id="show-cv" class="button-edit">Tạo CV</div>
             </div>
             <div id="container-img">
-                <img id="img-profile" />
+                <img id="img-profile" src="@linkImage" />
+                <input type="file" id="image-browser" />
+                <div id="choose-image">
+                    <div class="alert">Chọn ảnh</div>
+                </div>
+                <div id="save-image">
+                    <div class="alert">Lưu ảnh</div>
+                </div>
             </div>
             <div class="infor-details">
-                <div id="name-user">
-                    Họ và tên:
+                <div id="name-user" class="details-user">
+                    <i class="fa fa-address-book-o"></i>
+                    <div>Họ và tên: </div>
                     <span>@Model.UserName</span>
                 </div>
-                <div id="dob-user">
-                    Ngày sinh:
-                    <span>@Model.UserBirthDay.ToShortDateString()</span>
+                <div id="dob-user" class="details-user">
+                    <i class='far fa-calendar-alt'></i>
+                    <div>Ngày sinh: </div>
+                    <span>@dob</span>
                 </div>
-                <div id="sex-user">
-                    Giới tính:
+                <div id="sex-user" class="details-user">
+                    <i class="fa fa-venus-mars"></i>
+                    <div>Giới tính:</div>
                     <span>@(Model.Sex == "male" ? "Nam" : "Nữ")</span>
                 </div>
-                <div id="email-user">
-                    Email:
+                <div id="email-user" class="details-user">
+                    <i class='far fa-envelope'></i>
+                    <div>Email:</div>
                     <span>@Model.UserEmail</span>
                 </div>
-                <div id="phoneNumber-user">
-                    Mobile:
+                <div id="phoneNumber-user" class="details-user">
+                    <i class='fas fa-phone-square-alt'></i>
+                    <div>Điện thoại :</div>
                     <span>@Model.UserMobile</span>
                 </div>
-                <div id="area-user">
-                    Khu vực:
+                <div id="area-user" class="details-user">
+                    <i class='fas fa-location-arrow'></i>
+                    <div>Khu vực:</div>
                     <span>@areaName</span>
                 </div>
-                <div id="address-user">
-                    Địa chỉ:
+                <div id="address-user" class="details-user">
+                    <i class='fas fa-map-marker-alt'></i>
+                    <div>Địa chỉ:</div>
                     <span>@(Model.UserAddress == null ? "" : Model.UserAddress)</span>
+                </div>
+            </div>
+            <div class="input-infor-user" style="margin-top: 30px;">
+                <div class="infor-details">
+                    <div class="title">Họ và tên <span>*</span></div>
+                    <input type="text" id="user-name" value="@Model.UserName" required />
+                </div>
+                <div class="infor-details">
+                    <div class="title">Ngày sinh <span>*</span></div>
+                    <input type="text" id="user-dob" value="@dob" class="input-enough" placeholder="Định dạng : dd/mm/yy" required />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Giới tính <span>*</span></div>
+                    <select id="user-gender">
+                        @if (Model.Sex == "male")
+                        {
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                        }
+                        else
+                        {
+                            <option value="female">Nữ</option>
+                            <option value="male">Nam</option>
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Email <span>*</span></div>
+                    <input type="text" id="user-email" value="@Model.UserEmail" required />
+                    <span class="alert-error-format">Nhập sai định dạng gmail</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Điện thoại <span>*</span></div>
+                    <input type="tel" id="user-mobile" value="@Model.UserMobile" required />
+                </div>
+                <div class="infor-details">
+                    <div class="title">Khu vực <span>*</span></div>
+                    <select id="user-area">
+                        @foreach (var item in ViewBag.ListArea)
+                        {
+                            if (Model.UserArea == item.AreaId)
+                            {
+                                <option value="@item.AreaId" selected>@item.NameArea</option>
+                            }
+                            else
+                            {
+                                <option value="@item.AreaId">@item.NameArea</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Địa chỉ</div>
+                    <input type="text" id="user-address" value="@(Model.UserAddress == null ? "" : Model.UserAddress)" />
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thay đổi</div>
+                    <div class="cancel">Hủy</div>
                 </div>
             </div>
         </div>
@@ -62,8 +189,18 @@
             <div class="first-title">
                 ĐÍNH KÈM CV FILE
             </div>
+            @if (Model.CVLink != null)
+            {
+
+            }
+            else
+            {
+                <input type="file" value="Chọn tệp" id="choose-cv" />
+                <br />
+                <div id="upload-cv">Tải File CV</div>
+            }
         </div>
-        <div id="findding-job-infor" class="box-infor">
+        <div id="finding-job-infor" class="box-infor">
             <div class="first-title">
                 THÔNG TIN XIN VIỆC
             </div>
@@ -71,26 +208,188 @@
         <div id="study-level" class="box-infor">
             <div class="first-title">
                 TRÌNH ĐỘ HỌC VẤN
+                <div class="add-more" add-for="study-level"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            <div class="container-infor"></div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Chuyên ngành <span>*</span></div>
+                    <select id="major">
+                        @foreach (var item in ViewBag.ListUserJobParent)
+                        {
+                            <option value="@item.JobID">@item.JobName</option>
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Cấp bậc <span>*</span></div>
+                    <select id="level">
+                        @foreach (var item in ViewBag.ListLevelLearning)
+                        {
+                            <option value="@item.ID">@item.NameLevel</option>
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thời gian bắt đầu <span>*</span></div>
+                    <input type="text" id="time-start-sc" class="input-time" placeholder="Định dạng : mm/yy" required />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thời gian kết thúc</div>
+                    <input type="text" id="time-end-sc" class="input-time" placeholder="Định dạng : mm/yy" />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Trường học <span>*</span></div>
+                    <input type="text" value="" id-school="" list="list-school" required />
+                    <datalist id="list-school">
+                    </datalist>
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thêm</div>
+                    <div class="cancel">Hủy</div>
+                </div>
             </div>
         </div>
         <div id="work-experience" class="box-infor">
             <div class="first-title">
                 KINH NGHIỆM LÀM VIỆC
+                <div class="add-more" add-for="work-experience"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            <div class="container-infor"></div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Vị trí <span>*</span></div>
+                    <select id="position">
+                        @foreach (var item in ViewBag.ListPostion)
+                        {
+                            <option value="@item.ID">@item.NamePosition</option>
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Tên công ty <span>*</span></div>
+                    <input type="text" value="" list="list-enterprise" required />
+                    <datalist id="list-enterprise">
+                        @foreach (var item in ViewBag.ListEnterprise)
+                        {
+                            <option value="@item.EnterpriseName" />
+                        }
+                    </datalist>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thời gian bắt đầu <span>*</span></div>
+                    <input type="text" id="time-start-ex" class="input-time" placeholder="Định dạng : mm/yy" required />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thời gian kết thúc</div>
+                    <input type="text" id="time-end-ex" class="input-time" placeholder="Định dạng : mm/yy" />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Mô tả chi tiết</div>
+                    <textarea class="description"></textarea>
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thêm</div>
+                    <div class="cancel">Hủy</div>
+                </div>
             </div>
         </div>
         <div id="foreign-language" class="box-infor">
             <div class="first-title">
                 NGOẠI NGỮ
+                <div class="add-more" add-for="foreign-language"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            <div class="container-infor"></div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Ngoại ngữ <span>*</span></div>
+                    <select id="language">
+                        @foreach (var item in ViewBag.ListLanguage)
+                        {
+                            <option value="@item.ID">@item.LanguageName</option>
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Trình độ <span>*</span></div>
+                    <select id="level">
+                        <option value="basic">Sơ cấp</option>
+                        <option value="normal">Trung cấp</option>
+                        <option value="master">Cao cấp</option>
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Mô tả chi tiết</div>
+                    <textarea class="description"></textarea>
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thêm</div>
+                    <div class="cancel">Hủy</div>
+                </div>
             </div>
         </div>
         <div id="skill-job" class="box-infor">
             <div class="first-title">
                 KĨ NĂNG
+                <div class="add-more" add-for="skill-job"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            <div class="container-infor"></div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Kĩ năng thêm vào</div>
+                    <div id="container-skill">
+                    </div>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Tìm kiếm</div>
+                    <input type="text" value="" list="list-skill" required />
+                    <datalist id="list-skill">
+                        @foreach (var item in ViewBag.ListJobSub)
+                        {
+                            <option value="@item.JobName" job-id="@item.JobID" />
+                        }
+                    </datalist>
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thêm</div>
+                    <div class="cancel">Hủy</div>
+                </div>
+            </div>
+        </div>
+        <div id="award" class="box-infor">
+            <div class="first-title">
+                CHỨNG CHỈ, THÀNH TÍCH
+                <div class="add-more" add-for="award"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            <div class="container-infor"></div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Mô tả <span>*</span></div>
+                    <textarea class="description"></textarea>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thời gian nhận <span>*</span></div>
+                    <input type="text" id="time-gain" class="input-time" placeholder="Định dạng : mm/yy" required />
+                    <span class="alert-error-format">Nhập sai định dạng, năm hoặc tháng</span>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Thêm ảnh</div>
+                    <input type="file" value="" id="image-award" />
+                </div>
+                <div class="infor-details">
+                    <div class="submit">Thêm</div>
+                    <div class="cancel">Hủy</div>
+                </div>
             </div>
         </div>
     </div>
 </main>
 @section jsInsert{
+    <script src="~/Scripts/jquery.easypiechart.js"></script>
     <script src="~/Assets/Client/Js/User/IndexUser.js"></script>
 }
 

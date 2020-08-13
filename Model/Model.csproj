@@ -40,6 +40,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -61,36 +67,49 @@
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
+    <Compile Include="Dao\LanguageDao.cs" />
+    <Compile Include="Dao\LevelLearningDao.cs" />
     <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
+    <Compile Include="Dao\UniversityDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\Area.cs" />
+    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
     <Compile Include="EF\EnterpriseJob.cs" />
     <Compile Include="EF\EnterpriseSize.cs" />
+    <Compile Include="EF\Experience.cs" />
     <Compile Include="EF\JobMajor.cs" />
-    <Compile Include="EF\CareerWeb.cs" />
+    <Compile Include="EF\Language.cs" />
+    <Compile Include="EF\LevelLearning.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobMajor.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
+    <Compile Include="EF\Salary.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserCertificate.cs" />
+    <Compile Include="EF\UserExperience.cs" />
+    <Compile Include="EF\UserForeignLanguage.cs" />
+    <Compile Include="EF\UserLearning.cs" />
     <Compile Include="EF\UserMajor.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
+    <Compile Include="Models\ModifyUserForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

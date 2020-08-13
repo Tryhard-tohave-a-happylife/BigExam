@@ -4,3 +4,9 @@ C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.csprojAssemblyRefe
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.dll
 C:\Users\Admin\source\repos\CareerWeb\Common\obj\Debug\Common.pdb
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\bin\Debug\Common.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\bin\Debug\Common.pdb
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\obj\Debug\Common.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Common\obj\Debug\Common.pdb

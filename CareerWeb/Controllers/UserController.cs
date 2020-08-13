@@ -1,10 +1,14 @@
-﻿using Model.Dao;
+﻿using CareerWeb.Models;
+using Model.Dao;
 using Model.EF;
+using Model.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace CareerWeb.Controllers
 {
@@ -32,6 +36,13 @@ namespace CareerWeb.Controllers
             var accID = int.Parse(User.Identity.Name);
             var acc = new AccountDao().FindAccountById(accID);
             var user = new UserDao().FindById(acc.UserId);
+            ViewBag.ListUserJobParent = new JobMajorDao().ReturnParentListByUser(user.UserId);
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+            ViewBag.ListPostion = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLanguage = new LanguageDao().ReturnList();
+            ViewBag.ListJobSub = new JobMajorDao().ListJobSubByUser(user.UserId);
+            ViewBag.ListEnterprise = new EnterpriseDao().ReturnList();
+            ViewBag.ListArea = new AreaDao().ListArea();
             return View(user);
         }
         [HttpPost]
@@ -64,6 +75,52 @@ namespace CareerWeb.Controllers
                 {
                     status = true
                 });
+            }
+            return Json(new
+            {
+                status = false
+            });
+        }
+        [HttpPost]
+        public JsonResult ModifyUser(ModifyUserForm user)
+        {
+            var accID = int.Parse(User.Identity.Name);
+            var acc = new AccountDao().FindAccountById(accID);
+            var check = new UserDao().ModifyUser(acc.UserId, user);
+            if (check)
+            {
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            return Json(new
+            {
+                status = false
+            });
+        }
+        [HttpPost]
+        public JsonResult ImageUpload(FileUploadModel model)
+        {
+            var file = model.ImageFile;
+            if (file != null)
+            {
+
+                var fileName = Path.GetFileName(file.FileName);
+                var extention = Path.GetExtension(file.FileName);
+                var filenamewithoutextension = Path.GetFileNameWithoutExtension(file.FileName);
+                file.SaveAs(Server.MapPath("/Assets/Client/Img/User/ImageProfile/" + fileName));
+                var srcImage = "/Assets/Client/Img/User/ImageProfile/" + fileName;
+                var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var check = new UserDao().UploadImage(acc.UserId, srcImage);
+                if (check)
+                {
+                    return Json(new
+                    {
+                        status = true,
+                    });
+                }
             }
             return Json(new
             {

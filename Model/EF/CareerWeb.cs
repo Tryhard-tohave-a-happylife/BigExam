@@ -16,17 +16,24 @@ namespace Model.EF
         public virtual DbSet<Area> Areas { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Enterprise> Enterprises { get; set; }
+        public virtual DbSet<Experience> Experiences { get; set; }
         public virtual DbSet<JobMajor> JobMajors { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<LevelLearning> LevelLearnings { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
         public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
+        public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
         public virtual DbSet<University> Universities { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserCertificate> UserCertificates { get; set; }
+        public virtual DbSet<UserExperience> UserExperiences { get; set; }
+        public virtual DbSet<UserForeignLanguage> UserForeignLanguages { get; set; }
+        public virtual DbSet<UserLearning> UserLearnings { get; set; }
         public virtual DbSet<EnterpriseArea> EnterpriseAreas { get; set; }
         public virtual DbSet<EnterpriseJob> EnterpriseJobs { get; set; }
         public virtual DbSet<EnterpriseSize> EnterpriseSizes { get; set; }
         public virtual DbSet<OfferJobMajor> OfferJobMajors { get; set; }
-        public virtual DbSet<UserCertificate> UserCertificates { get; set; }
         public virtual DbSet<UserMajor> UserMajors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -116,23 +123,39 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.UserExperience)
+                .Property(e => e.Sex)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()
-                .Property(e => e.Sex)
+                .Property(e => e.CVLink)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserCertificate>()
+                .Property(e => e.ImageCertificate)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserExperience>()
+                .Property(e => e.StartTime)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserExperience>()
+                .Property(e => e.EndTime)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserForeignLanguage>()
+                .Property(e => e.LanguageLevel)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLearning>()
+                .Property(e => e.TimeStart)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLearning>()
+                .Property(e => e.TimeEnd)
                 .IsUnicode(false);
 
             modelBuilder.Entity<EnterpriseSize>()
                 .Property(e => e.AmountSize)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<UserCertificate>()
-                .Property(e => e.NameCertificate)
-                .IsFixedLength();
-
-            modelBuilder.Entity<UserCertificate>()
-                .Property(e => e.ImageCertificate)
                 .IsUnicode(false);
         }
     }

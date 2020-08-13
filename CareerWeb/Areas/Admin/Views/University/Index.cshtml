@@ -1,0 +1,64 @@
+﻿@model List<Model.EF.University>
+@{
+    ViewBag.Title = "University Management";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header{ University Management}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item active">University Management</li>
+}
+@Html.ActionLink("Creat New University", "CreatUniversity", null, new { @class = "btn btn-outline-secondary" })
+<div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    List of Universities
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>UniversityName</th>
+                    <th>UniversityLogo</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>UniversityName</th>
+                    <th>UniversityLogo</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr id="row_@item.UniversityID">
+                    <td>@item.UniversityName</td>
+                    <td><img src="@item.UniversityLogo" width="auto" height="80px"></td>
+                    <td>@item.Email</td>
+                    <td>@item.Mobile</td>
+                    <td>@item.Address</td>
+                    <td>@Html.ActionLink("Detail", "DetailUniversity", new { id = item.UniversityID })</td>
+                    <td>
+                        @Ajax.ActionLink("Delete", "DeleteUniversity", new { id = item.UniversityID }, new AjaxOptions
+                    {
+                       Confirm = "Are you sure to delete?",
+                       OnComplete = "$('#row_"+@item.UniversityID+"').remove()",
+                       HttpMethod = "Delete"
+                    })
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
