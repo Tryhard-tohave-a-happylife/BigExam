@@ -56,12 +56,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
-    </Reference>
-    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -127,12 +121,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\Admin\Controllers\EnterpriseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\JobMajorController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UniversityController.cs" />
-    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -144,36 +134,35 @@
     </Compile>
     <Compile Include="Models\FileUploadModel.cs" />
     <Compile Include="Models\InsertEnterpriseForm.cs" />
-    <Compile Include="Models\LoginData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Admin\Css\Common\styles.css" />
+    <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
+    <Content Include="Assets\Client\Css\User\NewsOfHandBook_3.css" />
+    <Content Include="Assets\Client\Css\User\UserHome.css" />
+    <Content Include="Assets\Client\Css\Employee\SearchCandidate.css" />
+    <Content Include="Assets\Client\Css\Employee\SearchCandidateResult.css" />
+    <Content Include="Assets\Client\Css\Layout\LayoutForEnterprise.css" />
+    <Content Include="Assets\Client\Css\Register\RegisterForEnterprise.css" />
+    <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
+    <Content Include="Assets\Client\Css\User\ResultForSearchJob.css" />
+    <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
+    <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
+    <Content Include="Assets\Client\Img\Offer\Logo_MISA.jpg" />
+    <Content Include="Assets\Client\Img\Offer\117824601_625925528306611_6684277722219155690_n.jpg" />
+    <Content Include="Assets\Client\Img\Offer\e7d7c3b9083afa752a4e9ce33f0025c4.png" />
+    <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
+    <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
+    <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
+    <Content Include="Assets\Client\Js\Layout\LayoutForEnterprise.js" />
+    <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
+    <Content Include="Assets\Admin\Css\Common\header-footer.css" />
     <Content Include="Assets\Admin\Css\Enterprise\ResponseEnterprise.css" />
-    <Content Include="Assets\Admin\Demo\chart-area-demo.js" />
-    <Content Include="Assets\Admin\Demo\chart-bar-demo.js" />
-    <Content Include="Assets\Admin\Demo\chart-pie-demo.js" />
-    <Content Include="Assets\Admin\Demo\datatables-demo.js" />
-    <Content Include="Assets\Admin\Js\Common\scripts.js" />
     <Content Include="Assets\Admin\Js\Enterprise\ResponseEnterprise.js" />
-    <Content Include="Assets\Client\Css\Common\Header-FooterForEnterprise.css" />
-    <Content Include="Assets\Client\Css\Common\Header-FooterForUser.css" />
-    <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEnterprise1.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForUser.css" />
-    <Content Include="Assets\Client\Css\User\HandbookForUser.css" />
-    <Content Include="Assets\Client\Css\User\IndexUser.css" />
-    <Content Include="Assets\Client\Css\User\MoreNewsFromHandbook.css" />
-    <Content Include="Assets\Client\Css\User\SearchJobForUser.css" />
     <Content Include="Assets\Client\Img\Common\backgroundRegister.jpg" />
-    <Content Include="Assets\Client\Img\Common\camera.png" />
-    <Content Include="Assets\Client\Img\Common\default-user-image.png" />
     <Content Include="Assets\Client\Img\Common\gifLoad.gif" />
-    <Content Include="Assets\Client\Img\Common\Ring-Loading-1.gif" />
-    <Content Include="Assets\Client\Img\Common\save.png" />
-    <Content Include="Assets\Client\Img\Enterprise\LogoEnterprise\57446437_366511470626635_7083816791109009408_n.jpg" />
-    <Content Include="Assets\Client\Img\Enterprise\LogoEnterprise\e7d7c3b9083afa752a4e9ce33f0025c4.png" />
-    <Content Include="Assets\Client\Img\Enterprise\LogoEnterprise\Logo_MISA.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\blue-search-icon.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\subheader-bg.jpg" />
     <Content Include="Assets\Client\Js\Header-Footer\Header-FooterForEnterprise.js" />
@@ -182,16 +171,17 @@
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Js\User\HandbookForUser.js" />
-    <Content Include="Assets\Client\Js\User\IndexUser.js" />
     <Content Include="Assets\Client\Js\User\MoreNewsFromHandbook.js" />
+    <Content Include="Assets\Client\Js\User\NewsOfHandBook_3.js" />
+    <Content Include="Assets\Client\Js\User\ResultForSearchJob.js" />
     <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
+    <Content Include="Assets\Client\Js\User\UserHome.js" />
     <Content Include="Assets\Client\Template\SendAcceptEnterprise.html" />
     <Content Include="Assets\Client\Template\SendVertify.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -200,26 +190,12 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Enterprise\ResponseEnterprise.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\University\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Employee\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Enterprise\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\User\DetailUser.cshtml" />
-    <Content Include="Areas\Admin\Views\Enterprise\DetailEnterprise.cshtml" />
-    <Content Include="Areas\Admin\Views\Employee\DetailEmployee.cshtml" />
-    <Content Include="Areas\Admin\Views\University\DetailUniversity.cshtml" />
-    <Content Include="Areas\Admin\Views\JobMajor\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\University\CreatUniversity.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.easypiechart.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -237,26 +213,30 @@
     <Content Include="Views\Account\RegisterCommon.cshtml" />
     <Content Include="Views\Account\RegisterForUser.cshtml" />
     <Content Include="Views\Account\RegisterForEnterprise.cshtml" />
+    <Content Include="Views\Employee\SearchCandidate.cshtml" />
+    <Content Include="Views\Employee\SearchCandidateResult.cshtml" />
     <Content Include="Views\Account\RegisterForEmployee.cshtml" />
+    <Content Include="Views\User\UserHome.cshtml" />
+    <Content Include="Views\Shared\LayoutForEnterprise.cshtml" />
+    <Content Include="Views\Shared\LayoutForUser.cshtml" />
     <Content Include="Views\User\HandbookForUser.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
     <Content Include="Views\User\SearchJobForUser.cshtml" />
-    <Content Include="Views\Shared\LayoutForEnterprise.cshtml" />
-    <Content Include="Views\Shared\LayoutForUser.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
+    <Content Include="Views\User\NewsOfHandBook_3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\EnterpriseArea\" />
     <Folder Include="Areas\Admin\Views\EnterpriseJob\" />
-    <Folder Include="Assets\Admin\Img\University\" />
-    <Folder Include="Assets\Client\Img\Offer\" />
+    <Folder Include="Areas\Admin\Views\JobMajor\" />
+    <Folder Include="Assets\Client\Img\Enterprise\EnterpriseHome\" />
+    <Folder Include="Assets\Client\Img\Enterprise\LogoEnterprise\" />
     <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
-    <Folder Include="Views\Employee\" />
-    <Folder Include="Views\Enterprise\" />
+    <Folder Include="Views\Area\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>

@@ -70,7 +70,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }
@@ -84,21 +84,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch
-            {
-                return false;
-            }
-        }
-        public bool Delete(Guid id)
-        {
-            try
-            {
-                var user = db.Users.Find(id);
-                db.Users.Remove(user);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
+            catch(Exception e)
             {
                 return false;
             }

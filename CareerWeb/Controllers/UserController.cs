@@ -15,6 +15,18 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
+        //public ActionResult UserHome()
+        public ActionResult ResultForSearchCompany()
+        {
+            return View();
+        }
+        public ActionResult ResultForSearchJob()
+        {
+            ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
+            ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
+            ViewBag.ListArea = new EnterpriseAreaDao().ListEnterpriseArea();
+            return View();
+        }
         public ActionResult MoreNewsFromHandbook()
         {
             return View();
@@ -23,10 +35,30 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
-        public ActionResult SearchJobForUser()
+        public ActionResult NewsOfHandBook_3()
         {
             return View();
         }
+        public ActionResult SearchJobForUser(string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0, string Sex = "0",  int ExperienceRequest = 0, int LearningLevelRequest = 0, string OfferCreateDate = "")
+        {
+            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
+            ViewBag.ListArea = new AreaDao().ListArea();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+
+            var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest);
+            return View(ListJobContainer);
+        }
+        public ActionResult SearchCompanyForUser()
+        {
+            ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
+            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
+            ViewBag.ListArea = new AreaDao().ListArea();
+            return View();
+        }
+       
         public ActionResult Index()
         {
             if (!User.Identity.IsAuthenticated)
@@ -43,6 +75,9 @@ namespace CareerWeb.Controllers
             ViewBag.ListJobSub = new JobMajorDao().ListJobSubByUser(user.UserId);
             ViewBag.ListEnterprise = new EnterpriseDao().ReturnList();
             ViewBag.ListArea = new AreaDao().ListArea();
+            ViewBag.ListUserExperience = new UserExperienceDao().ListByUser(acc.UserId);
+            ViewBag.ListUserForeignLanguage = new UserForeignLanguageDao().ListByUser(acc.UserId);
+            ViewBag.ListUserCertificate = new UserCertificateDao().ListByUser(acc.UserId);
             return View(user);
         }
         [HttpPost]

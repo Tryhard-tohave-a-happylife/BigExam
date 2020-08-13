@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
-    ///Check định dạng tháng năm
+    //Check định dạng tháng năm
     function checkFormatDate(inp) {
+        if (inp.length == 0) return true;
         var ind = -1;
         for (var i = 0; i < inp.length; i++) {
             if (inp[i] == '/') {
@@ -80,11 +81,15 @@
         var topScroll = Number($(scroll).offset().top) - 100;
         var listInputInfor = $(".input-infor");
         $(listInputInfor[ind]).slideDown();
+        $(listInputInfor[ind]).children().children(".submit").attr("use-for", "add");
+        $(listInputInfor[ind]).children().children(".submit").text("Thêm");
         $("html, body").animate({ scrollTop: topScroll }, 650);
     })
-    $(".infor-details .cancel").click(function () {
-        var ind = $(".infor-details .cancel").index(this);
+    $(".input-infor .infor-details .cancel").click(function () {
+        var ind = $(".input-infor .infor-details .cancel").index(this);
         var listInputInfor = $(".input-infor");
+        var containerInfor = $(".container-infor");
+        $(containerInfor[ind]).slideDown();
         $(listInputInfor[ind]).slideUp();
         $(listInputInfor[ind]).children().children("input[type = 'text']").val("");
         $(listInputInfor[ind]).children().children("textarea").val("");
@@ -167,6 +172,272 @@
             success: function (res) {
                 if (res.status) {
                     window.location.href = "/User/Index";
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    //Thêm kinh nghiệm làm việc
+    $("#work-experience .infor-details .submit").click(function () {
+        var position = $("#work-experience .infor-details #position").val();
+        var nameEnterprise = $("#work-experience .infor-details #name-enterprise").val();
+        var timeStart = $("#time-start-ex").val();
+        var timeEnd = $("#time-end-ex").val();
+        var description = $("#work-experience .infor-details .description").val();
+        if (!position || !nameEnterprise || !timeStart || position == "" || timeStart == "" || nameEnterprise == ""
+            || !checkFormatDate(timeStart) || !checkFormatDate(timeEnd)) {
+            alert("Bạn phải nhập đủ thông tin cần thiết và chính xác");
+        }
+        var useFor = $(this).attr("use-for");
+        if (useFor == "add") {
+            $.ajax({
+                data: { position: Number(position), nameEnterprise: nameEnterprise, timeStart: timeStart, timeEnd: timeEnd, description: description },
+                url: '/UserExperience/Insert',
+                method: "Post",
+                dataType: "Json",
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status != -1) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+        else {
+            var id = $(this).attr("id-save");
+            $.ajax({
+                data: { id : id, position: Number(position), nameEnterprise: nameEnterprise, timeStart: timeStart, timeEnd: timeEnd, description: description },
+                url: '/UserExperience/Modify',
+                method: "Post",
+                dataType: "Json",
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+    })
+    //Sửa kinh nghiệm việc làm:
+    $("#work-experience .cover-button .edit-part").click(function () {
+        var ind = $(this).attr("id-save");
+        $("#work-experience .container-infor").slideUp();
+        $("#work-experience .input-infor").slideDown();
+        $("#work-experience .input-infor #position").val($(".each-part #position-ex").attr("position-id"));
+        $("#work-experience .input-infor #name-enterprise").val($(".each-part #nameEnterprise-ex").text());
+        var split = $(".each-part #time-ex").text().split("-");
+        $("#work-experience .input-infor #time-start-ex").val(split[0].trim());
+        $("#work-experience .input-infor #time-end-ex").val((split[1].trim() == "now") ? "" : split[1].trim());
+        $("#work-experience .input-infor .description").val($(".each-part #description-ex").text());
+        $("#work-experience .infor-details .submit").text("Chỉnh sửa");
+        $("#work-experience .infor-details .submit").attr("id-save", ind);
+        $("#work-experience .infor-details .submit").attr("use-for", "edit");
+    })
+    //Xóa kinh nghiệm việc làm:
+    $("#work-experience .cover-button .delete-part").click(function () {
+        var cf = confirm("Bạn chắc chắn muốn xóa mục kinh nghiệm này chứ?");
+        if (!cf) return;
+        var ind = $(this).attr("id-save");
+        var removeHTML = $(this).parent().parent();
+        $.ajax({
+            data: { id: ind },
+            url: "/UserExperience/Remove",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    $(removeHTML).remove();
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    // Thêm ngoại ngữ
+    $("#foreign-language .infor-details .submit").click(function () {
+        var languegeId = $("#foreign-language .infor-details #language").val();
+        var level = $("#foreign-language .infor-details #level").val();
+        var description = $("#foreign-language .infor-details .description").val();
+        var useFor = $(this).attr("use-for");
+        if (useFor == "add") {
+            $.ajax({
+                data: { languegeId: languegeId, level: level, description: description },
+                url: '/UserForeignLanguage/Insert',
+                method: "Post",
+                dataType: "Json",
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status != -1) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+        else {
+            var id = $(this).attr("id-save");
+            $.ajax({
+                data: { id: id, languegeId: languegeId, level: level, description: description },
+                url: '/UserForeignLanguage/Modify',
+                method: "Post",
+                dataType: "Json",
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+    });
+    //Sửa ngoại ngữ:
+    $("#foreign-language .cover-button .edit-part").click(function () {
+        var ind = $(this).attr("id-save");
+        $("#foreign-language .container-infor").slideUp();
+        $("#foreign-language .input-infor").slideDown();
+        $("#foreign-language .input-infor #language").val($(".each-part #name-language").attr("language-id"));
+        $("#foreign-language .input-infor #level").val($(".each-part #name-level").text().toLowerCase());
+        $("#foreign-language .infor-details .description").val($(".each-part #description-fr").text());
+        $("#foreign-language .infor-details .submit").text("Chỉnh sửa");
+        $("#foreign-language .infor-details .submit").attr("id-save", ind);
+        $("#foreign-language .infor-details .submit").attr("use-for", "edit");
+    })
+    //Xóa ngoại ngữ:
+    $("#foreign-language .cover-button .delete-part").click(function () {
+        var cf = confirm("Bạn chắc chắn muốn xóa mục kinh nghiệm này chứ?");
+        if (!cf) return;
+        var ind = $(this).attr("id-save");
+        var removeHTML = $(this).parent().parent();
+        $.ajax({
+            data: { id: ind },
+            url: "/UserForeignLanguage/Remove",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    $(removeHTML).remove();
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    // Thêm chứng chỉ, thành tích
+    $("#award .infor-details .submit").click(function () {
+        var file = $("#award .infor-details #image-award").get(0).files;
+        var date = $("#award .infor-details #time-gain").val();
+        var description = $("#award .infor-details .description").val();
+        var useFor = $(this).attr("use-for");
+        var data = new FormData;
+        data.append("Name", description);
+        data.append("Date", date);
+        if (file && file[0]) {
+            data.append("ImageFile", file[0]);
+        }
+        if (useFor == "add") {
+            $.ajax({
+                data: data,
+                url: '/UserCertificate/Insert',
+                method: "Post",
+                dataType: "Json",
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status != -1) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+        else {
+            var id = $(this).attr("id-save");
+            data.append("ID", id);
+            $.ajax({
+                data: data,
+                url: '/UserCertificate/Modify',
+                method: "Post",
+                dataType: "Json",
+                contentType: false,
+                processData: false,
+                beforeSend: function () {
+
+                },
+                success: function (res) {
+                    if (res.status) {
+                        window.location.href = "/User/Index";
+                    }
+                    else {
+                        alert("Hệ thống gặp trục trặc");
+                    }
+                }
+            });
+        }
+    });
+    //Sửa chứng chỉ
+    $("#foreign-language .cover-button .edit-part").click(function () {
+        var ind = $(this).attr("id-save");
+        $("#foreign-language .container-infor").slideUp();
+        $("#foreign-language .input-infor").slideDown();
+        $("#foreign-language .input-infor #language").val($(".each-part #name-language").attr("language-id"));
+        $("#foreign-language .input-infor #level").val($(".each-part #name-level").text().toLowerCase());
+        $("#foreign-language .infor-details .description").val($(".each-part #description-fr").text());
+        $("#foreign-language .infor-details .submit").text("Chỉnh sửa");
+        $("#foreign-language .infor-details .submit").attr("id-save", ind);
+        $("#foreign-language .infor-details .submit").attr("use-for", "edit");
+    })
+    //Xóa ngoại ngữ:
+    $("#foreign-language .cover-button .delete-part").click(function () {
+        var cf = confirm("Bạn chắc chắn muốn xóa mục kinh nghiệm này chứ?");
+        if (!cf) return;
+        var ind = $(this).attr("id-save");
+        var removeHTML = $(this).parent().parent();
+        $.ajax({
+            data: { id: ind },
+            url: "/UserForeignLanguage/Remove",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    $(removeHTML).remove();
                 }
                 else {
                     alert("Hệ thống gặp trục trặc");

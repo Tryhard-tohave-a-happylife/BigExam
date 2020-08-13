@@ -20,12 +20,11 @@ namespace Model.EF
         [StringLength(50)]
         public string OfferName { get; set; }
 
-        [Column(TypeName = "text")]
         [Required]
         public string OfferDescription { get; set; }
 
-        [MaxLength(250)]
-        public byte[] OfferImage { get; set; }
+        [StringLength(250)]
+        public string OfferImage { get; set; }
 
         public int Area { get; set; }
 
@@ -59,5 +58,9 @@ namespace Model.EF
         public int ExperienceRequest { get; set; }
 
         public int? LearningLevelRequest { get; set; }
+
+        public int OfferMajor { get; set; }
+
+        public int OfferPosition { get; set; }
     }
 }

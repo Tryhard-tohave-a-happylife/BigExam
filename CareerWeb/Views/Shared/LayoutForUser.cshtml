@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/Assets/Client/Css/Common/Header-FooterForUser.css" rel="stylesheet" />
     @RenderSection("cssInsert", required: false)
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -115,7 +116,11 @@
             <input type="button" value="Đăng nhập" id="submit" />
         </div>
     </header>
-    @RenderBody()
+   
+    <div class="content">
+        @RenderBody()
+    </div>
+
     <footer>
         <div class="footer_container">
             <div class="footer_element_1">

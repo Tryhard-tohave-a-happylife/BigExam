@@ -18,5 +18,9 @@ namespace Model.Dao
         {
             return db.PositionEmployees.ToList();
         }
+        public string NamePosition(int id)
+        {
+            return db.PositionEmployees.Find(id).NamePosition;
+        }
     }
 }

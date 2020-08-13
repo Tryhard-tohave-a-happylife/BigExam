@@ -360,7 +360,7 @@ main #load-cover{
             float: left;
             width: 67%;
             height: 110px;
-            font-size: 10pt;
+            font-size: 11pt;
             resize: none;
             overflow-y: auto;
         }
@@ -412,3 +412,86 @@ main #load-cover{
             color: red;
             display: none;
         }
+.container-infor{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.container-infor .each-details{
+    float: left;
+    width: 85%;
+    margin-left: 20px;
+    height: auto;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-weight: 600;
+}
+.container-infor .each-details .each-part span{
+    font-weight: lighter;
+    margin-left: 8px;
+    width: 75%;
+    float: left;
+}
+.each-details .cover-text{
+    float: left;
+    width: 80%;
+}
+.each-details .cover-text div{
+    float: left;
+}
+#award .each-details .cover-text button{
+    cursor: pointer;
+    background-color: #329fd1;
+    color: white;
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 80px;
+    border-radius: 3px;
+    font-size: 11pt;
+    margin-top: 5px;
+}
+.each-details .cover-text .each-part{
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+}
+.each-details .cover-button{
+    float: right;
+}
+.each-details .cover-button div{
+    float: right;
+    cursor: pointer;
+    font-weight: lighter;
+    font-size: 10pt;
+}
+.each-details .cover-button div:hover{
+    color: rebeccapurple;
+}
+.each-details .cover-button .delete-part{
+    color: red;
+    padding-left: 8px;
+    border-left: 1px solid rgba(0,0,0,0.3);
+}
+.each-details .cover-button .edit-part{
+    color: blue;
+    padding-right: 8px;
+}
+#cover-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 10000;
+}
+#cover-screen img{
+    width: 550px;
+    height: 380px;
+    border: 1px solid white;
+    margin-top: 150px;
+    margin-left: calc(50% - 275px);
+}

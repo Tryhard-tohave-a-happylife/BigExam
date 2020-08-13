@@ -28,5 +28,10 @@ namespace Model.Dao
                 return false;
             }
         }
+
+        public List<UserMajor> ListUserMajor()
+        {
+            return db.UserMajors.ToList();
+        }
     }
 }

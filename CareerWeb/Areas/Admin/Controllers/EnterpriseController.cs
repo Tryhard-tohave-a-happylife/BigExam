@@ -6,7 +6,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,30 +16,15 @@ namespace CareerWeb.Areas.Admin.Controllers
         // GET: Admin/Enterprise
         public ActionResult Index()
         {
-            var model = new EnterpriseDao().ListEnterprises();
-            return View(model);
+            return View();
         }
         public ActionResult ResponseEnterprise()
         {
             var model = new EnterpriseDao().ListResponse();
             return View(model);
         }
-        [HttpDelete]
-        public ActionResult DeleteEnterprise(Guid id)
-        {
-            new EnterpriseDao().RemoveEnterprise(id);
-            return RedirectToAction("Index");
-        }
-        public ActionResult DetailEnterprise(Guid id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var enterprise = new EnterpriseDao().FindById(id);
-            return View(enterprise);
-        }
-        public ActionResult GetInfor(Guid id)
+        [HttpPost]
+        public JsonResult GetInfor(Guid id)
         {
             var ent = new EnterpriseDao().FindById(id);
             var accCreate = new AccountDao().FindAccountByUserId(id);

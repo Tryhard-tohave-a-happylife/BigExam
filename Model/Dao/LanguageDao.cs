@@ -19,5 +19,9 @@ namespace Model.Dao
         {
             return db.Languages.ToList();
         }
+        public string NameLanguage(int id)
+        {
+            return db.Languages.Find(id).LanguageName;
+        }
     }
 }

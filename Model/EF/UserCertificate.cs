@@ -17,10 +17,11 @@ namespace Model.EF
         [StringLength(250)]
         public string NameCertificate { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string ImageCertificate { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime GetDate { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string GetDate { get; set; }
     }
 }
