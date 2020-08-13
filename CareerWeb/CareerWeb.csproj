@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
+    <Content Include="Assets\Client\Css\User\NewsOfHandBook_3.css" />
     <Content Include="Assets\Client\Css\User\UserHome.css" />
     <Content Include="Assets\Client\Css\Employee\SearchCandidate.css" />
     <Content Include="Assets\Client\Css\Employee\SearchCandidateResult.css" />
@@ -171,6 +172,7 @@
     <Content Include="Assets\Client\Js\Register\RegisterForUser.js" />
     <Content Include="Assets\Client\Js\User\HandbookForUser.js" />
     <Content Include="Assets\Client\Js\User\MoreNewsFromHandbook.js" />
+    <Content Include="Assets\Client\Js\User\NewsOfHandBook_3.js" />
     <Content Include="Assets\Client\Js\User\ResultForSearchJob.js" />
     <Content Include="Assets\Client\Js\User\SearchJobForUser.js" />
     <Content Include="Assets\Client\Js\User\UserHome.js" />
@@ -222,6 +224,7 @@
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
     <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
+    <Content Include="Views\User\NewsOfHandBook_3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

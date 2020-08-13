@@ -37,11 +37,11 @@
                 <div class="row">
                     <div class="sub-header-form">
                         <form>
-                            <input type="text" list="selectedCompany" name="company" class="jobBrowser" style="height: 3em;"
-                                   placeholder="CompanyName" />
+                            <input type="text" list="selectedEnterprise" name="enterprise" class="jobBrowser" style="height: 3em;"
+                                   placeholder="EnterpriseName" />
                         </form>
                         <form>
-                            <input type="text" list="selectedCareer" name="careerBrowser" class="jobBrowser" style="height: 3em;"
+                            <input type="text" list="selectedCareer" name="careerBrowser" id="careerBrowser" class="jobBrowser" style="height: 3em;"
                                    placeholder="All career">
                             <datalist id="selectedCareer">
                                 @foreach(var item in ViewBag.ListJobMain)
@@ -51,7 +51,7 @@
                             </datalist>
                         </form>
                         <form>
-                            <input type="text" list="selectedState" name="areaBrowser" class="jobBrowser" style="height: 3em;"
+                            <input type="text" list="selectedState" name="areaBrowser" id="areaState" class="jobBrowser" style="height: 3em;"
                                    placeholder="All state">
                             <datalist id="selectedState">
                                 @foreach(var item in ViewBag.ListArea)
@@ -60,43 +60,13 @@
                                 }
                             </datalist>
                         </form>
-                        <button style="margin-left: 25px;">
+                        <button style="margin-left: 25px;" id="findIcon">
                             <i class="fa fa-search"></i><span style="display: none;">Tim kiem</span>
                         </button>
                     </div>
                     <aside class="job-left-menu">
                         <div class="career-typo-wrap">
                             <form class="career-search-filter">
-                                <div class="career-filter-responsive-wrap">
-                                    <div class="career-search-filter-wrap career-search-filter-toggle">
-                                        <h2 class="colClick">
-                                            <span>Dia diem</span>
-                                            <i class="fa fa-angle-down" style="float: right;"></i>
-                                        </h2>
-                                        <div class="career-checkbox-toggle">
-                                            <ul class="career-checkbox" style="margin: 0 0 15px 0">
-                                                <li class="jobsearch">
-                                                    <label>Country</label>
-                                                    <div class="jobsearch-select">
-                                                        <select class="form-control" name="countryId">
-                                                            <option value="1">Viet Nam</option>
-                                                        </select>
-                                                    </div>
-                                                </li>
-                                                <li class="jobsearch">
-                                                    <label>State</label>
-                                                    <div class="jobsearch-select">
-                                                        <select class="form-control" name="countryId">
-                                                            <option value="1">Ha Noi</option>
-                                                        </select>
-                                                    </div>
-                                                </li>
-                                                <button style="margin-top: 15px;">Tim kiem</button>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="career-filter-responsive-wrap">
                                     <div class="career-search-filter-wrap career-search-filter-toggle">
                                         <h2 class="colClick">
@@ -117,7 +87,7 @@
                     </aside>
                     <div class="job-right-menu">
                         <div class="career-typo-wrap">
-                            <div class="filterable" style="float:right;">Clear All</div><br>
+                            <div class="filterable" style="float:right;" id="clearAll">Clear All</div><br>
                             <div class="filterable">Hien thi ... ket qua</div>
                             <div class="career-employer-list">
                                 <ul class="row">

@@ -62,7 +62,7 @@
     margin-left: 3%;
 }
 
-    #findIcon :hover {
+    #findIcon:hover{
         cursor: pointer;
     }
 
@@ -201,7 +201,7 @@ img {
 .address {
     margin-left: 14em;
     margin-top: -4.25em;
-    width: 40%;
+    width: 50%;
 }
     .address .textOverflowLine {
         -webkit-line-clamp: 1;

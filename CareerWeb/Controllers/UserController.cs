@@ -35,6 +35,10 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
+        public ActionResult NewsOfHandBook_3()
+        {
+            return View();
+        }
         public ActionResult SearchJobForUser(string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0, string Sex = "0",  int ExperienceRequest = 0, int LearningLevelRequest = 0, string OfferCreateDate = "")
         {
             ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
