@@ -61,11 +61,6 @@
   <ItemGroup>
     <Compile Include="Dao\AccountDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
-    <Compile Include="Dao\AppliedCandidateDao.cs" />
-    <Compile Include="Dao\WorkInvitationDao.cs" />
-    <Compile Include="Dao\OfferJobDao.cs" />
-    <Compile Include="Dao\InterviewDao.cs" />
-    <Compile Include="Dao\SavedCandidateDao.cs" />
     <Compile Include="Dao\EmployeeDao.cs" />
     <Compile Include="Dao\EnterpriseAreaDao.cs" />
     <Compile Include="Dao\EnterpriseDao.cs" />
@@ -89,8 +84,7 @@
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
-    <Compile Include="EF\Article.cs" />
-    <Compile Include="EF\CategoryArticle.cs" />
+    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
@@ -101,7 +95,6 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
-    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobSkill.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
@@ -115,14 +108,12 @@
     <Compile Include="EF\UserForeignLanguage.cs" />
     <Compile Include="EF\UserLearning.cs" />
     <Compile Include="EF\UserMajor.cs" />
-    <Compile Include="EF\WorkInvitation.cs" />
-    <Compile Include="Models\CandidateInfo.cs" />
-    <Compile Include="Models\AppliedCandidateInfo.cs" />
     <Compile Include="Models\CandidateInfo.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Models\FormEnterpriseFull.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
+    <Compile Include="Models\ShowFullEnterprise.cs" />
     <Compile Include="Models\ShowFullJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

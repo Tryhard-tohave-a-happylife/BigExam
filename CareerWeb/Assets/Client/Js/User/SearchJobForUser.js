@@ -28,7 +28,7 @@
         var i = 1;
         name1 += name[0].toUpperCase();
         while (i < name.length) {
-            if (name[i] == " " && name[i+1] == " ") {
+            if (name[i] == " " && name[i + 1] == " ") {
                 i++;
                 if (i == name.length) break;
             }
@@ -43,10 +43,4 @@
         }
         $("input[name='jobBrowser']").val(name1);
     }
-
-    $(".jobContainer").click(function () {
-        var offerID = $(this).children().first().attr("id");
-        var dbParam = "OfferID=" + offerID;
-        window.location.href = "/ResultForSearchJob?" + dbParam;
-    })
 })

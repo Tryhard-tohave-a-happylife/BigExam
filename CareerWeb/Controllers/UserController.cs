@@ -27,17 +27,42 @@ namespace CareerWeb.Controllers
             var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest);
             return View(ListJobContainer);
         }
-        public ActionResult ResultForSearchCompany()
+        public ActionResult ResultForSearchCompany(Guid EnterpriseID)
         {
-            return View();
+            var ShowEnterprise = new EnterpriseDao().ShowEnterprise(EnterpriseID);
+            var jobMajorDao = new JobMajorDao();
+            var saveName = "";
+            foreach (var item in ShowEnterprise)
+            {
+                for (var i = 0; i < item.listJobId.Count; i += 1)
+                {
+                    saveName += jobMajorDao.JobName(item.listJobId[i]) + ", ";
+                }
+                saveName.Remove(saveName.Length - 1);
+            }
+            ViewBag.ListFullJobName = saveName;
+            ViewBag.ShowContainer = new OfferJobDao().ShowContainer(EnterpriseID);
+            return View(ShowEnterprise);
         }
          public ActionResult ResultForSearchJob(Guid OfferID)
         {
             ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
             ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
             ViewBag.ListArea = new AreaDao().ListArea();
-
+            ViewBag.ListOfferJob = new OfferJobDao().ReturnFilterList();
+           
+            var jobMajorDao = new JobMajorDao();
+            var saveName = "";
             var ShowDetail = new OfferJobDao().ShowDetail(OfferID);
+            foreach (var item in ShowDetail) 
+            {
+                for (var i = 0; i < item.listJobId.Count; i += 1)
+                {
+                    saveName += jobMajorDao.JobName(item.listJobId[i]) + ", " ;
+                }
+                saveName.Remove(saveName.Length - 1);
+            }
+            ViewBag.ListFullJobName = saveName;
             return View(ShowDetail);
         }
         
