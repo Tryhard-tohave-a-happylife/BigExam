@@ -13,11 +13,11 @@ namespace Model.EF
         [Column(Order = 0)]
         public Guid OfferID { get; set; }
 
+        public int ParentMajor { get; set; }
+
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ParentMajor { get; set; }
-
-        public int? ChildMajor { get; set; }
+        public int ChildMajor { get; set; }
     }
 }

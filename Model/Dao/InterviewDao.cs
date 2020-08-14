@@ -2,28 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Model.Dao
 {
-    public class EmployeeDao
+    public class InterviewDao
     {
         CareerWeb db = null;
-        public EmployeeDao()
+        public InterviewDao()
         {
             db = new CareerWeb();
         }
-        public List<Enterprise> ListEnterpriseName()
+
+        public Interview findInterview(Guid userId,Guid offerId)
         {
-            return db.Enterprises.ToList();
+            return db.Interviews.SingleOrDefault(x => x.UserID == userId && x.OfferID == offerId);
+
         }
 
-        public bool InsertEmployee(Employee employee)
+        public bool InsertInterview(Interview interview)
         {
             try
             {
-                db.Employees.Add(employee);
+                db.Interviews.Add(interview);
                 db.SaveChanges();
                 return true;
             }
@@ -33,25 +36,16 @@ namespace Model.Dao
             }
         }
 
-        public Employee FindById(Guid employeeId)
+        public bool UpdateStatus(Guid userId, Guid offerId, String status)
         {
             try
             {
-                return db.Employees.Find(employeeId);
-            }
-            catch (Exception e)
-            {
-                return null;
-        public bool Delete(Guid id)
-        {
-            try
-            {
-                var employee = db.Employees.Find(id);
-                db.Employees.Remove(employee);
+                var interview = findInterview(userId, offerId);
+                interview.Status = status;
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

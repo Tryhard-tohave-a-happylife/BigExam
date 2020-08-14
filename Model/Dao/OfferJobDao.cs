@@ -15,6 +15,15 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<OfferJob> ListByEmployee(Guid eplID)
+        {
+            return db.OfferJobs.Where(x => x.EmployeeID == eplID).ToList();
+        }
+
+        public OfferJob findById(Guid offerId)
+        {
+            return db.OfferJobs.Find(offerId);
+        }
         public List<OfferJob> ListOfferJob()
         {
             return db.OfferJobs.ToList();

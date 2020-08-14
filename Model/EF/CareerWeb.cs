@@ -14,6 +14,8 @@ namespace Model.EF
 
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Area> Areas { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<CategoryArticle> CategoryArticles { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Enterprise> Enterprises { get; set; }
         public virtual DbSet<Experience> Experiences { get; set; }
@@ -22,6 +24,7 @@ namespace Model.EF
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<LevelLearning> LevelLearnings { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
+        public virtual DbSet<OfferJobSkill> OfferJobSkills { get; set; }
         public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
@@ -31,6 +34,7 @@ namespace Model.EF
         public virtual DbSet<UserExperience> UserExperiences { get; set; }
         public virtual DbSet<UserForeignLanguage> UserForeignLanguages { get; set; }
         public virtual DbSet<UserLearning> UserLearnings { get; set; }
+        public virtual DbSet<WorkInvitation> WorkInvitations { get; set; }
         public virtual DbSet<AppliedCandidate> AppliedCandidates { get; set; }
         public virtual DbSet<EnterpriseArea> EnterpriseAreas { get; set; }
         public virtual DbSet<EnterpriseJob> EnterpriseJobs { get; set; }
@@ -55,6 +59,18 @@ namespace Model.EF
 
             modelBuilder.Entity<Account>()
                 .Property(e => e.Status)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Article>()
+                .Property(e => e.Image)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Article>()
+                .Property(e => e.Status)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CategoryArticle>()
+                .Property(e => e.Description)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Employee>()
@@ -171,6 +187,10 @@ namespace Model.EF
 
             modelBuilder.Entity<UserLearning>()
                 .Property(e => e.TimeEnd)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<WorkInvitation>()
+                .Property(e => e.Salary)
                 .IsUnicode(false);
 
             modelBuilder.Entity<AppliedCandidate>()

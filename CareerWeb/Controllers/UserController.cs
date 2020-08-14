@@ -40,7 +40,7 @@ namespace CareerWeb.Controllers
             ViewBag.ShowContainer = new OfferJobDao().ShowContainer(EnterpriseID);
             return View(ShowEnterprise);
         }
-        public ActionResult ResultForSearchJob(Guid OfferID)
+         public ActionResult ResultForSearchJob(Guid OfferID)
         {
             ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
             ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
@@ -61,6 +61,7 @@ namespace CareerWeb.Controllers
             ViewBag.ListFullJobName = saveName;
             return View(ShowDetail);
         }
+        
         public ActionResult MoreNewsFromHandbook()
         {
             return View();
