@@ -265,6 +265,7 @@
     <Folder Include="Areas\Admin\Views\JobMajor\" />
     <Folder Include="Assets\Client\Img\Enterprise\EnterpriseHome\" />
     <Folder Include="Assets\Client\Img\Enterprise\LogoEnterprise\" />
+    <Folder Include="Assets\Client\Img\Offer\" />
     <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="obj\Debug\TempPE\" />

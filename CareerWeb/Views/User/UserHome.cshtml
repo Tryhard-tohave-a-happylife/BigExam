@@ -16,18 +16,19 @@
             Tìm việc làm - đăng tin tuyển dụng miễn phí
         </div>
 
-        <!--  <div class="dropdown" style="margin-left:10%">
+         
 
-            <select class="dropdown-select">
-                <option hidden value="0">Tìm kiếm theo doanh nghiệp</option>
+        <input type="text" id="key-word" class="search-box" placeholder="Tên doanh nghiệp" onchange="checkName()" />
 
-            </select>
-
-        </div>
+       
         <div class="dropdown" style="margin-left:2%">
 
             <select class="dropdown-select">
-
+                <option hidden value="0">Tìm kiếm theo lĩnh vực</option>
+                @foreach (var item in ViewBag.ListJobMain)
+                {
+                    <option value="@item.JobID">@item.JobName</option>
+                }
             </select>
 
         </div>
@@ -36,20 +37,23 @@
 
             <select class="dropdown-select">
                 <option hidden value="0">Tìm kiếm theo địa điểm</option>
-
+                @foreach (var item in ViewBag.ListArea)
+                {
+                    <option value="@item.AreaId">@item.NameArea</option>
+                }
             </select>
 
         </div>
-         -->
+        
 
 
 
         <div>
-            <div class="container-1" style="color: #999999; margin-top:3%;">
+            
 
-                <input type="submit" id="submit" value="Tìm kiếm" onclick="search()" />
+                <input type="submit" id="submit" class="submit-box" value="Tìm kiếm" onclick="search()" />
 
-            </div>
+           
 
         </div>
 
@@ -100,7 +104,7 @@
                 và <a class="link" href="https://MyCV.vn/tim-ho-so.html">tìm hồ sơ xin việc</a> theo khu vực, lĩnh vực, kỹ năng và nhiều điều kiện khác
             </h3>
         </div>
-
+        </form>
 </div> 
 <br />
 <br />
@@ -124,7 +128,7 @@
                   <img loading="lazy" alt="Việc làm Bán hàng/ Kinh doanh" onerror="this.src='public/images/default.png';"
                        src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-6.png">
                </p>
-        <h2 style="color: red">BÁN HÀNG/ KINH DOANH</h2style="color:>
+        <h2 style="color: red">BÁN HÀNG/ KINH DOANH</h2 >
         <p><h2 style="color : black">2764 việc làm</h2></p>
         </a>
 </div>
@@ -159,12 +163,19 @@
         </a>
 </div>
 <button class="button button1"><b><i>Việc làm mới</i></b></button>
-<button class="button button2"><b><i>Cần tuyển gấp</i></b></button>
-<div class="job-box box1">
+    
+
+
+
+
+<div style="height:80em; width:62%;position: relative; margin-left: 10%; margin-bottom:0%; margin-top: 20%">
+    @foreach (var item in ViewBag.ListOffer)
+    {
+<div class="job-box" >
     <img class="box-img" src="https://viecoi.cdn.vccloud.vn/public/images/rand/thums-bh-01.jpg" ; />
-    <div style="width: 100%; margin-left:22%; margin-top: 2%; font-size:13px; text-align:left; padding-left: 6%;">
-        <a style=" text-decoration: none; font-size: 15px;color: #F07E1D;" href="">Phân Phối Hàng</a><br /><br />
-        <b class="fa fa-building-o"></b><b> Công ty: </b> <a> ĐẠI LÍ PHÂN PHỐI THỰC PHẨM SẠCH MIỀN TRUNG</a><br /><br />
+    <div style="width: 100%; margin-left:22%; margin-top: 3%; font-size:13px; text-align:left; padding-left: 6%;">
+        
+        <b class="fa fa-building-o"></b><b> Công ty: </b> <a> aaaaa</a><br /><br />
         <b class="fa fa-map-pin"></b> <b>Nơi làm việc:</b> <a>Đà Nẵng</a>
         <b style="margin-left:20%" class="fa fa-dollar"></b> <b>Lương: </b> <a>  5,000,000 - 7,000,000 VNĐ</a><br /><br />
         <b class="fa fa-calendar-o"></b> <b>Hạn nộp: </b> <a> 30/08/2020</a>
@@ -172,48 +183,20 @@
 
     </div>
 </div>
-<div class="job-box box2">
-    <img class="box-img" src="https://viecoi.cdn.vccloud.vn/public/images/rand/thums-cm-01.jpg" ; />
-
-
+    }
 </div>
-<div class="job-box box3">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<div class="job-box box4">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<div class="job-box box6">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<div class="job-box box7">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<div class="job-box box8">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<div class="job-box box9">
-    <img class="box-img" src="" ; />
-
-
-</div>
-<button class="button button3">
-    <b><i>Lĩnh vực</i></b>
-</button>
-<button class="button button4">
+<button class="button button2">
     <b><i>Khu vực</i></b>
 </button>
-<div class="job-box box5"></div>
+<div class="area-box">
+    @foreach (var item in ViewBag.ListArea)
+    {
+    
+        @item.NameArea <br /> 
+       
+    }
+
+</div>
 
        
 
