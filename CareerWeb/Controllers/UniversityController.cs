@@ -13,6 +13,14 @@ namespace CareerWeb.Controllers
         {
             return View();
         }
+        public ActionResult Statistic()
+        {
+            return View();
+        }
+        public ActionResult ListOfStudent()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
