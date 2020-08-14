@@ -119,14 +119,15 @@
                                                         <img src="@item.ImageLogo" class="employer-image">
                                                     </a>
                                                     <div class="company-info career-table-cell" style="width: 65%;">
-                                                        <small>
-                                                            <a class="link-to-company" href="">
-                                                               @ViewBag.ListFullJobName[count]
-                                                            </a>
-                                                        </small>
+
                                                         <h2 style="margin: 0; padding: 0;">
                                                             <a class="link-to-company" href="" style="font-size: 24px; color: black; ">@item.EnterpriseName</a>
                                                         </h2>
+                                                        <small>
+                                                            <a class="link-to-company" href="">
+                                                                @ViewBag.ListFullJobName[count]
+                                                            </a>
+                                                        </small>
                                                         <span>
                                                             <i class="fa fa-map-marker" style="color: #f07e1d"></i>
                                                             @item.NameArea
@@ -145,8 +146,7 @@
                                 }
                             }
                                </div>
-                                
-                            }
+                               
                     </div>
                 </div>
             </div>

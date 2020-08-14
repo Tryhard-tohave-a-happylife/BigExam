@@ -22,7 +22,6 @@
              + "&LearningLevelRequest=" + levelLearning;
         window.location.href = "/SearchJobForUser?" + dbParam;
     })
-    //vãi cả return nha
     function checkName() {
         var name = $("input[name='jobBrowser']").val();
         var name1 = "";
