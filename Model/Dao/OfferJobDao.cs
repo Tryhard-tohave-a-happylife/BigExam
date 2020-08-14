@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Model.Dao
         {
      
             try
-            {
+            {   
                 var listOfferJob = new OfferJobDao().ListOfferJob();
                 var listOfferJobMajor = new OfferJobSkillDao().ReturnList();
                 var listEnterprise = new EnterpriseDao().ReturnList();
@@ -88,19 +89,70 @@ namespace Model.Dao
                     {
                         finalResult2.Add(finalResult[i]);
                     }
-
-
                 }
                 return finalResult2;
-
-
             }
             catch (Exception e)
             {
                 return null;
             }
-
         }
+
+        public ShowFullJob ShowDetail(Guid OfferID)
+        {
+            var listOfferJob = new OfferJobDao().ListOfferJob();
+            var listEnterprise = new EnterpriseDao().ReturnList();
+            var result = (from job in listOfferJob
+                          join enpr in listEnterprise on job.EnterpriseID equals enpr.EnterpriseID
+                          where job.OfferID == OfferID
+                          select new
+                          {
+                              EnterpriseID = job.EnterpriseID,
+                              OfferName = job.OfferName,
+                              OfferDescription = job.OfferDescription,
+                              JobAddress = job.JobAddress,
+                              Amount = db.Salaries.Find(job.OfferSalary).Amount,
+                              Bonus = job.Bonus,
+                              AmountNum = job.Amount,
+                              Sex = job.Sex,
+                              NameArea = db.Areas.Find(job.Area).NameArea,
+                              OfferLimitDate = job.OfferLimitDate,
+                              Applications = job.Applications,
+                              Time = db.Experiences.Find(job.ExperienceRequest).Time,
+                              NameLevel = db.LevelLearnings.Find(job.LearningLevelRequest).NameLevel,
+                              NamePosition = db.PositionEmployees.Find(job.OfferPosition).NamePosition,
+                              EnterpriseName = enpr.EnterpriseName,
+                              AmountSize = db.EnterpriseSizes.Find(enpr.EnterpriseSize).AmountSize,
+                              ImageLogo = enpr.ImageLogo,
+                              NameOfEnterprise = db.TypeOfEnterprises.Find(enpr.TypeOfEnterprise).NameOfEnterprise,
+                              listJobId = db.EnterpriseJobs.Where(x => x.EnterpriseID == enpr.EnterpriseID && x.JobIdParent == null).Select(x => x.JobId).ToList(),
+
+                          }).AsEnumerable().Select(x => new ShowFullJob()
+                          {
+                              EnterpriseID = x.EnterpriseID,
+                              OfferName = x.OfferName,
+                              OfferDescription = x.OfferDescription,
+                              JobAddress = x.JobAddress,
+                              Amount = x.Amount,
+                              Bonus = x.Bonus,
+                              AmountNum = x.AmountNum,
+                              Sex = x.Sex,
+                              NameArea = x.NameArea,
+                              OfferLimitDate = x.OfferLimitDate,
+                              Applications = x.Applications,
+                              Time = x.Time,
+                              NameLevel = x.NameLevel,
+                              NamePosition = x.NamePosition,
+                              EnterpriseName = x.EnterpriseName,
+                              AmountSize = x.AmountSize,
+                              ImageLogo = x.ImageLogo,
+                              NameOfEnterprise = x.NameOfEnterprise,
+                              listJobId = x.listJobId,
+                          });
+            return (ShowFullJob)result;
+        }
+
+            
 
     }
 }
