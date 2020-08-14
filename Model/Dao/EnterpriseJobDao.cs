@@ -110,5 +110,9 @@ namespace Model.Dao
                 return false;
             }
         }
+        public int JobId(Guid id)
+        {
+            return db.EnterpriseJobs.Find(id).JobId;
+        }
     }
 }

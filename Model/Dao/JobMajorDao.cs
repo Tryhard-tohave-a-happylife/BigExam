@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +15,17 @@ namespace Model.Dao
         public JobMajorDao()
         {
             db = new CareerWeb();
+        }
+        public List<JobMajor> ListUsers()
+        {
+            try
+            {
+                return db.JobMajors.ToList();
+            }
+            catch
+            {
+                return null;
+            }
         }
         public List<JobMajor> ListJobMain()
         {
@@ -78,6 +90,10 @@ namespace Model.Dao
             {
                 return null;
             }
+        }
+        public string JobName(int id)
+        {
+            return db.JobMajors.Find(id).JobName;
         }
     }
 }

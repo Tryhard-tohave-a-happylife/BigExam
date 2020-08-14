@@ -1,5 +1,5 @@
 ﻿using Model.Dao;
-﻿using Model.EF;
+using Model.EF;
 using System;
 using System.Web.Mvc;
 
@@ -18,7 +18,7 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
+           // ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser();
             ViewBag.AreaList = new AreaDao().ListArea();
             return View();
         
@@ -30,9 +30,13 @@ namespace CareerWeb.Controllers
             ViewBag.AreaList = new AreaDao().ListArea();
             int areaId = int.Parse(AreaID); 
             int jobId = int.Parse(JobID);
-            
+            //ViewBag.ListUser = new UserDao().ListUserFit(Name,areaId,jobId);
 
             return View();
+        }
+        public ActionResult ShowDetailCandidate()
+        {
+            return View(); 
         }
 
 
