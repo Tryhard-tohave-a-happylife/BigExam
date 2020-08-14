@@ -109,10 +109,6 @@ namespace Model.EF
                 .Property(e => e.ContactEmail)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Salary>()
-                .Property(e => e.Bonus)
-                .IsFixedLength();
-
             modelBuilder.Entity<University>()
                 .Property(e => e.UniversityLogo)
                 .IsUnicode(false);

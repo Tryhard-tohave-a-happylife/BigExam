@@ -248,14 +248,13 @@
     <Content Include="Views\User\HandbookForUser.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
-    <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
     <Content Include="Views\User\NewsOfHandBook_3.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\ResultForSearchCompany.cshtml" />
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
-    <Content Include="Views\User\SearchCompanyForUser.cshtml" />
+    <Content Include="Views\University\UniversityHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -265,7 +264,6 @@
     <Folder Include="Areas\Admin\Views\JobMajor\" />
     <Folder Include="Assets\Client\Img\Enterprise\EnterpriseHome\" />
     <Folder Include="Assets\Client\Img\Enterprise\LogoEnterprise\" />
-    <Folder Include="Assets\Client\Img\Offer\" />
     <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="obj\Debug\TempPE\" />

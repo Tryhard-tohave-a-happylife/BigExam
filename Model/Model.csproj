@@ -62,6 +62,7 @@
     <Compile Include="Dao\AccountDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
     <Compile Include="Dao\EmployeeDao.cs" />
+    <Compile Include="Dao\EnterpriseAreaDao.cs" />
     <Compile Include="Dao\EnterpriseDao.cs" />
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\SalaryDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
+    <Compile Include="Dao\UniversityDao.cs" />
     <Compile Include="Dao\UserCertificateDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserExperienceDao.cs" />
@@ -82,7 +84,6 @@
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
-    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="EF\UserLearning.cs" />
     <Compile Include="EF\UserMajor.cs" />
     <Compile Include="Models\CandidateInfo.cs" />
-    <Compile Include="Models\EnterpriseInfo.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Models\FormEnterpriseFull.cs" />
