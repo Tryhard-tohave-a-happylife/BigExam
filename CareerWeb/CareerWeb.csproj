@@ -128,6 +128,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
+    <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Controllers\UserCertificateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserExperienceController.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Views\User\ResultForSearchCompany.cshtml" />
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
     <Content Include="Views\University\UniversityHome.cshtml" />
+    <Content Include="Views\User\SearchCompanyForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
