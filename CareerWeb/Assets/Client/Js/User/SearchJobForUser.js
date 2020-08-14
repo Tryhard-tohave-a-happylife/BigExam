@@ -8,7 +8,8 @@
         location.reload();
     })
     $("#findIcon").click(function () {
-        var jobBrowser = $("input[name='jobBrowser']").val();
+        checkName();
+        var jobBrowser = $("input[name='jobBrowser']").val()
         var OfferMajor = $('#OfferMajor option[value="' + $('#as').val() + '"]').data('id');
         var listArea = $('#ListArea option[value="' + $('#bs').val() + '"]').data('id');
         var salary = ($("input[name='selectSalary']:checked").val() != null) ? $("input[name='selectSalary']:checked").val() : 0;
@@ -21,26 +22,26 @@
              + "&LearningLevelRequest=" + levelLearning;
         window.location.href = "/SearchJobForUser?" + dbParam;
     })
-
+    //vãi cả return nha
     function checkName() {
-        var name = $("input[name='jobBrower']");
+        var name = $("input[name='jobBrowser']").val();
         var name1 = "";
         var i = 1;
-        name1 = name.charAt(0).toUpperCase();
+        name1 += name[0].toUpperCase();
         while (i < name.length) {
-            if (name.charAt(i) == " " && name.charAt(i + 1) == " ") {
+            if (name[i] == " " && name[i+1] == " ") {
                 i++;
                 if (i == name.length) break;
             }
-            else if (name.charAt(i - 1) == " ") {
-                name1 = name1 + name.charAt(i).toUpperCase();
+            else if (name[i - 1] == " ") {
+                name1 = name1 + name[i].toUpperCase();
                 i++;
             }
             else {
-                name1 = name1 + name.charAt(i);
+                name1 = name1 + name[i];
                 i++;
             }
         }
-        $("input[name='jobBrower']").val(name1);
+        $("input[name='jobBrowser']").val(name1);
     }
 })

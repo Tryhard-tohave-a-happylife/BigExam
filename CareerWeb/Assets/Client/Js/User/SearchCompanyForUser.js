@@ -13,12 +13,16 @@
     })
     $("#findIcon").click(function () {
         var enterprise = $("input[name='enterprise']").val();
-        var career = $('#selectedCareer option[value="' + $('#careerBrowser').val() + '"]').data('id');
+        var a = $('#selectedCareer option[value="' + $('#careerBrowser').val() + '"]:checked').data('id');
+        var career = (a != null) ? a : 0 ;
         var listArea = $('#selectedState option[value="' + $('#areaState').val() + '"]').data('id');
         var size = ($("input[name='selectSize']:checked").val() != null) ? $("input[name='selectSize']:checked").val() : 0;
-
-        var dbParam = "Enterprise=" + enterprise + "&Area=" + listArea + "&Career=" + career
-            + "&EnterpriseSize=" + size;
+        alert(enterprise);
+        alert(career);
+        alert(listArea);
+        alert(size);
+        var dbParam = "EName=" + enterprise + "&EArea=" + listArea + "&ECareer=" + career
+            + "&ESize=" + size;
         window.location.href = "/SearchCompanyForUser?" + dbParam;
     })
 

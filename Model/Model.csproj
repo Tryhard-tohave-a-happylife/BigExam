@@ -104,6 +104,7 @@
     <Compile Include="Models\CandidateInfo.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
+    <Compile Include="Models\FormEnterpriseFull.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

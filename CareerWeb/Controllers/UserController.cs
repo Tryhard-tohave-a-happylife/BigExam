@@ -51,12 +51,31 @@ namespace CareerWeb.Controllers
             var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest);
             return View(ListJobContainer);
         }
-        public ActionResult SearchCompanyForUser()
+        public ActionResult SearchCompanyForUser(string EName = "", int EArea = 0, int ECareer = 0, int ESize = 0)
         {
+            var jobMajorDao = new JobMajorDao();
             ViewBag.ListEnterpriseSize = new EnterpriseSizeDao().ReturnList();
-            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
+            ViewBag.ListJobMain = jobMajorDao.ListJobMain();
             ViewBag.ListArea = new AreaDao().ListArea();
-            return View();
+
+            var ListEnterpriseContainer = new EnterpriseDao().ReturnFilterList(EName, EArea, ECareer, ESize);
+            var nameJob = new List<string>();
+            foreach(var item in ListEnterpriseContainer)
+            {
+                var saveName = "";
+                for (var i = 0; i < item.listJobId.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        saveName += jobMajorDao.JobName(item.listJobId[i]);
+                        continue;
+                    }
+                    saveName += ", " + jobMajorDao.JobName(item.listJobId[i]);
+                }
+                nameJob.Add(saveName);
+            }
+            ViewBag.ListFullJobName = nameJob;
+            return View(ListEnterpriseContainer);
         }
        
         public ActionResult Index()

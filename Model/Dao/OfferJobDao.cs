@@ -28,8 +28,10 @@ namespace Model.Dao
             {
                 var listOfferJob = new OfferJobDao().ListOfferJob();
                 var listOfferJobMajor = new OfferJobSkillDao().ReturnList();
+                var listEnterprise = new EnterpriseDao().ReturnList();
                 var result = (from job in listOfferJob
                               join jobMajor in listOfferJobMajor on job.OfferID equals jobMajor.OfferID
+                              join enterprise in listEnterprise on job.EnterpriseID equals enterprise.EnterpriseID
                               where (Area == 0 || job.Area == Area)
                               && (OfferMajor == 0 || job.OfferMajor == OfferMajor)
                               && (offerSalary == 0 || job.OfferSalary == offerSalary)
@@ -37,7 +39,8 @@ namespace Model.Dao
                               && (sex == "0" || job.Sex == sex)
                               && (experienceRequest == 0 || job.ExperienceRequest == experienceRequest)
                               && (learningLevelRequest == 0 || job.LearningLevelRequest == learningLevelRequest)
-                              && (offerName == "0" || job.OfferName.Contains(offerName))
+                              && (offerName == "0" || job.OfferName.Contains(offerName) || enterprise.EnterpriseName.Contains(offerName))
+
 
                               select new
                               {

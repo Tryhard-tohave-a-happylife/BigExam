@@ -42,6 +42,19 @@ namespace CareerWeb
                 namespaces: new[] { "CareerWeb.Controllers" }
            );
 
+            routes.MapRoute(
+                name: "Search_Company_For_User",
+                url: "SearchCompanyForUser",
+                defaults: new { controller = "User", action = "SearchCompanyForUser", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+                 name: "ResultForSearchCompany",
+                 url: "ResultForSearchCompany",
+                 defaults: new { controller = "User", action = "ResultForSearchCompany", id = UrlParameter.Optional },
+                 namespaces: new[] { "CareerWeb.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "Default",

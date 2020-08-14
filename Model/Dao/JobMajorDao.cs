@@ -81,5 +81,9 @@ namespace Model.Dao
                 return null;
             }
         }
+        public string JobName(int id)
+        {
+            return db.JobMajors.Find(id).JobName;
+        }
     }
 }

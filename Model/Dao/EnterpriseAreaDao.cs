@@ -75,5 +75,9 @@ namespace Model.Dao
                 return false;
             }
         }
+        public int AreaID(Guid id)
+        {
+            return db.EnterpriseAreas.Find(id).AreaID;
+        }
     }
 }
