@@ -15,13 +15,17 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult UserHome()
+        public ActionResult UserHome(string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0, string Sex = "0", int ExperienceRequest = 0, int LearningLevelRequest = 0, string OfferCreateDate = "")
         {
-            ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList();
-            ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
+            ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
             ViewBag.ListArea = new AreaDao().ListArea();
-            ViewBag.ListOffer = new OfferJobDao().ListOfferJob();
-            return View();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+
+            var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest);
+            return View(ListJobContainer);
         }
         public ActionResult ResultForSearchCompany()
         {

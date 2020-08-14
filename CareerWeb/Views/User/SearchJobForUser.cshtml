@@ -62,7 +62,10 @@
                                  style="position: absolute; float: right; margin-left: 80%;"></i>
             </h3>
             <form style="font-size: 1.2em; margin-left: 0.3em;">
-               
+                @foreach (var item in ViewBag.ListSalary)
+                {
+                    <input type="radio" name="selectSalary" value="@item.ID" style="margin-right: 10px;" /> @item.Amount<br />
+                }
             </form>
         </div>
         <div id="careerLevel" class="borderColJobMenu" style="margin-top: 2em; ">
