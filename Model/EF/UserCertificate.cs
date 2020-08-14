@@ -20,13 +20,8 @@ namespace Model.EF
         [StringLength(250)]
         public string ImageCertificate { get; set; }
 
-<<<<<<< HEAD
-        [Column(TypeName = "date")]
-        public DateTime GetDate { get; set; }
-=======
         [Required]
         [StringLength(10)]
         public string GetDate { get; set; }
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     }
 }

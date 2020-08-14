@@ -39,5 +39,12 @@ namespace Model.EF
 
         [StringLength(10)]
         public string Code { get; set; }
+
+        public int? SlaryID { get; set; }
+
+        public int? AreaID { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Deadline { get; set; }
     }
 }

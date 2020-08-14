@@ -128,7 +128,9 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
+    <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserExperienceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
+    <Content Include="Assets\Client\Css\User\SearchJobForUser.css" />
     <Content Include="Assets\Client\Css\User\UserHome.css" />
     <Content Include="Assets\Client\Css\Employee\SearchCandidate.css" />
     <Content Include="Assets\Client\Css\Employee\SearchCandidateResult.css" />
@@ -219,6 +222,10 @@
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
     <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
+    <Content Include="Views\University\UniversityHome.cshtml" />
+    <Content Include="Views\User\ResultForSearchJob.cshtml" />
+    <Content Include="Views\User\ResultForSearchCompany.cshtml" />
+    <Content Include="Views\User\SearchCompanyForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,13 +236,8 @@
     <Folder Include="Assets\Client\Img\Enterprise\EnterpriseHome\" />
     <Folder Include="Assets\Client\Img\Enterprise\LogoEnterprise\" />
     <Folder Include="Assets\Client\Img\Offer\" />
-    <Folder Include="Assets\Client\Img\School\" />
     <Folder Include="Assets\Client\Img\User\ImageProfile\" />
     <Folder Include="Views\Area\" />
-<<<<<<< HEAD
-=======
-    <Folder Include="Views\Enterprise\" />
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
     <Folder Include="Views\Home\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>

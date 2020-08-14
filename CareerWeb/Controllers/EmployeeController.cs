@@ -1,10 +1,5 @@
 ﻿using Model.Dao;
-<<<<<<< HEAD
 ﻿using Model.EF;
-
-=======
-using Model.EF;
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
 using System;
 using System.Web.Mvc;
 
@@ -35,7 +30,7 @@ namespace CareerWeb.Controllers
             ViewBag.AreaList = new AreaDao().ListArea();
             int areaId = int.Parse(AreaID); 
             int jobId = int.Parse(JobID);
-            ViewBag.ListUser = new UserDao().ListUserFit(Name,areaId,jobId);
+            
 
             return View();
         }

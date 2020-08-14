@@ -15,9 +15,14 @@ namespace CareerWeb.Controllers
     public class UserController : Controller
     {
         // GET: User
-<<<<<<< HEAD
         public ActionResult UserHome()
-=======
+        {
+            ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList();
+            ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
+            ViewBag.ListArea = new AreaDao().ListArea();
+            ViewBag.ListOffer = new OfferJobDao().ListOfferJob();
+            return View();
+        }
         public ActionResult ResultForSearchCompany()
         {
             return View();
@@ -27,13 +32,12 @@ namespace CareerWeb.Controllers
             return View();
         }
         public ActionResult ResultForSearchJob()
->>>>>>> fd5cdb593a3dfe52e7d0488403080ccf71a5498c
         {
 
             
             ViewBag.ListEnterpriseName = new EnterpriseDao().ReturnList(); 
             ViewBag.ListJobMain = new EnterpriseJobDao().ListEnterpriseJob();
-            ViewBag.ListArea = new EnterpriseAreaDao().ListEnterpriseArea();
+            ViewBag.ListArea = new AreaDao().ListArea();
             return View();
         }
         public ActionResult MoreNewsFromHandbook()
@@ -66,7 +70,7 @@ namespace CareerWeb.Controllers
             var acc = new AccountDao().FindAccountById(accID);
             var user = new UserDao().FindById(acc.UserId);
             ViewBag.ListUserJobParent = new JobMajorDao().ReturnParentListByUser(user.UserId);
-            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+          
             ViewBag.ListPostion = new PositionEmployeeDao().ReturnList();
             ViewBag.ListLanguage = new LanguageDao().ReturnList();
             ViewBag.ListJobSub = new JobMajorDao().ListJobSubByUser(user.UserId);

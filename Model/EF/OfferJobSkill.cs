@@ -6,8 +6,8 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("OfferJobMajor")]
-    public partial class OfferJobMajor
+    [Table("OfferJobSkill")]
+    public partial class OfferJobSkill
     {
         [Key]
         [Column(Order = 0)]
