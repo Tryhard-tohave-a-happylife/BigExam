@@ -27,5 +27,17 @@ namespace Model.Dao
                 return false;
             }
         }
+
+        public Employee FindById(Guid employeeId)
+        {
+            try
+            {
+                return db.Employees.Find(employeeId);
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

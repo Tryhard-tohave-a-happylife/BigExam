@@ -49,6 +49,9 @@ namespace Model.EF
 
         public int? PositionApply { get; set; }
 
+        [StringLength(250)]
+        public string DesiredJob { get; set; }
+
         public int CompleteProfile { get; set; }
     }
 }

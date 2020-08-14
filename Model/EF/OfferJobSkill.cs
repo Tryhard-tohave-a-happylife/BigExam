@@ -6,18 +6,18 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("OfferJobMajor")]
-    public partial class OfferJobMajor
+    [Table("OfferJobSkill")]
+    public partial class OfferJobSkill
     {
         [Key]
         [Column(Order = 0)]
         public Guid OfferID { get; set; }
 
+        public int ParentMajor { get; set; }
+
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ParentMajor { get; set; }
-
-        public int? ChildMajor { get; set; }
+        public int ChildMajor { get; set; }
     }
 }

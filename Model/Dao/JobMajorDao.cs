@@ -19,6 +19,12 @@ namespace Model.Dao
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
+
+        public List<JobMajor> ListJobSub()
+        {
+            return db.JobMajors.Where(x => x.JobIDParent != null).ToList();
+        }
+
         public List<JobMajor> ListJobSubByUser(Guid userId)
         {
             var listJobMain = db.UserMajors.Where(x => x.UserID == userId).Select(x => x.MajorID).ToList();

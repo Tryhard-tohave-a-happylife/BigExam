@@ -17,10 +17,6 @@ namespace Model.EF
         [StringLength(50)]
         public string EmployeeName { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string PositionName { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime BirthDay { get; set; }
 
@@ -33,5 +29,9 @@ namespace Model.EF
         public string Mobile { get; set; }
 
         public int Position { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Sex { get; set; }
     }
 }
