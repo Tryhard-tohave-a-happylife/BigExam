@@ -127,6 +127,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
     <Compile Include="Controllers\UserCertificateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -167,6 +168,7 @@
     <Content Include="Assets\Client\Img\User\ImageSearchCompany\img-company.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bg-solid-black.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bh-02.jpg" />
+    <Content Include="Assets\Client\Img\User\ImageSearchJob\hinh-anh-thanh-pho-Chicago-nuoc-My.jpg" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
     <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
@@ -248,13 +250,14 @@
     <Content Include="Views\User\HandbookForUser.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
+    <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
     <Content Include="Views\User\NewsOfHandBook_3.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\ResultForSearchCompany.cshtml" />
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
-    <Content Include="Views\University\UniversityHome.cshtml" />
+    <Content Include="Views\User\SearchCompanyForUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,6 +272,7 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Offer\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>
   <ItemGroup>

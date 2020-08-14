@@ -225,7 +225,7 @@
 #relatedJob {
     float: left;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 #title {
@@ -292,8 +292,8 @@
 
 #relatedJob .salary {
     position: absolute;
-    margin-left: 26em;
-    margin-top: -1em;
+    margin-left: 37em;
+    margin-top: -1.3em;
 }
 
 #relatedJob .deadline {
@@ -303,7 +303,7 @@
 }
 
 #relatedJob .reward {
-    margin-left: 26em;
+    margin-left: 37em;
     margin-top: 0.5em;
 }
 

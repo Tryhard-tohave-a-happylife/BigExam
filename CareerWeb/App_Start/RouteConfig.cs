@@ -37,10 +37,12 @@ namespace CareerWeb
 
             routes.MapRoute(
                 name: "ResultForSearchJob",
-                url: "ResultForSearchJob",
+                url: "OfferDetail/{OfferID}",
                 defaults: new { controller = "User", action = "ResultForSearchJob", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
            );
+         
+ 
 
             routes.MapRoute(
                 name: "Search_Company_For_User",
@@ -51,7 +53,7 @@ namespace CareerWeb
 
             routes.MapRoute(
                  name: "ResultForSearchCompany",
-                 url: "ResultForSearchCompany",
+                 url: "EnterpriseDetail/{EnterpriseID}",
                  defaults: new { controller = "User", action = "ResultForSearchCompany", id = UrlParameter.Optional },
                  namespaces: new[] { "CareerWeb.Controllers" }
             );

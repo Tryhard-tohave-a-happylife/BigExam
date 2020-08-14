@@ -15,10 +15,10 @@
 
 <div id="bannerHeader">
     <div id="letterHeader">
-        <div style="font-size:2.5vw; font-weight: 800; z-index: 1; margin-left: 2%;">
+        <div style="font-size:2.5vw; font-weight: 800; z-index: 1; text-align:center">
             Go further. Dream bigger. Work better
         </div>
-        <div style="font-size: 1.7vw; font-weight: 300; z-index: 1; margin-left: 7%;">
+        <div style="font-size: 1.7vw; font-weight: 300; z-index: 1; text-align: center">
             A better career is out there.
             We'll help you find it to use.
         </div>
@@ -62,7 +62,10 @@
                                  style="position: absolute; float: right; margin-left: 80%;"></i>
             </h3>
             <form style="font-size: 1.2em; margin-left: 0.3em;">
-               
+                @foreach (var item in ViewBag.ListSalary)
+                {
+                    <input type="radio" name="selectSalary" value="@item.ID" style="margin-right: 10px;" /> @item.Amount<br />
+                }
             </form>
         </div>
         <div id="careerLevel" class="borderColJobMenu" style="margin-top: 2em; ">
@@ -127,50 +130,51 @@
         {
             foreach (var item in Model)
             {
-
                 var linkImage = item.OfferImage;
-                <div class="jobContainer">
-                    <div id="@item.OfferID"></div>
-                    <div class="logo">
-                        <img src="@linkImage" alt="" />
-                    </div>
-                    <h3 class="jobName">
-                        <div class="textOverflowLine">@item.OfferName</div>
-                    </h3>
-                    <div class="companyName">
-                        <div class="textOverflowLine">
-                            <i class="fa fa-building"></i>
-                            <b>Công ty:</b>
-                            <span>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</span>
+                <a href="/OfferDetail/@item.OfferID" style="color: none; text-decoration: none;">
+                    <div class="jobContainer">
+                        <div id="@item.OfferID"></div>
+                        <div class="logo">
+                            <img src="@linkImage" alt="" />
                         </div>
-                    </div>
-                    <div class="address">
-                        <div class="textOverflowLine">
-                            <i class="fa fa-map-marker"></i>
-                            <b>Nơi làm việc:</b>
-                            <span>@item.JobAddress</span>
+                        <h3 class="jobName">
+                            <div class="textOverflowLine">@item.OfferName</div>
+                        </h3>
+                        <div class="companyName">
+                            <div class="textOverflowLine">
+                                <i class="fa fa-building"></i>
+                                <b>Công ty:</b>
+                                <span>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="salary">
-                        <div class="textOverflowLine">
-                            <i class="fas fa-dollar-sign"></i>
-                            <b>Lương:</b>
-                            <span>@(SalaryDao.AmountSalary(item.OfferSalary))</span>
-                            <span>USD</span>
+                        <div class="address">
+                            <div class="textOverflowLine">
+                                <i class="fa fa-map-marker"></i>
+                                <b>Nơi làm việc:</b>
+                                <span>@item.JobAddress</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="deadline">
-                        <i class="far fa-calendar-alt"></i>
-                        <b>Hạn nộp:</b>
-                        <span>@item.OfferLimitDate</span>
-                    </div>
-                    <div class="reward">
-                        <i class="fa fa-gift"></i>
-                        <b>Thưởng:</b>
-                        <span>@item.Bonus</span>
-                    </div>
+                        <div class="salary">
+                            <div class="textOverflowLine">
+                                <i class="fas fa-dollar-sign"></i>
+                                <b>Lương:</b>
+                                <span>@(SalaryDao.AmountSalary(item.OfferSalary))</span>
+                                <span>USD</span>
+                            </div>
+                        </div>
+                        <div class="deadline">
+                            <i class="far fa-calendar-alt"></i>
+                            <b>Hạn nộp:</b>
+                            <span>@item.OfferLimitDate</span>
+                        </div>
+                        <div class="reward">
+                            <i class="fa fa-gift"></i>
+                            <b>Thưởng:</b>
+                            <span>@(item.Bonus != null ? item.Bonus : "0 USD")</span>
+                        </div>
 
-                </div>
+                    </div>
+                </a>
             }
 
         }

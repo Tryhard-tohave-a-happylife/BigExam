@@ -8,10 +8,10 @@
 #letterHeader {
     float: left;
     width: 100%;
-    padding-top: 50px;
-    color: rgb(0, 25, 252);
+    padding-top: 85px;
+    color: maroon;
     height: 200px;
-    background-image: url('../../Img/User/ImageSearchJob/subheader-bg.jpg');
+    background-image: url('../../Img/User/ImageSearchJob/hinh-anh-thanh-pho-Chicago-nuoc-My.jpg');
     background-size: cover;
     z-index: 0;
 }

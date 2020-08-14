@@ -84,6 +84,7 @@
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
+    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
     <Compile Include="EF\EnterpriseArea.cs" />
@@ -112,6 +113,8 @@
     <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Models\FormEnterpriseFull.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
+    <Compile Include="Models\ShowFullEnterprise.cs" />
+    <Compile Include="Models\ShowFullJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
