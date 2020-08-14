@@ -43,4 +43,10 @@
         }
         $("input[name='jobBrowser']").val(name1);
     }
+
+    $(".jobContainer").click(function () {
+        var offerID = $(this).children().first().attr("id");
+        var dbParam = "OfferID=" + offerID;
+        window.location.href = "/ResultForSearchJob?" + dbParam;
+    })
 })

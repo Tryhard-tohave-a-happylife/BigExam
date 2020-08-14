@@ -62,6 +62,7 @@
     <Compile Include="Dao\AccountDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
     <Compile Include="Dao\EmployeeDao.cs" />
+    <Compile Include="Dao\EnterpriseAreaDao.cs" />
     <Compile Include="Dao\EnterpriseDao.cs" />
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Dao\PositionEmployeeDao.cs" />
     <Compile Include="Dao\SalaryDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
+    <Compile Include="Dao\UniversityDao.cs" />
     <Compile Include="Dao\UserCertificateDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserExperienceDao.cs" />
@@ -93,7 +95,6 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
-    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobSkill.cs" />
     <Compile Include="EF\PositionEmployee.cs" />

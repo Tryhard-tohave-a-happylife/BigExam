@@ -11,11 +11,7 @@ namespace Model.EF
     {
         public int ID { get; set; }
 
-        [Column("Salary")]
         [StringLength(20)]
-        public string Salary1 { get; set; }
-
-        [StringLength(20)]
-        public string Bonus { get; set; }
+        public string Amount { get; set; }
     }
 }
