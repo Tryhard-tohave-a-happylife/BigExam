@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Model.EF;
 
 namespace CareerWeb.Areas.Admin.Controllers
 {
@@ -12,7 +13,8 @@ namespace CareerWeb.Areas.Admin.Controllers
         // GET: Admin/JobMajor
         public ActionResult Index()
         {
-            return View();
+            var model = new JobMajorDao().ListUsers();
+            return View(model);
         }
         [HttpPost]
         public JsonResult ConfirmNewJob(int jobID)

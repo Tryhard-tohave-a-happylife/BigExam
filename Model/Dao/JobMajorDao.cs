@@ -16,11 +16,21 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<JobMajor> ListUsers()
+        {
+            try
+            {
+                return db.JobMajors.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<JobMajor> ListJobMain()
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
-
         public List<JobMajor> ListJobSubByUser(Guid userId)
         {
             var listJobMain = db.UserMajors.Where(x => x.UserID == userId).Select(x => x.MajorID).ToList();
