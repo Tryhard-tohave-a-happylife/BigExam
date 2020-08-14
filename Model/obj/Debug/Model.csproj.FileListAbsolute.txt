@@ -10,18 +10,6 @@ C:\Users\Admin\source\repos\CareerWeb\Model\obj\Debug\Model.csproj.CoreCompileIn
 C:\Users\Admin\source\repos\CareerWeb\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Admin\source\repos\CareerWeb\Model\obj\Debug\Model.dll
 C:\Users\Admin\source\repos\CareerWeb\Model\obj\Debug\Model.pdb
-C:\Users\ADMIN\source\repos\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
-C:\Users\ADMIN\source\repos\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\source\repos\BigExam\Model\obj\Debug\Model.dll
-C:\Users\ADMIN\source\repos\BigExam\Model\obj\Debug\Model.pdb
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\Model.dll.config
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\Model.dll
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\Model.pdb
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\EntityFramework.dll
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\EntityFramework.xml
-C:\Users\ADMIN\source\repos\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ADMIN\source\repos\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\Model.dll.config
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\Model.dll
@@ -34,15 +22,39 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csprojAssembl
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\obj\Debug\Model.pdb
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll.config
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.dll
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\Model.pdb
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.dll
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.xml
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.dll
-D:\Kỳ 2_2\PTUDW\repo\BigExam\Model\obj\Debug\Model.pdb
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\Model.dll.config
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\Model.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\Model.pdb
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\EntityFramework.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\EntityFramework.xml
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\obj\Debug\Model.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\obj\Debug\Model.pdb
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\PagedList.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\PagedList.xml
+C:\Users\84968\source\repos\CareerWeb\CareerWeb\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\PagedList.dll
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\PagedList.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.pdb
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.dll.config
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\Model.pdb
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csproj.CopyComplete

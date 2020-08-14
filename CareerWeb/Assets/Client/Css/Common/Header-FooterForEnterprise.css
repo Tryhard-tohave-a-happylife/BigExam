@@ -16,6 +16,7 @@ header {
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 1000;
 }
 
 .container {
@@ -278,6 +279,7 @@ footer {
     height: 500px;
     width: 100%;
     border-top: solid 5px #aaa;
+    z-index: 1000;
 }
 
 .footer_container {

@@ -3,10 +3,9 @@ using Model.Dao;
 ﻿using Model.EF;
 using PagedList;
 using PagedList.Mvc;
+﻿using Model.Dao;
+using Model.EF;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CareerWeb.Controllers
@@ -24,7 +23,7 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
+           // ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser();
             ViewBag.AreaList = new AreaDao().ListArea();
             return View();
         
@@ -56,6 +55,10 @@ namespace CareerWeb.Controllers
 
 
             return View();
+        }
+        public ActionResult ShowDetailCandidate()
+        {
+            return View(); 
         }
 
         public ActionResult Interview()

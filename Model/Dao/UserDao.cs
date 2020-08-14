@@ -17,6 +17,17 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<User> ListUsers()
+        {
+            try
+            {
+                return db.Users.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public bool InsertUser(User user)
         {
             try
@@ -25,7 +36,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch
             {
                 return false;
             }
@@ -36,7 +47,7 @@ namespace Model.Dao
             {
                 return db.Users.Find(userId);
             }
-            catch(Exception e)
+            catch
             {
                 return null;
             }

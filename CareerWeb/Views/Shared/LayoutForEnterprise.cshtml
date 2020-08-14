@@ -6,12 +6,10 @@
 
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <!--CSS-->
 
     <link href="~/Assets/Client/Css/Common/Header-FooterForEnterprise.css" rel="stylesheet" />
     @RenderSection("cssInsert", required: false)
-
-    <title>A+</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <header>
@@ -105,6 +103,8 @@
 
     @RenderBody()
    
+ 
+
     <footer>
         <div class="footer_container">
             <div class="footer_element_1">

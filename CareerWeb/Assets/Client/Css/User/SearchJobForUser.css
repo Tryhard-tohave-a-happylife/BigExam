@@ -54,7 +54,7 @@
 }
 
 #findIcon {
-    background-image: url("../Tìm việc nhanh/img/blue-search-icon.png");
+    background-image: url('../../Img/User/ImageSearchJob/blue-search-icon.png');
     background-size: cover;
     float: left;
     width: 3em;
@@ -62,17 +62,21 @@
     margin-left: 3%;
 }
 
-    #findIcon :hover {
+    #findIcon:hover{
         cursor: pointer;
     }
 
 #clearAll {
-    color: red;
+    color: orangered;
     font-size: 1.2em;
     position: relative;
     float: right;
     margin-right: calc(50% - 540px);
 }
+    #clearAll:hover {
+        color: #034efc;
+        cursor: pointer;
+    }
 
 @media screen and (max-width : 1160px) {
     #criteriaSelected {
@@ -148,6 +152,7 @@
     font-size: 1.2em;
     margin-top: 2%;
     font-weight: bold;
+    margin-bottom: 3em;
 }
 
 .jobContainer {
@@ -156,19 +161,19 @@
     background-color: #ebedeb;
     position: relative;
     height: 9em;
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
     .jobContainer:hover {
         cursor: pointer;
-        border: 5px solid #f07e1d;
+        border: 1px solid #f07e1d;
     }
 
-.logo img {
+img {
     position: relative;
     background-size: cover;
     margin: 0 0;
-    height: 9em;
+    height: 8.8em;
     width: 12em;
 }
 
@@ -196,13 +201,22 @@
 .address {
     margin-left: 14em;
     margin-top: -4.25em;
+    width: 50%;
 }
+    .address .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
 
 .salary {
-    position: absolute;
-    margin-left: 26em;
-    margin-top: -1em;
+    float: left;
+    margin-left: 47vw;
+    margin-top: -1.3em;
+    width: 27%;
 }
+
+    .salary .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
 
 .deadline {
     position: absolute;
@@ -211,7 +225,8 @@
 }
 
 .reward {
-    margin-left: 26em;
+    float: left;
+    margin-left: 47vw;
     margin-top: 0.5em;
 }
 
@@ -259,6 +274,7 @@
     .address {
         margin-left: 1em;
         margin-top: 0em;
+        width:100%;
     }
 
         .address .textOverflowLine {
@@ -269,6 +285,10 @@
         position: absolute;
         margin-left: 1em;
         margin-top: 1em;
+        width: 100%;
+    }
+    .salary .textOverflowLine {
+        -webkit-line-clamp: 1;
     }
 
     .deadline {

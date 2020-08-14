@@ -14,6 +14,11 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<Enterprise> ListEnterpriseName()
+        {
+            return db.Enterprises.ToList();
+        }
+
         public bool InsertEmployee(Employee employee)
         {
             try
@@ -37,6 +42,18 @@ namespace Model.Dao
             catch (Exception e)
             {
                 return null;
+        public bool Delete(Guid id)
+        {
+            try
+            {
+                var employee = db.Employees.Find(id);
+                db.Employees.Remove(employee);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

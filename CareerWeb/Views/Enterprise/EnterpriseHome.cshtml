@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "EnterpriseHome";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/Enterprise/EnterpriseHome.css" rel="stylesheet" />
+}
+
+
+<body style="background-color: #F3F3F3">
+    <header>
+    </header>
+    <div class="baner">
+        <div style=" padding-top: 0px; color: white; margin-left:12%; text-align:left; font-size:14px">
+            <i style="color: black" class="glyphicon glyphicon-home"></i>
+
+            <a style="text-decoration: none; color: black" href="/User/UserHome?">Việc làm</a>/Nhà Tuyển dụng
+        </div>
+        <br />
+        <div class="content">
+            VIECOI CUNG CẤP DỊCH VỤ ĐỂ LÀM CHO PHÙ HỢP VỚI NHÀ TUYỂN DỤNG VÀ
+            <a style="color:#FFAE68; text-decoration:none" href="/User/UserHome?">NGƯỜI TÌM VIỆC. </a>
+            <a style="color:#FFAE68; text-decoration:none" href="">
+                ĐĂNG TIN TUYỂN DỤNG MIỄN PHÍ,
+            </a>
+
+            <a style="color:#FFAE68; text-decoration:none; margin-top:-10%; height:2em" href="/Employee/SearchCandidate">
+                TÌM HỒ SƠ XIN VIỆC
+            </a>
+            HIỆU QUẢ VÀ
+            <a style="color:#FFAE68; text-decoration:none" href="">DỊCH VỤ HEADHUNT CHO VỊ TRÍ CHUYÊN GIA</a>
+
+
+        </div>
+        <div style="margin-top:3%; text-align:left; margin-left:12%;font-size:22px; color:white;font-family: Helvetica, Arial, sans-serif;">
+            <i style="color: white" class="glyphicon glyphicon-search"></i>
+            TÌM HỒ SƠ XIN VIỆC
+        </div>
+        <div>
+            <input type="text" id="key-word" class="search-box" placeholder="Tên ứng viên" onchange="checkName()" />
+        </div>
+        <div class="dropdown" >
+
+            <select id="linh-vuc" class="dropdown-select">
+                <option hidden value="0">Tìm kiếm theo lĩnh vực</option>
+                @foreach (var item in ViewBag.JobList)
+                {
+                    <option value="@item.JobID">@item.JobName</option>
+                }
+            </select>
+        </div>
+        <div class="dropdown">
+
+            <select id="dia-diem" class="dropdown-select">
+                <option hidden value="0">Tìm kiếm theo địa điểm</option>
+                @foreach (var item in ViewBag.AreaList)
+                {
+                    <option value="@item.AreaId">@item.NameArea</option>
+                }
+            </select>
+        </div>
+
+        <input class="submit-box " type="submit" id="submit" value="TÌM HỒ SƠ" onclick="search()" />
+        <input class="reset-box " type="submit" id="reset" value="Xóa bộ lọc" onclick="refresh()" />
+
+    </div>
+    <div class="service-box">
+        <div class="name-service-box">
+            DỊCH VỤ TUYỂN DỤNG
+        </div>
+        <div class="info-service-box info-service-box1">
+
+            <img style="margin-left:25%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/Capture.PNG" />
+            <div style="height: 40%">
+                <b style="text-align:center; color: #3A5998; font-size:18px; margin-left:22%">ĐĂNG TIN TUYỂN DỤNG</b><br /><br /><br />
+                <div style="padding-left:1.5em; padding-right:1em; text-align: left">Đăng tin tuyển dụng miễn phí (đăng 10 công việc miễn phí). Tin tuyển dụng của bạn sẽ được tự động đăng lên trang web việc làm khác của đối tác chúng tôi</div>
+            </div>
+            <div style="height:3em;width: 100%; margin-left: 10%;margin-top: 2.5em; font-size:16px;color:#E95F07">
+                <a href="" style="font-weight: bold; text-decoration: none; margin-left:25%">&emsp;Xem thêm</a>
+            </div>
+        </div>
+        <div class="info-service-box info-service-box2">
+
+            <img style="margin-left:25%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/Capture2.PNG" />
+            <div style="height: 40%">
+                <b style="text-align:center; color: #3A5998; font-size:18px; margin-left:28%">TÌM HỒ SƠ XIN VIỆC</b><br /><br /><br />
+                <div style="padding-left:1.5em; padding-right:1em; text-align: left">Miễn phí 15 điểm dùng thử đầu tiên sau khi đăng ký Sau khi bạn tải lên giấy phép kinh doanh, chúng tôi sẽ tặng điểm. Tìm hồ sơ xin việc theo ngành nghề, khu vực, kinh nghiệm và kỹ năng.</div>
+            </div>
+            <div style="height:3em;width: 100%; margin-left: 25%;margin-top: 2.5em; font-size:16px;color:#E95F07">
+                
+                <a href="/Employee/SearchCandidate?" style="font-weight: bold; text-decoration: none;margin-left:10%">&emsp;Xem thêm</a>
+            </div>
+        </div>
+        <div class="info-service-box info-service-box3">
+
+            <img style="margin-left:25%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/Capture3.PNG" />
+            <div style="height: 40%">
+                <b style="text-align:center; color: #3A5998; font-size:18px; margin-left:25%">DỊCH VỤ HEADHUNT</b><br /><br /><br />
+                <div style="padding-left:1.5em; padding-right:1em; text-align: left">Các chuyên viên tư vấn hiểu rõ về chuyên môn nghiệp vụ. Chế độ bảo hành và mức phí phù hợp. Có mạng lưới ứng viên tiềm năng và ưu tú</div>
+            </div>
+            <div style="height:3em;width: 100%; margin-left: 33%;margin-top: 2.5em; font-size:16px;color:#E95F07">
+                <a href="" style="font-weight: bold; text-decoration: none">&emsp;Xem thêm</a>
+            </div>
+        </div>
+    </div>
+    <div class="handbook-box">
+        <div class="name-service-box">
+            CẨM NANG TUYỂN DỤNG
+        </div>
+
+        <div class="handbook-box1">
+            <div style="height:70%; width: 40%;float: left">
+
+                <img style="height:100%; width:100%;  margin-top: 1%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/default.png" />
+            </div>
+            <div style="height: 100%; width:60%; margin-left: 40%; padding:0 10px 10px 10px;">
+                <a href="" style="font-weight: bold; font-size: 17px;margin-bottom:13px;color:#3a5998; text-decoration: none">Hãy theo đuổi ước mơ, không gì là không thể</a>
+                <br />
+                <div style="font-size: 14px; margin-right:10px;margin-top: 3%">
+                    Ai ai cũng có một tuổi thơ dữ dội và một tâm hồn trong sáng thế nhưng những cô bé
+                    hay chú bé ấy đều có một ước mơ cho riêng mình. Bạn có nhớ rằng cô giáo hỏi rằng
+                    “ ước mơ của em là gì? Vâng em có ước mơ sẽ trở thành bác sĩ để chữa bệnh cho mọi
+                    người hay em sẽ là ca sĩ hát thật hay và kiếm thật nhiều tiền cho bố mẹ !
+                    Nhưng khi dần dần chúng ta lớn lên từng ngày và trưởng thành và nhận thức sẽ khác đi, trong tâm trí mỗi...
+                </div>
+            </div>
+        </div>
+        <div class="handbook-box2">
+            <div style="height:70%; width: 40%; float: left">
+
+                <img style="height:100%; width:100%;  margin-top: 1%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/default.png" />
+            </div>
+            <div style="height: 100%; width:60%; margin-left: 40%; padding:0 10px 10px 10px;">
+                <a href="" style="font-weight: bold; font-size: 17px;margin-bottom:13px;color:#3a5998; text-decoration: none">Ưu điểm nổi bật được mọi người sử dụng cơ sở dữ liệu Oracle là gì?</a>
+                <br />
+                <div style="font-size: 14px; margin-right:10px;margin-top: 3%">
+                    Thông qua bài Oracle là gì? Sẽ giúp các bạn thay đổi cách nhìn trở nên hay và gần
+                    gũi hơn với những hệ quản trị cơ sở dữ liệu được mệnh danh là đứng hàng đầu thế giới.
+                    Vậy Oracle là gì? và sở hữu những tính năng gì?.Chúng ta hãy cùng nhau tham khảo sơ lược về...
+                </div>
+            </div>
+        </div>
+        <div class="handbook-box3">
+            <a href="" style="font-weight: bold; font-size: 20px;margin-bottom:13px;color:#3a5998; text-decoration: none">
+                Lập trình viên và câu chuyện về thu nhập ngành công nghệ thông tin
+            </a><br /><br /><br />
+            <a href="" style="font-weight: bold; font-size: 20px;margin-bottom:13px;color:#3a5998; text-decoration: none">
+                Cách viết email xin việc, có thật sự khó?
+            </a><br /><br /><br />
+
+            <a href="" style="font-weight: bold; font-size: 20px;margin-bottom:13px;color:#3a5998; text-decoration: none">
+                Bạn có đang quan tâm đến cơ sở dữ liệu?
+            </a><br /><br /><br />
+
+
+        </div>
+
+    </div>
+</body>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/EnterpriseHome/EnterpriseHome.js"></script>
+}
+
+
+
+
+
+
+

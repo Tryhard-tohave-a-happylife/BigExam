@@ -15,6 +15,11 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+        public List<EnterpriseJob> ListEnterpriseJob()
+        {
+            return db.EnterpriseJobs.ToList();
+        }
+
         public bool Insert(EnterpriseJob ins)
         {
             try
@@ -104,6 +109,10 @@ namespace Model.Dao
             {
                 return false;
             }
+        }
+        public int JobId(Guid id)
+        {
+            return db.EnterpriseJobs.Find(id).JobId;
         }
     }
 }

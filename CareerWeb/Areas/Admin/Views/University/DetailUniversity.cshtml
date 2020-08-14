@@ -1,0 +1,48 @@
+﻿@model Model.EF.University
+@{
+    ViewBag.Title = "DetailUniversity";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header {
+    Detail
+}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("University Management", "Index")</li>
+    <li class="breadcrumb-item active">Detail</li>
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>University Information</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>UniversityID</td>
+                    <td>@Model.UniversityID</td>
+                </tr>
+                <tr>
+                    <td>UniversityName</td>
+                    <td>@Model.UniversityName</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>@Model.Mobile</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>@Model.Address</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>@Model.Description</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>@Html.ActionLink("Return", "Index", null, new { @class = "btn btn-outline-primary" })</div>
+    </div>
+</div>
