@@ -244,7 +244,6 @@
     <Content Include="Views\Employee\SearchCandidate.cshtml" />
     <Content Include="Views\Employee\SearchCandidateResult.cshtml" />
     <Content Include="Views\Account\RegisterForEmployee.cshtml" />
-    <Content Include="Views\User\UserHome.cshtml" />
     <Content Include="Views\Shared\LayoutForEnterprise.cshtml" />
     <Content Include="Views\Shared\LayoutForUser.cshtml" />
     <Content Include="Views\User\HandbookForUser.cshtml" />
@@ -258,6 +257,12 @@
     <Content Include="Views\User\ResultForSearchCompany.cshtml" />
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
     <Content Include="Views\User\SearchCompanyForUser.cshtml" />
+
+    <Content Include="Views\User\SearchJobForUser.cshtml" />
+    <Content Include="Views\University\Statistic.cshtml" />
+    <Content Include="Views\University\ListOfStudent.cshtml" />
+    <Content Include="Views\User\UserHome.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,11 +315,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50779</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44301/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost:44301/</IISAppRootUrl>
+          <IISUrl>http://localhost:53452/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

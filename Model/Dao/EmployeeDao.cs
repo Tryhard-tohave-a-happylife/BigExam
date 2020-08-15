@@ -42,18 +42,20 @@ namespace Model.Dao
             catch (Exception e)
             {
                 return null;
-        public bool Delete(Guid id)
-        {
-            try
-            {
-                var employee = db.Employees.Find(id);
-                db.Employees.Remove(employee);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
+                 bool Delete(Guid id)
+                {
+                    try
+                    {
+                        var employee = db.Employees.Find(id);
+                        db.Employees.Remove(employee);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                }
             }
         }
     }
