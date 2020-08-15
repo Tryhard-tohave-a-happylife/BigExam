@@ -1,5 +1,7 @@
 ﻿using Model.Dao;
 using Model.EF;
+using System.Collections.Generic;
+using System.Linq;
 using System;
 using System.Web.Mvc;
 
@@ -31,8 +33,9 @@ namespace CareerWeb.Controllers
             int areaId = int.Parse(AreaID); 
             int jobId = int.Parse(JobID);
             
-            var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
-            return View(Model);
+            //var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            return View();
+            //return View(Model);
         }
 
         public ActionResult JobApplicationsUser()
