@@ -175,6 +175,7 @@
     <Content Include="Assets\Client\Img\User\ImageSearchCompany\img-company.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bg-solid-black.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bh-02.jpg" />
+    <Content Include="Assets\Client\Img\User\ImageSearchJob\f29989d9ec278b46fe24171349ae709f.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\hinh-anh-thanh-pho-Chicago-nuoc-My.jpg" />
     <Content Include="Assets\Client\Js\Employee\Interview.js" />
     <Content Include="Assets\Client\Js\Employee\JobApplicationsUser.js" />

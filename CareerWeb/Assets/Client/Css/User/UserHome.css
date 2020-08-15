@@ -5,10 +5,10 @@
 }
 
 .banner {
-    
-    margin-top:0;
-    background-image: url(https://viecoi.cdn.vccloud.vn/public/images/search-bg.jpg);
+    margin-top: 75px;
+    background-image: url('../../Img/User/ImageSearchJob/f29989d9ec278b46fe24171349ae709f.jpg');
     background-size: cover;
+    opacity: 1.7;
     border-width: 0.0625em;
     border-style: solid;
     height: 35em;
@@ -22,25 +22,20 @@
     font-size: 1em;
 }
 
-.search-box {
-    width: 15em;
-    height: 2.6em;
-    margin-left: 14%;
-    margin-top: 3%;
+.jobBrowser {
     float: left;
-    background-color: white;
-    color: black;
-    font-size: 20px;
-    border: 1px solid #49AFF2;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 4px;
+    width: 20%;
+    height: 2em;
+    margin-left: 3%;
+    margin-top: 45px;
+    box-shadow: 0 0 5px gray;
+    font-size: 15px;
 }
 .submit-box {
     width: 10em;
     height: 2.8em;
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: 45px;
     float: left;
     background-color: rgba(40, 152, 26, 0.93);
     color: white;
@@ -51,6 +46,10 @@
     -webkit-border-radius: 10px;
     border-radius: 4px;
 }
+    .submit-box:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px black;
+    }
 
 .reset-box {
     width: 8em;
@@ -70,59 +69,36 @@
 
 
 .title {
-    margin-top:3%;
+    margin-top:1%;
     font-size: 2.5em;
-    border-width: 0;
-    border-style: solid;
-    width: 25em;
     height: 1.5em;
-    color: #FFFFFF;
+    color: midnightblue;
     text-align: center;
-    margin-top: -2%;
-    margin-left: 17%;
-    border-color: white;
-    background-color: transparent;
 }
 
 .home-box {
-    border-width: 0.0625em;
-    border-style: solid;
+    border: 1px solid gray;
     width: 14%;
     height: 16em;
     position: relative;
     left: 6em;
     text-align: center;
     float: left;
-    border-color: white;
     font-size: 0.5em;
     background-color: white;
     margin-top: 3%;
+    margin-left: 2%;
   
 }
 
     .home-box:hover {
-        border-color: red;
+        border-color: orangered;
     }
 
 .home-box1 {
     margin-left: 8%;
 }
 
-.home-box2 {
-    margin-left: 2%;
-}
-
-.home-box3 {
-    margin-left: 2%;
-}
-
-.home-box4 {
-    margin-left: 2%;
-}
-
-.home-box5 {
-    margin-left: 2%;
-}
 
 
 
@@ -238,48 +214,56 @@
 .select-box {
     border: 0px solid #fcfcfc;
     background-color: white;
-    box-shadow: 0 0 5px #e8e7e6;
     float: left;
     position: relative;
-    margin: 5em 5.5em 5em 5.5em;
+    margin: 0em 0em 5em 3em;
     height: 2em;
-    width: 10em;
     font-size: 0.8em;
-    color: black;
-    font-weight: bold;
-    font-family: Tahoma;
-    margin-top:3%;
 }
 
 .select-box1 {
-    margin-left: 15%;
+    width: 11%;
+    margin-left: 7%;
 }
 
 .select-box2 {
-    margin-left: 0%;
+    width: 18%;
 }
 
 .select-box3 {
-    margin-left: 0%;
+    width: 12%;
 }
 
 .select-box4 {
-    margin-left: 0%;
+    width: 12%;
 }
 
 .select-box5 {
-    margin-left: 0%;
+    height: 2.5em;
+    border-radius: 3px;
+    background-color: orangered;
+    color: white;
+    margin-top: -2px;
+    margin-left: 5em;
+    width: 16%;
+    font-size: 0.9em;
+}
+.select-box5:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px black;
 }
 
 .container {
     float: left;
     width: 80%;
-    height: 5em;
-    margin-top: 3%;
-    margin-left: 10%;
+    height: auto;
+    margin-top: 5%;
+    text-align: center;
+    margin-left: 9%;
     background: rgba(0,0,0,0.5);
-    font-family: Tahoma;
     color: white;
+    font-size: 17px;
+    padding: 10px;
 }
 
 .link {
@@ -294,27 +278,21 @@
 }
 
 .button {
-    position: relative;
-    margin-top: 18%;
-    color: darkslategray;
     float: left;
+    color: darkslategray;
+    width: auto;
+    height: auto;
+    padding: 10px 10px 7px 10px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 1em;
-    cursor: pointer;
-    border-color: black;
-    border-radius: 4px;
-    border-width: 1px;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    ;
 }
 
     .button:hover {
         background-color: #F07E1D;
         color: white;
+        cursor: pointer;
     }
 
     .button:active {
@@ -324,12 +302,21 @@
     }
 
 .button1 {
-    margin-left: -76%;
-    width: 8em;
-    height: 2em;
+    margin-inline-end: 8px;
+    margin-left: 14%;
+    margin-top: 74px;
+    background-color: orangered;
+    color: white;
 }
-
-
+vr {
+    float:left;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    width: 100%;
+    height: 2px;
+    background-color: orangered;
+}
 
 .button2 {
     margin-left: 75%;
@@ -339,26 +326,18 @@
 }
 
 
-
-
-
-
-
 .job-box {
     position: relative;
-    
+    border: 1px solid #d1d1d1;
     width: 100%;
     height: 10em;
-    border-color: white;
     background-color: white;
-    border-width: 1px;
-    border-style: solid;
-    margin-top: 2%;
+    margin-bottom: 2%;
     float: left;
 }
 
     .job-box:hover {
-        border-color: red;
+        border-color: orangered;
     }
 
 
@@ -401,6 +380,3 @@
         border-width: 1px;
         border-color: red;
     }
-
-@media only screen and (max-width: 1300px) {
-}

@@ -24,25 +24,27 @@
     })
 
     function checkName() {
-        var name = $("input[name='enterprise']").val();
+        var name = $("input[name='jobBrowser']").val();
         var name1 = "";
         var i = 1;
-        name1 += name[0].toUpperCase();
-        while (i < name.length) {
-            if (name[i] == " " && name[i + 1] == " ") {
-                i++;
-                if (i == name.length) break;
+        if (name.length != 0) {
+            name1 += name[0].toUpperCase();
+            while (i < name.length) {
+                if (name[i] == " " && name[i + 1] == " ") {
+                    i++;
+                    if (i == name.length) break;
+                }
+                else if (name[i - 1] == " ") {
+                    name1 = name1 + name[i].toUpperCase();
+                    i++;
+                }
+                else {
+                    name1 = name1 + name[i];
+                    i++;
+                }
             }
-            else if (name[i - 1] == " ") {
-                name1 = name1 + name[i].toUpperCase();
-                i++;
-            }
-            else {
-                name1 = name1 + name[i];
-                i++;
-            }
-        }    
-         
-        $("input[name='enterprise']").val(name1);
+        }
+
+        $("input[name='jobBrowser']").val(name1);
     }
 })
