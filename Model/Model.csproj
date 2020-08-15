@@ -83,15 +83,14 @@
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserExperienceDao.cs" />
     <Compile Include="Dao\UserForeignLanguageDao.cs" />
+    <Compile Include="Dao\UserLearningDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />
     <Compile Include="Dao\WorkInvitationDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
     <Compile Include="EF\Article.cs" />
-
     <Compile Include="EF\CareerWeb.cs" />
-
     <Compile Include="EF\CategoryArticle.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
@@ -123,6 +122,7 @@
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Models\FormEnterpriseFull.cs" />
+    <Compile Include="Models\ListStudent.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
     <Compile Include="Models\ShowFullEnterprise.cs" />
     <Compile Include="Models\ShowFullJob.cs" />

@@ -64,6 +64,20 @@ namespace CareerWeb
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
             );
+
+            routes.MapRoute(
+               name: "Statistic",
+               url: "Statistic/{UniversityID}",
+               defaults: new { controller = "University", action = "Statistic", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "ListOfStudent",
+               url: "ListOfStudent/{UniversityID}",
+               defaults: new { controller = "University", action = "ListOfStudent", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
         }
     }
 }

@@ -150,6 +150,8 @@
     <Content Include="Assets\Admin\Js\Common\scripts.js" />
     <Content Include="Assets\Client\Css\Common\Header-FooterForEnterprise.css" />
     <Content Include="Assets\Client\Css\Common\Header-FooterForUser.css" />
+    <Content Include="Assets\Client\Css\Employee\Interview.css" />
+    <Content Include="Assets\Client\Css\Employee\JobApplicationsUser.css" />
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\University\ListOfStudent.css" />
@@ -364,7 +366,6 @@
     <Content Include="Views\Employee\JobApplicationsUser.cshtml" />
     <Content Include="Views\Employee\Interview.cshtml" />
     <Content Include="Views\University\UniversityHome.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
