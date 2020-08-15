@@ -45,6 +45,7 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 4px;
+    text-align: center;
 }
     .submit-box:hover {
         cursor: pointer;
@@ -237,7 +238,6 @@
 .select-box4 {
     width: 12%;
 }
-
 .select-box5 {
     height: 2.5em;
     border-radius: 3px;

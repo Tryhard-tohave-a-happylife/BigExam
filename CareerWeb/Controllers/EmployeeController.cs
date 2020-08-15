@@ -32,10 +32,12 @@ namespace CareerWeb.Controllers
             ViewBag.AreaList = new AreaDao().ListArea();
             int areaId = int.Parse(AreaID); 
             int jobId = int.Parse(JobID);
-            
-            //var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
-            return View();
-            //return View(Model);
+
+
+            // var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            // return View(Model);
+            return View(); //để tạm v cho đỡ lỗi đã, bài t cũng bị
+
         }
 
         public ActionResult JobApplicationsUser()

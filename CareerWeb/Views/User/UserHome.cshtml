@@ -169,8 +169,8 @@
         var linkImage = item.OfferImage;
         <div class="job-box">
             <img class="box-img" src="@linkImage" ; />
-            <div style="width: 50%; margin-left:0; margin-top: 5%; font-size:13px; text-align:left; padding-left: 6%;float: left">
-
+            <div style="width: 50%; margin-left:0; margin-top: 2%; font-size:13px; text-align:left; padding-left: 6%;float: left">
+                <div style="color:red; font-size: 15px">@item.OfferName </div><br />
                 <b class="fa fa-building-o"></b><b> Công ty: </b> <a>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</a><br /><br />
                 <b class="fa fa-map-pin"></b> <b>Nơi làm việc:</b> <a>@item.JobAddress</a><br /><br />
                 <b class="fa fa-calendar-o"></b> <b>Hạn nộp: </b> <a>@item.OfferLimitDate</a>
@@ -190,6 +190,6 @@
 
 
 @section jsInsert{
-
     <script src="~/Assets/Client/Js/User/UserHome.js"></script>
+   
 }
