@@ -40,7 +40,7 @@
     width: 10em;
     height: 2.8em;
     margin-left: 3%;
-    margin-top: 3%;
+    margin-top: -3.3%;
     float: left;
     background-color: rgba(40, 152, 26, 0.93);
     color: white;
@@ -50,6 +50,7 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 4px;
+    text-align: center;
 }
 
 .reset-box {
@@ -266,9 +267,13 @@
 .select-box4 {
     margin-left: 0%;
 }
-
 .select-box5 {
-    margin-left: 0%;
+    margin-left: -10%;
+}
+
+.select-box6 {
+    margin-top: -6%;
+    margin-left: 80%;
 }
 
 .container {
