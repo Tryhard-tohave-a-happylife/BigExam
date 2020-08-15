@@ -1,8 +1,3 @@
-﻿using Microsoft.Ajax.Utilities;
-using Model.Dao;
-﻿using Model.EF;
-using PagedList;
-using PagedList.Mvc;
 ﻿using Model.Dao;
 using Model.EF;
 using System;

@@ -265,3 +265,4 @@ C:\Users\ADMIN\source\repos\BigExam\CareerWeb\bin\PagedList.dll
 C:\Users\ADMIN\source\repos\BigExam\CareerWeb\bin\PagedList.Mvc.dll
 C:\Users\ADMIN\source\repos\BigExam\CareerWeb\bin\PagedList.xml
 C:\Users\ADMIN\source\repos\BigExam\CareerWeb\bin\PagedList.Mvc.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csprojAssemblyReference.cache
