@@ -152,6 +152,9 @@
     <Content Include="Assets\Client\Css\Common\Header-FooterForUser.css" />
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
+    <Content Include="Assets\Client\Css\University\ListOfStudent.css" />
+    <Content Include="Assets\Client\Css\University\Statistic.css" />
+    <Content Include="Assets\Client\Css\University\UniversityHome.css" />
     <Content Include="Assets\Client\Css\User\HandbookForUser.css" />
     <Content Include="Assets\Client\Css\User\IndexUser.css" />
     <Content Include="Assets\Client\Css\User\MoreNewsFromHandbook.css" />
@@ -171,10 +174,15 @@
     <Content Include="Assets\Client\Img\Offer\Logo_MISA.jpg" />
     <Content Include="Assets\Client\Img\Offer\117824601_625925528306611_6684277722219155690_n.jpg" />
     <Content Include="Assets\Client\Img\Offer\e7d7c3b9083afa752a4e9ce33f0025c4.png" />
+    <Content Include="Assets\Client\Img\University\6137667_042820-kfsn-graduation-img.jpg" />
+    <Content Include="Assets\Client\Img\University\logo.png" />
+    <Content Include="Assets\Client\Img\University\uni-banner.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchCompany\img-company.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bg-solid-black.png" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bh-02.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\hinh-anh-thanh-pho-Chicago-nuoc-My.jpg" />
+    <Content Include="Assets\Client\Js\Employee\Interview.js" />
+    <Content Include="Assets\Client\Js\Employee\JobApplicationsUser.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
     <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
@@ -352,6 +360,10 @@
     <Content Include="Views\University\Statistic.cshtml" />
     <Content Include="Views\University\ListOfStudent.cshtml" />
     <Content Include="Views\User\UserHome.cshtml" />
+    <Content Include="Views\Employee\JobApplicationsUser.cshtml" />
+    <Content Include="Views\Employee\Interview.cshtml" />
+    <Content Include="Views\University\UniversityHome.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

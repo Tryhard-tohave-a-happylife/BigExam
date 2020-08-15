@@ -28,45 +28,49 @@
                         <div style="margin-left: 230px;padding-top: 5px">
                             <h2 id="uni-name"> UET UNIVERSITY</h2>
                             <div class="uni-info-option">
-                                <i class="fa fa-map-marker"></i>
-                                <span>DHQGHN, 136 Xuan Thuy, Cau Giay, Ha Noi</span></br></br>
-                                <i class="fa fa-globe"></i>
-                                <a href="https://uet.vnu.edu.vn/" target="_blank">https://uet.vnu.edu.vn/</a></br></br>
-                                <a href="ListOfStudent?" class="uni-overview">
-                                    <i class="fa fa-chart-bar"></i>
-                                    <span>  Danh sach sinh vien</span>
-                                </a>
+                                <i class="fa fa-map-marker"></i> Địa chỉ: DHQGHN, 136 Xuan Thuy, Cau Giay, Ha Noi
                             </div>
+                            <div id="Website">
+                                <i class="fa fa-globe"></i>
+                                <a href="https://uet.vnu.edu.vn/" target="_blank">Website: https://uet.vnu.edu.vn/</a>
+                            </div>
+                            <div id="email"><i class="fas fa-envelope"></i> Email: </div>
+                            <div id="hotline"><i class="fas fa-phone-square-alt"></i> Hotline: </div>
+                            <a href="ListOfStudent?" class="uni-overview">
+                                <i class="fa fa-chart-bar"></i>
+                                <span>  Danh sách sinh viên</span>
+                            </a>
                         </div>
                     </div>
-                    <h2 style="width: 100%; margin: 30px 0;">Báo cáo thống kê theo:</h2>
-                    <div style="width: 100%;margin-bottom: 30px;">
-                        <input type="radio" id="skill" name="filter" value="skill" checked>
-                        <label for="skill">Kỹ năng</label>
-                        <input type="radio" id="career" name="filter" value="career">
-                        <label for="skill">Ngành nghề</label>
-                        <input type="submit" style="margin-left: 15px;" onclick=seeChart() value="Xem">
-                    </div>
-
-                    <div class="chart-content" id="c1">
-                        <div id="piechart_3d-skill" style="width: 500px; height: 500px;"></div>
-                    </div>
-
-                    <div class="chart-content" id="c2">
-                        <div id="line_chart-skill" style="width: 500px; height: 500px;"></div>
-                    </div>
-                    <div class="chart-content" id="c3" style="display: none;">
-                        <div id="piechart_3d-career" style="width: 500px; height: 500px;"></div>
-                    </div>
-
-                    <div class="chart-content" id="c4" style="display: none;">
-                        <div id="line_chart-career" style="width: 500px; height: 500px;"></div>
-                    </div>
-
-
                 </div>
+                <h2 style="width: 100%; margin: 30px 0;">Báo cáo thống kê theo:</h2>
+                <div style="width: 100%;margin-bottom: 30px;">
+                    <input type="radio" id="skill" name="filter" value="skill" checked>
+                    <label for="skill">Kỹ năng</label>
+                    <input type="radio" id="career" name="filter" value="career">
+                    <label for="skill">Ngành nghề</label>
+                    <input type="submit" style="margin-left: 15px; box-shadow: 0 0 5px gray;" onclick=seeChart() value="Xem">
+                </div>
+
+                <div class="chart-content" id="c1">
+                    <div id="piechart_3d-skill" style="width: 500px; height: 500px;"></div>
+                </div>
+
+                <div class="chart-content" id="c2">
+                    <div id="line_chart-skill" style="width: 500px; height: 500px;"></div>
+                </div>
+                <div class="chart-content" id="c3" style="display: none;">
+                    <div id="piechart_3d-career" style="width: 500px; height: 500px;"></div>
+                </div>
+
+                <div class="chart-content" id="c4" style="display: none;">
+                    <div id="line_chart-career" style="width: 500px; height: 500px;"></div>
+                </div>
+
+
             </div>
         </div>
+    </div>
     </div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

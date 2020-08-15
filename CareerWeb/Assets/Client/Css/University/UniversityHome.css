@@ -13,13 +13,11 @@
 }
 
 .banner {
-   
-    background-image: url('../../Img/University/uni-banner.jpg');
+    background-image: url('../../Img/University/6137667_042820-kfsn-graduation-img.jpg');
     background-size: cover;
     background-position-y: bottom;
     position: absolute;
     left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
 }
@@ -28,12 +26,14 @@
     padding: 25px 0 10px 0;
     float: left;
     width: 100%;
+    background-color: slategrey;
 }
 
 .container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    background-color: white;
 }
 
 @media screen and (min-width: 1200px) {
@@ -46,24 +46,18 @@
     .container {
         max-width: 960px;
     }
-
-    ;
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .container {
         max-width: 720px;
     }
-
-    ;
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .container {
         max-width: 540px;
     }
-
-    ;
 }
 
 .row {
@@ -75,7 +69,7 @@
     float: left;
     background-color: #ffffff;
     padding: 30px;
-    border: 1px solid #ececec;
+    box-shadow: 0 0 5px gray;
     margin-bottom: 30px;
     position: relative;
     width: 100%;
@@ -92,6 +86,7 @@
     float: left;
     width: 165px;
     border: 1px solid #ececec;
+    margin-top: 30px;
 }
 
 img {
@@ -101,22 +96,37 @@ img {
 
 #uni-name {
     margin-bottom: 13px;
-    font-size: 26;
+    font-size: 26px;
     line-height: 1;
     font-weight: 600;
 }
-
+#email {
+    float:left;
+    margin-left:64px;
+    width: 74%;
+}
+#hotline {
+    float: left;
+    margin-left: 64px;
+    width: 74%;
+}
+#descrip {
+    float: left;
+    margin-left: 64px;
+    width: 74%;
+}
 a {
     text-decoration: none;
 }
 
 .uni-overview {
-    margin-top: 20%;
+    margin-top: 50px;
     float: left;
     color: #f07e1d;
     font-weight: 600;
     padding: 13px 15px;
     border: 1px solid #f07e1d;
+    margin-left: 64px;
 }
 
 .company-info-option {

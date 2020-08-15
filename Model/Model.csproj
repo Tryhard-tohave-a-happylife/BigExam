@@ -89,6 +89,9 @@
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
     <Compile Include="EF\Article.cs" />
+
+    <Compile Include="EF\CareerWeb.cs" />
+
     <Compile Include="EF\CategoryArticle.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
