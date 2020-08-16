@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "InterviewLetter";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Manage/InterviewLetter.css" rel="stylesheet" />
+}
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>TIẾN TRÌNH NỘP HỒ SƠ</b></div>
+        <div id="stages">
+            <div class="stage" style="left: 0px;"><br><b>1 - Nộp Đơn</b></div>
+            <div class="triangleStageWhite" style="left: 256px; "></div>
+            <div class="triangleStageGray" style="left: 254px; "></div>
+            <div class="stage" style="left: 257px; background-color: #f07e1d; color: white; cursor: pointer;">
+                <br><b>
+                    2 - Phỏng
+                    Vấn
+                </b>
+            </div>
+            <div class="triangleStageWhite" style="left: 505px;"></div>
+            <div class="triangleStageGray" style="left: 503px; border-left-color: #f07e1d; "></div>
+            <div class="stage" style="left: 505px;"><br><b>3 - Mời Làm</b></div>
+            <div class="triangleStageWhite" style="left: 762px;"></div>
+            <div class="triangleStageGray" style="left: 760px; "></div>
+            <div class="stage" style="left: 760px;"><br><b>4 - Kết Quả</b></div>
+            <div class="triangleStageWhite" style="left: 1016px;"></div>
+            <div class="triangleStageGray" style="left: 1014px; "></div>
+        </div>
+        <div id="status">
+            <i class="fas fa-quote-left"></i> <b>
+                Nhà tuyển dụng đã xét lịch phỏng vấn. Bạn vui lòng
+                kiểm tra và xác nhận thời gian phỏng
+                vấn
+            </b><i class="fas fa-quote-right"></i>
+        </div>
+        <div id="content">
+            <div id="titleContent"><i class="fas fa-envelope"></i><b> THƯ MỜI PHỎNG VẤN</b></div>
+            <div id="horizontalLine"></div>
+            <div id="verticalLine"></div>
+            <div id="mainContent">
+                <div id="position"><i class="fas fa-external-link-alt"></i><b> Vị trí:</b> Bảo vệ</div>
+                <div class="line"></div>
+                <div id="time"><i class="far fa-clock"></i><b> Vào lúc:</b> 01:00 pm</div>
+                <div class="line"></div>
+                <div id="interviewDate"><i class="far fa-calendar"></i><b> Ngày phỏng vấn:</b> 06/12/2000</div>
+                <div class="line"></div>
+                <div id="interviewer"><i class="far fa-user"></i><b> Người phỏng vấn:</b> Long Hoàng</div>
+                <div class="line"></div>
+                <div id="address">
+                    <i class="fas fa-map-marker-alt"></i><b> Địa chỉ phỏng vấn:</b> 144 Xuân Thủy
+                </div>
+                <div class="line"></div>
+                <div id="note">
+                    <i class="far fa-edit"></i><b>Nội dung:</b> Mời bạn đến phỏng vấn vị trí "Bảo vệ"
+                </div>
+
+                <div class="button" id="accept"><i class="far fa-check-square"></i>Tham gia</div>
+                <div class="button" id="reschedule"><i class="fas fa-sync-alt"></i>Đổi ngày phỏng vấn</div>
+                <div class="button" id="ignore"><i class="fas fa-times-circle"></i>Hủy nộp đơn</div>
+            </div>
+
+            <div id="changeDate">
+                <div id="titleDate"><i class="fas fa-sync-alt"></i><b>Đổi ngày phỏng vấn</b></div>
+                <div class="line" style="margin: 20px 0px 20px"></div>
+                <b>Ngày phỏng vấn</b>
+                <input type="date" id="dateInterview">
+                <b>Giờ phỏng vấn</b>
+                <input type="time" id="timeInterview">
+                <b>Thông tin</b>
+                <textarea id="noteInfo" name="noteInfo" rows="4" cols="66%" style="margin-top: 5px;"></textarea>
+                <div class="button" id="changeOk"><i class="fas fa-check"></i>Đổi ngày phỏng vấn</div>
+                <div class="button" id="exit"><i class="fas fa-times"></i>Bỏ qua</div>
+            </div>
+        </div>
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Manage/InterviewLetter.js"></script>
+}
+

@@ -5,9 +5,6 @@
         $(listForm[index]).slideToggle();
 
     });
-    $(".star").click(function () {
-        $(".star").css({ "color": "#666666" });
-    })
     $("#clearAll").click(function () {
         location.reload();
     })
