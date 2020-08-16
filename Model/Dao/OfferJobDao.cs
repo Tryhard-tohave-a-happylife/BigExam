@@ -29,6 +29,7 @@ namespace Model.Dao
             return db.OfferJobs.ToList();
         }
 
+
         public List<OfferJob> ReturnFilterList(string offerName = "0", int Area = 0,
             int OfferMajor = 0, int offerSalary = 0, int positionJobId = 0,
             string sex = "0", int experienceRequest = 0, int learningLevelRequest = 0)
@@ -106,8 +107,12 @@ namespace Model.Dao
                 return null;
             }
         }
+        public List<OfferJob> ShowContainer(Guid EnterpriseID)
+        {
+            return db.OfferJobs.Where(x => x.EnterpriseID == EnterpriseID).ToList();
+        }
 
-        public ShowFullJob ShowDetail(Guid OfferID)
+        public List<ShowFullJob> ShowDetail(Guid OfferID)
         {
             var listOfferJob = new OfferJobDao().ListOfferJob();
             var listEnterprise = new EnterpriseDao().ReturnList();
@@ -158,8 +163,9 @@ namespace Model.Dao
                               NameOfEnterprise = x.NameOfEnterprise,
                               listJobId = x.listJobId,
                           });
-            return (ShowFullJob)result;
-        }
+            var finalResult = result.ToList();
+            return finalResult;
+            }
 
             
 

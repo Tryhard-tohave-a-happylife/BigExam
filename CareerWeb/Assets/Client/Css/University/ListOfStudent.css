@@ -1,5 +1,6 @@
 ﻿body {
     font-family: 'Roboto', sans-serif;
+    background-color: lightgray;
 }
 
 .page-wrapper {
@@ -13,7 +14,7 @@
 }
 
 .banner {
-    background-image: url("uni-banner.jpg");
+    background-image: url('../../Img/University/6137667_042820-kfsn-graduation-img.jpg');
     background-size: cover;
     background-position-y: bottom;
     position: absolute;
@@ -45,24 +46,18 @@
     .container {
         max-width: 960px;
     }
-
-    ;
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .container {
         max-width: 720px;
     }
-
-    ;
 }
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
     .container {
         max-width: 540px;
     }
-
-    ;
 }
 
 .row {
@@ -74,7 +69,7 @@
     float: left;
     background-color: #ffffff;
     padding: 30px;
-    border: 1px solid #ececec;
+    box-shadow: 0 0 5px grey;
     margin-bottom: 30px;
     position: relative;
     width: 100%;
@@ -100,7 +95,7 @@ img {
 
 #uni-name {
     margin-bottom: 13px;
-    font-size: 26;
+    font-size: 26px;
     line-height: 1;
     font-weight: 600;
 }
@@ -115,16 +110,29 @@ a {
     font-weight: 600;
     padding: 13px 15px;
     border: 1px solid #f07e1d;
+    margin-top: 20px;
 }
 
 .chart-content {
+    float: left;
     margin: 10px;
     padding: 20px;
-    border: 1px solid #ececec;
+    box-shadow: 0 0 5px gray;
+    width: 48%;
 }
 
 @media screen and (max-width: 1200px) {
     .chart-content {
         width: 95%;
     }
+}
+table {
+    float: left;
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+th, td {
+    padding:5px;
+    border: 1px solid black;
 }

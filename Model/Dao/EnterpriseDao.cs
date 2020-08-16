@@ -17,7 +17,7 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-     
+
         public bool Insert(Enterprise ins)
         {
             try
@@ -26,7 +26,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -62,7 +62,7 @@ namespace Model.Dao
             {
                 return db.Enterprises.Where(x => x.Status == false).ToList();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -76,7 +76,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -90,7 +90,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -100,7 +100,8 @@ namespace Model.Dao
             try
             {
                 return db.Enterprises.ToList();
-            } catch
+            }
+            catch
             {
                 return null;
             }
@@ -125,7 +126,7 @@ namespace Model.Dao
                               && (ESize == 0 || listE.EnterpriseSize == ESize)
                               && (EName == "0" || listE.EnterpriseName.Contains(EName))
                               && listE.Status == true
-                             
+
                               select new
                               {
                                   EnterpriseID = listE.EnterpriseID,
@@ -164,12 +165,8 @@ namespace Model.Dao
                     {
                         finalResult2.Add(finalResult[i]);
                     }
-
-
                 }
                 return finalResult2;
-
-
             }
             catch (Exception e)
             {
@@ -178,5 +175,67 @@ namespace Model.Dao
 
         }
 
+        public List<ShowFullEnterprise> ShowEnterprise(Guid EnterpriseID)
+        {
+            try
+            {
+                var listEnterprise = new EnterpriseDao().ReturnList();
+                var listArea = new EnterpriseAreaDao().ListEnterpriseArea();
+                var result = (from enpr in listEnterprise
+                              join listA in listArea on enpr.EnterpriseID equals listA.EnterpriseId
+                              where enpr.EnterpriseID == EnterpriseID
+                              select new
+                              {
+                                  EnterpriseID = enpr.EnterpriseID,
+                                  EnterpriseName = enpr.EnterpriseName,
+                                  ImageLogo = enpr.ImageLogo,
+                                  AmountSize = db.EnterpriseSizes.Find(enpr.EnterpriseSize).AmountSize,
+                                  NameOfEnterprise = db.TypeOfEnterprises.Find(enpr.TypeOfEnterprise).NameOfEnterprise,
+                                  EstablishYear = enpr.EstablishYear,
+                                  NameArea = db.Areas.Find(listA.AreaID).NameArea,
+                                  listJobId = db.EnterpriseJobs.Where(x => x.EnterpriseID == enpr.EnterpriseID && x.JobIdParent == null).Select(x => x.JobId).ToList(),
+                                  Description = enpr.Description,
+                              }).AsEnumerable().Select(x => new ShowFullEnterprise()
+                              {
+                                  EnterpriseID = x.EnterpriseID,
+                                  EnterpriseName = x.EnterpriseName,
+                                  ImageLogo = x.ImageLogo,
+                                  AmountSize = x.AmountSize,
+                                  NameArea = x.NameArea,
+                                  NameOfEnterprise = x.NameOfEnterprise,
+                                  EstablishYear = x.EstablishYear,
+                                  listJobId = x.listJobId,
+                                  Description = x.Description
+                              });
+                var finalResult = result.ToList();
+                int n = finalResult.Count;
+                if (n == 0 || n == 1) return finalResult;
+
+                var finalResult2 = new List<ShowFullEnterprise>();
+
+                for (int i = 0; i < n; i++)
+                {
+                    bool check = true;
+                    for (int j = 0; j < finalResult2.Count; j++)
+                    {
+                        if (finalResult[i].EnterpriseID == finalResult2[j].EnterpriseID)
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check == true)
+                    {
+                        finalResult2.Add(finalResult[i]);
+                    }
+                }
+                return finalResult2;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
+
 }

@@ -174,6 +174,38 @@ namespace Model.Dao
 
         }
 
+        public List<ListStudent> ListFilterUni(Guid UniversityID)
+        {
+            var listUser = new UserDao().ListUser();
+            var listStudent = new UserLearningDao().ListUserLearning();
+            var listJob = new UserMajorDao().ListUserMajor();
+            var result = (from user in listUser
+                          join student in listStudent on user.UserId equals student.UserID
+                          join job in listJob on user.UserId equals job.UserID
+                          where student.SchoolID == UniversityID
+                          select new
+                          {
+                              UserName = user.UserName,
+                              UserBirthDay = user.UserBirthDay,
+                              UserEmail = user.UserEmail,
+                              UserMobile = user.UserMobile,
+                              JobName = db.JobMajors.Find(student.Major).JobName,
+                              NameArea = db.Areas.Find(user.UserArea).NameArea,
+                              LanguageLevel = db.UserForeignLanguages.Find(user.UserId).LanguageLevel,
+                              listJob = db.JobMajors.Where(x => x.JobID == job.MajorID).Select(x => x.JobName).ToList(),
+                          }).AsEnumerable().Select(x => new ListStudent()
+                          {
+                              UserName = x.UserName,
+                              UserBirthDay = x.UserBirthDay,
+                              UserEmail = x.UserEmail,
+                              UserMobile = x.UserMobile,
+                              JobName = x.JobName,
+                              NameArea = x.NameArea,
+                              LanguageLevel = x.LanguageLevel,
+                              listJob = x.listJob
+                          });
+            return result.ToList();
+        }
        
     }
 }

@@ -5,6 +5,7 @@
 }
 
 .baner {
+    margin-top: 75px;
     background-image: url(https://viecoi.cdn.vccloud.vn/public/images/bg-nhatuyendung.png);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-width: 0.0625em;
@@ -18,7 +19,6 @@
     color: black;
     border-color: white;
     font-size: 1em;
-    margin-top: 5%;
 }
 
 .content {
@@ -52,9 +52,9 @@
     width: 15em;
     height: 3em;
     text-align: center;
-    margin-left: 4%;
+    margin-left: 3%;
     color: black;
-    margin-top: 4%;
+    margin-top: 25px;
     padding-top:13px;
 }
 
@@ -124,8 +124,8 @@
     width: 15em;
     height: 3em;
 
-    margin-left: 14%;
-    margin-top: 4%;
+    margin-left: 12%;
+    margin-top: 25px;
     float: left;
     background-color: white;
     color: black;
@@ -136,7 +136,7 @@
     -webkit-border-radius: 10px;
     border-radius: 4px;
 }
-.select-box: focus {
+.select-box:focus {
     color: black;
     outline: none;
     width: 100%;
@@ -146,7 +146,7 @@
     width: 10em;
     height: 2.8em;
     margin-left: 3%;
-    margin-top: 4%;
+    margin-top: 25px;
     float: left;
     background-color: rgba(40, 152, 26, 0.93);
     color: white;
@@ -161,7 +161,7 @@
     width: 8em;
     height: 2em;
     margin-left: -10%;
-    margin-top: 8%;
+    margin-top: 90px;
     float: left;
     background-color: white;
     color: black;
@@ -171,6 +171,14 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 4px;
+}
+.submit-box {
+    cursor: pointer;
+    box-shadow: 0 0 5px gray;
+}
+.reset-box:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px gray;
 }
 
 .function-box {
@@ -201,7 +209,7 @@
 }
 
 .info-service-box {
-    margin-top: 5%;
+    margin-top: 3%;
     float: left;
     width: 25%;
     height: 81%;
@@ -241,7 +249,7 @@
 }
 
 .handbook-box1 {
-    margin-top: 5%;
+    margin-top: 3%;
     width: 45%;
     margin-left: 10%;
     height: 40%;
@@ -258,7 +266,7 @@
 }
 
 .handbook-box3 {
-    margin-top: 4%;
+    margin-top: 2%;
     width: 35%;
     margin-left: 57%;
     height: 80%;

@@ -37,10 +37,12 @@ namespace CareerWeb
 
             routes.MapRoute(
                 name: "ResultForSearchJob",
-                url: "ResultForSearchJob",
+                url: "OfferDetail/{OfferID}",
                 defaults: new { controller = "User", action = "ResultForSearchJob", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
            );
+         
+ 
 
             routes.MapRoute(
                 name: "Search_Company_For_User",
@@ -51,7 +53,7 @@ namespace CareerWeb
 
             routes.MapRoute(
                  name: "ResultForSearchCompany",
-                 url: "ResultForSearchCompany",
+                 url: "EnterpriseDetail/{EnterpriseID}",
                  defaults: new { controller = "User", action = "ResultForSearchCompany", id = UrlParameter.Optional },
                  namespaces: new[] { "CareerWeb.Controllers" }
             );
@@ -62,6 +64,20 @@ namespace CareerWeb
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
             );
+
+            routes.MapRoute(
+               name: "Statistic",
+               url: "Statistic/{UniversityID}",
+               defaults: new { controller = "University", action = "Statistic", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "ListOfStudent",
+               url: "ListOfStudent/{UniversityID}",
+               defaults: new { controller = "University", action = "ListOfStudent", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
         }
     }
 }

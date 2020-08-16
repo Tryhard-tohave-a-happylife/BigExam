@@ -1,10 +1,7 @@
-﻿using Microsoft.Ajax.Utilities;
-using Model.Dao;
-﻿using Model.EF;
-using PagedList;
-using PagedList.Mvc;
 ﻿using Model.Dao;
 using Model.EF;
+using System.Collections.Generic;
+using System.Linq;
 using System;
 using System.Web.Mvc;
 using System.Collections.Generic;
@@ -36,9 +33,12 @@ namespace CareerWeb.Controllers
             ViewBag.AreaList = new AreaDao().ListArea();
             int areaId = int.Parse(AreaID); 
             int jobId = int.Parse(JobID);
-            
-            var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
-            return View(Model);
+
+
+            // var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            // return View(Model);
+            return View(); //để tạm v cho đỡ lỗi đã, bài t cũng bị
+
         }
 
         public ActionResult JobApplicationsUser()

@@ -9,7 +9,7 @@
     })
     $("#findIcon").click(function () {
         checkName();
-        var jobBrowser = $("input[name='jobBrowser']").val()
+        var jobBrowser = $("input[name='jobBrowser']").val();
         var OfferMajor = $('#OfferMajor option[value="' + $('#as').val() + '"]').data('id');
         var listArea = $('#ListArea option[value="' + $('#bs').val() + '"]').data('id');
         var salary = ($("input[name='selectSalary']:checked").val() != null) ? $("input[name='selectSalary']:checked").val() : 0;
@@ -17,6 +17,7 @@
         var experience = ($("input[name='selectExperience']:checked").val() != null) ? $("input[name='selectExperience']:checked").val() : 0;
         var sex = ($("input[name='selectGender']:checked").val() != null) ? $("input[name='selectGender']:checked").val() : 0;
         var levelLearning = ($("input[name='selectLevel']:checked").val() != null) ? $("input[name='selectLevel']:checked").val() : 0;
+
         var dbParam = "OfferName=" + jobBrowser + "&Area=" + listArea + "&OfferMajor=" + OfferMajor
             + "&OfferSalary=" + salary + "&PositionJobID=" + positionEmployee + "&Sex=" + sex + "&ExperienceRequest=" + experience
              + "&LearningLevelRequest=" + levelLearning;
@@ -26,27 +27,25 @@
         var name = $("input[name='jobBrowser']").val();
         var name1 = "";
         var i = 1;
-        name1 += name[0].toUpperCase();
-        while (i < name.length) {
-            if (name[i] == " " && name[i+1] == " ") {
-                i++;
-                if (i == name.length) break;
-            }
-            else if (name[i - 1] == " ") {
-                name1 = name1 + name[i].toUpperCase();
-                i++;
-            }
-            else {
-                name1 = name1 + name[i];
-                i++;
+        if (name.length != 0)
+        {
+            name1 += name[0].toUpperCase();
+            while (i < name.length) {
+                if (name[i] == " " && name[i + 1] == " ") {
+                    i++;
+                    if (i == name.length) break;
+                }
+                else if (name[i - 1] == " ") {
+                    name1 = name1 + name[i].toUpperCase();
+                    i++;
+                }
+                else {
+                    name1 = name1 + name[i];
+                    i++;
+                }
             }
         }
+        
         $("input[name='jobBrowser']").val(name1);
     }
-
-    $(".jobContainer").click(function () {
-        var offerID = $(this).children().first().attr("id");
-        var dbParam = "OfferID=" + offerID;
-        window.location.href = "/ResultForSearchJob?" + dbParam;
-    })
 })
