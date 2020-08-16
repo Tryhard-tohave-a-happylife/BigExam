@@ -76,6 +76,7 @@ button {
     }
 
 .career-breadcrumb {
+    margin-top: 40px;
     float: left;
     width: 100%;
     background-color: #121d28;
@@ -189,8 +190,8 @@ button {
     }
 
     .job-right-menu {
-        flex: 0 0 75%;
-        max-width: 75%;
+        flex: 0 0 80%;
+        max-width: 80%;
         padding-left: 5%;
     }
 }
@@ -223,8 +224,8 @@ button {
 
 @media screen and (min-width: 800px) and (max-width: 960px) {
     .job-right-menu {
-        flex: 0 0 65%;
-        max-width: 65%;
+        flex: 0 0 75%;
+        max-width: 75%;
         margin-left: 2%;
     }
 }
@@ -343,6 +344,4 @@ button {
     padding-right: 5px;
     line-height: 25px;
 }
-.career-table-cell:last-child {
-    float: right;
-}
+

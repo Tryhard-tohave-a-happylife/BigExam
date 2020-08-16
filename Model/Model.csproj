@@ -102,7 +102,6 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
-    <Compile Include="EF\CareerWeb.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobSkill.cs" />
     <Compile Include="EF\PositionEmployee.cs" />

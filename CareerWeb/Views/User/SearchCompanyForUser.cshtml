@@ -69,7 +69,7 @@
                             </datalist>
                         </form>
                         <button style="margin-left: 25px;" id="findIcon">
-                            <i class="fa fa-search"></i><span style="display: none;">Tim kiem</span>
+                            <i class="fa fa-search"></i><span style="display: none;">Tìm kiếm </span>
                         </button>
                     </div>
                     <aside class="job-left-menu">
@@ -104,54 +104,59 @@
                             {
                                 <div class="filterable"> Không tìm thấy công việc như yêu cầu</div>
                             }
+                            
+                                    
+                        <div class="career-employer-list">
                             @if (Model != null && Model.Count != 0)
                             {
                                 foreach (var item in Model)
                                 {
-                                    
-                                        <div class="career-employer-list">
 
-                                            <ul class="row">
-                                                
-                                                <li class="employer">
-                                                    <a href="/EnterpriseDetail/@item.EnterpriseID" style="color: none; text-decoration: none;">
-                                                        <div class="box-star">
-                                                            <i class="fas fa-heart star " style="cursor: pointer;"></i>
-                                                        </div>
-                                                        <div class="career-table-row">
-                                                            <a href="" class="career-table-cell">
-                                                                <img src="@item.ImageLogo" class="employer-image">
-                                                            </a>
-                                                            <div class="company-info career-table-cell" style="width: 65%;">
+                                    <ul class="row">
 
-                                                                <h2 style="margin: 0; padding: 0;">
-                                                                    <a class="link-to-company" href="" style="font-size: 24px; color: black; ">@item.EnterpriseName</a>
-                                                                </h2>
-                                                                <small>
-                                                                    <a class="link-to-company" href="">
-                                                                        @ViewBag.ListFullJobName[count]
-                                                                    </a>
-                                                                </small>
-                                                                <span>
-                                                                    <i class="fa fa-map-marker" style="color: #f07e1d"></i>
-                                                                    @item.NameArea
-                                                                </span>
-                                                            </div>
-                                                            <div class="find-button career-table-cell">
-                                                                <button>xem cac viec lam</button>
-                                                            </div>
-                                                        </div>
-                                                    
+                                        <li class="employer">
+                                            <a href="/EnterpriseDetail/@item.EnterpriseID" style="color: none; text-decoration: none;">
+                                                <div class="box-star">
+                                                    <i class="fas fa-heart star " style="cursor: pointer;"></i>
+                                                </div>
+                                                <div class="career-table-row">
+                                                    <a href="" class="career-table-cell">
+                                                        <img src="@item.ImageLogo" class="employer-image">
                                                     </a>
-                                                </li>
-                                               
-                                            </ul>
-                                        </div>
+                                                    <div class="company-info career-table-cell" style="width: 65%;">
+
+                                                        <h2 style="margin: 0; padding: 0;">
+                                                            <a class="link-to-company" href="" style="font-size: 24px; color: black; ">@item.EnterpriseName</a>
+                                                        </h2>
+                                                        <small>
+                                                            <a class="link-to-company" href="">
+                                                                @ViewBag.ListFullJobName[count]
+                                                            </a>
+                                                        </small><br>
+                                                        <span>
+                                                            <i class="fa fa-map-marker" style="color: #f07e1d"></i>
+                                                            @item.NameArea
+                                                        </span>
+                                                    </div>
+                                                    <div class="find-button career-table-cell">
+                                                        <a class="link-to-company" href="">
+                                                            <button>Xem các việc làm</button>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                     count += 1;
 
                                 }
 
                             }
+                                </div>
+                                    
                     </div>
                 </div>
             </div>
