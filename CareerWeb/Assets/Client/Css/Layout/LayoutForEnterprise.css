@@ -12,9 +12,10 @@ header {
     left: 0;
     top: 0;
     width: 100%;
+    z-index: -1;
 }
 
-.container {
+header .container {
     display: block;
     height: 75px;
     width: 100%;
@@ -48,7 +49,7 @@ header {
         cursor: pointer;
     }
 
-.logo {
+header .logo {
     display: flex;
     align-items: center;
     height: 100%;
@@ -56,7 +57,7 @@ header {
     text-align: center;
 }
 
-    .logo:hover {
+    header .logo:hover {
         cursor: pointer;
     }
 
@@ -72,7 +73,7 @@ header {
         width: 100%;
     }
 
-.menu {
+header .menu {
     display: flex;
     align-items: center;
     height: 100%;
@@ -270,6 +271,7 @@ footer {
     height: 500px;
     width: 100%;
     border-top: solid 5px #aaa;
+    z-index: -1;
 }
 
 .footer_container {
@@ -351,7 +353,7 @@ footer {
         padding: 0 2.5%;
     }
 
-    .container {
+    header .container {
         height: 100px;
     }
 
@@ -393,7 +395,7 @@ footer {
         padding: 0 5%;
     }
 
-    .menu {
+    header .menu {
         display: none;
     }
 
@@ -446,7 +448,7 @@ footer {
         font-size: 25px;
     }
 
-    .logo {
+    header .logo {
         width: 20%;
     }
 

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "InterviewSchedule";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert {
+    <link href="~/Assets/Client/Css/Manage/InterviewSchedule.css" rel="stylesheet" />
+}
+
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>LỊCH PHỎNG VẤN</b></div>
+        <table>
+            <tr>
+                <th style="width: 500px"><i class="fas fa-toolbox"></i>Vị trí</th>
+                <th style="width: 150px"><i class="far fa-clipboard"></i>Phỏng vấn</th>
+                <th style="width: 127px"><i class="far fa-calendar-alt"></i>Ngày</th>
+                <th style="width: 127px"><i class="fas fa-clock-o"></i>Giờ</th>
+                <th style="width: 270px"><i class="fas fa-map-marker-altn"></i>Địa chỉ</th>
+                <th style="width: 140px"></th>
+            </tr>
+            <tr>
+                <td>
+                    <div>Việc làm: <span>Bảo vệ</span></div>
+                    <div>Công ty: <span>Công ty Hoàng Long</span></div>
+                </td>
+                <td>Lần 1</td>
+                <td>27/07/2020</td>
+                <td>01:00 pm</td>
+                <td>144 Xuân Thủy, Cầu Giấy</td>
+                <td>
+                    <div class="button" id="result"><i class="far fa-clipboard"></i>Xem chi tiết</div>
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+@section jsInsert {
+    <script src="~/Assets/Client/Js/Manage/InterviewSchedule.js"></script>
+}
+

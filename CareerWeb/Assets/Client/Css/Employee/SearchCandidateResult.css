@@ -102,6 +102,7 @@
         #main #search #tim-ho-so:hover {
             color: #f07e1d;
             background-color: #d3cecece;
+            cursor: pointer;
         }
 
 #main #xu-ly {
@@ -308,6 +309,7 @@
     width: 200px;
     height: 50px;
     line-height: 50px;
+    cursor: pointer;
 }
 
 .final-col i {
@@ -438,4 +440,8 @@
     #job .candidate .profile-img {
         margin-left: 4.6px;
     }
+}
+
+.pagelist {
+    text-align: right;
 }

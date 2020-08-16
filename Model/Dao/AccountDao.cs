@@ -52,7 +52,7 @@ namespace Model.Dao
             {
                 return db.Accounts.SingleOrDefault(x => x.UserId == userId);
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 return null;
             }

@@ -1,0 +1,196 @@
+﻿
+@{
+    @section cssInsert{
+        <link href="~/Assets/Client/Css/University/Statistic.css" rel="stylesheet" />
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/cf01f2dc2a.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="uni-subheader">
+            <span class="banner"></span>
+        </div>
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in ViewBag.InfoUni)
+                    {
+                        <div class="uni-info">
+                            <div class="img-thumbnail">
+                                <span class="img-thumbnail">
+                                    <img scr="@item.UniversityLogo">
+                                </span>
+                            </div>
+                            <div style="margin-left: 230px;padding-top: 5px">
+                                <h2 id="uni-name"> @item.UniversityName</h2>
+                                <div class="uni-info-option">
+                                    <i class="fa fa-map-marker"></i> Địa chỉ: @item.Address
+                                </div>
+                                <div id="Website">
+                                    <i class="fa fa-globe"></i>
+                                    <a href="https://uet.vnu.edu.vn/" target="_blank">Website: https://uet.vnu.edu.vn/</a>
+                                </div>
+                                <div id="email"><i class="fas fa-envelope"></i> Email: @item.Email</div>
+                                <div id="hotline"><i class="fas fa-phone-square-alt"></i> Hotline: @item.Mobile</div>
+                                <div id="descrip">@item.Description</div>
+                                <a href="/ListOfStudent/@item.University" class="uni-overview">
+                                    <i class="fa fa-chart-bar"></i>
+                                    <span>  Danh sách sinh viên</span>
+                                </a>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <h2 style="width: 100%; margin: 30px 0;">Báo cáo thống kê theo:</h2>
+                <div style="width: 100%;margin-bottom: 30px;">
+                    <input type="radio" id="skill" name="filter" value="skill" checked>
+                    <label for="skill">Kỹ năng</label>
+                    <input type="radio" id="career" name="filter" value="career">
+                    <label for="skill">Ngành nghề</label>
+                    <input type="submit" style="margin-left: 15px; box-shadow: 0 0 5px gray;" onclick=seeChart() value="Xem">
+                </div>
+
+                <div class="chart-content" id="c1">
+                    <div id="piechart_3d-skill" style="width: 500px; height: 500px;"></div>
+                </div>
+
+                <div class="chart-content" id="c2">
+                    <div id="line_chart-skill" style="width: 500px; height: 500px;"></div>
+                </div>
+                <div class="chart-content" id="c3" style="display: none;">
+                    <div id="piechart_3d-career" style="width: 500px; height: 500px;"></div>
+                </div>
+
+                <div class="chart-content" id="c4" style="display: none;">
+                    <div id="line_chart-career" style="width: 500px; height: 500px;"></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+  
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart1);
+        google.charts.setOnLoadCallback(drawChart2);
+        google.charts.setOnLoadCallback(drawChart3);
+        google.charts.setOnLoadCallback(drawChart4);
+
+        function drawChart1() {
+            var data = google.visualization.arrayToDataTable([
+                ['Ngôn ngữ', 'Số lượng người'],
+                ['ASP.NET', 1000],
+                ['PHP', 1170],
+                ['C#', 660],
+                ['C++', 860],
+                ['Java', 1030]
+            ]);
+
+            var options = {
+                title: 'Thống kê sinh viên theo kỹ năng',
+                is3D: true,
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-skill'));
+            chart.draw(data, options);
+        }
+
+        function drawChart2() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Ngôn ngữ', 'Ứng viên', 'Nhà tuyển dụng'],
+                ['ASP.NET', 1000, 400],
+                ['PHP', 1170, 460],
+                ['C#', 660, 1120],
+                ['C++', 860, 1500],
+                ['Java', 1030, 540]
+            ]);
+
+            var options = {
+                title: 'Cung và cầu nguồn nhân lực',
+                legend: { position: 'bottom' },
+
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('line_chart-skill'));
+
+            chart.draw(data, options);
+        }
+
+        function drawChart3() {
+            var data = google.visualization.arrayToDataTable([
+                ['Ngành', 'Số lượng người'],
+                ['Kinh doanh', 1000],
+                ['Kế toán', 1170],
+                ['Marketing', 660],
+                ['IT', 860],
+                ['Logistic', 1030]
+            ]);
+
+            var options = {
+                title: 'Thống kê sinh viên theo ngành nghề',
+                is3D: true,
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-career'));
+            chart.draw(data, options);
+        }
+
+        function drawChart4() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Ngành', 'Ứng viên', 'Nhà tuyển dụng'],
+                ['Kinh doanh', 1000, 400],
+                ['Kế toán', 1170, 460],
+                ['Marketing', 660, 1120],
+                ['IT', 860, 1500],
+                ['Logistic', 1030, 540]
+            ]);
+
+            var options = {
+                title: 'Cung và cầu nguồn nhân lực',
+                legend: { position: 'bottom' },
+
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('line_chart-career'));
+
+            chart.draw(data, options);
+        }
+        var skill = document.getElementById("skill");
+        var career = document.getElementById("career");
+        function seeChart() {
+            if (skill.checked) {
+                document.getElementById('c2').style.display = "block";
+                document.getElementById('c1').style.display = "block";
+                document.getElementById('c3').style.display = "none";
+                document.getElementById('c4').style.display = "none";
+
+            }
+            if (career.checked) {
+                document.getElementById('c3').style.display = "block";
+                document.getElementById('c4').style.display = "block";
+                document.getElementById('c1').style.display = "none";
+                document.getElementById('c2').style.display = "none";
+
+            }
+        }
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "WorkList";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Manage/WorkList.css" rel="stylesheet" />
+}
+
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>QUẢN LÝ VIỆC LÀM</b></div>
+        <div id="stages">
+            <div id="applyWork" class="stage"><i class="fas fa-briefcase"></i>Việc làm ứng tuyển</div>
+            <div id="savedWork" class="stage"><i class="fas fa-archive"></i>Việc làm đã lưu</div>
+        </div>
+        <div id="line"></div>
+        <table>
+            <tr>
+                <th style="width: 127px"><i class="fas fa-toolbox"></i>Việc làm</th>
+                <th style="width: 315px"><i class="far fa-building"></i>Công ty</th>
+                <th style="width: 127px"><i class="far fa-calendar-alt"></i>Hạn nộp</th>
+                <th style="width: 180px"><i class="fas fa-exclamation"></i>Trạng thái</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Bảo vệ</td>
+                <td>Cty Hoàng Long</td>
+                <td>27/07/2020</td>
+                <td>Tuyển dụng hoàn tất</td>
+                <td>
+                    <div class="button" id="result"><i class="far fa-clipboard"></i>Kết quả</div>
+                    <div class="button" id="delete"><i class="far fa-times-circle"></i>Xóa</div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Manage/WorkList.js"></script>
+}
+

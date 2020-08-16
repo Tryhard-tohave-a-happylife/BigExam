@@ -14,7 +14,11 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+<<<<<<< HEAD
         public List<Experience> ListExperiences()
+=======
+        public List<Experience> ListExperience()
+>>>>>>> 54301d1ff8356913c851621b294ef6681bd102d5
         {
             return db.Experiences.ToList();
         }

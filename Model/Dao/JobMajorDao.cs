@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,30 +16,31 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-        public string NameJob(int id)
+        public List<JobMajor> ListUsers()
         {
-            return db.JobMajors.Find(id).JobName;
+            try
+            {
+                return db.JobMajors.ToList();
+            }
+            catch
+            {
+                return null;
+            }
         }
         public List<JobMajor> ListJobMain()
         {
             return db.JobMajors.Where(x => x.JobIDParent == null).ToList();
         }
+
         public List<JobMajor> ListJobSub()
         {
             return db.JobMajors.Where(x => x.JobIDParent != null).ToList();
         }
+
         public List<JobMajor> ListJobSubByUser(Guid userId)
         {
-            // Loại bỏ những skill đã có
-            var listJobMain = db.UserMajors.Where(x => x.UserID == userId && x.MajorParent == null).Select(x => x.MajorID).ToList();
-            var presentSkill = db.UserMajors.Where(x => x.UserID == userId && x.MajorParent != null).Select(x => x.MajorID).ToList();
-            return db.JobMajors.Where(x => x.JobIDParent != null && listJobMain.Contains(x.JobIDParent.Value) && !presentSkill.Contains(x.JobID)).ToList();
-        }
-        public List<JobMajor> ListJobMainByUser(Guid userId)
-        {
-            // Loại bỏ những major đã có
-            var listJobMain = db.UserMajors.Where(x => x.UserID == userId && x.MajorParent == null).Select(x => x.MajorID).ToList();
-            return db.JobMajors.Where(x => x.JobIDParent == null && !listJobMain.Contains(x.JobID)).ToList();
+            var listJobMain = db.UserMajors.Where(x => x.UserID == userId).Select(x => x.MajorID).ToList();
+            return db.JobMajors.Where(x => x.JobIDParent != null && listJobMain.Contains(x.JobIDParent.Value)).ToList();
         }
         public int Insert(JobMajor ins)
         {
@@ -94,6 +96,10 @@ namespace Model.Dao
             {
                 return null;
             }
+        }
+        public string JobName(int id)
+        {
+            return db.JobMajors.Find(id).JobName;
         }
     }
 }

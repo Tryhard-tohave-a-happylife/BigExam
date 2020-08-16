@@ -1,8 +1,9 @@
-﻿using Model.EF;
-using Model.Models;
+﻿using Model.Models;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+
         public bool Insert(Enterprise ins)
         {
             try
@@ -24,7 +26,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -60,7 +62,7 @@ namespace Model.Dao
             {
                 return db.Enterprises.Where(x => x.Status == false).ToList();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -74,7 +76,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -88,7 +90,7 @@ namespace Model.Dao
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
@@ -97,11 +99,143 @@ namespace Model.Dao
         {
             try
             {
-                return db.Enterprises.Where(x => x.Status == true).ToList();
-            } catch
+                return db.Enterprises.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public string EnterpriseName(Guid id)
+        {
+            return db.Enterprises.Find(id).EnterpriseName;
+        }
+
+        public List<FormEnterpriseFull> ReturnFilterList(string EName = "0", int EArea = 0, int ECareer = 0, int ESize = 0)
+        {
+            try
+            {
+                var listEnterprise = new EnterpriseDao().ReturnList();
+                var listArea = new EnterpriseAreaDao().ListEnterpriseArea();
+                var listJob = new EnterpriseJobDao().ListEnterpriseJob();
+                var result = (from listE in listEnterprise
+                              join listA in listArea on listE.EnterpriseID equals listA.EnterpriseId
+                              join listJ in listJob on listE.EnterpriseID equals listJ.EnterpriseID
+                              where (EArea == 0 || listA.AreaID == EArea)
+                              && (ECareer == 0 || listJ.JobId == ECareer)
+                              && (ESize == 0 || listE.EnterpriseSize == ESize)
+                              && (EName == "0" || listE.EnterpriseName.Contains(EName))
+                              && listE.Status == true
+
+                              select new
+                              {
+                                  EnterpriseID = listE.EnterpriseID,
+                                  EnterpriseName = listE.EnterpriseName,
+                                  ImageLogo = listE.ImageLogo,
+                                  NameArea = db.Areas.Find(listA.AreaID).NameArea,
+                                  listJobId = db.EnterpriseJobs.Where(x => x.EnterpriseID == listE.EnterpriseID && x.JobIdParent == null).Select(x => x.JobId).ToList(),
+
+                              }).AsEnumerable().Select(x => new FormEnterpriseFull()
+                              {
+                                  EnterpriseID = x.EnterpriseID,
+                                  EnterpriseName = x.EnterpriseName,
+                                  ImageLogo = x.ImageLogo,
+                                  NameArea = x.NameArea,
+                                  listJobId = x.listJobId
+                              });
+
+                var finalResult = result.ToList();
+                int n = finalResult.Count;
+                if (n == 0 || n == 1) return finalResult;
+
+                var finalResult2 = new List<FormEnterpriseFull>();
+
+                for (int i = 0; i < n; i++)
+                {
+                    bool check = true;
+                    for (int j = 0; j < finalResult2.Count; j++)
+                    {
+                        if (finalResult[i].EnterpriseID == finalResult2[j].EnterpriseID)
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check == true)
+                    {
+                        finalResult2.Add(finalResult[i]);
+                    }
+                }
+                return finalResult2;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public List<ShowFullEnterprise> ShowEnterprise(Guid EnterpriseID)
+        {
+            try
+            {
+                var listEnterprise = new EnterpriseDao().ReturnList();
+                var listArea = new EnterpriseAreaDao().ListEnterpriseArea();
+                var result = (from enpr in listEnterprise
+                              join listA in listArea on enpr.EnterpriseID equals listA.EnterpriseId
+                              where enpr.EnterpriseID == EnterpriseID
+                              select new
+                              {
+                                  EnterpriseID = enpr.EnterpriseID,
+                                  EnterpriseName = enpr.EnterpriseName,
+                                  ImageLogo = enpr.ImageLogo,
+                                  AmountSize = db.EnterpriseSizes.Find(enpr.EnterpriseSize).AmountSize,
+                                  NameOfEnterprise = db.TypeOfEnterprises.Find(enpr.TypeOfEnterprise).NameOfEnterprise,
+                                  EstablishYear = enpr.EstablishYear,
+                                  NameArea = db.Areas.Find(listA.AreaID).NameArea,
+                                  listJobId = db.EnterpriseJobs.Where(x => x.EnterpriseID == enpr.EnterpriseID && x.JobIdParent == null).Select(x => x.JobId).ToList(),
+                                  Description = enpr.Description,
+                              }).AsEnumerable().Select(x => new ShowFullEnterprise()
+                              {
+                                  EnterpriseID = x.EnterpriseID,
+                                  EnterpriseName = x.EnterpriseName,
+                                  ImageLogo = x.ImageLogo,
+                                  AmountSize = x.AmountSize,
+                                  NameArea = x.NameArea,
+                                  NameOfEnterprise = x.NameOfEnterprise,
+                                  EstablishYear = x.EstablishYear,
+                                  listJobId = x.listJobId,
+                                  Description = x.Description
+                              });
+                var finalResult = result.ToList();
+                int n = finalResult.Count;
+                if (n == 0 || n == 1) return finalResult;
+
+                var finalResult2 = new List<ShowFullEnterprise>();
+
+                for (int i = 0; i < n; i++)
+                {
+                    bool check = true;
+                    for (int j = 0; j < finalResult2.Count; j++)
+                    {
+                        if (finalResult[i].EnterpriseID == finalResult2[j].EnterpriseID)
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check == true)
+                    {
+                        finalResult2.Add(finalResult[i]);
+                    }
+                }
+                return finalResult2;
+            }
+            catch (Exception e)
             {
                 return null;
             }
         }
     }
+
 }

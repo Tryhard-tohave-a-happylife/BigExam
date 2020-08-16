@@ -15,19 +15,6 @@ namespace CareerWeb
 
 
             routes.MapRoute(
-              name: "ChatProject",
-              url: "ChatProject/{projectID}",
-              defaults: new { controller = "Project", action = "ChatProject", id = UrlParameter.Optional },
-              namespaces: new[] { "CareerWeb.Controllers" }
-           );
-            routes.MapRoute(
-               name: "ArticleDetail",
-               url: "ArticleDetail/{articleID}",
-               defaults: new { controller = "Article", action = "ArticleDetail", id = UrlParameter.Optional },
-               namespaces: new[] { "CareerWeb.Controllers" }
-           );
-
-            routes.MapRoute(
                 name: "Tim-kiem-ung-vien",
                 url: "SearchCandidate",
                 defaults: new { controller = "Employee", action = "SearchCandidate", id = UrlParameter.Optional },
@@ -35,17 +22,40 @@ namespace CareerWeb
             );
 
             routes.MapRoute(
-                name: "Result",
+                name: "ResultForSearchCandidate",
                 url: "SearchCandidateResult",
                 defaults: new { controller = "Employee", action = "SearchCandidateResult", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
             );
 
             routes.MapRoute(
-               name: "CV Template",
-               url: "SearchTemplate/{template}",
-               defaults: new { controller = "User", action = "Check", id = UrlParameter.Optional },
-               namespaces: new[] { "CareerWeb.Controllers" }
+                name: "Tim-kiem-viec-lam",
+                url: "SearchJobForUser",
+                defaults: new { controller = "User", action = "SearchJobForUser", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+                name: "ResultForSearchJob",
+                url: "OfferDetail/{OfferID}",
+                defaults: new { controller = "User", action = "ResultForSearchJob", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+         
+ 
+
+            routes.MapRoute(
+                name: "Search_Company_For_User",
+                url: "SearchCompanyForUser",
+                defaults: new { controller = "User", action = "SearchCompanyForUser", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+                 name: "ResultForSearchCompany",
+                 url: "EnterpriseDetail/{EnterpriseID}",
+                 defaults: new { controller = "User", action = "ResultForSearchCompany", id = UrlParameter.Optional },
+                 namespaces: new[] { "CareerWeb.Controllers" }
             );
 
             routes.MapRoute(
@@ -54,6 +64,27 @@ namespace CareerWeb
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
             );
+
+            routes.MapRoute(
+               name: "Statistic",
+               url: "Statistic/{UniversityID}",
+               defaults: new { controller = "University", action = "Statistic", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "ListOfStudent",
+               url: "ListOfStudent/{UniversityID}",
+               defaults: new { controller = "University", action = "ListOfStudent", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
+               name: "ShowDetailCandidate",
+               url: "ShowDetailCandidate/{UserId}",
+               defaults: new { controller = "Employee", action = "ShowDetailCandidate", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
         }
     }
 }

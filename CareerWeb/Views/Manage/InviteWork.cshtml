@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "InviteWork";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Manage/InviteWork.css" rel="stylesheet" />
+}
+
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>TIẾN TRÌNH NỘP HỒ SƠ</b></div>
+        <div id="stages">
+            <div class="stage" style="left: 0px;"><br><b>1 - Nộp Đơn</b></div>
+            <div class="triangleStageWhite" style="left: 256px; "></div>
+            <div class="triangleStageGray" style="left: 254px; "></div>
+            <div class="stage" style="left: 255px; "><br><b>2 - Phỏng Vấn</b></div>
+            <div class="triangleStageWhite" style="left: 505px;"></div>
+            <div class="triangleStageGray" style="left: 503px;  "></div>
+            <div class="stage" style="left: 506px;background-color: #f07e1d; color: white; cursor: pointer;"><br><b>3 - Mời Làm</b></div>
+            <div class="triangleStageWhite" style="left: 762px;"></div>
+            <div class="triangleStageGray" style="left: 759px; border-left-color: #f07e1d;"></div>
+            <div class="stage" style="left: 760px;"><br><b>4 - Kết Quả</b></div>
+            <div class="triangleStageWhite" style="left: 1016px;"></div>
+            <div class="triangleStageGray" style="left: 1014px; "></div>
+        </div>
+        <div id="status"><i class="fas fa-quote-left"></i> <b> Nhà tuyển dụng đã chọn mức lương và ngày bắt đầu làm việc. Bạn vui lòng xác nhận mức lương và ngày bắt đầu làm việc. </b><i class="fas fa-quote-right"></i></div>
+        <div id="content">
+            <div id="verticalLine"></div>
+            <div id="mainContent">
+                <div id="startDate"><i class="far fa-calendar"></i><b> Ngày bắt đầu làm:</b> 06/12/2020</div>
+                <div class="line"></div>
+                <div id="salary"><i class="far fa-money-bill-alt"></i><b>Mức lương:</b> 1000$</div>
+                <div class="button" id="accept"><i class="	far fa-handshake"></i>Đồng ý làm việc</div>
+                <div class="button" id="reschedule"><i class="far fa-money-bill-alt"></i>Yêu cầu thay đổi ngày & mức lương</div>
+                <div class="button" id="ignore"><i class="fas fa-times-circle"></i>Hủy nộp đơn</div>
+            </div>
+
+            <div id="changeDate">
+                <div id="titleDate"><i class="fas fa-sync-alt"></i><b>Đổi ngày làm & mức lương</b></div>
+                <div class="line" style="margin: 20px 0px 20px"></div>
+                <b>Ngày vào làm</b>
+                <input type="date" id="dateInterview" placeholder="06/12/2020">
+                <b>Mức lương </b>
+                <input type="time" id="timeInterview" placeholder="1000">
+                <b>Nội dung (*Bạn nên ghi rõ lý do nếu yêu cầu xác nhận lại)</b>
+                <textarea id="noteInfo" name="noteInfo" rows="4" cols="66%" style="margin-top: 5px;"></textarea>
+                <div class="button" id="changeOk"><i class="far fa-paper-plane"></i>Gửi yêu cầu</div>
+                <div class="button" id="exit"><i class="fas fa-times"></i>Bỏ qua</div>
+            </div>
+        </div>
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Manage/InviteWork.js"></script>
+}
+
