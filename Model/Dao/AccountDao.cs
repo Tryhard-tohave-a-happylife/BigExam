@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,6 +125,94 @@ namespace Model.Dao
                 return db.Employees.SingleOrDefault(x => x.EmployeeID == acc.UserId).EmployeeName;
             }
             return "";
+        }
+        public List<UserChat> GetUsersChatProject(int projectID, int accID)
+        {
+            var listUserInProject = new ProjectMemberDao().ListByProjectActive(projectID).Select(x => x.MemberID);
+            var listConnect = db.UserConnections.Select(x => x.UserID).ToList();
+            var result = (from a in db.Accounts
+                          join b in db.Users
+                          on a.UserId equals b.UserId
+                          where (a.AccountId != accID && listUserInProject.Contains(b.UserId)) 
+                          select new
+                          {
+                              accountID = a.AccountId,
+                              userName = b.UserName,
+                              Image = b.UserImage,
+                              isOnline = listConnect.Contains(a.AccountId) == true
+                          }).AsEnumerable().Select(x => new UserChat(){
+                              accountID = x.accountID,
+                              userName = x.userName,
+                              Image = x.Image,
+                              isOnline = x.isOnline
+                          });
+            return result.ToList();
+        }
+        public int AddUserConnection(Guid guid, int accID)
+        {
+            var userConnect = new UserConnection();
+            userConnect.ConnectionID = guid;
+            userConnect.UserID = accID;
+            db.UserConnections.Add(userConnect);
+            db.SaveChanges();
+            return accID;
+        }
+        public int RemoveUserConnection(Guid guid)
+        {
+            var current = db.UserConnections.SingleOrDefault(x => x.ConnectionID == guid);
+            var us = current.UserID;
+            if(current != null)
+            {
+                db.UserConnections.Remove(current);
+                db.SaveChanges();
+                return us;
+            }
+            return 0;
+        }
+        public void RemoveAllUsersConnections(int accID)
+        {
+            var cr = db.UserConnections.Where(x => x.UserID == accID);
+            db.UserConnections.RemoveRange(cr);
+            db.SaveChanges();
+        }
+        public IList<string> GetUserConnection(int userID)
+        {
+            return db.UserConnections.Where(x => x.UserID == userID).Select(x => x.ConnectionID.ToString()).ToList();
+        }
+        public List<Message> GetChatBox(int toProjectID)
+        {
+            return db.Messages.Where(x => x.ToProject == toProjectID).ToList();
+        }
+        public List<int> UserRecieveMessage(int accID, int projectID)
+        {
+            var userID = db.Accounts.Find(accID);
+            return db.ProjectMembers.Where(x => x.ProjectID == projectID && x.MemberID != userID.UserId).
+                                     Select(x => db.Accounts.FirstOrDefault(y => y.UserId == x.MemberID).AccountId).ToList();
+        }
+        public List<UserChat> GetByListMes(List<Message> list)
+        {
+            var listRe = new List<UserChat>();
+            foreach(var item in list)
+            {
+                var account = db.Accounts.Find(item.FromUser);
+                var user = db.Users.Find(account.UserId);
+                var ne = new UserChat();
+                ne.accountID = item.FromUser;
+                ne.userName = user.UserName;
+                ne.Image = user.UserImage;
+                listRe.Add(ne);
+            }
+            return listRe;
+        }
+        public UserChat FindUserChat(int accID)
+        {
+            var account = db.Accounts.Find(accID);
+            var user = db.Users.Find(account.UserId);
+            var ne = new UserChat();
+            ne.accountID = accID;
+            ne.userName = user.UserName;
+            ne.Image = user.UserImage;
+            return ne;
         }
     }
 }

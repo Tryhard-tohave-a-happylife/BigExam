@@ -27,5 +27,9 @@ namespace Model.Dao
                 return false;
             }
         }
+        public Employee FindById(Guid userID)
+        {
+            return db.Employees.Find(userID);
+        }
     }
 }

@@ -15,6 +15,19 @@ namespace CareerWeb
 
 
             routes.MapRoute(
+              name: "ChatProject",
+              url: "ChatProject/{projectID}",
+              defaults: new { controller = "Project", action = "ChatProject", id = UrlParameter.Optional },
+              namespaces: new[] { "CareerWeb.Controllers" }
+           );
+            routes.MapRoute(
+               name: "ArticleDetail",
+               url: "ArticleDetail/{articleID}",
+               defaults: new { controller = "Article", action = "ArticleDetail", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
+
+            routes.MapRoute(
                 name: "Tim-kiem-ung-vien",
                 url: "SearchCandidate",
                 defaults: new { controller = "Employee", action = "SearchCandidate", id = UrlParameter.Optional },
@@ -26,6 +39,13 @@ namespace CareerWeb
                 url: "SearchCandidateResult",
                 defaults: new { controller = "Employee", action = "SearchCandidateResult", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
+            );
+
+            routes.MapRoute(
+               name: "CV Template",
+               url: "SearchTemplate/{template}",
+               defaults: new { controller = "User", action = "Check", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
             );
 
             routes.MapRoute(

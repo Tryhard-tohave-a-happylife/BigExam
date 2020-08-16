@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "SearchCandidateResult";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
 }
 
 @section cssInsert{
@@ -10,9 +10,7 @@
 }
 
 
-@section scripts{
-    <script src="~/Assets/Client/Js/Employee/SearchCandidateResult.js"></script>
-}
+
 
 <div id="wrap">
     <div id="row">
@@ -141,3 +139,6 @@
 
     </div>
 </div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/SearchCandidateResult.js"></script>
+}

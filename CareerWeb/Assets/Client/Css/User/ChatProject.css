@@ -1,0 +1,134 @@
+﻿main{
+    float: left;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.1);
+    margin-top: 75px;
+}
+#container-message {
+    float: left;
+    margin-top: 20px;
+    width:630px;
+    height: auto;
+    margin-left: 30px;
+    margin-top: 20px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+#container-message #contain-list{
+    float: left;
+    width: 100%;
+    background-color: white;
+    height: 430px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow-y: auto;
+}
+#container-message #contain-list .contain-receive{
+    float: left;
+    width: 48%;
+    height:auto;
+    margin-top: 10px;
+    margin-left: 15px;
+    position: relative;
+}
+#container-message #contain-list .contain-send{
+    float: right;
+    width: 48%;
+    height:auto;
+    margin-top: 10px;
+    margin-right: 15px;
+    position: relative;
+
+}
+.contain-receive img{
+    float: left;
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+}
+
+.contain-receive .name-user {
+    position: absolute;
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    padding: 3px 6px 3px 6px;
+    font-size: 8pt;
+    display: none;
+    top: 30px;
+    left: 10px;
+}
+.contain-receive .contain-mes{
+    float: left;
+    margin-left: 8px;
+    width: calc(95% - 32px);
+}
+.contain-receive .contain-mes div{
+    float: left;
+    font-size: 11pt;
+    padding: 5px 10px 5px 10px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+.contain-receive .contain-mes span{
+    float: left;
+    font-size: 7pt;
+    width: 100%;
+    color: rgba(0,0,0,0.4);
+}
+.contain-send img{
+    float: right;
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+}
+
+.contain-send .name-user {
+    position: absolute;
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    padding: 3px 6px 3px 6px;
+    font-size: 8pt;
+    display: none;
+    top: 30px;
+    right: 10px;
+}
+.contain-send .contain-mes{
+    float: right;
+    margin-right: 8px;
+    width: calc(95% - 32px);
+}
+.contain-send .contain-mes div{
+    float: right;
+    font-size: 11pt;
+    padding: 5px 10px 5px 10px;
+    background-color: #2f9dd4;
+    border-radius: 12px;
+    color: white;
+}
+.contain-send .contain-mes span{
+    float: right;
+    font-size: 7pt;
+    width: 100%;
+    color: rgba(0,0,0,0.4);
+    text-align: right;
+}
+#contain-list img:hover + .name-user {
+    display: block;
+}
+#container-message #send-message {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#container-message #send-message #input-message{
+    float: left;
+    height: 50px;
+    width: 90%;
+    resize: none;
+    margin-left: 10px;
+    font-size: 9pt;
+}

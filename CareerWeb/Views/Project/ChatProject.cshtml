@@ -1,0 +1,149 @@
+﻿@model List<Model.EF.Message>
+@{
+    ViewBag.Title = "ChatProject";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/ChatProject.css" rel="stylesheet" />
+    }
+
+<main>
+    <div id="container-message" data-id="@ViewBag.ProjectID">
+        <div id="contain-list">
+            @if (Model != null && Model.Count != 0)
+            {
+                var count = 0;
+                foreach (var item in Model)
+                {
+                    if (item.FromUser == ViewBag.accID)
+                    {
+                        var linkImage = ViewBag.listUser[count].Image != null ? ViewBag.listUser[count].Image : "~/Assets/Client/Img/Common/default-user-image.png";
+                        <div class="contain-send">
+                            <img src="@linkImage"/>
+                            <div class="name-user">@ViewBag.listUser[count].userName</div>
+                            <div class="contain-mes">
+                                <div>
+                                    @item.Message1
+                                </div>
+                                <span>
+                                    @item.Date
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        var linkImage = ViewBag.listUser[count].Image != null ? ViewBag.listUser[count].Image : "~/Assets/Client/Img/Common/default-user-image.png";
+                        <div class="contain-receive">
+                            <img src="@linkImage"/>
+                            <div class="name-user">@ViewBag.listUser[count].userName</div>
+                            <div class="contain-mes">
+                                <div>
+                                    @item.Message1
+                                </div>
+                                <span>
+                                    @item.Date
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    count += 1;
+                }
+            }
+        </div>
+        <div id="send-message">
+            <textarea id="input-message" data-id="@ViewBag.ProjectID"></textarea>
+        </div>
+
+    </div>
+    <div class="user-list"  style="float: left; margin-top: 200px;">
+
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+        $("#contain-list").scrollTop(10000000);
+        var hub = $.connection.chatHub;
+        hub.client.broadcastUsersToChat = function (listUsers) {
+            $(".user-list").html("");
+            for (var i = 0; i < listUsers.length; i++) {
+                var online = listUsers[i].isOnline ? "Online" : "Nope";
+                $(".user-list").append(`<div id = "user-` + listUsers[i].accountID + `">` + listUsers[i].userName + ` <span class = "is-online">` + online + `</span></div>`);
+            }
+        }
+        hub.client.broadCastOnlineUser = function (userId) {
+            $(".user-list").find('#user-' + userId + '').find("span[class='is-online']").html("Online");
+        }
+        hub.client.broadCastOfflineUser = function (userId) {
+            $(".user-list").find('#user-' + userId + '').find("span[class='is-online']").html("Offline");
+        }
+        hub.connection.start().done(function () {
+            hub.server.getUsersToChat(Number($("#container-message").attr("data-id")));
+        })
+        hub.client.broadcastRecieveMessage = function (us, message, toProjectID) {
+            var projectID = Number($("#container-message").attr("data-id"));
+            console.log(projectID + " " + toProjectID)
+            if (projectID == toProjectID) {
+                var link = us.Image != null ? us.Image : "~/Assets/Client/Img/Common/default-user-image.png";
+                var today = new Date();
+                var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                var dateTime = date + ' ' + time;
+                $("#contain-list").append(`<div class="contain-receive">
+                                                 <img src="` + link +`"/>
+                                                 <div class="name-user">`+ us.userName +`</div>
+                                                 <div class="contain-mes">
+                                                    <div>
+                                                         `+ message  +`
+                                                    </div>
+                                                    <span>
+                                                         `+ dateTime +`
+                                                    </span>
+                                                  </div>
+                                           </div>`);
+                $("#contain-list").scrollTop(10000000);
+            }
+        }
+        $("#send-message #input-message").keyup(function (event) {
+            var mes = $(this).val();
+            var toProjectID = Number($(this).attr("data-id"));
+            if (event.which === 13) {
+                $(this).val("");
+                $.ajax({
+                    data: { message: mes, toProjectID: toProjectID },
+                    url: "/Project/SendMessageProjectChat",
+                    dataType: "Json",
+                    method: "Post",
+                    success: function (res) {
+                        if (res.status) {
+                            var link = res.us.Image != null ? res.us.Image : "~/Assets/Client/Img/Common/default-user-image.png";
+                            var today = new Date();
+                            var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+                            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                            var dateTime = date + ' ' + time;
+                            if (res.status) {
+                                $("#contain-list").append(`<div class="contain-send">
+                                                             <img src="` + link + `"/>
+                                                             <div class="name-user">`+ res.us.userName + `</div>
+                                                             <div class="contain-mes">
+                                                                <div>
+                                                                     `+ mes + `
+                                                                </div>
+                                                                <span>
+                                                                     `+ dateTime + `
+                                                                </span>
+                                                              </div>
+                                                       </div>`);
+                                $("#contain-list").scrollTop(10000000);
+                            }
+                        }
+                    }
+                });
+            }
+        })
+    })
+</script>
+@section jsInsert{
+
+    }
