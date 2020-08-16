@@ -52,6 +52,18 @@ namespace Model.Dao
                 return null;
             }
         }
+
+        public String findDesiredJob(Guid userId)
+        {
+            try
+            {
+                return db.Users.Find(userId).DesiredJob;
+            }
+            catch
+            {
+                return "   ";
+            }
+        }
         public bool ModifyUser(Guid userId, ModifyUserForm user)
         {
             try
@@ -113,7 +125,7 @@ namespace Model.Dao
                               UserName = User.UserName,
                               //UserImage = User.UserImage,
                               //UserExperience = User.UserExperience,
-                              //UserSalary = User.GPA,
+                              UserSalary = (User.Salary != null)?  User.Salary : 0,
                               UserArea = db.Areas.Find(User.UserArea).NameArea,
                               UserMajorName = (from UserMajor in listUserMajors
                                                join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
@@ -122,13 +134,13 @@ namespace Model.Dao
 
                                                select JobMajor.JobName).ToList()
 
-                          }).AsEnumerable().Select(x => new CandidateInfo()
+                          }).AsEnumerable().Select(x =>new CandidateInfo()
                           {
                               UserId = x.UserId,
                               UserName = x.UserName,
                               //UserImage = x.UserImage,
                               //UserExperience = x.UserExperience,
-                              //UserSalary = (float)x.UserSalary,
+                              UserSalary = new SalaryDao().AmountSalary(x.UserSalary.Value),
                               UserArea = x.UserArea,
                               UserMajorName = x.UserMajorName
                           });

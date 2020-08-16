@@ -9,16 +9,3 @@ C:\Users\ADMIN\source\repos\BigExam\Common\bin\Debug\Common.pdb
 C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.dll
 C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.pdb
-C:\Users\ADMIN\source\repos\BigExam\Common\obj\Debug\Common.csprojAssemblyReference.cache
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\bin\Debug\Common.dll
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\bin\Debug\Common.pdb
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.csprojAssemblyReference.cache
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.dll
-C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.pdb
-D:\Kỳ 2_2\PTUDW\BigExam\Common\bin\Debug\Common.dll
-D:\Kỳ 2_2\PTUDW\BigExam\Common\bin\Debug\Common.pdb
-D:\Kỳ 2_2\PTUDW\BigExam\Common\obj\Debug\Common.csprojAssemblyReference.cache
-D:\Kỳ 2_2\PTUDW\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
-D:\Kỳ 2_2\PTUDW\BigExam\Common\obj\Debug\Common.dll
-D:\Kỳ 2_2\PTUDW\BigExam\Common\obj\Debug\Common.pdb

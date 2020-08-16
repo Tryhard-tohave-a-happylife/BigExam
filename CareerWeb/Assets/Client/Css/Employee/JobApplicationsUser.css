@@ -228,6 +228,7 @@ a {
     border-radius: 5px;
     line-height: 40px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .next, .prev{
