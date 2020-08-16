@@ -1,0 +1,177 @@
+﻿@model List<Model.Models.InfoEnterprise>
+@using Model.Dao
+@{
+    ViewBag.Title = "EditInfoEnterprise";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    var listSize = new EnterpriseSizeDao().ReturnList();
+    var listType = new TypeOfEnterpriseDao().ReturnList();
+}
+
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Enterprise/EditInfoEnterprise.css" rel="stylesheet" />
+}
+    <div class="content">
+        <div class="path">
+            <a href="#"><i class="fa fa-home"></i> Việc làm</a>
+            <span> / </span>
+            <a href="#">Nhà tuyển dụng : Quản lý</a>
+            <span> / Tài khoản</span>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="company_info">
+                <div class="company_logo company_info_children">
+                    <div class="title_info">
+                        <span>LOGO CÔNG TY</span>
+                    </div>
+                    <div class="detail_1">
+                        <div class="logo_image">
+                            <img src="@item.ImageLogo" />
+                        </div>
+                        <div class="logo_button_upload">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="company_logo_modify company_info_children">
+                    <div class="title_info">
+                        <span>CHỈNH SỬA LOGO CÔNG TY</span>
+                    </div>
+                    <div class="col-sm-8 col-md-4 col-lg-4" style="margin: 25px auto 0 auto;">
+                        <div class="form-group">
+                            <h1>LOGO CÔNG TY</h1>
+                            <input type="file" value="" name="logo" required id="logo" />
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" width="150px" type="submit" name="submit_1" id="submit_1">Thay đổi</button>
+                            <button class="btn btn-outline-secondary" id="cancel_1">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="company_information company_info_children">
+                    <div class="title_info">
+                        <span>THÔNG TIN CÔNG TY</span>
+                    </div>
+                    <div class="detail_2">
+                        <div class="detail_2_1">
+                            <div class="detail_2_1_1">
+                                <li><b>Tên công ty:</b> @item.EnterpriseName</li>
+                                <li><b>Loại hình:</b> @item.NameOfEnterprise</li>
+                            </div>
+                            <div class="detail_2_1_2">
+                                <li><b>Năm thành lập:</b> @item.EstablishYear</li>
+                                <li><b>Quy mô:</b> @item.AmountSize</li>
+                            </div>
+                            <div class="button_modify_info button_company_information">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                        </div>
+                        <div class="detail_2_2">
+                            <span><b>Giới thiệu:</b><br />@item.Description</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="company_information_modify company_info_children">
+                    <div class="title_info">
+                        <span>CHỈNH SỬA THÔNG TIN CÔNG TY</span>
+                    </div>
+                    <div class="col-sm-8 col-md-4 col-lg-4" style="margin: 25px auto 0 auto;">
+                        <div class="form-group">
+                            <label><b>Tên công ty:</b></label>
+                            <input type="text" class="form-control" value="@item.EnterpriseName" name="company_name" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label><b>Loại hình:</b></label>
+                            <select class="form-control" name="size" required>
+                                @foreach (var size in listSize)
+                                {
+                                    if (size.AmountSize == item.AmountSize)
+                                    {
+                                        <option value="@size.SizeID" selected>@size.AmountSize</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@size.SizeID">@size.AmountSize</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><b>Quy mô:</b></label>
+                            <select class="form-control" name="type" required>
+                                @foreach (var type in listType)
+                                {
+                                    if (type.NameOfEnterprise == item.NameOfEnterprise)
+                                    {
+                                        <option value="@type.TypeOfEnterpriseID" selected>@type.NameOfEnterprise</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@type.TypeOfEnterpriseID">@type.NameOfEnterprise</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><b>Năm thành lập:</b></label>
+                            <input type="text" class="form-control" value="@item.EstablishYear" required name="establishYear">
+                        </div>
+                        <div class="form-group">
+                            <label><b>Giới thiệu:</b></label>
+                            <textarea class="form-control" name="description" required>@item.Description</textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" width="150px" type="submit" name="submit_2" id="submit_2">Thay đổi</button>
+                            <button class="btn btn-outline-secondary" id="cancel_2">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_information company_info_children">
+                    <div class="title_info">
+                        <span>THÔNG TIN LIÊN HỆ</span>
+                    </div>
+                    <div class="detail_3">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><b>Email:</b> @item.Email</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span><b>Điện thoại:</b> @item.Mobile</span>
+                        </li>
+                        <div class="button_modify_info button_contact_information">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact_information_modify company_info_children">
+                <div class="title_info">
+                    <span>CHỈNH SỬA THÔNG TIN LIÊN HỆ</span>
+                </div>
+                <div class="col-sm-8 col-md-4 col-lg-4" style="margin: 25px auto 0 auto;">
+                    <form>
+                        <div class="form-group">
+                            <label><b>Email:</b></label>
+                            <input type="email" class="form-control" value="@item.Email" required name="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label><b>Số điện thoại:</b></label>
+                            <input type="text" class="form-control" value="@item.Mobile" required name="mobile" id="mobile">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" width="150px" type="submit" name="submit_3" id="submit_3">Thay đổi</button>
+                            <button class="btn btn-outline-secondary" id="cancel_3">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+    @section jsInsert{
+        <script src="~/Assets/Client/Js/EnterpriseHome/EditInfoEnterprise.js"></script>
+    }

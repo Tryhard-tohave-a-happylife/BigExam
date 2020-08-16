@@ -16,3 +16,9 @@ C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.csprojAs
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.dll
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Common\obj\Debug\Common.pdb
+C:\Users\84968\Documents\GitHub\BigExam\Common\bin\Debug\Common.dll
+C:\Users\84968\Documents\GitHub\BigExam\Common\bin\Debug\Common.pdb
+C:\Users\84968\Documents\GitHub\BigExam\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\84968\Documents\GitHub\BigExam\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\84968\Documents\GitHub\BigExam\Common\obj\Debug\Common.dll
+C:\Users\84968\Documents\GitHub\BigExam\Common\obj\Debug\Common.pdb

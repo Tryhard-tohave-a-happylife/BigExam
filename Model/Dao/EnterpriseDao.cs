@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.Design;
 
 namespace Model.Dao
 {
@@ -17,7 +18,17 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
-
+        public List<Enterprise> ListEnterprises()
+        {
+            try
+            {
+                return db.Enterprises.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public bool Insert(Enterprise ins)
         {
             try
@@ -37,7 +48,7 @@ namespace Model.Dao
             {
                 return db.Enterprises.Find(id);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
@@ -236,6 +247,106 @@ namespace Model.Dao
                 return null;
             }
         }
-    }
+        public List<InfoEnterprise> ShowFullInfo(Guid id)
+        {
+            var listEnterprise = new EnterpriseDao().ReturnList();
+            var listArea = new EnterpriseAreaDao().ListEnterpriseArea();
+            var result = (from enpr in listEnterprise
+                          join listA in listArea on enpr.EnterpriseID equals listA.EnterpriseId
+                          where enpr.EnterpriseID == id
+                          select new
+                          {
+                              EnterpriseID = enpr.EnterpriseID,
+                              EnterpriseName = enpr.EnterpriseName,
+                              ImageLogo = enpr.ImageLogo,
+                              AmountSize = db.EnterpriseSizes.Find(enpr.EnterpriseSize).AmountSize,
+                              NameOfEnterprise = db.TypeOfEnterprises.Find(enpr.TypeOfEnterprise).NameOfEnterprise,
+                              EstablishYear = enpr.EstablishYear,
+                              Description = enpr.Description,
+                              Email = enpr.Email,
+                              Mobile = enpr.Mobile,
+                          }).AsEnumerable().Select(x => new InfoEnterprise()
+                          {
+                              EnterpriseID = x.EnterpriseID,
+                              EnterpriseName = x.EnterpriseName,
+                              ImageLogo = x.ImageLogo,
+                              AmountSize = x.AmountSize,
+                              NameOfEnterprise = x.NameOfEnterprise,
+                              EstablishYear = x.EstablishYear,
+                              Description = x.Description,
+                              Email = x.Email,
+                              Mobile = x.Mobile,
+                          });
+            var finalResult = result.ToList();
+            int n = finalResult.Count;
+            if (n == 0 || n == 1) return finalResult;
 
+            var finalResult2 = new List<InfoEnterprise>();
+
+            for (int i = 0; i < n; i++)
+            {
+                bool check = true;
+                for (int j = 0; j < finalResult2.Count; j++)
+                {
+                    if (finalResult[i].EnterpriseID == finalResult2[j].EnterpriseID)
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check == true)
+                {
+                    finalResult2.Add(finalResult[i]);
+                }
+            }
+            return finalResult2;
+        }
+        public bool FuncChangeContactInfo(Guid id, string email, string mobile)
+        {
+            try
+            {
+                var ent = db.Enterprises.Find(id);
+                ent.Email = email;
+                ent.Mobile = mobile;
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+        }
+        public bool FuncChangeCompanyInfo(Guid id, int type, int size , int establishYear, string description)
+        {
+            try
+            {
+                var ent = db.Enterprises.Find(id);
+                ent.TypeOfEnterprise = type;
+                ent.EnterpriseSize = size;
+                ent.EstablishYear = establishYear;
+                ent.Description = description;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        
+            public bool FuncChangeCompanyLogo(Guid id, string srcImage)
+        {
+            try
+            {
+                var ent = db.Enterprises.Find(id);
+                ent.ImageLogo = srcImage;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+    }
 }

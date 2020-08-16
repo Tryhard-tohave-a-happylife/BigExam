@@ -1,0 +1,132 @@
+
+.content{
+    margin-top: 75px;
+    padding: 0 7.5% 25px 7.5%;
+    background-color: #f3f3f3;
+}
+.path{
+    height: 50px;
+    width: 100;
+    display: flex;
+    align-items: center;
+    font-size: 11pt;
+}
+.path a{
+    text-decoration: none;
+    color: #f07e1d;
+}
+.path span{
+    padding: 0 5px;
+    color: #333;
+}
+.company_info{
+    background-color: #f3f3f3;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.company_info_children{
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+.title_info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.title_info span{
+    font-size: 15pt;
+    font-weight: bold;
+    color: #333;
+    padding: 0 15px;
+    border-left: #f07e1d 3px solid;
+}
+.detail_1{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.logo_image{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border: solid 1px #f1f1f1;
+}
+.logo_image img{
+    width: 100%;
+    height: 100%;
+}
+.logo_button_upload{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.31);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.logo_button_upload i{
+    margin: auto;
+    font-size: 15pt;
+    color: #fff;
+}
+.detail_2_1{
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    position: relative;
+}
+.detail_2_1 li{
+    list-style-type: none;
+    color: #333;
+    padding: 5px 0;
+}
+.detail_2_1_2{
+    margin: auto;
+}
+.detail_2_2{
+    padding: 0 15px;
+}
+.button_modify_info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #f07e1d;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.button_modify_info i{
+    margin: auto;
+    font-size: 10pt;
+    color: #fff;
+}
+.detail_3{
+    position: relative;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.detail_3 li{
+    list-style-type: none;
+    color: #333;
+    padding: 5px 0;
+    margin-right: auto;
+}
+.company_information_modify{
+    display: none;
+}
+.contact_information_modify{
+    display: none;
+}
+.company_logo_modify{
+    display: none;
+}

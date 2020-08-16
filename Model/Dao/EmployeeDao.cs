@@ -18,7 +18,31 @@ namespace Model.Dao
         {
             return db.Enterprises.ToList();
         }
-
+        public List<Employee> ListEmployees()
+        {
+            try
+            {
+                return db.Employees.ToList();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public bool Delete(Guid id)
+        {
+            try
+            {
+                var employee = db.Employees.Find(id);
+                db.Employees.Remove(employee);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public bool InsertEmployee(Employee employee)
         {
             try

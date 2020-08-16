@@ -1,7 +1,9 @@
-﻿using Model.Dao;
+﻿using PagedList;
+using Model.Dao;
 using Model.EF;
 using System;
 using System.Web.Mvc;
+
 
 namespace CareerWeb.Controllers
 {

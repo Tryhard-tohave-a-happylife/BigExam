@@ -8,6 +8,7 @@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
     <link href="~/Assets/Client/Css/Common/Header-FooterForEnterprise.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     @RenderSection("cssInsert", required: false)
     <title>@ViewBag.Title</title>
 </head>
@@ -102,8 +103,6 @@
     </header>
 
     @RenderBody()
-   
- 
 
     <footer>
         <div class="footer_container">
@@ -157,6 +156,9 @@
 
     <!--JAVASCRIPT-->
     <script src="~/Assets/Client/Js/Header-Footer/Header-FooterForEnterprise.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     @RenderSection("jsInsert", required: false)
 </body>
 </html>

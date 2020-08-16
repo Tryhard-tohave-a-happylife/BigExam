@@ -58,3 +58,15 @@ C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\EntityFramework.
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.xml
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\bin\Debug\PagedList.Mvc.xml
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\84968\Documents\GitHub\BigExam\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\84968\Documents\GitHub\BigExam\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\84968\Documents\GitHub\BigExam\Model\obj\Debug\Model.dll
+C:\Users\84968\Documents\GitHub\BigExam\Model\obj\Debug\Model.pdb
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\Model.dll.config
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\Model.dll
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\Model.pdb
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\EntityFramework.xml
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\PagedList.xml
+C:\Users\84968\Documents\GitHub\BigExam\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\84968\Documents\GitHub\BigExam\Model\obj\Debug\Model.csproj.CopyComplete

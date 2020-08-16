@@ -1,0 +1,72 @@
+﻿@model List<Model.Models.InfoEnterprise>
+@using Model.Dao
+@{
+    ViewBag.Title = "ShowInfoEnterprise";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    var listSize = new EnterpriseSizeDao().ReturnList();
+    var listType = new TypeOfEnterpriseDao().ReturnList();
+}
+
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Enterprise/EditInfoEnterprise.css" rel="stylesheet" />
+}
+<div class="content">
+    <div class="path">
+        <a href="#"><i class="fa fa-home"></i> Việc làm</a>
+        <span> / Nhà tuyển dụng</span>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="company_info">
+            <div class="company_logo company_info_children">
+                <div class="title_info">
+                    <span>LOGO CÔNG TY</span>
+                </div>
+                <div class="detail_1">
+                    <div class="logo_image">
+                        <img src="@item.ImageLogo" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="company_information company_info_children">
+                <div class="title_info">
+                    <span>THÔNG TIN CÔNG TY</span>
+                </div>
+                <div class="detail_2">
+                    <div class="detail_2_1">
+                        <div class="detail_2_1_1">
+                            <li><b>Tên công ty:</b> @item.EnterpriseName</li>
+                            <li><b>Loại hình:</b> @item.NameOfEnterprise</li>
+                        </div>
+                        <div class="detail_2_1_2">
+                            <li><b>Năm thành lập:</b> @item.EstablishYear</li>
+                            <li><b>Quy mô:</b> @item.AmountSize</li>
+                        </div>
+                    </div>
+                    <div class="detail_2_2">
+                        <span><b>Giới thiệu:</b><br />@item.Description</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact_information company_info_children">
+                <div class="title_info">
+                    <span>THÔNG TIN LIÊN HỆ</span>
+                </div>
+                <div class="detail_3">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span><b>Email:</b> @item.Email</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span><b>Điện thoại:</b> @item.Mobile</span>
+                    </li>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/EnterpriseHome/EditInfoEnterprise.js"></script>
+}
