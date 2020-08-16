@@ -16,7 +16,7 @@ namespace Model.EF
 
         public String UserExperience { get; set; }
 
-        public float UserSalary { get; set; }
+        public String UserSalary { get; set; }
 
         public String UserArea { get; set; }
 

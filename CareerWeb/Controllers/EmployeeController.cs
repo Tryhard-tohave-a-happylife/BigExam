@@ -7,6 +7,7 @@ using PagedList.Mvc;
 using Model.EF;
 using System;
 using System.Web.Mvc;
+using System.Collections.Generic;
 
 namespace CareerWeb.Controllers
 {
@@ -23,7 +24,7 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-           // ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser();
+            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
             ViewBag.AreaList = new AreaDao().ListArea();
             return View();
         
@@ -73,9 +74,94 @@ namespace CareerWeb.Controllers
             return View();
         }
 
-    
+        [HttpPost]
+        public JsonResult SaveCandidate(Guid userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
 
-       [HttpPost]
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            var savedCandidate = new SavedCandidate();
+            DateTime date = DateTime.Today;
+            savedCandidate.UserID = userId;
+            savedCandidate.EnterpriseID = enterpriseId;
+            savedCandidate.CreateDate = date.ToString("dd/MM/yyyy");
+            var checkInsertCandidate = new SavedCandidateDao().InsertCandidate(savedCandidate);
+            if (checkInsertCandidate == false)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        [HttpPost]
+        public JsonResult checkSavedCandidate(List<Guid> userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                            var acc = new AccountDao().FindAccountById(accID);
+                            var employee = new EmployeeDao().FindById(acc.UserId);
+                            var enterpriseId = employee.EnterpriseID;   */
+
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            List<Boolean> save = new List<bool>();
+            foreach (var item in userId)
+            {
+                var user = new UserDao().FindById(item);
+                if (new SavedCandidateDao().findCandidate(user.UserId,enterpriseId) != null)
+                {
+                    var check = true;
+                    save.Add(check);
+                }
+                else
+                {
+                    var check = false;
+                    save.Add(check);
+                }
+            }
+            return Json(new
+            {
+                savedList = save
+            });
+        }
+
+        [HttpPost] 
+        public JsonResult DeleteSavedCandidate(Guid userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
+
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            var savedCandidate = new SavedCandidateDao().findCandidate(userId, enterpriseId);
+            var checkDeleteCandidate = new SavedCandidateDao().DeleteCandidate(savedCandidate);
+            if (checkDeleteCandidate == false)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+
+
+        [HttpPost]
        public JsonResult InterviewData(Guid userId, Guid offerId, Guid employeeId, String date, String time, String address, String note)
         {
             var interview = new Interview();

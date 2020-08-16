@@ -39,7 +39,6 @@ namespace Model.EF
         public virtual DbSet<EnterpriseArea> EnterpriseAreas { get; set; }
         public virtual DbSet<EnterpriseJob> EnterpriseJobs { get; set; }
         public virtual DbSet<EnterpriseSize> EnterpriseSizes { get; set; }
-        public virtual DbSet<OfferJobSkill> OfferJobSkills { get; set; }
         public virtual DbSet<SavedCandidate> SavedCandidates { get; set; }
         public virtual DbSet<UserMajor> UserMajors { get; set; }
 

@@ -42,6 +42,8 @@ namespace Model.Dao
             catch (Exception e)
             {
                 return null;
+            }
+        }
         public bool Delete(Guid id)
         {
             try

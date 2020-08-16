@@ -188,7 +188,6 @@
     <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
     <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
     <Content Include="Assets\Client\Js\Layout\LayoutForEnterprise.js" />
-    <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Admin\Css\Common\header-footer.css" />
     <Content Include="Assets\Admin\Css\Enterprise\ResponseEnterprise.css" />
     <Content Include="Assets\Admin\Js\Enterprise\ResponseEnterprise.js" />
@@ -332,9 +331,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50779</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44301/</IISUrl>
+          <IISUrl>http://localhost:58154/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>https://localhost:44301/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
