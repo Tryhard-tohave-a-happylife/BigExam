@@ -89,7 +89,7 @@
                                     </td>
 
                                     <td class="salary">
-                                        22,000,000 VNĐ
+                                        @item.Salary
                                     </td>
 
                                     <td class="submit-date">
@@ -128,39 +128,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="candidate-rows">
-                                <td class="candidate">
-                                    <a href="#">
-                                        <img src="#">
-                                    </a>
-                                    <div class="candidate-details">
-                                        <span class="candidate-name">
-                                            <a href="#">Linh Nguyên</a>
-                                        </span><br>
-                                        <span class="job-name">
-                                            <a href="#">Bảo vệ</a>
-                                        </span>
-                                    </div>
-                                </td>
+                            @foreach (var item in ViewBag.SavedCandidate) { 
+                                <tr class="candidate-rows">
+                                    <td class="candidate">
+                                        <a href="#">
+                                            <img src="#">
+                                        </a>
+                                        <div class="candidate-details">
+                                            <span class="candidate-name">
+                                                <a href="#">@item.CandidateName</a>
+                                            </span><br>
+                                            <span class="job-name">
+                                                <a href="#">@item.DesiredJob                          </a>
+                                            </span>
+                                        </div>
+                                    </td>
 
-                                <td class="salary">
-                                    22,000,000 VNĐ
-                                </td>
+                                    <td class="salary">
+                                        @item.Salary
+                                    </td>
 
-                                <td class="submit-date">
-                                    28/07/2020
-                                </td>
+                                    <td class="submit-date">
+                                        @item.CreateDate
+                                    </td>
 
-                                <td class="action">
-                                    <div class="detail-button">
-                                        Chi tiết
-                                    </div>
+                                    <td class="action">
+                                        <div class="detail-button">
+                                            Chi tiết
+                                        </div>
 
-                                    <div class="delete-button">
-                                        Xóa
-                                    </div>
-                                </td>
-                            </tr>
+                                        <div class="delete-button" stt="@item.CandidateID" onclick="deleteSavedCandidate()">
+                                            Xóa
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
                         </tbody>
                     </table>
                 </div>

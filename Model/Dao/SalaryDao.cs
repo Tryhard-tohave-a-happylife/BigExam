@@ -18,8 +18,12 @@ namespace Model.Dao
         {
             return db.Salaries.ToList();
         }
-        public string AmountSalary(int id)
+        public string AmountSalary(int id = 0)
         {
+            if (id == 0)
+            {
+                return "Thỏa thuận";
+            }
             return db.Salaries.Find(id).Amount;
         }
     }

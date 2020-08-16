@@ -1,4 +1,9 @@
-﻿
+﻿$(document).ready(function () {
+    checkSaveFile();
+})
+
+
+
 var AreaID = 0, JobID = 0, Name = 0;
 
 $(document).ready(function () {
@@ -65,4 +70,55 @@ function setSelectValue() {
     }
 }
 
+
+function saveFile() {
+    var element = $(event.target);
+    var userId = element.attr("stt");
+    $.ajax({
+        data: { userId: userId },
+        url: '/Employee/SaveCandidate',
+        dataType: 'json',
+        method: 'POST',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            if (res.status == true) {
+                element.text("Đã lưu hồ sơ");
+            }
+        }
+    })
+}
+
+function checkSaveFile() {
+    var element = $(".save-button");
+    var userId = new Array();
+    for (var i = 0; i < element.length; i++) {
+        userId.push(element[i].getAttribute("stt"));
+    }
+    console.log(element);
+    console.log(userId);
+    $.ajax({
+        data: { userId: userId },
+        url: '/Employee/checkSavedCandidate',
+        dataType: 'json',
+        method: 'POST',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            saveList = res.savedList;
+            console.log(res.savedList.length);
+            console.log(saveList.length);
+            for (var i = 0; i < saveList.length; i++) {
+                
+                if (saveList[i] == true) {
+                    element[i].textContent = "Đã lưu hồ sơ";
+                    
+                }
+            }
+        }
+    })
+    
+}
 

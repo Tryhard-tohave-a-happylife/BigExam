@@ -1,5 +1,4 @@
-﻿using Model.EF;
-using Model.Models;
+﻿using Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -50,6 +49,18 @@ namespace Model.Dao
             catch
             {
                 return null;
+            }
+        }
+
+        public String findDesiredJob(Guid userId)
+        {
+            try
+            {
+                return db.Users.Find(userId).DesiredJob;
+            }
+            catch
+            {
+                return "   ";
             }
         }
         public bool ModifyUser(Guid userId, ModifyUserForm user)
@@ -115,7 +126,9 @@ namespace Model.Dao
                           {
                               UserId = User.UserId,
                               UserName = User.UserName,
-                              UserSalary = db.Salaries.Find(User.Salary).Amount,
+                              //UserImage = User.UserImage,
+                              //UserExperience = User.UserExperience,
+                              UserSalary = (User.Salary != null)?  User.Salary : 0,
                               UserArea = db.Areas.Find(User.UserArea).NameArea,
                               UserMajorName = (from UserMajor in listUserMajors
                                                join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
@@ -124,10 +137,13 @@ namespace Model.Dao
 
                                                select JobMajor.JobName).ToList()
 
-                          }).AsEnumerable().Select(x => new CandidateInfo()
+                          }).AsEnumerable().Select(x =>new CandidateInfo()
                           {
                               UserId = x.UserId,
                               UserName = x.UserName,
+                              //UserImage = x.UserImage,
+                              //UserExperience = x.UserExperience,
+                              UserSalary = new SalaryDao().AmountSalary(x.UserSalary.Value),
                               UserArea = x.UserArea,
                               UserSalary = x.UserSalary,
                               UserMajorName = x.UserMajorName

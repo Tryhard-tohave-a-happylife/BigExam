@@ -199,6 +199,7 @@
     <Content Include="Assets\Client\Img\User\ImageSearchJob\bh-02.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\f29989d9ec278b46fe24171349ae709f.jpg" />
     <Content Include="Assets\Client\Img\User\ImageSearchJob\hinh-anh-thanh-pho-Chicago-nuoc-My.jpg" />
+    <Content Include="Assets\Client\Img\User\ImageSearchJob\—Pngtree—e-commerce city double exposure portrait_1126040.JPG" />
     <Content Include="Assets\Client\Js\Employee\Interview.js" />
     <Content Include="Assets\Client\Js\Employee\JobApplicationsUser.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
@@ -444,7 +445,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53452/</IISUrl>
+          <IISUrl>http://localhost:58154/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44301/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
