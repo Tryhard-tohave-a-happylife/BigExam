@@ -53,14 +53,14 @@ i {
 .stage {
     float: left;
     position: absolute;
-    height: 25px;
+    height: 40px;
     top: 0px;
     font-size: 17px;
     padding: 10px 10px 5px 10px;
 }
 
 #savedWork {
-    width: 130px;
+    width: 156px;
     left: 180px;
     background-color: rgb(236, 236, 236);
 }
@@ -71,7 +71,7 @@ i {
     }
 
 #applyWork {
-    width: 180px;
+    width: 190px;
     left: 0px;
     background-color: #f07e1d;
 }
