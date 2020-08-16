@@ -56,6 +56,14 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -153,6 +161,7 @@
     <Content Include="Assets\Client\Css\Common\Header-FooterForUser.css" />
     <Content Include="Assets\Client\Css\Employee\Interview.css" />
     <Content Include="Assets\Client\Css\Employee\JobApplicationsUser.css" />
+    <Content Include="Assets\Client\Css\Employee\ShowDetailCandidate.css" />
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
     <Content Include="Assets\Client\Css\Manage\InterviewLetter.css" />
     <Content Include="Assets\Client\Css\Manage\InterviewSchedule.css" />
@@ -194,6 +203,7 @@
     <Content Include="Assets\Client\Js\Employee\JobApplicationsUser.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidate.js" />
     <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
+    <Content Include="Assets\Client\Js\Employee\ShowDetailCandidate.js" />
     <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
     <Content Include="Assets\Client\Js\Layout\LayoutForEnterprise.js" />
     <Content Include="Assets\Client\Js\Manage\InterviewLetter.js" />
@@ -381,6 +391,7 @@
     <Content Include="Views\Manage\InviteWork.cshtml" />
     <Content Include="Views\Manage\InterviewLetter.cshtml" />
     <Content Include="Views\Manage\Result.cshtml" />
+    <Content Include="Views\Employee\ShowDetailCandidate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,6 +403,7 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Area\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="Views\Language\" />
     <Folder Include="Views\Offer\" />
     <Folder Include="Views\TypeOfEnterprise\" />
   </ItemGroup>

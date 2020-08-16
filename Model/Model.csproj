@@ -126,6 +126,7 @@
     <Compile Include="Models\ModifyUserForm.cs" />
     <Compile Include="Models\ShowFullEnterprise.cs" />
     <Compile Include="Models\ShowFullJob.cs" />
+    <Compile Include="Models\ShowInfoCandidate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

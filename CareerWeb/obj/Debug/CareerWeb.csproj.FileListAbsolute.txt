@@ -54,18 +54,6 @@ C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Model.dll
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Common.pdb
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Model.pdb
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Model.dll.config
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\EntityFramework.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\EntityFramework.SqlServer.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Helpers.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Mvc.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Razor.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.Deployment.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.WebPages.Razor.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\System.Web.Optimization.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Newtonsoft.Json.xml
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Antlr3.Runtime.pdb
-C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CoreCompileInputs.cache
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
 C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\obj\Debug\CareerWeb.dll
@@ -324,3 +312,5 @@ C:\Users\Admin\Documents\GitHub\BigExam\BigExam\CareerWeb\bin\Newtonsoft.Json.xm
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\CareerWeb\bin\Antlr3.Runtime.pdb
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\CareerWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Admin\Documents\GitHub\BigExam\BigExam\CareerWeb\obj\Debug\CareerWeb.csproj.CopyComplete
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\PagedList.xml
+C:\Users\DELL\OneDrive\Documents\WEB\BigExam\CareerWeb\bin\PagedList.Mvc.xml
