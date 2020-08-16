@@ -1,8 +1,11 @@
 ﻿using PagedList;
 using Model.Dao;
 using Model.EF;
+using System.Collections.Generic;
+using System.Linq;
 using System;
 using System.Web.Mvc;
+using PagedList;
 
 
 namespace CareerWeb.Controllers
@@ -20,21 +23,33 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-           // ViewBag.JobListSub = new JobMajorDao().ListJobSubByUser();
             ViewBag.AreaList = new AreaDao().ListArea();
+            ViewBag.Language = new LanguageDao().ReturnList();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
             return View();
         
         }
 
-        public ActionResult SearchCandidateResult(int? page, String Name = "0", String AreaID = "0", String JobID = "0")
+        public ActionResult SearchCandidateResult(int? page, string KeyWord = "0", int AreaID = 0, int JobID = 0,
+            int experienceID = 0, int salaryID= 0, int languageID= 0, int levelLanguageID= 0)
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
             ViewBag.AreaList = new AreaDao().ListArea();
-            int areaId = int.Parse(AreaID); 
-            int jobId = int.Parse(JobID);
-            
-            var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            ViewBag.Language = new LanguageDao().ReturnList();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+
+
+            var Model = new UserDao().ListUserFit(KeyWord, AreaID, JobID, experienceID, salaryID, languageID, levelLanguageID).ToPagedList(page ?? 1, 2);
             return View(Model);
+          
+
         }
 
         public ActionResult JobApplicationsUser()
@@ -53,9 +68,22 @@ namespace CareerWeb.Controllers
 
             return View();
         }
-        public ActionResult ShowDetailCandidate()
+        public ActionResult ShowDetailCandidate(Guid UserId)
         {
-            return View(); 
+            ViewBag.ListExperience = new UserExperienceDao().ListByUser(UserId);
+            ViewBag.ListLanguage = new UserForeignLanguageDao().ListByUser(UserId);
+            var showInfo = new UserDao().InfoUser(UserId);
+            var saveName = "";
+            foreach (var item in showInfo)
+            {
+                for (var i = 0; i < item.listJob.Count; i += 1)
+                {
+                    saveName += (item.listJob[i]) + ", ";
+                }
+                saveName.Remove(saveName.Length - 1);
+            }
+            ViewBag.ListFullJobName = saveName;
+            return View(showInfo); 
         }
 
         public ActionResult Interview()
@@ -70,9 +98,94 @@ namespace CareerWeb.Controllers
             return View();
         }
 
-    
+        [HttpPost]
+        public JsonResult SaveCandidate(Guid userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
 
-       [HttpPost]
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            var savedCandidate = new SavedCandidate();
+            DateTime date = DateTime.Today;
+            savedCandidate.UserID = userId;
+            savedCandidate.EnterpriseID = enterpriseId;
+            savedCandidate.CreateDate = date.ToString("dd/MM/yyyy");
+            var checkInsertCandidate = new SavedCandidateDao().InsertCandidate(savedCandidate);
+            if (checkInsertCandidate == false)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        [HttpPost]
+        public JsonResult checkSavedCandidate(List<Guid> userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                            var acc = new AccountDao().FindAccountById(accID);
+                            var employee = new EmployeeDao().FindById(acc.UserId);
+                            var enterpriseId = employee.EnterpriseID;   */
+
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            List<Boolean> save = new List<bool>();
+            foreach (var item in userId)
+            {
+                var user = new UserDao().FindById(item);
+                if (new SavedCandidateDao().findCandidate(user.UserId,enterpriseId) != null)
+                {
+                    var check = true;
+                    save.Add(check);
+                }
+                else
+                {
+                    var check = false;
+                    save.Add(check);
+                }
+            }
+            return Json(new
+            {
+                savedList = save
+            });
+        }
+
+        [HttpPost] 
+        public JsonResult DeleteSavedCandidate(Guid userId)
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
+
+            var enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+
+            var savedCandidate = new SavedCandidateDao().findCandidate(userId, enterpriseId);
+            var checkDeleteCandidate = new SavedCandidateDao().DeleteCandidate(savedCandidate);
+            if (checkDeleteCandidate == false)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+
+
+        [HttpPost]
        public JsonResult InterviewData(Guid userId, Guid offerId, Guid employeeId, String date, String time, String address, String note)
         {
             var interview = new Interview();

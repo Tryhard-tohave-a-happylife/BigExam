@@ -40,12 +40,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
-    </Reference>
-    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -60,31 +54,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\AccountDao.cs" />
-    <Compile Include="Dao\AppliedCandidateDao.cs" />
     <Compile Include="Dao\AreaDao.cs" />
+    <Compile Include="Dao\ArticleDao.cs" />
+    <Compile Include="Dao\CategoryArticleDao.cs" />
     <Compile Include="Dao\EmployeeDao.cs" />
     <Compile Include="Dao\EnterpriseAreaDao.cs" />
     <Compile Include="Dao\EnterpriseDao.cs" />
     <Compile Include="Dao\EnterpriseJobDao.cs" />
     <Compile Include="Dao\EnterpriseSizeDao.cs" />
     <Compile Include="Dao\ExperienceDao.cs" />
-    <Compile Include="Dao\InterviewDao.cs" />
     <Compile Include="Dao\JobMajorDao.cs" />
     <Compile Include="Dao\LanguageDao.cs" />
     <Compile Include="Dao\LevelLearningDao.cs" />
+    <Compile Include="Dao\MessageDao.cs" />
     <Compile Include="Dao\OfferJobDao.cs" />
     <Compile Include="Dao\OfferJobSkillDao.cs" />
     <Compile Include="Dao\PositionEmployeeDao.cs" />
+    <Compile Include="Dao\ProjectDao.cs" />
+    <Compile Include="Dao\ProjectMemberDao.cs" />
+    <Compile Include="Dao\ProjectSkillDao.cs" />
     <Compile Include="Dao\SalaryDao.cs" />
-    <Compile Include="Dao\SavedCandidateDao.cs" />
     <Compile Include="Dao\TypeOfEnterpriseDao.cs" />
-    <Compile Include="Dao\UniversityDao.cs" />
     <Compile Include="Dao\UserCertificateDao.cs" />
     <Compile Include="Dao\UserDao.cs" />
     <Compile Include="Dao\UserExperienceDao.cs" />
     <Compile Include="Dao\UserForeignLanguageDao.cs" />
     <Compile Include="Dao\UserMajorDao.cs" />
-    <Compile Include="Dao\WorkInvitationDao.cs" />
     <Compile Include="EF\Account.cs" />
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
@@ -101,62 +96,40 @@
     <Compile Include="EF\JobMajor.cs" />
     <Compile Include="EF\Language.cs" />
     <Compile Include="EF\LevelLearning.cs" />
+    <Compile Include="EF\Message.cs" />
     <Compile Include="EF\OfferJob.cs" />
     <Compile Include="EF\OfferJobSkill.cs" />
     <Compile Include="EF\PositionEmployee.cs" />
+    <Compile Include="EF\Project.cs" />
+    <Compile Include="EF\ProjectMember.cs" />
+    <Compile Include="EF\ProjectSkill.cs" />
     <Compile Include="EF\Salary.cs" />
     <Compile Include="EF\SavedCandidate.cs" />
     <Compile Include="EF\TypeOfEnterprise.cs" />
     <Compile Include="EF\University.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="EF\UserCertificate.cs" />
+    <Compile Include="EF\UserConnection.cs" />
     <Compile Include="EF\UserExperience.cs" />
     <Compile Include="EF\UserForeignLanguage.cs" />
     <Compile Include="EF\UserLearning.cs" />
     <Compile Include="EF\UserMajor.cs" />
     <Compile Include="EF\WorkInvitation.cs" />
-    <Compile Include="Models\AppliedCandidateInfo.cs" />
     <Compile Include="Models\CandidateInfo.cs" />
+    <Compile Include="Models\ChatBoxModel.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
-    <Compile Include="Models\FormEnterpriseFull.cs" />
-    <Compile Include="Models\InfoEnterprise.cs" />
+    <Compile Include="Models\FullProjectInfor.cs" />
+    <Compile Include="Models\MessageChat.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
-    <Compile Include="Models\ShowFullEnterprise.cs" />
-    <Compile Include="Models\ShowFullJob.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="Models\UserChat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="bin\Debug\Model.dll.config" />
-    <None Include="obj\Debug\build.force" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\Model.csproj.CopyComplete" />
-    <None Include="obj\Debug\Model.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\Model.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\EntityFramework.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\Debug\EntityFramework.xml" />
-    <Content Include="bin\Debug\Model.dll" />
-    <Content Include="bin\Debug\Model.pdb" />
-    <Content Include="bin\Debug\PagedList.dll" />
-    <Content Include="bin\Debug\PagedList.Mvc.dll" />
-    <Content Include="bin\Debug\PagedList.Mvc.xml" />
-    <Content Include="bin\Debug\PagedList.xml" />
-    <Content Include="Content\PagedList.css" />
-    <Content Include="obj\Debug\Model.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\Model.dll" />
-    <Content Include="obj\Debug\Model.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

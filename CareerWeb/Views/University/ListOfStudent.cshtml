@@ -1,8 +1,10 @@
-﻿
+﻿@model List<Model.Models.ListStudent>
+@using Model.Dao
 @{
-    @section cssInsert{
-        <link href="~/Assets/Client/Css/University/ListOfStudent.css" rel="stylesheet" />
-    }
+    var count = 1;
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/University/ListOfStudent.css" rel="stylesheet" />
 }
 
 <body>
@@ -13,51 +15,69 @@
         <div class="main-content">
             <div class="container">
                 <div class="row">
-                    <div class="uni-info">
-                        <span class="img-thumbnail">
-
-
-                            <img src="~/Assets/Client/Img/University/logo.png" />
-                        </span>
-                        <div style="margin-left: 230px;padding-top: 5px">
-                            <h2 id="uni-name"> UET UNIVERSITY</h2>
-                            <div class="uni-info-option">
-                                <i class="fa fa-map-marker"></i>
-                                <span>DHQGHN, 136 Xuan Thuy, Cau Giay, Ha Noi</span><br /><br />
-                                <i class="fa fa-globe"></i>
-                                <a href="https://uet.vnu.edu.vn/" target="_blank">https://uet.vnu.edu.vn/</a></ br></ br>
-                                
+                    @foreach (var item in ViewBag.InfoUni)
+                    {
+                        <div class="uni-info">
+                            <div class="img-thumbnail">
+                                <span class="img-thumbnail">
+                                    <img scr="@item.UniversityLogo">
+                                </span>
+                            </div>
+                            <div style="margin-left: 230px;padding-top: 5px">
+                                <h2 id="uni-name"> @item.UniversityName</h2>
+                                <div class="uni-info-option">
+                                    <i class="fa fa-map-marker"></i> Địa chỉ: @item.Address
+                                </div>
+                                <div id="Website">
+                                    <i class="fa fa-globe"></i>
+                                    <a href="https://uet.vnu.edu.vn/" target="_blank">Website: https://uet.vnu.edu.vn/</a>
+                                </div>
+                                <div id="email"><i class="fas fa-envelope"></i> Email: @item.Email</div>
+                                <div id="hotline"><i class="fas fa-phone-square-alt"></i> Hotline: @item.Mobile</div>
                             </div>
                         </div>
-                    </div>
-                    <div style="width: 100%;">
-                        <h2>Danh sách sinh viên của trường</h2>
-                    </div>
-                    <div style="width: 100%;"><b id="student-num">1</b> học sinh</div>
-                    <div class="uni-student-list">
-                        <ul class="row">
-                            <li class="student">
-                                <div class="student-wrap">
-                                    
-                                    <div class="student-info">
-                                        <h3 style="margin: 10px;">
-                                            <a href="">Nguyen Van A</a>
-                                        </h3>
-                                        
+                    }
 
-                                    </div>
-                                </div>
+                </div>
+                <div style="width: 100%;">
+                    <h2>Danh sách sinh viên của trường</h2>
+                </div>
+                <div style="width: 100%;"><b id="student-num">1</b> học sinh</div>
+                <div class="uni-student-list">
+                    <table>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Ngày sinh</th>
 
-                            </li>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
+                            <th>Trình độ ngoại ngữ</th>
+                            <th>Lĩnh vực đã làm</th>
+                            <th>Nơi sinh</th>
+                        </tr>
+                        <tr>
+                            @foreach (var item in ViewBag.ListStudent)
+                            {
+                                <td style="text-align: center">count</td>
+                                <td style="text-align: left">@item.UserName</td>
+                                <td style="text-align: right">@item.UserBirthDay</td>
 
-                        </ul>
-                    </div>
+                                <td style="text-align: left">@item.UserMobile</td>
+                                <td style="text-align: right">@item.UserEmail</td>
+                                <td style="text-align: center">@item.LanguageLevel</td>
+                                <td style="text-align: left">@ViewBag.ListFullJobName[count - 1]</td>
+                                <td style="text-align: right">@item.NameArea</td>
+                                count += 1;
+                            }
+                            
+                        </tr>
+                        
+
+                    </table>
                 </div>
             </div>
         </div>
-
-
-
-
+    </div>
 </body>
 

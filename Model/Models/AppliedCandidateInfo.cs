@@ -16,6 +16,7 @@ namespace Model.Models
         public Guid OfferID { get; set; }
         public String OfferName { get; set; }
 
+        public String Salary { get; set; }
         public string Status { get; set; }
 
         public string CreateDate { get; set; }

@@ -14,6 +14,31 @@ namespace Model.Dao
         {
             db = new CareerWeb();
         }
+<<<<<<< HEAD
+        public bool Insert(OfferJobSkill of)
+        {
+            try
+            {
+                db.OfferJobSkills.Add(of);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+        public bool DeleteSkill(Guid offerID, int skillJob)
+        {
+            try
+            {
+                var off = db.OfferJobSkills.Find(offerID, skillJob);
+                db.OfferJobSkills.Remove(off);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+=======
 
         public List<OfferJobSkill> ReturnList()
         {
@@ -29,9 +54,17 @@ namespace Model.Dao
                 return true;
             }
             catch (Exception e)
+>>>>>>> 54301d1ff8356913c851621b294ef6681bd102d5
             {
                 return false;
             }
         }
+<<<<<<< HEAD
+        public List<OfferJobSkill> ListByOffer(Guid offerID)
+        {
+            return db.OfferJobSkills.Where(x => x.OfferID == offerID).ToList();
+        }
+=======
+>>>>>>> 54301d1ff8356913c851621b294ef6681bd102d5
     }
 }

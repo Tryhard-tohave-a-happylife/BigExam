@@ -102,3 +102,24 @@ function search() {
     }
     
 }
+
+function deleteSavedCandidate() {
+    var element = $(event.target);
+    var userId = element.attr("stt");
+    console.log("here");
+    $.ajax({
+        data: { userId: userId },
+        url: '/Employee/DeleteSavedCandidate',
+        dataType: 'json',
+        method: 'POST',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            if (res.status == true) {
+                element.parent().parent().css("display", "none");
+            }
+            console.log(res.status);
+        }
+    })
+}

@@ -8,10 +8,10 @@
 #letterHeader {
     float: left;
     width: 100%;
-    padding-top: 85px;
-    color: maroon;
+    padding-top: 50px;
+    color: rgb(0, 25, 252);
     height: 200px;
-    background-image: url('../../Img/User/ImageSearchJob/hinh-anh-thanh-pho-Chicago-nuoc-My.jpg');
+    background-image: url('../../Img/User/ImageSearchJob/subheader-bg.jpg');
     background-size: cover;
     z-index: 0;
 }
@@ -54,7 +54,7 @@
 }
 
 #findIcon {
-    background-image: url('../../Img/User/ImageSearchJob/blue-search-icon.png');
+    background-image: url("../../Img/User/ImageSearchJob/blue-search-icon.png");
     background-size: cover;
     float: left;
     width: 3em;
@@ -62,21 +62,17 @@
     margin-left: 3%;
 }
 
-    #findIcon:hover{
+    #findIcon :hover {
         cursor: pointer;
     }
 
 #clearAll {
-    color: orangered;
+    color: red;
     font-size: 1.2em;
     position: relative;
     float: right;
     margin-right: calc(50% - 540px);
 }
-    #clearAll:hover {
-        color: #034efc;
-        cursor: pointer;
-    }
 
 @media screen and (max-width : 1160px) {
     #criteriaSelected {
@@ -152,7 +148,6 @@
     font-size: 1.2em;
     margin-top: 2%;
     font-weight: bold;
-    margin-bottom: 3em;
 }
 
 .jobContainer {
@@ -161,19 +156,19 @@
     background-color: #ebedeb;
     position: relative;
     height: 9em;
-    margin-top: 2em;
+    margin-top: 5em;
 }
 
     .jobContainer:hover {
         cursor: pointer;
-        border: 1px solid #f07e1d;
+        border: 5px solid #f07e1d;
     }
 
-img {
+.logo img {
     position: relative;
     background-size: cover;
     margin: 0 0;
-    height: 8.8em;
+    height: 9em;
     width: 12em;
 }
 
@@ -201,22 +196,13 @@ img {
 .address {
     margin-left: 14em;
     margin-top: -4.25em;
-    width: 50%;
 }
-    .address .textOverflowLine {
-        -webkit-line-clamp: 1;
-    }
 
 .salary {
-    float: left;
-    margin-left: 47vw;
-    margin-top: -1.3em;
-    width: 27%;
+    position: absolute;
+    margin-left: 26em;
+    margin-top: -1em;
 }
-
-    .salary .textOverflowLine {
-        -webkit-line-clamp: 1;
-    }
 
 .deadline {
     position: absolute;
@@ -225,8 +211,7 @@ img {
 }
 
 .reward {
-    float: left;
-    margin-left: 47vw;
+    margin-left: 26em;
     margin-top: 0.5em;
 }
 
@@ -274,7 +259,6 @@ img {
     .address {
         margin-left: 1em;
         margin-top: 0em;
-        width:100%;
     }
 
         .address .textOverflowLine {
@@ -285,10 +269,6 @@ img {
         position: absolute;
         margin-left: 1em;
         margin-top: 1em;
-        width: 100%;
-    }
-    .salary .textOverflowLine {
-        -webkit-line-clamp: 1;
     }
 
     .deadline {

@@ -17,7 +17,6 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    float: left;
 }
 
 header .container {
@@ -82,6 +81,7 @@ header .menu {
     display: flex;
     align-items: center;
     height: 100%;
+    width: 45%;
 }
 
 header .element {
@@ -93,6 +93,7 @@ header .element {
     border-radius: 5px;
     transition: 0.2s;
     color: darkslategrey;
+    text-align: center;
 }
 
     header .element:hover {
@@ -153,7 +154,7 @@ header .registration {
     padding: 0 10px;
 }
 
-    header .registration i {
+     header .registration i {
         color: royalblue;
     }
 
@@ -223,7 +224,7 @@ header .res_element {
         cursor: pointer;
     }
 
-header .res_element_box {
+header.res_element_box {
     display: flex;
     align-items: center;
     height: 100%;
@@ -231,11 +232,11 @@ header .res_element_box {
     border-bottom: solid 1px rgb(207, 204, 204);
 }
 
-    header .res_element_box i {
+    .res_element_box i {
         padding: 0 10px;
     }
 
-    header .res_element_box span {
+    .res_element_box span {
         padding: 0 10px;
         font-weight: bold;
     }
@@ -263,21 +264,25 @@ header .res_searching {
         cursor: pointer;
     }
 
-    header .res_searching span {
+    .res_searching span {
         margin: 0 auto;
     }
-
+.content-main{
+    width: 100%;
+    height: auto;
+    margin-top: 75px;
+}
 
 footer {
-    float: left;
     background-color: #222;
     padding: 0 7.5%;
     height: 500px;
     width: 100%;
     border-top: solid 5px #aaa;
+    float: left;
 }
 
-footer .footer_container {
+.footer_container {
     display: flex;
     align-items: center;
     height: 400px;
@@ -286,7 +291,7 @@ footer .footer_container {
     border-bottom: solid 1px #3a3a3a;
 }
 
-footer .footer_element_1, .footer_element_2, .footer_element_3 {
+.footer_element_1, .footer_element_2, .footer_element_3 {
     display: block;
     height: 100%;
     width: 25%;
@@ -294,7 +299,7 @@ footer .footer_element_1, .footer_element_2, .footer_element_3 {
     margin: 0 20px;
 }
 
-    footer .footer_element_1 span, .footer_element_2 span, .footer_element_3 span {
+    .footer_element_1 span, .footer_element_2 span, .footer_element_3 span {
         display: block;
         font-weight: bold;
         color: #c5c5c5;
@@ -302,55 +307,178 @@ footer .footer_element_1, .footer_element_2, .footer_element_3 {
         margin-bottom: 30px;
     }
 
-    footer .footer_element_1 p {
+    .footer_element_1 p {
         color: #c5c5c5;
         line-height: 30px;
         padding: 0 15px 0 0;
     }
 
-    footer .footer_element_1 a {
+    .footer_element_1 a {
         text-decoration: none;
         color: royalblue;
     }
 
-        footer .footer_element_1 a:hover {
+        .footer_element_1 a:hover {
             color: midnightblue;
         }
 
-    footer .footer_element_2 ul, .footer_element_3 ul {
+    .footer_element_2 ul, .footer_element_3 ul {
         list-style: none;
         padding: 20px 0;
         border-top: solid 1px #3a3a3a;
         margin: 20px 0;
     }
 
-        footer .footer_element_2 ul li, .footer_element_3 ul li {
+        .footer_element_2 ul li, .footer_element_3 ul li {
             padding: 5px 0;
             display: flex;
             align-items: center;
         }
 
-    footer .footer_element_2 a, .footer_element_3 a {
+    .footer_element_2 a, .footer_element_3 a {
         color: #c5c5c5;
         text-decoration: none;
         font-size: 12pt;
         padding: 0 10px;
     }
 
-        footer .footer_element_2 a:hover, .footer_element_3 a:hover {
+        .footer_element_2 a:hover, .footer_element_3 a:hover {
             color: royalblue;
         }
 
-    footer .footer_element_2 i {
+    .footer_element_2 i {
         color: #5b5b5b;
         font-size: 12pt;
     }
 
-    footer .footer_element_3 i {
+    .footer_element_3 i {
         color: #5b5b5b;
         font-size: 7pt;
     }
+header .fog_background {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+}
 
+header .login_form {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: white;
+    border: #f07e1d solid 2px;
+    padding: 15px;
+    position: fixed;
+    border-radius: 10px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    top: 150px;
+    left: calc(50% - 200px);
+}
+
+    header .login_form form h1 {
+        color: #f07e1d;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+header .input_box {
+    margin-bottom: 10px;
+}
+
+    header .input_box input {
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+    }
+
+header .btn_box {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+    header .btn_box button {
+        padding: 7.5px 15px;
+        border-radius: 2px;
+        background-color: #f07e1d;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+header .forgot {
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 15px;
+}
+
+    header .forgot:hover {
+        text-decoration: underline;
+    }
+
+header .register {
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 15px;
+}
+
+    header .register:hover {
+        text-decoration: underline;
+    }
+
+header #control-account {
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+    header #control-account:hover {
+        color: orangered;
+    }
+
+header #container-control {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    height: auto;
+    width: 150px;
+    background-color: white;
+    padding-bottom: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    display: none;
+}
+
+    header #container-control a {
+        color: unset;
+        text-decoration: unset;
+    }
+
+    header #container-control .each-part {
+        margin-left: 10px;
+        width: calc(100% - 20px);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-size: 10pt;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        cursor: pointer;
+    }
+
+        header #container-control .each-part:hover {
+            color: gray;
+        }
+
+        header #container-control .each-part i {
+            margin-right: 5px;
+        }
 @media screen and (max-width: 1250px) {
     header {
         padding: 0 2.5%;

@@ -17,14 +17,11 @@
         }
     });
     $('.searching, .res_searching').click(function () {
-        $(location).attr("href", "./index-2.html");
+        $(location).attr("href", "/Enterprise/Index");
     });
-    $("header .user .log_in").click(function () {
-        $("header #box-logIn").css("display", "block");
-    });
-    $("header #box-logIn #submit").click(function () {
-        var accName = $("header #box-logIn #acc").val();
-        var pass = $("header #box-logIn #pass").val();
+    $("header .login_form .btn_box button").click(function () {
+        var accName = $("header .login_form #acc").val();
+        var pass = $("header .login_form #pass").val();
         if (!accName || !pass || accName == "" || pass == "") {
             alert("Bạn cần nhập đủ");
             return;
@@ -42,6 +39,9 @@
                     if (res.type == 1) {
                         window.location.href = "/User/Index";
                     }
+                    else if (res.type == 2 || res.type == 3) {
+                        window.location.href = "/Enterprise/Index";
+                    }
                 }
                 else {
                     if (res.error == -1) {
@@ -55,5 +55,33 @@
         })
 
     })
+    $('header .log_in').click(function () {
+        $('header .login_form').css({
+            "opacity": "1",
+            "visibility": "visible"
+        })
+        $('header .fog_background').css({
+            "opacity": "1",
+            "visibility": "visible"
+        })
+    })
+    $('header .fog_background').click(function () {
+        $('header .login_form').css({
+            "opacity": "0",
+            "visibility": "hidden"
+        })
+        $('header .fog_background').css({
+            "opacity": "0",
+            "visibility": "hidden"
+        })
+    })
+    $("header #control-account").click(function () {
+        $("header #container-control").fadeIn();
+    })
+    $(document).on("click", function (event) {
+        if ($(event.target).attr("id") != "control-account" && $(event.target).attr("id") != "container-control") {
+            $('header #container-control').fadeOut();
+        }
+    });
 
 })

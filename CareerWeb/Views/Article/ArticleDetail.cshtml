@@ -1,0 +1,45 @@
+﻿@model Model.EF.Article 
+@using Model.Dao
+@{
+    ViewBag.Title = "ArticleDetail";
+    if (ViewBag.LayoutID == 1)
+    {
+        Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    }
+    var cateAcDao = new CategoryArticleDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Article/ArticleDetail.css" rel="stylesheet" />
+    }
+<main>
+    <div id="headerMenu">
+        @for (var i = 0; i < ViewBag.ListCateBig.Count; i++)
+        {
+            var linkFirst = "/User/MoreNewsFromHandbook?lout=" + ViewBag.LayoutID + "&CateBig=" + ViewBag.ListCateBig[i].CategoryID;
+            <div class="titleNews">
+                <i class="far fa-arrow-alt-circle-right"></i>
+                <a href="@linkFirst" style="color: unset; text-decoration: unset;">@ViewBag.ListCateBig[i].NameCategory</a>
+                <div class="dropdown">
+                    @for (var j = 0; j < ViewBag.ListCate[i].Count; j++)
+                    {
+                        var link = "/User/MoreNewsFromHandbook?lout=" + ViewBag.LayoutID + "&CateBig=" + ViewBag.ListCateBig[i].CategoryID
+                                   + "&CateID=" + ViewBag.ListCate[i][j].CategoryID;
+                        <a href="@link">@ViewBag.ListCate[i][j].NameCategory (@ViewBag.ListCate[i][j].Amount)</a><br>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <div id="contain-article">
+        <div id="title">@Model.Title.ToUpper()</div>
+        <div id="date-views">@Model.CreateDate.Value.ToString("dd/MM/yyyy")/Lượt xem: @Model.Views</div>
+        <div id="contain-content">
+            @Html.Raw(Model.ContentArticle)
+        </div>
+    </div>
+</main>
+
