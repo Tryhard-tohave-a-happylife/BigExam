@@ -124,6 +124,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EnterpriseController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="Controllers\TypeOfEnterpriseController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
@@ -153,6 +154,11 @@
     <Content Include="Assets\Client\Css\Employee\Interview.css" />
     <Content Include="Assets\Client\Css\Employee\JobApplicationsUser.css" />
     <Content Include="Assets\Client\Css\Enterprise\EnterpriseHome.css" />
+    <Content Include="Assets\Client\Css\Manage\InterviewLetter.css" />
+    <Content Include="Assets\Client\Css\Manage\InterviewSchedule.css" />
+    <Content Include="Assets\Client\Css\Manage\InviteWork.css" />
+    <Content Include="Assets\Client\Css\Manage\Result.css" />
+    <Content Include="Assets\Client\Css\Manage\WorkList.css" />
     <Content Include="Assets\Client\Css\Register\RegisterForEmployee.css" />
     <Content Include="Assets\Client\Css\University\ListOfStudent.css" />
     <Content Include="Assets\Client\Css\University\Statistic.css" />
@@ -190,6 +196,11 @@
     <Content Include="Assets\Client\Js\Employee\SearchCandidateResult.js" />
     <Content Include="Assets\Client\Js\EnterpriseHome\EnterpriseHome.js" />
     <Content Include="Assets\Client\Js\Layout\LayoutForEnterprise.js" />
+    <Content Include="Assets\Client\Js\Manage\InterviewLetter.js" />
+    <Content Include="Assets\Client\Js\Manage\InterviewSchedule.js" />
+    <Content Include="Assets\Client\Js\Manage\InviteWork.js" />
+    <Content Include="Assets\Client\Js\Manage\Result.js" />
+    <Content Include="Assets\Client\Js\Manage\WorkList.js" />
     <Content Include="Assets\Client\Js\Register\RegisterForEnterprise1.js" />
     <Content Include="Assets\Admin\Css\Common\header-footer.css" />
     <Content Include="Assets\Admin\Css\Enterprise\ResponseEnterprise.css" />
@@ -351,7 +362,6 @@
     <Content Include="Views\User\HandbookForUser.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\MoreNewsFromHandbook.cshtml" />
-    <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\Enterprise\EnterpriseHome.cshtml" />
     <Content Include="Views\User\NewsOfHandBook_3.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
@@ -359,13 +369,18 @@
     <Content Include="Views\User\ResultForSearchCompany.cshtml" />
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
     <Content Include="Views\User\SearchCompanyForUser.cshtml" />
-    <Content Include="Views\User\SearchJobForUser.cshtml" />
     <Content Include="Views\University\Statistic.cshtml" />
     <Content Include="Views\University\ListOfStudent.cshtml" />
     <Content Include="Views\User\UserHome.cshtml" />
     <Content Include="Views\Employee\JobApplicationsUser.cshtml" />
     <Content Include="Views\Employee\Interview.cshtml" />
     <Content Include="Views\University\UniversityHome.cshtml" />
+    <Content Include="Views\User\SearchJobForUser.cshtml" />
+    <Content Include="Views\Manage\InterviewSchedule.cshtml" />
+    <Content Include="Views\Manage\WorkList.cshtml" />
+    <Content Include="Views\Manage\InviteWork.cshtml" />
+    <Content Include="Views\Manage\InterviewLetter.cshtml" />
+    <Content Include="Views\Manage\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
