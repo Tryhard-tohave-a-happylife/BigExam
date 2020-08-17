@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model.EF;
 using System.IO;
+using System.Web.Hosting;
 
 namespace CareerWeb.Areas.Admin.Controllers
 {
@@ -25,15 +26,18 @@ namespace CareerWeb.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreatUniversity(University university, HttpPostedFileBase logo)
+        public ActionResult CreatUniversity(University university, HttpPostedFileBase UniversityLogo)
         {
-            if(logo != null && logo.ContentLength > 0)
+            var file = UniversityLogo;
+            if (file != null)
             {
-                logo.InputStream.Read(new byte[logo.ContentLength], 0, logo.ContentLength);
-                string fileName = System.IO.Path.GetFileName(logo.FileName);
-                string urlImage = Server.MapPath("~/Assets/Admin/Img/University/" + logo.FileName);
-                logo.SaveAs(urlImage);
-                university.UniversityLogo = "Assets/Admin/Img/University/" + logo.FileName;
+
+                var fileName = Path.GetFileName(file.FileName);
+                var extention = Path.GetExtension(file.FileName);
+                var filenamewithoutextension = Path.GetFileNameWithoutExtension(file.FileName);
+                file.SaveAs(Server.MapPath("/Assets/Admin/Img/University/" + fileName));
+                var srcImage = "/Assets/Admin/Img/University/" + fileName;
+                university.UniversityLogo = srcImage;
             }
 
             if (ModelState.IsValid) { 

@@ -24,6 +24,7 @@
         <div class="main-content">
             <div class="container">
                 <div class="row">
+
                     <div class="uni-info">
                         <span class="img-thumbnail">
                             <img scr="">
@@ -33,19 +34,36 @@
                             <div class="uni-info-option">
                                 <i class="fa fa-map-marker"></i> Địa chỉ: DHQGHN, 136 Xuan Thuy, Cau Giay, Ha Noi
                                
+
+                    @foreach (var item in ViewBag.InfoUni)
+                    {
+                        <div class="uni-info">
+                            <div class="img-thumbnail">
+                                <span class="img-thumbnail">
+                                    <img scr="@item.UniversityLogo">
+                                </span>
+
                             </div>
-                            <div id="Website">
-                                <i class="fa fa-globe"></i>
-                                <a href="https://uet.vnu.edu.vn/" target="_blank">Website: https://uet.vnu.edu.vn/</a>
+                            <div style="margin-left: 230px;padding-top: 5px">
+                                <h2 id="uni-name"> @item.UniversityName</h2>
+                                <div class="uni-info-option">
+                                    <i class="fa fa-map-marker"></i> Địa chỉ: @item.Address
+                                </div>
+                                <div id="Website">
+                                    <i class="fa fa-globe"></i>
+                                    <a href="https://uet.vnu.edu.vn/" target="_blank">Website: https://uet.vnu.edu.vn/</a>
+                                </div>
+                                <div id="email"><i class="fas fa-envelope"></i> Email: @item.Email</div>
+                                <div id="hotline"><i class="fas fa-phone-square-alt"></i> Hotline: @item.Mobile</div>
+                                <div id="descrip">@item.Description</div>
+                                <a href="/ListOfStudent/@item.University" class="uni-overview">
+                                    <i class="fa fa-chart-bar"></i>
+                                    <span>  Danh sách sinh viên</span>
+                                </a>
                             </div>
-                            <div id="email"><i class="fas fa-envelope"></i> Email: </div>
-                            <div id="hotline"><i class="fas fa-phone-square-alt"></i> Hotline: </div>
-                            <a href="ListOfStudent?" class="uni-overview">
-                                <i class="fa fa-chart-bar"></i>
-                                <span>  Danh sách sinh viên</span>
-                            </a>
                         </div>
-                    </div>
+                    }
+
                 </div>
                 <h2 style="width: 100%; margin: 30px 0;">Báo cáo thống kê theo:</h2>
                 <div style="width: 100%;margin-bottom: 30px;">
@@ -77,6 +95,7 @@
             </div>
         </div>
     </div>
+
 
 
 

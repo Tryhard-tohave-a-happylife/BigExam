@@ -48,7 +48,7 @@
         if (isNaN(threeElements[0]) || Number(threeElements[0]) < 1 || Number(threeElements[0]) > 31) {
             return false;
         }
-        if (isNaN(threeElements[1]) || Number(threeElements[1]) < 1 || Number(threeElements[0]) > 12) {
+        if (isNaN(threeElements[1]) || Number(threeElements[1]) < 1 || Number(threeElements[1]) > 12) {
             return false;
         }
         if (isNaN(threeElements[2]) || Number(threeElements[2]) < 1 || Number(threeElements[2]) > Number(new Date().getFullYear())) {
@@ -82,7 +82,12 @@
         var listInputInfor = $(".input-infor");
         $(listInputInfor[ind]).slideDown();
         $(listInputInfor[ind]).children().children(".submit").attr("use-for", "add");
-        $(listInputInfor[ind]).children().children(".submit").text("Thêm");
+        if ($(this).attr("add-for") != "finding-job-infor") {
+            $(listInputInfor[ind]).children().children(".submit").text("Thêm");
+        }
+        else {
+            $(listInputInfor[ind]).prev().slideUp();
+        }
         $("html, body").animate({ scrollTop: topScroll }, 650);
     })
     $(".input-infor .infor-details .cancel").click(function () {
@@ -234,14 +239,19 @@
     //Sửa kinh nghiệm việc làm:
     $("#work-experience .cover-button .edit-part").click(function () {
         var ind = $(this).attr("id-save");
+        var index = $("#work-experience .cover-button .edit-part").index(this);
         $("#work-experience .container-infor").slideUp();
         $("#work-experience .input-infor").slideDown();
-        $("#work-experience .input-infor #position").val($(".each-part #position-ex").attr("position-id"));
-        $("#work-experience .input-infor #name-enterprise").val($(".each-part #nameEnterprise-ex").text());
-        var split = $(".each-part #time-ex").text().split("-");
+        var posList = $(".each-part #position-ex");
+        var nameEntList = $(".each-part #nameEnterprise-ex");
+        var timeList = $(".each-part #time-ex"); 
+        var desList = $(".each-part #description-ex");
+        $("#work-experience .input-infor #position").val($(posList[index]).attr("position-id"));
+        $("#work-experience .input-infor #name-enterprise").val($(nameEntList[index]).text());
+        var split = $(timeList[index]).text().split("-");
         $("#work-experience .input-infor #time-start-ex").val(split[0].trim());
         $("#work-experience .input-infor #time-end-ex").val((split[1].trim() == "now") ? "" : split[1].trim());
-        $("#work-experience .input-infor .description").val($(".each-part #description-ex").text());
+        $("#work-experience .input-infor .description").val($(desList[index]).text());
         $("#work-experience .infor-details .submit").text("Chỉnh sửa");
         $("#work-experience .infor-details .submit").attr("id-save", ind);
         $("#work-experience .infor-details .submit").attr("use-for", "edit");
@@ -319,11 +329,15 @@
     //Sửa ngoại ngữ:
     $("#foreign-language .cover-button .edit-part").click(function () {
         var ind = $(this).attr("id-save");
+        var index = $("#foreign-language .cover-button .edit-part").index(this);
         $("#foreign-language .container-infor").slideUp();
         $("#foreign-language .input-infor").slideDown();
-        $("#foreign-language .input-infor #language").val($(".each-part #name-language").attr("language-id"));
-        $("#foreign-language .input-infor #level").val($(".each-part #name-level").text().toLowerCase());
-        $("#foreign-language .infor-details .description").val($(".each-part #description-fr").text());
+        var nameLan = $(".each-part #name-language");
+        var nameLevel = $(".each-part #name-level");
+        var des = $(".each-part #description-fr");
+        $("#foreign-language .input-infor #language").val($(nameLan[index]).attr("language-id"));
+        $("#foreign-language .input-infor #level").val($(nameLevel[index]).text().toLowerCase());
+        $("#foreign-language .infor-details .description").val($(des[index]).text());
         $("#foreign-language .infor-details .submit").text("Chỉnh sửa");
         $("#foreign-language .infor-details .submit").attr("id-save", ind);
         $("#foreign-language .infor-details .submit").attr("use-for", "edit");
@@ -409,27 +423,40 @@
             });
         }
     });
-    //Sửa chứng chỉ
-    $("#foreign-language .cover-button .edit-part").click(function () {
-        var ind = $(this).attr("id-save");
-        $("#foreign-language .container-infor").slideUp();
-        $("#foreign-language .input-infor").slideDown();
-        $("#foreign-language .input-infor #language").val($(".each-part #name-language").attr("language-id"));
-        $("#foreign-language .input-infor #level").val($(".each-part #name-level").text().toLowerCase());
-        $("#foreign-language .infor-details .description").val($(".each-part #description-fr").text());
-        $("#foreign-language .infor-details .submit").text("Chỉnh sửa");
-        $("#foreign-language .infor-details .submit").attr("id-save", ind);
-        $("#foreign-language .infor-details .submit").attr("use-for", "edit");
+    //Hiện ảnh chứng chỉ
+    $("#award .each-part button").click(function () {
+        var link = $(this).attr("img-src");
+        $("#cover-screen").css("display", "block");
+        $("#cover-screen img").attr("src", link);
     })
-    //Xóa ngoại ngữ:
-    $("#foreign-language .cover-button .delete-part").click(function () {
-        var cf = confirm("Bạn chắc chắn muốn xóa mục kinh nghiệm này chứ?");
+    //Ẩn hiện ảnh chứng chỉ
+    $("#cover-screen div").click(function () {
+        $("#cover-screen").css("display", "none");
+        $("#cover-screen img").attr("src", "");
+    })
+    //Sửa chứng chỉ
+    $("#award .cover-button .edit-part").click(function () {
+        var ind = $(this).attr("id-save");
+        var index = $("#award .cover-button .edit-part").index(this); 
+        $("#award .container-infor").slideUp();
+        $("#award .input-infor").slideDown();
+        var timeList = $(".each-part #time-cer");
+        var nameCerList = $(".each-part #name-cer");
+        $("#award .input-infor #time-gain").val($(timeList[index]).text());
+        $("#award .infor-details .description").val($(nameCerList[index]).text());
+        $("#award .infor-details .submit").text("Chỉnh sửa");
+        $("#award .infor-details .submit").attr("id-save", ind);
+        $("#award .infor-details .submit").attr("use-for", "edit");
+    })
+    //Xóa chứng chỉ:
+    $("#award .cover-button .delete-part").click(function () {
+        var cf = confirm("Bạn chắc chắn muốn xóa mục chứng chỉ, thành tích này chứ?");
         if (!cf) return;
         var ind = $(this).attr("id-save");
         var removeHTML = $(this).parent().parent();
         $.ajax({
             data: { id: ind },
-            url: "/UserForeignLanguage/Remove",
+            url: "/UserCertificate/Remove",
             method: "Post",
             dataType: "Json",
             beforeSend: function () {
@@ -442,6 +469,144 @@
                 else {
                     alert("Hệ thống gặp trục trặc");
                 }
+            }
+        })
+    })
+    //Click add kĩ năng, chuyên ngành
+    $(".type-skill").on("input", function () {
+        var opt = $(this).next().children("option");
+        var type = $(this).attr("type-for");
+        for (var i = 0; i < opt.length; i++) {
+            if ($(opt[i]).val() == $(this).val()) {
+                $(this).val("");
+                if (type == "major") {
+                    var eachHTML = $(`<div class="each-skill">
+                                      <div class="name-skill" job-id="`+ $(opt[i]).attr('job-id') + `"> ` + $(opt[i]).val() + `</div>
+                                      <div class="delete-skill">x</div>
+                                  </div>`);
+                    $("#finding-job-infor .container-skill").append(eachHTML);
+                }
+                else {
+                    var eachHTML = $(`<div class="each-skill">
+                                      <div class="name-skill" parent-id="`+ $(opt[i]).attr('parent-id') + `"> ` + $(opt[i]).val() + `</div>
+                                      <div class="delete-skill" job-id="` + $(opt[i]).attr('job-id') + `">x</div>
+                                  </div>`);
+                    $("#skill-job .container-skill").append(eachHTML);
+                }
+                break;
+            }
+        }
+    })
+    // Xóa add kĩ năng
+    $(".container-skill").on("click", ".each-skill .delete-skill", function () {
+        $(this).parent().remove();
+    })
+    // Thêm kĩ năng
+    $("#skill-job .infor-details .submit").click(function () {
+        var listAdd = $("#skill-job .container-skill .each-skill");
+        if (listAdd == null || listAdd.length == 0) {
+            alert("Bạn phải thêm ít nhất 1 kỹ năng!");
+            return;
+        }
+        var listJobIdAdd = [];
+        var listJobIdParent = [];
+        for (var i = 0; i < listAdd.length; i++) {
+            var firstEle = $(listAdd[i]).children(".name-skill");
+            var secondEle = $(listAdd[i]).children(".delete-skill");
+            listJobIdParent.push(Number($(firstEle).attr("parent-id")));
+            listJobIdAdd.push(Number($(secondEle).attr("job-id")));
+        }
+        $.ajax({
+            data: { listAdd: listJobIdAdd, listParent: listJobIdParent },
+            url: "/UserMajor/AddListUserSkill",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    window.location.href = "/User/Index";
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    //Xóa kỹ năng
+    $("#skill-job .container-infor .delete-skill").click(function () {
+        var cf = confirm("Xác nhận xóa ngành nghề này ?");
+        if (!cf) return;
+        var removeHTML = $(this).parent();
+        var ind = Number($(this).attr("job-id"));
+        $.ajax({
+            data: { jobID: ind },
+            url: "/UserMajor/DeleteUserSkill",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    $(removeHTML).remove();
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    // Sửa thông tin xin việc
+    $("#finding-job-infor .infor-details .submit").click(function () {
+        var cf = confirm("Chỉnh sửa thông tin ?");
+        if (!cf) return;
+        var nameDesiredJob = $(".infor-details #desired-job").val();
+        var salaryId = Number($(".infor-details #salary").val());
+        var positionId = Number($(".infor-details #position-apply").val());
+        var listAddUserJob = $("#finding-job-infor .container-skill .each-skill");
+        var idList = [];
+        for (var i = 0; i < listAddUserJob.length; i++) {
+            var elm = $(listAddUserJob[i]).children(".name-skill");
+            idList.push(Number($(elm).attr("job-id")));
+        }
+        $.ajax({
+            data: { nameJob: nameDesiredJob, salaryId: salaryId, positionId: positionId, idList: idList },
+            url: "/User/ModifyInforJob",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status) {
+                    window.location.href = "/User/Index";
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    //Xóa chuyên ngành
+    $(".present-skill .delete-skill").click(function () {
+        var cf = confirm("Xác nhận , tất cả cá kỹ năng liên quan đến chuyên ngành này sẽ bị xóa theo?");
+        if (!cf) return;
+        var ind = $(this).attr("job-id");
+        $.ajax({
+            data: { jobID: ind },
+            url: "/UserMajor/DeleteUserMajor",
+            method: "Post",
+            dataType: "Json",
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (!res.status) {
+                    alert("Hệ thống gặp trục trặc!");
+                }
+                window.location.href = "/User/Index";
             }
         })
     })

@@ -11,6 +11,22 @@
     var areaName = new AreaDao().FindNameArea(Model.UserArea);
     var dob = Model.UserBirthDay.ToString("dd/MM/yyyy");
     var linkImage = Model.UserImage == null ? "/Assets/Client/Img/Common/default-user-image.png" : Model.UserImage;
+    var listNameMajorUser = new List<string>();
+    var strListMajor = "";
+    var jmDao = new JobMajorDao();
+    foreach (var item in ViewBag.ListMajorUser)
+    {
+        var sv = jmDao.NameJob(item.MajorID);
+        if (strListMajor == "")
+        {
+            strListMajor += sv;
+        }
+        else
+        {
+            strListMajor += ", " + sv;
+        }
+        listNameMajorUser.Add(sv);
+    }
 }
 
 <main>
@@ -21,7 +37,7 @@
     </div>
     <div id="container-left">
         <div id="sumary-infor" class="statistical">
-            <div id="chart-infor" data-percent="20%">20%</div>
+            <div id="chart-infor" data-percent="80%">80%</div>
             <div id="note-data">
                 * Cập nhật từ 80% trở lên để nhà tuyển dụng tiếp cận hồ sơ xin việc của bạn nhanh hơn.
             </div>
@@ -76,7 +92,9 @@
                 <div id="edit-profile" class="button-edit">
                     <i class='far fa-edit' style="color: white;"></i>
                 </div>
-                <div id="show-cv" class="button-edit">Tạo CV</div>
+                <a href="/User/ViewCV" style="color: unset; text-decoration: unset;">
+                    <div id="show-cv" class="button-edit">Tạo CV</div>
+                </a>
             </div>
             <div id="container-img">
                 <img id="img-profile" src="@linkImage" />
@@ -204,6 +222,101 @@
             <div class="first-title">
                 THÔNG TIN XIN VIỆC
             </div>
+            <div class="container-infor">
+                <div class="each-details">
+                    <div class="cover-text">
+                        <div class="each-part">
+                            <div>Việc làm mong muốn: </div> <span>@Model.DesiredJob</span>
+                        </div>
+                        <div class="each-part">
+                            <div>Mức lương mong muốn (USD): </div> <span style="width: 30%;">@((Model.Salary != null) ? new SalaryDao().NameSalary(Model.Salary.Value) : "")</span>
+                        </div>
+                        <div class="each-part">
+                            <div>Vị trí mong muốn: </div> <span>@((Model.PositionApply != null) ? new PositionEmployeeDao().NamePosition(Model.PositionApply.Value) : "")</span>
+                        </div>
+                        <div class="each-part">
+                            <div>Những chuyên ngành: </div> <span>@strListMajor</span>
+                        </div>
+                    </div>
+                    <div class="cover-button">
+                        <div class="add-more" add-for="finding-job-infor">
+                            <i class='fas fa-pencil-alt'></i>
+                            Sửa
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-infor">
+                <div class="infor-details">
+                    <div class="title">Việc làm mong muốn: </div>
+                    <input type="text" id="desired-job" value="@Model.DesiredJob" />
+                </div>
+                <div class="infor-details">
+                    <div class="title">Mức long mong muốn: </div>
+                    <select id="salary">
+                        @foreach (var item in ViewBag.ListSalary)
+                        {
+                            if (Model.Salary != null && item.ID == Model.Salary)
+                            {
+                                <option value="@item.ID" selected>@item.Amount</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Amount</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Vị trí mong muốn: </div>
+                    <select id="position-apply">
+                        @foreach (var item in ViewBag.ListPostion)
+                        {
+                            if (Model.PositionApply != null && item.ID == Model.PositionApply)
+                            {
+                                <option value="@item.ID" selected>@item.NamePosition</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.NamePosition</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Chuyên ngành: </div>
+                    <div class="container-skill">
+                        @{
+                            var ins = 0;
+                            foreach (var item in ViewBag.ListMajorUser)
+                            {
+                                <div class="present-skill">
+                                    <div class="name-skill">@listNameMajorUser[ins]</div>
+                                    <div class="delete-skill" job-id="@item.MajorID">x</div>
+                                </div>
+                                ins += 1;
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="infor-details">
+                    <div class="title">Tìm kiếm chuyên ngành: </div>
+                    <input type="text" value="" list="list-skill" class="type-skill" type-for="major" required />
+                    <datalist id="list-skill">
+                        @foreach (var item in ViewBag.ListMajorCanChoose)
+                        {
+                            <option value="@item.JobName" job-id="@item.JobID" />
+                        }
+                    </datalist>
+                </div>
+                <div class="infor-details">
+                    Note <span style="color: red">* </span>: Những chuyên ngành sẽ được lọc ra để tránh trùng lặp.
+                </div>
+                <div class="infor-details">
+                    <div class="submit" use-for="">Chỉnh sửa</div>
+                    <div class="cancel">Hủy</div>
+                </div>
+            </div>
         </div>
         <div id="study-level" class="box-infor">
             <div class="first-title">
@@ -258,34 +371,36 @@
                 <div class="add-more" add-for="work-experience"><i class="fa fa-plus-square-o"></i></div>
             </div>
             <div class="container-infor">
-                @if (ViewBag.ListUserExperience != null){
-                 foreach(var item in ViewBag.ListUserExperience) { 
-                  <div class="each-details">
-                      <div class="cover-text">
-                          <div class="each-part">
-                              <div>Vị trí:</div> <span id = "position-ex" position-id="@item.PositionID">@(new PositionEmployeeDao().NamePosition(item.PositionID))</span>
-                          </div>
-                          <div class="each-part">
-                              <div>Tên công ty:</div> <span id="nameEnterprise-ex">@item.EnterpriseName</span>
-                          </div>
-                          <div class="each-part">
-                              <div>Thời gian làm việc:</div><span id="time-ex" style="width: 50%;">@item.StartTime - @(item.EndTime == null ? "now":item.EndTime)</span>
-                          </div>
-                          <div class="each-part">
-                              <div>Mô tả chi tiết:</div><span id="description-ex">@item.Description</span>
-                          </div>
-                      </div>
-                      <div class="cover-button">
-                          <div class="delete-part" id-save="@item.ID">
-                              <i class='far fa-trash-alt'></i>
-                              Xóa
-                          </div>
-                          <div class="edit-part" id-save="@item.ID">
-                              <i class='fas fa-pencil-alt'></i>
-                              Sửa
-                          </div>
-                      </div>
-                   </div>
+                @if (ViewBag.ListUserExperience != null)
+                {
+                    foreach (var item in ViewBag.ListUserExperience)
+                    {
+                        <div class="each-details">
+                            <div class="cover-text">
+                                <div class="each-part">
+                                    <div>Vị trí:</div> <span id="position-ex" position-id="@item.PositionID">@(new PositionEmployeeDao().NamePosition(item.PositionID))</span>
+                                </div>
+                                <div class="each-part">
+                                    <div>Tên công ty:</div> <span id="nameEnterprise-ex">@item.EnterpriseName</span>
+                                </div>
+                                <div class="each-part">
+                                    <div>Thời gian làm việc:</div><span id="time-ex" style="width: 50%;">@item.StartTime - @(item.EndTime == null ? "now":item.EndTime)</span>
+                                </div>
+                                <div class="each-part">
+                                    <div>Mô tả chi tiết:</div><span id="description-ex">@item.Description</span>
+                                </div>
+                            </div>
+                            <div class="cover-button">
+                                <div class="delete-part" id-save="@item.ID">
+                                    <i class='far fa-trash-alt'></i>
+                                    Xóa
+                                </div>
+                                <div class="edit-part" id-save="@item.ID">
+                                    <i class='fas fa-pencil-alt'></i>
+                                    Sửa
+                                </div>
+                            </div>
+                        </div>
                     }
                 }
             </div>
@@ -324,7 +439,7 @@
                     <textarea class="description"></textarea>
                 </div>
                 <div class="infor-details">
-                    <div class="submit" use-for ="">Thêm</div>
+                    <div class="submit" use-for="">Thêm</div>
                     <div class="cancel">Hủy</div>
                 </div>
             </div>
@@ -337,7 +452,7 @@
             <div class="container-infor">
                 @if (ViewBag.ListUserForeignLanguage != null)
                 {
-                    foreach(var item in ViewBag.ListUserForeignLanguage)
+                    foreach (var item in ViewBag.ListUserForeignLanguage)
                     {
                         <div class="each-details">
                             <div class="cover-text">
@@ -398,26 +513,43 @@
                 KĨ NĂNG
                 <div class="add-more" add-for="skill-job"><i class="fa fa-plus-square-o"></i></div>
             </div>
-            <div class="container-infor">
+            <div class="container-infor" style="padding-bottom: 20px; width: 85%; margin-left: 20px; border-bottom: 1px solid rgba(0,0,0,0.2);">
+                @if (ViewBag.ListSkill != null)
+                {
+                    foreach (var item in ViewBag.ListSkill)
+                    {
+                        <div class="each-skill">
+                            <div class="name-skill">@(new JobMajorDao().NameJob(item.MajorID))</div>
+                            <div class="delete-skill" job-id="@item.MajorID">x</div>
+                        </div>
+                    }
+                }
             </div>
             <div class="input-infor">
                 <div class="infor-details">
                     <div class="title">Kĩ năng thêm vào</div>
-                    <div id="container-skill">
+                    <div class="container-skill">
                     </div>
                 </div>
                 <div class="infor-details">
                     <div class="title">Tìm kiếm</div>
-                    <input type="text" value="" list="list-skill" required />
-                    <datalist id="list-skill">
-                        @foreach (var item in ViewBag.ListJobSub)
+                    <input type="text" value="" list="list-major" class="type-skill" type-for="skill" required />
+                    <datalist id="list-major">
+                        @if (ViewBag.ListJobSub != null)
                         {
-                            <option value="@item.JobName" job-id="@item.JobID" />
+                            foreach (var item in ViewBag.ListJobSub)
+                            {
+                                <option value="@item.JobName" job-id="@item.JobID" parent-id="@item.JobIDParent" />
+                            }
                         }
                     </datalist>
                 </div>
                 <div class="infor-details">
-                    <div class="submit" use-for ="">Thêm</div>
+                    Note <span style="color: red">* </span>: Những kĩ năng sẽ được lọc ra từ chuyên ngành của bạn
+                    và tránh trùng lặp.
+                </div>
+                <div class="infor-details">
+                    <div class="submit" use-for="">Thêm</div>
                     <div class="cancel">Hủy</div>
                 </div>
             </div>
@@ -442,7 +574,7 @@
                                 </div>
                                 @if (item.ImageCertificate != null)
                                 {
-                                    <div class="each-part"><button img-src ="@item.ImageCertificate">Xem ảnh</button></div>
+                                    <div class="each-part"><button img-src="@item.ImageCertificate">Xem ảnh</button></div>
                                 }
                             </div>
                             <div class="cover-button">
@@ -481,6 +613,7 @@
         </div>
     </div>
     <div id="cover-screen">
+        <div>x</div>
         <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" alt=""/>
     </div>
 </main>

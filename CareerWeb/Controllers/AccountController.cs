@@ -1,4 +1,5 @@
 ﻿using CareerWeb.Common;
+using CareerWeb.Hubs;
 using Common;
 using Model.Dao;
 using Model.EF;
@@ -122,6 +123,13 @@ namespace CareerWeb.Controllers
                 type = acc
             });
         }
-        
+        public ActionResult Logout()
+        {
+            var accID = int.Parse(User.Identity.Name);
+            new AccountDao().RemoveAllUsersConnections(accID);
+            ChatHub.OfflineUsers(accID);
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index");
+        }
     }
 }

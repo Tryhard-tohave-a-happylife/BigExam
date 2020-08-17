@@ -5,17 +5,22 @@
         $(listForm[index]).slideToggle();
 
     });
-    $(".star").click(function () {
-        $(".star").css({ "color": "#666666" });
-    })
     $("#clearAll").click(function () {
         location.reload();
+    })
+    $("#clearAll").mouseover(function () {
+        $("#clearAll").css({ "cursor": "pointer", "color": "red"})
+    })
+    $("#clearAll").mouseout(function () {
+        $("#clearAll").css({"color" : "black"})
+    })
+    $("#findIcon").mouseover(function () {
+        $("#findIcon").css({"cursor": "pointer"})
     })
     $("#findIcon").click(function () {
         checkName();
         var enterprise = $("input[name='enterprise']").val();
-        var a = $('#selectedCareer option[value="' + $('#careerBrowser').val() + '"]:checked').data('id');
-        var career = (a != null) ? a : 0 ;
+        var career = $('#selectedCareer option[value="' + $('#careerBrowser').val() + '"]').data('id');
         var listArea = $('#selectedState option[value="' + $('#areaState').val() + '"]').data('id');
         var size = ($("input[name='selectSize']:checked").val() != null) ? $("input[name='selectSize']:checked").val() : 0;
         var dbParam = "EName=" + enterprise + "&EArea=" + listArea + "&ECareer=" + career
@@ -24,7 +29,7 @@
     })
 
     function checkName() {
-        var name = $("input[name='jobBrowser']").val();
+        var name = $("input[name='enterprise']").val();
         var name1 = "";
         var i = 1;
         if (name.length != 0) {
@@ -45,6 +50,6 @@
             }
         }
 
-        $("input[name='jobBrowser']").val(name1);
+        $("input[name='enterprise']").val(name1);
     }
 })

@@ -142,7 +142,7 @@
             return;
         }
         $.ajax({
-            data: {EnterpriseID: idEnterprise, EmployeeName: EmployeeName, Position: position, Sex: sex, BirthDay: dateBirth, Email: emailReg, Mobile: mobile, Code: code },
+            data: { UserID: userID, EnterpriseID: idEnterprise, EmployeeName: EmployeeName, Position: position, Sex: sex, BirthDay: dateBirth, Email: emailReg, Mobile: mobile, Code: code },
             url: '/Employee/CreateAccountInfor',
             dataType: 'json',
             method: 'POST',

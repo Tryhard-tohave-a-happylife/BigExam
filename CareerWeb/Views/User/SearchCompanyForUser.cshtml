@@ -52,9 +52,9 @@
                             <input type="text" list="selectedCareer" name="careerBrowser" id="careerBrowser" class="jobBrowser" style="height: 3em;"
                                    placeholder="All career">
                             <datalist id="selectedCareer">
-                                @foreach(var item in ViewBag.ListJobMain)
+                                @foreach (var item in ViewBag.ListJobMain)
                                 {
-                                <option value="@item.JobName" data-id="@item.JobID" />
+                                    <option value="@item.JobName" data-id="@item.JobID" />
                                 }
                             </datalist>
                         </form>
@@ -62,9 +62,9 @@
                             <input type="text" list="selectedState" name="areaBrowser" id="areaState" class="jobBrowser" style="height: 3em;"
                                    placeholder="All state">
                             <datalist id="selectedState">
-                                @foreach(var item in ViewBag.ListArea)
+                                @foreach (var item in ViewBag.ListArea)
                                 {
-                                <option value="@item.NameArea" data-id="@item.AreaId" />
+                                    <option value="@item.NameArea" data-id="@item.AreaId" />
                                 }
                             </datalist>
                         </form>
@@ -84,7 +84,7 @@
                                         <form style="font-size: 1.2em; margin-left: 0.3em;">
                                             @foreach (var item in ViewBag.ListEnterpriseSize)
                                             {
-                                            <input type="radio" name="selectSize" value="@item.SizeID" style="margin-right: 10px;" /> @item.AmountSize<br />
+                                                <input type="radio" name="selectSize" value="@item.SizeID" style="margin-right: 10px;" /> @item.AmountSize<br />
                                             }
 
                                         </form>
@@ -108,57 +108,53 @@
                             {
                                 foreach (var item in Model)
                                 {
-                                    
-                                        <div class="career-employer-list">
 
-                                            <ul class="row">
-                                                
-                                                <li class="employer">
-                                                    <a href="/EnterpriseDetail/@item.EnterpriseID" style="color: none; text-decoration: none;">
-                                                        <div class="box-star">
-                                                            <i class="fas fa-heart star " style="cursor: pointer;"></i>
+                                    <div class="career-employer-list">
+
+                                        <ul class="row">
+
+                                            <li class="employer">
+                                                <a href="/EnterpriseDetail/@item.EnterpriseID" style="color: none; text-decoration: none;">
+                                                    <div class="career-table-row" style="height: auto">
+                                                        <div class="career-table-cell" style="width: 25%;">
+                                                            <img src="@item.ImageLogo" class="employer-image">
                                                         </div>
-                                                        <div class="career-table-row">
-                                                            <a href="" class="career-table-cell">
-                                                                <img src="@item.ImageLogo" class="employer-image">
-                                                            </a>
-                                                            <div class="company-info career-table-cell" style="width: 65%;">
+                                                        <div class="company-info career-table-cell" style="width: 65%; float:left; margin-top: 10px; margin-left: 20px">
 
-                                                                <h2 style="margin: 0; padding: 0;">
-                                                                    <a class="link-to-company" href="" style="font-size: 24px; color: black; ">@item.EnterpriseName</a>
-                                                                </h2>
-                                                                <small>
-                                                                    <a class="link-to-company" href="">
-                                                                        @ViewBag.ListFullJobName[count]
-                                                                    </a>
-                                                                </small>
-                                                                <span>
-                                                                    <i class="fa fa-map-marker" style="color: #f07e1d"></i>
-                                                                    @item.NameArea
-                                                                </span>
-                                                            </div>
-                                                            <div class="find-button career-table-cell">
-                                                                <button>xem cac viec lam</button>
-                                                            </div>
+                                                            <h2 style="margin-bottom: 10px; padding: 0;">
+                                                                <div class="link-to-company" style="font-size: 24px; color: black; max-width: 100% ">@item.EnterpriseName</div>
+                                                            </h2>
+                                                            <small>
+                                                                <div class="link-to-company">
+                                                                    @ViewBag.ListFullJobName[count]
+                                                                </div>
+                                                            </small>
+                                                            <br />
+                                                            <span style="max-width: 100%">
+                                                                <i class="fa fa-map-marker" style="color: #f07e1d"></i>
+                                                                @item.NameArea
+                                                            </span>
                                                         </div>
 
-                                                    </a>
-                                                </li>
-                                               
-                                            </ul>
-                                        </div>
-                                    
-                                  
+                                                    </div>
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    count += 1;
+
                                 }
-                                
+
                             }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@section jsInsert{
-    <script src="~/Assets/Client/Js/User/SearchCompanyForUser.js"></script>
-}
+    @section jsInsert{
+        <script src="~/Assets/Client/Js/User/SearchCompanyForUser.js"></script>
+    }
 

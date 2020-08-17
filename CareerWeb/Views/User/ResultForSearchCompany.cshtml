@@ -71,113 +71,48 @@
                                     <div class="company-joblist">
 
                                         <ul class="row">
-                                            @foreach (var it in ViewBag.ShowContainer)
+                                            @if (ViewBag.ShowContainer.Count == 0)
                                             {
-                                                <li class="job">
-                                                    <div class="job-wrap">
-                                                        <span class="company-img">
-                                                            <img src="@it.OfferImage" />
-                                                        </span>
-                                                        <div class="job-info">
-                                                            <h3 style="margin: 10px">
-                                                                <a href="">@it.OfferName</a>
-                                                            </h3>
-                                                            <ul id="job-info-option">
-                                                                <li>
-                                                                    <i class="fa fa-map-marker"></i>
-                                                                    <span>@it.JobAddress</span>
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa fa-dollar-sign"></i>
-                                                                    <span>Lương: @(SalaryDao.AmountSalary(it.OfferSalary)) USD</span>
+                                                <p>Công ty chưa đăng tin tuyển dụng</p>
+                                            }
+                                            else
+                                            {
+                                                foreach (var it in ViewBag.ShowContainer)
+                                                {
+                                                    <li class="job">
+                                                        <div class="job-wrap">
+                                                            <span class="company-img">
+                                                                <img src="@it.OfferImage" />
+                                                            </span>
+                                                            <div class="job-info">
+                                                                <h3 style="margin: 10px">
+                                                                    <a href="">@it.OfferName</a>
+                                                                </h3>
+                                                                <ul id="job-info-option">
+                                                                    <li>
+                                                                        <i class="fa fa-map-marker"></i>
+                                                                        <span>@it.JobAddress</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa fa-dollar-sign"></i>
+                                                                        <span>Lương: @(SalaryDao.AmountSalary(it.OfferSalary)) USD</span>
 
-                                                                </li>
-                                                                <li>
-                                                                    <i class="fa fa-gift"></i>
-                                                                    <span>Thưởng: @it.Bonus</span>
-                                                                </li>
-                                                            </ul>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa fa-gift"></i>
+                                                                        <span>Thưởng: @it.Bonus</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                }
                                             }
 
                                         </ul>
                                     </div>
-                                    @*<div id="company-rating">
-                                                <h2>Đánh giá</h2>
-                                                <div class="row">
-                                                    <div class="comment">
-                                                        <div class="text-center">
-                                                            <p>Viết đánh giá của bạn tại đây</p>
-                                                            <div class="stars">
-                                                                <form action="">
-                                                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                                                    <label class="star star-5" for="star-5"></label>
-                                                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                                                    <label class="star star-4" for="star-4"></label>
-                                                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                                                    <label class="star star-3" for="star-3"></label>
-                                                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                                                    <label class="star star-2" for="star-2"></label>
-                                                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                                                    <label class="star star-1" for="star-1"></label>
-                                                                </form>
-                                                            </div>
 
-                                                            <div>
-                                                                <textarea id="comment-area" placeholder="Vui lòng nhập nội dung..."></textarea>
-                                                                <input class="add-comment" type="button" value="Đánh giá">
-                                                            </div>
 
-                                                        </div>
-                                                    </div>
-                                                    <div class="star-rating">
-                                                        <div class="rating-sumary-wrap">
-                                                            <div class="rating">
-                                                                <span class="empty-stars">
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon"></span>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="filled-stars">
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon-filled"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon-filled"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon-filled"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon-filled"></span>
-                                                                    </span>
-                                                                    <span class="uncontrol-star">
-                                                                        <span class="star-icon-filled"></span>
-                                                                    </span>
-                                                                </span>
-                                                                <span style="margin-left: 15px;"><b>0</b>(0 đánh giá)</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>*@
-                                    
 
                                 </div>
 

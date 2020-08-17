@@ -1,300 +1,229 @@
-﻿
+﻿@using Model.Dao
 @{
     ViewBag.Title = "HandbookForUser";
-    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    if (ViewBag.LayoutID == 1)
+    {
+        Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    }
+    var listByNew = ViewBag.ListArticleNew;
+    var ListByView = ViewBag.ListArticleByView;
+    var listEachCateBig = ViewBag.ListArticleByCateBig;
+    var cateAcDao = new CategoryArticleDao();
 }
 @section cssInsert{
     <link href="~/Assets/Client/Css/User/HandbookForUser.css" rel="stylesheet" />
 }
-<div style="width: 100%; height: 75px;"></div>
-<div id="headerMenu">
-    <div class="titleNews" style="width: 260px;">
-        <i class="far fa-arrow-alt-circle-right"></i>
-        LỜI KHUYÊN NGHỀ NGHIỆP
-        <div class="dropdown">
-            <a href="">KỸ NĂNG(...)</a><br>
-            <a href="">NGHỀ NGHIỆP(...)</a><br>
-            <a href="">HỒ SƠ NGHỀ NGHIỆP(...)</a><br>
-            <a href="">PHỎNG VẤN(...)</a>
-        </div>
-    </div>
-
-    <div class="titleNews" style="width: 200px; left: 290px; top: 0px;">
-        <i class="far fa-arrow-alt-circle-right"></i>
-        THẾ GIỚI QUẢN TRỊ
-        <div class="dropdown">
-            <a href="">CẨM NANG NGHỀ NGHIỆP(...)</a><br>
-            <a href="">CHIA SẺ THÀNH CÔNG(...)</a>
-        </div>
-    </div>
-    <div class="titleNews" style="width: 200px; left: 510px; top: 0px;">
-        <i class="far fa-arrow-alt-circle-right"></i>
-        KẾT NỐI TÀI NĂNG
-        <div class="dropdown">
-            <a href="">GIẢI PHÁP(...)</a><br>
-            <a href="">MẠNG XÃ HỘI(...)</a>
-        </div>
-    </div>
-
-    <div class="titleNews" style="width: 200px; left: 740px; padding-right: 30px;top: 0px;">
-        <i class="far fa-arrow-alt-circle-right"></i>
-        XU HƯỚNG NHÂN TÀI
-        <div class="dropdown">
-            <a href="">TRONG NƯỚC(...)</a><br>
-            <a href="">QUỐC TẾ(...)</a>
-        </div>
-    </div>
-</div>
-
-<div id="path">
-    <a href="" style="color: #f07e1d;"><i class="fa fa-home"></i> Việc làm </a>
-    <div> / Cẩm nang nghề nghiệp</div>
-</div>
-
-<!-- Tin mới nhất -->
-<div class="content" id="news">
-    <vr></vr>
-    <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;"><b>TIN MỚI</b></div>
-    <a href="" class="left fa fa-chevron-left"
-       style="position: absolute; top: 16px; right: 45px; color: #f07e1d;"></a>
-    <a href="" class="right fa fa-chevron-right"
-       style="position: absolute; top: 16px; right: 25px; color: #f07e1d;"></a>
-    <div class="horizontalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên nghề nghiệp</div>
-        </div>
-        <div class="mainContent">
-            <div class="headerNews">
-                <div class="textOverflowLine"><b>Không có gì là không gì là không thể :>>>>>>></b></div>
-            </div>
-            <div class="submitDate">
-                <i class="far fa-calendar-alt"></i>
-                21/04/2020
-            </div>
-            <div class="view">
-                <i class="fa fa-eye"></i>
-                1174 xem
-            </div>
-            <div class="textNews">
-                <div class="textOverflowLine" style="width: fit-content;">
-                    d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv
-                    bdvdn vsjv ndsjvnd smvbd vjđmff
-                    vdvdvd vdvfd vdfv dfdf dfdfds d sf sfs sdsd adas ssd ds dsd sd s ss  sds d sa s s ds s s f  fs dcf sdc sc sc sd c sd c d v d v df v dsc s c s c s c d c dc
+<main>
+    <div id="headerMenu">
+        @for (var i = 0; i < ViewBag.ListCateBig.Count; i++)
+        {
+            var linkFirst = "/User/MoreNewsFromHandbook?lout=" + ViewBag.LayoutID + "&CateBig=" + ViewBag.ListCateBig[i].CategoryID;
+            <div class="titleNews">
+                <i class="far fa-arrow-alt-circle-right"></i>
+                    <a href="@linkFirst" style="color: unset; text-decoration: unset;">@ViewBag.ListCateBig[i].NameCategory</a>
+                <div class="dropdown">
+                    @for (var j = 0; j < ViewBag.ListCate[i].Count; j++)
+                    {
+                        var link = "/User/MoreNewsFromHandbook?lout=" + ViewBag.LayoutID + "&CateBig=" + ViewBag.ListCateBig[i].CategoryID
+                                   + "&CateID=" + ViewBag.ListCate[i][j].CategoryID; 
+                        <a href="@link">@ViewBag.ListCate[i][j].NameCategory (@ViewBag.ListCate[i][j].Amount)</a><br>
+                    }
                 </div>
             </div>
-        </div>
+        }
     </div>
-    <div class="verticalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên</div>
-        </div>
-        <div class="headerNews">
-            <div class="textOverflowLine"><b>Không có gì là không gì là không thể :>>>>>>></b></div>
-        </div>
-        <br>
-        <div class="submitDate">
-            <i class="far fa-calendar-alt"></i>
-            21/04/2020
-        </div>
-        <div class="view">
-            <i class="fa fa-eye"></i>
-            1174 xem
-        </div>
-        <div class="textNews">
-            <div class="textOverflowLine">
-                d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv bdvdn vsjv ndsjvnd smvbd vjđmff
-                vdvdvd vdvfd vdfv
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Tin xem nhiều nhất -->
-<div class="content" id="hotnews">
-    <vr></vr>
-    <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;">
-        <b>BÀI ĐƯỢC XEM NHIỀU</b>
+    <div id="path">
+        <a href="" style="color: #f07e1d;"><i class="fa fa-home"></i> Việc làm </a>
+        <div> / Cẩm nang nghề nghiệp</div>
     </div>
-    <a href="" class="left fa fa-chevron-left"
-       style="position: absolute; top: 16px; right: 45px; color: #f07e1d;"></a>
-    <a href="" class="right fa fa-chevron-right"
-       style="position: absolute; top: 16px; right: 25px; color: #f07e1d;"></a>
-    <div class="verticalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên</div>
-        </div>
-        <div class="headerNews">
-            <div class="textOverflowLine"><b>Không có gì là không gì là không thể :>>>>>>></b></div>
-        </div>
-        <br>
-        <div class="submitDate">
-            <i class="far fa-calendar-alt"></i>
-            21/04/2020
-        </div>
-        <div class="view">
-            <i class="fa fa-eye"></i>
-            1174 xem
-        </div>
-        <div class="textNews">
-            <div class="textOverflowLine">
-                d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv bdvdn vsjv ndsjvnd smvbd vjđmff
-                vdvdvd vdvfd vdfv
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Danh mục nghề nghiệp -->
+    <!-- Tin mới nhất -->
+    <div class="content" id="news">
+        <vr></vr>
+        <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;"><b>TIN MỚI</b></div>
+        <a href="" class="left fa fa-chevron-left"
+           style="position: absolute; top: 16px; right: 45px; color: #f07e1d;"></a>
+        <a href="" class="right fa fa-chevron-right"
+           style="position: absolute; top: 16px; right: 25px; color: #f07e1d;"></a>
+        <a href="/ArticleDetail/@listByNew[0].ID?lout=@ViewBag.LayoutID" style="color: unset; text-decoration: unset;">
+            <div class="horizontalNews">
+                <div class="imageNews">
+                    <img src="@listByNew[0].Image" />
+                    <div class="typeNews">@cateAcDao.NameCategoryArticle(listByNew[0].CategoryParent)</div>
+                </div>
+                <div class="mainContent">
+                    <div class="headerNews">
+                        <div class="textOverflowLine"><b>@listByNew[0].Title</b></div>
+                    </div>
+                    <div class="submitDate">
+                        <i class="far fa-calendar-alt"></i>
+                        @listByNew[0].CreateDate.ToString("dd/MM/yyyy")
+                    </div>
+                    <div class="view">
+                        <i class="fa fa-eye"></i>
+                        @listByNew[0].Views xem
+                    </div>
+                    <div class="textNews">
+                        <div class="textOverflowLine" style="width: fit-content;">
+                            @listByNew[0].Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        @for (var i = 1; i < listByNew.Count; i++)
+        {
+            <a href="/ArticleDetail/@listByNew[i].ID?lout=@ViewBag.LayoutID" style="color: unset; text-decoration: unset;">
+                <div class="verticalNews">
+                    <div class="imageNews">
+                        <img src="@listByNew[i].Image" />
+                        <div class="typeNews">@cateAcDao.NameCategoryArticle(listByNew[i].CategoryParent)</div>
+                    </div>
+                    <div class="headerNews">
+                        <div class="textOverflowLine"><b>@listByNew[i].Title</b></div>
+                    </div>
+                    <br>
+                    <div class="submitDate">
+                        <i class="far fa-calendar-alt"></i>
+                        @listByNew[i].CreateDate.ToString("dd/MM/yyyy")
+                    </div>
+                    <div class="view">
+                        <i class="fa fa-eye"></i>
+                        @listByNew[1].Views xem
+                    </div>
+                    <div class="textNews">
+                        <div class="textOverflowLine">
+                            @listByNew[i].Description
+                        </div>
+                    </div>
+                </div>
+            </a>
+                }
+        </div>
+
+    <!-- Tin xem nhiều nhất -->
+    <div class="content" id="hotnews">
+        <vr></vr>
+        <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;">
+            <b>BÀI ĐƯỢC XEM NHIỀU</b>
+        </div>
+        <a href="" class="left fa fa-chevron-left"
+           style="position: absolute; top: 16px; right: 45px; color: #f07e1d;"></a>
+        <a href="" class="right fa fa-chevron-right"
+           style="position: absolute; top: 16px; right: 25px; color: #f07e1d;"></a>
+        @foreach (var item in ListByView)
+        {
+            <a href="/ArticleDetail/@item.ID?lout=@ViewBag.LayoutID" style="color: unset; text-decoration: unset;">
+                <div class="verticalNews">
+                    <div class="imageNews">
+                        <img src="@item.Image" />
+                        <div class="typeNews">@cateAcDao.NameCategoryArticle(item.CategoryParent)</div>
+                    </div>
+                    <div class="headerNews">
+                        <div class="textOverflowLine"><b>@item.Title</b></div>
+                    </div>
+                    <br>
+                    <div class="submitDate">
+                        <i class="far fa-calendar-alt"></i>
+                        @item.CreateDate.ToString("dd/MM/yyyy")
+                    </div>
+                    <div class="view">
+                        <i class="fa fa-eye"></i>
+                        @item.Views xem
+                    </div>
+                    <div class="textNews">
+                        <div class="textOverflowLine">
+                            @item.Description
+                        </div>
+                    </div>
+                </div>
+            </a>
+                }
+        </div>
+
+    @for (var i = 0; i < ViewBag.ListCateBig.Count; i++) {
 <div class="content1" id="careerNews">
     <vr></vr>
     <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;">
         <b>
-            DANH MỤC <br> LỜI
-            KHUYÊN NGHỀ NGHIỆP
+            DANH MỤC <br />
+            @ViewBag.ListCateBig[i].NameCategory.ToUpper()
         </b>
     </div>
     <div class="seeMore">Xem thêm >></div>
-
-    <div class="verticalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên</div>
-        </div>
-        <div class="headerNews">
-            <div class="textOverflowLine"><b>dcd jdcnd djnvdv ksjfcd sjvndv dnjdnvjdvdfv fbfvdv dvdfKhông có gì là không gì là không thể :>>>>>>></b></div>
-        </div>
-        <br>
-        <div class="submitDate">
-            <i class="far fa-calendar-alt"></i>
-            21/04/2020
-        </div>
-        <div class="view">
-            <i class="fa fa-eye"></i>
-            1174 xem
-        </div>
-        <div class="textNews">
-            <div class="textOverflowLine">
-                d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv
-                bdvdn vsjv ndsjvnd smvbd vjđvdvdvd vdvfd vdfvrgrffffffffffff ffffffffff fffffffffff fffff
-                fffffffffffffffffffffffffffffffffffffffffffssssssss
-                scccccc ccccccc ccccccc cccccdrtt ttttttt tttrrrrr rrrrrrr rrrrr rrrrrrrrrrrrrrrrrrrr
-                dvvvvvvv vvvvvvvv vvvvvvvvv vvvvvvvv vvvvvvvv vvvvvvvvvv vvvvvvvvv
-                fffffff ffffffffff ffffffffffff ffffffff fffffffff
-                dggggg gggggggggggg
-            </div>
-        </div>
-    </div>
-
-
-    <div class="horizontalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên nghề nghiệp</div>
-        </div>
-        <div class="mainContent">
-            <div class="headerNews">
-                <div class="textOverflowLine">
-                    <b>
-                        Theo đuổi ước mơ, Không gì là không thể
-                        :>>>>>>>bbbbbbbbbbbbbbbbbbbbbbbb
-                    </b>
+    @if (listEachCateBig[i].Count == 0 || listEachCateBig[i] == null)
+    {
+        <div style="margin-left: 15px; margin-bottom: 20px;">Chưa có bài viết nào ở danh mục @ViewBag.ListCateBig[i].NameCategory</div>
+    }
+    else
+    {
+        <a href="/ArticleDetail/@listEachCateBig[i][0].ID?lout=@ViewBag.LayoutID" style="color: unset; text-decoration: unset;">
+            <div class="verticalNews">
+                <div class="imageNews">
+                    <img src="@listEachCateBig[i][0].Image" />
+                    <div class="typeNews">@ViewBag.ListCateBig[i].NameCategory</div>
+                </div>
+                <div class="headerNews">
+                    <div class="textOverflowLine"><b>@listEachCateBig[i][0].Title</b></div>
+                </div>
+                <br>
+                <div class="submitDate">
+                    <i class="far fa-calendar-alt"></i>
+                    @listEachCateBig[i][0].CreateDate.ToString("dd/MM/yyyy")
+                </div>
+                <div class="view">
+                    <i class="fa fa-eye"></i>
+                    @listEachCateBig[i][0].Views xem
+                </div>
+                <div class="textNews">
+                    <div class="textOverflowLine">
+                        @listEachCateBig[i][0].Description
+                    </div>
                 </div>
             </div>
-            <div class="submitDate">
-                <i class="far fa-calendar-alt"></i>
-                21/04/2020
-            </div>
-            <div class="view">
-                <i class="fa fa-eye"></i>
-                1174 xem
-            </div>
-            <div class="textNews">
-                <div class="textOverflowLine" style="width: fit-content;">
-                    d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv
-                    bdvdn vsjv ndsjvnd smvbd vjđmff
-                    vdvdvd vdvfd vdfv
+        </a>
+        for (var j = 1; j < listEachCateBig[i].Count; j++)
+        {
+            <a href="/ArticleDetail/@listEachCateBig[i][j].ID?lout=@ViewBag.LayoutID" style="color: unset; text-decoration: unset;">
+                <div class="horizontalNews">
+                    <div class="imageNews">
+                        <img src="@listEachCateBig[i][j].Image" />
+                        <div class="typeNews">@ViewBag.ListCateBig[i].NameCategory</div>
+                    </div>
+                    <div class="mainContent">
+                        <div class="headerNews">
+                            <div class="textOverflowLine">
+                                <b>
+                                    @listEachCateBig[i][j].Title
+                                </b>
+                            </div>
+                        </div>
+                        <div class="submitDate">
+                            <i class="far fa-calendar-alt"></i>
+                            @listEachCateBig[i][j].CreateDate.ToString("dd/MM/yyyy")
+                        </div>
+                        <div class="view">
+                            <i class="fa fa-eye"></i>
+                            @listEachCateBig[i][j].Views xem
+                        </div>
+                        <div class="textNews">
+                            <div class="textOverflowLine" style="width: fit-content;">
+                                @listEachCateBig[i][j].Description
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+              </a>
+                }
+                }
         </div>
-    </div>
-</div>
-
-<!-- Danh mục thế giới quản trị -->
-<div class="content1" id="careerNews">
-    <vr></vr>
-    <div style="margin-left: 20px; width: fit-content; font-size: 20px; margin-top: 17px;">
-        <b>
-            DANH MỤC <br> THẾ GIỚI
-            QUẢN TRỊ
-        </b>
-    </div>
-    <div class="seeMore">Xem thêm >></div>
-
-    <div class="verticalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên</div>
-        </div>
-        <div class="headerNews">
-            <div class="textOverflowLine"><b>Không có gì là không gì là không thể :>>>>>>></b></div>
-        </div>
-        <div class="submitDate">
-            <i class="far fa-calendar-alt"></i>
-            21/04/2020
-        </div>
-        <div class="view">
-            <i class="fa fa-eye"></i>
-            1174 xem
-        </div>
-        <div class="textNews">
-            <div class="textOverflowLine">
-                d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv
-                bdvdn vsjv ndsjvnd smvbd vjđvdvdvd vdvfd vdfvrgrffffffffffff ffffffffff fffffffffff fffff
-                fffffffffffffffffffffffffffffffffffffffffffssssssss
-                scccccc ccccccc ccccccc cccccdrtt ttttttt tttrrrrr rrrrrrr rrrrr rrrrrrrrrrrrrrrrrrrr
-                dvvvvvvv vvvvvvvv vvvvvvvvv vvvvvvvv vvvvvvvv vvvvvvvvvv vvvvvvvvv
-                fffffff ffffffffff ffffffffffff ffffffff fffffffff
-                dggggg gggggggggggg
-            </div>
-        </div>
-    </div>
-
-    <div class="horizontalNews">
-        <div class="imageNews">
-            <img src="~/Assets/Client/Img/User/ImageSearchJob/blue-search-icon.png" />
-            <div class="typeNews">Lời khuyên nghề nghiệp</div>
-        </div>
-        <div class="mainContent">
-            <div class="headerNews">
-                <div class="textOverflowLine">
-                    <b>
-                        Theo đuổi ước mơ, Không gì là không thể
-                        :>>>>>>>bbbbbbbbbbbbbbbbbbbbbbbb
-                    </b>
-                </div>
-            </div>
-            <div class="submitDate">
-                <i class="far fa-calendar-alt"></i>
-                21/04/2020
-            </div>
-            <div class="view">
-                <i class="fa fa-eye"></i>
-                1174 xem
-            </div>
-            <div class="textNews">
-                <div class="textOverflowLine" style="width: fit-content;">
-                    d f jkhd j fhjfh jdfhd jfdf bhbh bcvj djvv
-                    bdvdn vsjv ndsjvnd smvbd vjđmff
-                    vdvdvd vdvfd vdfv
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    }
+</main>
 @section jsInsert {
     <script src="~/Assets/Client/Js/User/HandbookForUser.js"></script>
 }
-

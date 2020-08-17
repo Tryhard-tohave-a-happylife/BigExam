@@ -50,17 +50,18 @@ namespace Model.Dao
         public List<AppliedCandidateInfo> AppliedCandidateList(Guid enterpriseId)
         {
             var appliedCandidateList = ListCandidateApply(enterpriseId);
-            var result = (from CandidateOfEnterprise in appliedCandidateList
-                          where CandidateOfEnterprise.EnterpriseID == enterpriseId
+            var result = (from AppliedCandidate in appliedCandidateList
+                          where AppliedCandidate.EnterpriseID == enterpriseId
                           select new
                           {
-                              EnterpriseID = CandidateOfEnterprise.EnterpriseID,
-                              CandidateID = CandidateOfEnterprise.UserID,
-                              CandidateName = new UserDao().FindById(CandidateOfEnterprise.UserID).UserName,
-                              OfferID = CandidateOfEnterprise.OfferID,
-                              OfferName = new OfferJobDao().findById(CandidateOfEnterprise.OfferID).OfferName,
-                              Status = CandidateOfEnterprise.Status,
-                              CreateDate = CandidateOfEnterprise.CreateDate
+                              EnterpriseID = AppliedCandidate.EnterpriseID,
+                              CandidateID = AppliedCandidate.UserID,
+                              CandidateName = new UserDao().FindById(AppliedCandidate.UserID).UserName,
+                              OfferID = AppliedCandidate.OfferID,
+                              OfferName = new OfferJobDao().findById(AppliedCandidate.OfferID).OfferName,
+                              Salary = (new UserDao().FindById(AppliedCandidate.UserID).Salary != null) ? new UserDao().FindById(AppliedCandidate.UserID).Salary : 0,
+                              Status = AppliedCandidate.Status,
+                              CreateDate = AppliedCandidate.CreateDate
                           }).AsEnumerable().Select(x => new AppliedCandidateInfo()
                           {
                               EnterpriseID = x.EnterpriseID,
@@ -68,6 +69,7 @@ namespace Model.Dao
                               CandidateName = x.CandidateName,
                               OfferID = x.OfferID,
                               OfferName = x.OfferName,
+                              Salary = new SalaryDao().AmountSalary(x.Salary.Value),
                               Status = x.Status,
                               CreateDate = x.CreateDate
                           });

@@ -62,6 +62,7 @@ namespace Model.Dao
         {
             return db.UserForeignLanguages.Where(x => x.UserID == userID).ToList();
         }
+
        
         public List<CountLanguage> Count()
         {
@@ -79,4 +80,12 @@ namespace Model.Dao
         }
         
     }   
+
+        public List<UserForeignLanguage> ReturnList()
+        {
+            return db.UserForeignLanguages.ToList();
+        }
+
+    }
+
 }

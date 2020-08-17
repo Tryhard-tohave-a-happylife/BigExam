@@ -1,0 +1,91 @@
+﻿main {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+#headerMenu {
+    width: 90%;
+    background-color: white;
+    margin-bottom: 20px;
+    float: left;
+    margin-left: 5%;
+    height: auto;
+    min-height: 60px;
+    margin-top: 50px;
+}
+
+.titleNews {
+    position: relative;
+    float: left;
+    font-size: 17px;
+    padding-top: 20px;
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+.dropdown {
+    background-color: #8adbf9;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    display: none;
+    z-index: 2;
+    position: absolute;
+    font-size: 11pt;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+}
+
+    .dropdown a {
+        height: 27px;
+        width: 230px;
+        float: left;
+        font-size: 16px;
+        padding-top: 5px;
+        padding-left: 5px;
+        z-index: 2;
+        color: black;
+        padding: 4px 8px 5px 8px;
+        text-decoration: none;
+    }
+
+        .dropdown a:hover {
+            background-color: #f07e1d;
+        }
+.titleNews:hover > .dropdown{
+    display: block;
+}
+#contain-article{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    background-color: white;
+    font-size: 10pt;
+}
+#contain-article #title{
+    font-size: 12pt;
+    font-weight: 600;
+    float: left;
+    width: 90%;
+    padding-left: 12px;
+    border-left: 3px solid orangered;
+    margin-top: 15px;
+}
+#contain-article #date-views{
+    float: right;
+    margin-right: 20px;
+    font-size: 9pt;
+    font-style: italic;
+}
+#contain-article #contain-content{
+    float: left;
+    width: 96%;
+    margin-left: 12px;
+    text-align: justify;
+    margin-top: 20px;
+}
+#contain-article strong{
+    font-size: 14pt;
+}

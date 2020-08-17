@@ -19,41 +19,41 @@ header {
     z-index: 1000;
 }
 
-.container {
+header .container {
     display: block;
     height: 75px;
     width: 100%;
     margin: 0 auto;
 }
 
-.row {
+header .row {
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-.responsive_menu_icon {
+header .responsive_menu_icon {
     display: none;
 }
 
-    .responsive_menu_icon i {
+    header .responsive_menu_icon i {
         font-size: 30px;
         color: royalblue;
     }
 
-    .responsive_menu_icon span {
+    header .responsive_menu_icon span {
         font-weight: bold;
         font-size: 25px;
         color: darkslategrey;
         padding: 0 15px;
     }
 
-    .responsive_menu_icon:hover {
+    header .responsive_menu_icon:hover {
         cursor: pointer;
     }
 
-.logo {
+header .logo {
     display: flex;
     align-items: center;
     height: 100%;
@@ -61,30 +61,30 @@ header {
     text-align: center;
 }
 
-    .logo:hover {
+    header .logo:hover {
         cursor: pointer;
     }
 
-.logo_box {
+header .logo_box {
     display: flex;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-    .logo_box img {
+    header .logo_box img {
         max-height: 100%;
         width: 100%;
     }
 
-.menu {
+header .menu {
     display: flex;
     align-items: center;
     height: 100%;
     width: 45%;
 }
 
-.element {
+header .element {
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -96,83 +96,83 @@ header {
     text-align: center;
 }
 
-    .element:hover {
+    header .element:hover {
         background-color: royalblue;
         color: white;
         cursor: pointer;
     }
 
-.element_box {
+header .element_box {
     display: block;
 }
 
-    .element_box i {
+    header .element_box i {
         display: block;
         text-align: center;
         padding-bottom: 5px;
     }
 
-    .element_box span {
+    header .element_box span {
         display: block;
     }
 
-.user {
+header .user {
     margin-left: auto;
     display: flex;
     align-items: center;
 }
 
-.account {
+header .account {
     display: flex;
     align-items: center;
 }
 
-.log_in {
+header .log_in {
     padding: 0 10px;
     border-right: solid grey 0.5px;
 }
 
-    .log_in i {
+    header .log_in i {
         color: royalblue;
     }
 
-    .log_in span {
+    header .log_in span {
         font-weight: bold;
         color: darkslategrey;
         transition: 0.2s;
     }
 
-    .log_in:hover {
+    header .log_in:hover {
         cursor: pointer;
     }
 
-    .log_in span:hover {
+    header .log_in span:hover {
         color: royalblue;
     }
 
-.registration {
+header .registration {
     padding: 0 10px;
 }
 
-    .registration i {
+     header .registration i {
         color: royalblue;
     }
 
-    .registration span {
+    header .registration span {
         font-weight: bold;
         color: darkslategrey;
         transition: 0.2s;
     }
 
-    .registration:hover {
+    header .registration:hover {
         cursor: pointer;
     }
 
-    .registration span:hover {
+    header .registration span:hover {
         color: royalblue;
     }
 
-.searching {
+header .searching {
     font-weight: bold;
     color: royalblue;
     padding: 10px 10px;
@@ -182,7 +182,7 @@ header {
     transition: 0.2s;
 }
 
-    .searching:hover {
+    header .searching:hover {
         background-color: royalblue;
         color: white;
         box-shadow: none;
@@ -190,7 +190,7 @@ header {
     }
 
 
-.responsive_menu {
+header .responsive_menu {
     position: fixed;
     top: 75px;
     left: 0;
@@ -205,26 +205,26 @@ header {
     padding: 0 5%;
 }
 
-    .responsive_menu.open {
+    header .responsive_menu.open {
         opacity: 1;
         visibility: visible;
         transform: translateY(0px);
     }
 
-.res_element {
+header .res_element {
     display: block;
     height: 50px;
     width: 100%;
     color: darkslategrey;
 }
 
-    .res_element:hover {
+    header .res_element:hover {
         color: white;
         background-color: royalblue;
         cursor: pointer;
     }
 
-.res_element_box {
+header.res_element_box {
     display: flex;
     align-items: center;
     height: 100%;
@@ -241,7 +241,7 @@ header {
         font-weight: bold;
     }
 
-.res_searching {
+header .res_searching {
     margin: 15px 0;
     font-weight: bold;
     font-size: 18pt;
@@ -257,7 +257,7 @@ header {
     align-items: center;
 }
 
-    .res_searching:hover {
+    header .res_searching:hover {
         /*background-color: royalblue;
     color: white;*/
         box-shadow: none;
@@ -267,10 +267,10 @@ header {
     .res_searching span {
         margin: 0 auto;
     }
-
-.content {
-    height: 1000px;
+.content-main{
     width: 100%;
+    height: auto;
+    margin-top: 75px;
 }
 
 footer {
@@ -279,7 +279,7 @@ footer {
     height: 500px;
     width: 100%;
     border-top: solid 5px #aaa;
-    z-index: 1000;
+    float: left;
 }
 
 .footer_container {
@@ -355,7 +355,130 @@ footer {
         color: #5b5b5b;
         font-size: 7pt;
     }
+header .fog_background {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+}
 
+header .login_form {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    background-color: white;
+    border: #f07e1d solid 2px;
+    padding: 15px;
+    position: fixed;
+    border-radius: 10px;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    top: 150px;
+    left: calc(50% - 200px);
+}
+
+    header .login_form form h1 {
+        color: #f07e1d;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+header .input_box {
+    margin-bottom: 10px;
+}
+
+    header .input_box input {
+        padding: 7.5px 15px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        outline: none;
+    }
+
+header .btn_box {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+    header .btn_box button {
+        padding: 7.5px 15px;
+        border-radius: 2px;
+        background-color: #f07e1d;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+header .forgot {
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 15px;
+}
+
+    header .forgot:hover {
+        text-decoration: underline;
+    }
+
+header .register {
+    text-decoration: none;
+    color: #5b5b5b;
+    font-size: 15px;
+}
+
+    header .register:hover {
+        text-decoration: underline;
+    }
+
+header #control-account {
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+    header #control-account:hover {
+        color: orangered;
+    }
+
+header #container-control {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    height: auto;
+    width: 150px;
+    background-color: white;
+    padding-bottom: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    display: none;
+}
+
+    header #container-control a {
+        color: unset;
+        text-decoration: unset;
+    }
+
+    header #container-control .each-part {
+        margin-left: 10px;
+        width: calc(100% - 20px);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        font-size: 10pt;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        cursor: pointer;
+    }
+
+        header #container-control .each-part:hover {
+            color: gray;
+        }
+
+        header #container-control .each-part i {
+            margin-right: 5px;
+        }
 @media screen and (max-width: 1250px) {
     header {
         padding: 0 2.5%;

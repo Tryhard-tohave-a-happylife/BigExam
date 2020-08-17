@@ -1,0 +1,212 @@
+﻿@model CareerWeb.Models.ModelProject
+@using Model.Dao
+@{
+    ViewBag.Title = "ListProject";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var jbDao = new JobMajorDao();
+    var usDao = new UserDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/ListProject.css" rel="stylesheet" />
+}
+<main>
+    <div id="main-left">
+        <div id="contain-search">
+            <input type="text" name="searchTitle" placeholder="Nhập từ khóa" />
+            <select name="searchMajor">
+                @foreach (var item in ViewBag.ListMajor)
+                {
+                    <option value="@item.JobID">@item.JobName</option>
+                }
+            </select>
+            <div>
+                <div></div>
+                <select name="seachSkill">
+                    @foreach (var item in ViewBag.ListSkill)
+                    {
+                        <option value="@item.JobID">@item.JobName</option>
+                    }
+                </select>
+            </div>
+            <select name="searchSpace">
+                <option value="true">Còn chỗ trống</option>
+                <option value="false">Không yêu cầu</option>
+            </select>
+        </div>
+        <div id="contain-list">
+            @if (Model.ListFull != null && Model.ListFull.Count != 0)
+            {
+                foreach (var item in Model.ListFull)
+                {
+                    var user = usDao.FindById(item.MasterID);
+                    var linkImage = user.UserImage != null ? user.UserImage : "~/Assets/Client/Img/Common/default-user-image.png";
+                    <div class="each-project" data-id="@item.ProjectID">
+                        <div class="contain-up">
+                            <img src="@linkImage" alt="" />
+                            <div class="contain-infor">
+                                <div class="name-title">@item.Title</div>
+                                <div class="name-master">Chủ dự án: @user.UserName</div>
+                                <div class="email-master">Email: @user.UserEmail</div>
+                                <div class="name">Lĩnh vực: @jbDao.NameJob(item.ProjectMajor)</div>
+                                <div class="data">Ngày tạo: @item.CreateDate.ToString("dd/MM/yyyy")</div>
+                                @if (item.Apply == item.Amount)
+                                {
+                                    <div class="number-red">Số lượng: @item.Apply/@item.Amount</div>
+                                }
+                                else
+                                {
+                                    <div class="number">Số lượng: @item.Apply/@item.Amount</div>
+                                }
+                            </div>
+
+                        </div>
+                        <div class="contain-down">
+                            <div class="apply" data-id="@item.ProjectID" em-ct="@user.UserEmail">Apply</div>
+                            <div class="view" data-id="@item.ProjectID">View</div>
+                        </div>
+
+                    </div>
+                }
+            }
+            else
+            {
+                <div>Chưa có dự án nào trên trang web</div>
+            }
+        </div>
+    </div>
+    <div id="main-right">
+        <div id="header">
+            <div id="button-new"><i class="fa fa-plus" style="margin-right: 5px;"></i>THÊM MỚI</div>
+            <span>Tạo dự án mới</span>
+        </div>
+        <div id="list-create" class="list-small">
+            <div class="title">DỰ ÁN SỞ HỮU</div>
+            <div class="contain-list-small">
+                @if (Model.ListUserCreate != null && Model.ListUserCreate.Count != 0)
+                {
+                    foreach (var item in Model.ListUserCreate)
+                    {
+                        <a target="_blank" rel="noreferrer" href="/ChatProject/@item.ProjectID" style="color: unset; text-decoration: unset;">
+                        <div class="each-project-small" data-id="@item.ProjectID">
+                            <div class="contain-left">
+                                <div class="name">@item.Title</div>
+                                <div class="major">Lĩnh vực: @jbDao.NameJob(item.ProjectMajor)</div>
+                                <div class="amount">Số lượng: @item.Apply/@item.Amount</div>
+                            </div>
+                            <div class="contain-right">
+                                <div class="button-member" data-id="@item.ProjectID">MEMBER</div>
+                                <div class="button-edit" data-id="@item.ProjectID">EDIT</div>
+                                <div class="button-delete" data-id="@item.ProjectID">DELETE</div>
+                            </div>
+                        </div>
+                        </a>
+                    }
+                }
+                else
+                {
+                    <div style="float: left; margin-left: 2%; margin-top: 10px;">Bạn chưa sở hữu một dự án nào</div>
+                }
+            </div>
+        </div>
+        <div id="list-join" class="list-small">
+            <div class="title">DỰ ÁN THAM GIA</div>
+            <div class="contain-list-small">
+                @if (Model.ListUserJoin != null && Model.ListUserJoin.Count != 0)
+                {
+                    foreach (var item in Model.ListUserJoin)
+                    {
+                        <a href="/ChatProject/@item.ProjectID" target="_blank" rel="noreferrer" style="color: unset; text-decoration: unset;">
+                        <div class="each-project-small" data-id="@item.ProjectID">
+                            <div class="contain-left">
+                                <div class="name">@item.Title</div>
+                                <div class="major">Lĩnh vực: @jbDao.NameJob(item.ProjectMajor)</div>
+                                <div class="amount">Số lượng: @item.Apply/@item.Amount</div>
+                            </div>
+                            <div class="contain-right">
+                                <div class="button-view" style="margin-top: 35px;" data-id="@item.ProjectID">VIEW</div>
+                            </div>
+                        </div>
+                        </a>
+                    }
+                }
+                else
+                {
+                    <div style="float: left; margin-left: 2%; margin-top: 10px;">Bạn đang không tham gia một dự án nào</div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="cover-screen">
+        <div id="box-create">
+            <div id="box-header">TẠO DỰ ÁN MỚI</div>
+            @using (Html.BeginForm("AddAndEditProject", "Project", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div id="box-main">
+                    <input type="hidden" name="typeAction" />
+                    <input type="hidden" name="saveID" />
+                    <div class="each-part">
+                        <label for="title">Tên dự án: <span>*</span></label>
+                        <input type="text" name="title" />
+                    </div>
+                    <div class="each-part">
+                        <label for="major">Lĩnh vực: <span>*</span></label>
+                        <select name="major">
+                            <option value="none">-- Chọn lĩnh vực --</option>
+                            @foreach (var item in ViewBag.ListMajor)
+                            {
+                                <option value="@item.JobID">@item.JobName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="amount">Số lượng: <span>*</span></label>
+                        <input type="tel" name="amount" />
+                    </div>
+                    <div class="each-part">
+                        <label for="description">Mô tả: <span>*</span></label>
+                        <textarea name="description"></textarea>
+                    </div>
+                    <div class="each-part-big">
+                        <label for="skill">Kỹ năng: <span>*</span></label>
+                        <input type="text" list="data-skill" id="input-skill" value="" />
+                        <datalist id="data-skill">
+                            @foreach (var item in ViewBag.ListSkill)
+                            {
+                                <option value="@item.JobName" data-id="@item.JobID" />
+                            }
+                        </datalist>
+                        <div id="container-skill">
+
+                        </div>
+                    </div>
+                </div>
+            }
+            <div id="box-footer">
+                <div id="cancel">CANCEL</div>
+                <div id="both-input">SUBMIT</div>
+            </div>
+        </div>
+        <div id="box-member">
+            <div id="box-member-header">
+                THÀNH VIÊN DỰ ÁN
+            </div>
+            <div id="box-member-main">
+                <div class="title">DANH SÁCH ỨNG TUYỂN </div>
+                <div id="contain-request">
+
+                </div>
+                <div class="title">DANH SÁCH THÀNH VIÊN</div>
+                <div id="contain-member">
+
+                </div>
+            </div>
+            <div id="box-member-footer">
+                <div id="cancel-member">CANCEL</div>
+            </div>
+        </div>
+    </div>
+    <img src="~/Assets/Client/Img/Common/load2.gif" id="img-cover-screen" />
+</main>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/ListProject.js"></script>
+}
