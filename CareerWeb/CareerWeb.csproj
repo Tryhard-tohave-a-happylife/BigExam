@@ -358,13 +358,12 @@
     <Content Include="Views\User\ResultForSearchJob.cshtml" />
     <Content Include="Views\User\SearchCompanyForUser.cshtml" />
     <Content Include="Views\User\SearchJobForUser.cshtml" />
-    <Content Include="Views\University\Statistic.cshtml" />
+    <None Include="Views\University\Statistic.cshtml" />
     <Content Include="Views\University\ListOfStudent.cshtml" />
     <Content Include="Views\User\UserHome.cshtml" />
     <Content Include="Views\Employee\JobApplicationsUser.cshtml" />
     <Content Include="Views\Employee\Interview.cshtml" />
     <Content Include="Views\University\UniversityHome.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

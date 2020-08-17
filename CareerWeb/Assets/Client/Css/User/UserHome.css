@@ -238,20 +238,7 @@
 .select-box4 {
     width: 12%;
 }
-.select-box5 {
-    height: 2.5em;
-    border-radius: 3px;
-    background-color: orangered;
-    color: white;
-    margin-top: -2px;
-    margin-left: 5em;
-    width: 16%;
-    font-size: 0.9em;
-}
-.select-box5:hover {
-    cursor: pointer;
-    box-shadow: 0 0 5px black;
-}
+
 
 .container {
     float: left;

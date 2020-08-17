@@ -1,21 +1,27 @@
-﻿
-    function search() {
-        var area = document.getElementById("dia-diem").value;
-        alert(area);
-        var job = document.getElementById("linh-vuc").value;
-        var name = document.getElementById("key-word").value;
-        var salary = document.getElementById("salary").value;
-        var careerLevel = document.getElementById("careerLevel").value;
-        var gender = document.getElementById("gender").value;
-        var education = document.getElementById("education").value;
-        var experience = document.getElementById("experience").value;
-        
-        var dbParam = "OfferName=" + name + "&Area=" + area + "&OfferMajor=" + job
-            + "&OfferSalary=" + salary + "&PositionJobID=" + careerLevel + "&Sex=" + gender + "&ExperienceRequest=" + experience
-            + "&LearningLevelRequest=" + education;
+﻿$(document).ready(function () {
+    $(".colClick").click(function () {
+        var index = $(".colClick").index(this);
+        var listForm = $(".borderColJobMenu form");
+        $(listForm[index]).slideToggle();
+    })
+    $("#clearAll").click(function () {
+        location.reload();
+    })
+    $("#findIcon").click(function () {
+        checkName();
+        var jobBrowser = $("input[name='jobBrowser']").val();
+        var OfferMajor = $('#OfferMajor option[value="' + $('#as').val() + '"]').data('id');
+        var listArea = $('#ListArea option[value="' + $('#bs').val() + '"]').data('id');
+        var salary = $('#Salary option[value="' + $('#cs').val() + '"]').data('id');
+        var positionEmployee = $('#Position option[value="' + $('#ds').val() + '"]').data('id');
+        var experience = $('#Experince option[value="' + $('#es').val() + '"]').data('id');
+        var levelLearning = $('#Lever option[value="' + $('#fs').val() + '"]').data('id');
+
+        var dbParam = "OfferName=" + jobBrowser + "&Area=" + listArea + "&OfferMajor=" + OfferMajor
+            + "&OfferSalary=" + salary + "&PositionJobID=" + positionEmployee + "&ExperienceRequest=" + experience
+            + "&LearningLevelRequest=" + levelLearning;
         window.location.href = "/SearchJobForUser?" + dbParam;
-    }
-    
+    })
     function checkName() {
         var name = $("input[name='jobBrowser']").val();
         var name1 = "";
@@ -40,4 +46,4 @@
 
         $("input[name='jobBrowser']").val(name1);
     }
-
+})

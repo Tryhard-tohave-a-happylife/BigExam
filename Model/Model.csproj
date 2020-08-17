@@ -89,9 +89,6 @@
     <Compile Include="EF\AppliedCandidate.cs" />
     <Compile Include="EF\Area.cs" />
     <Compile Include="EF\Article.cs" />
-
-    <Compile Include="EF\CareerWeb.cs" />
-
     <Compile Include="EF\CategoryArticle.cs" />
     <Compile Include="EF\Employee.cs" />
     <Compile Include="EF\Enterprise.cs" />
@@ -120,6 +117,7 @@
     <Compile Include="EF\WorkInvitation.cs" />
     <Compile Include="Models\AppliedCandidateInfo.cs" />
     <Compile Include="Models\CandidateInfo.cs" />
+    <Compile Include="Models\CountLanguage.cs" />
     <Compile Include="Models\EnterpriseAreaFull.cs" />
     <Compile Include="Models\EnterpriseJobFull.cs" />
     <Compile Include="Models\FormEnterpriseFull.cs" />
