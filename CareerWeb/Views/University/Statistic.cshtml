@@ -1,8 +1,11 @@
-﻿
+﻿@using Model.Dao
 @{
     @section cssInsert{
+
         <link href="~/Assets/Client/Css/University/Statistic.css" rel="stylesheet" />
+
     }
+    var Language = new UserForeignLanguageDao();
 }
 
 <!DOCTYPE html>
@@ -21,6 +24,17 @@
         <div class="main-content">
             <div class="container">
                 <div class="row">
+
+                    <div class="uni-info">
+                        <span class="img-thumbnail">
+                            <img scr="">
+                        </span>
+                        <div style="margin-left: 230px;padding-top: 5px">
+                            <h2 id="uni-name"> UET UNIVERSITY</h2>
+                            <div class="uni-info-option">
+                                <i class="fa fa-map-marker"></i> Địa chỉ: DHQGHN, 136 Xuan Thuy, Cau Giay, Ha Noi
+                               
+
                     @foreach (var item in ViewBag.InfoUni)
                     {
                         <div class="uni-info">
@@ -28,6 +42,7 @@
                                 <span class="img-thumbnail">
                                     <img scr="@item.UniversityLogo">
                                 </span>
+
                             </div>
                             <div style="margin-left: 230px;padding-top: 5px">
                                 <h2 id="uni-name"> @item.UniversityName</h2>
@@ -52,13 +67,21 @@
                 </div>
                 <h2 style="width: 100%; margin: 30px 0;">Báo cáo thống kê theo:</h2>
                 <div style="width: 100%;margin-bottom: 30px;">
-                    <input type="radio" id="skill" name="filter" value="skill" checked>
+
                     <label for="skill">Kỹ năng</label>
-                    <input type="radio" id="career" name="filter" value="career">
-                    <label for="skill">Ngành nghề</label>
-                    <input type="submit" style="margin-left: 15px; box-shadow: 0 0 5px gray;" onclick=seeChart() value="Xem">
+
+
                 </div>
 
+                @foreach (var item in ViewBag.count)
+                {
+
+
+                    <div id="@item.ID" data-id="@item.countOfLanguage"> </div>
+
+
+
+                }
                 <div class="chart-content" id="c1">
                     <div id="piechart_3d-skill" style="width: 500px; height: 500px;"></div>
                 </div>
@@ -66,129 +89,50 @@
                 <div class="chart-content" id="c2">
                     <div id="line_chart-skill" style="width: 500px; height: 500px;"></div>
                 </div>
-                <div class="chart-content" id="c3" style="display: none;">
-                    <div id="piechart_3d-career" style="width: 500px; height: 500px;"></div>
-                </div>
 
-                <div class="chart-content" id="c4" style="display: none;">
-                    <div id="line_chart-career" style="width: 500px; height: 500px;"></div>
-                </div>
 
 
             </div>
         </div>
     </div>
-  
+
+
+
+
+
+
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart1);
-        google.charts.setOnLoadCallback(drawChart2);
-        google.charts.setOnLoadCallback(drawChart3);
-        google.charts.setOnLoadCallback(drawChart4);
+     
+
 
         function drawChart1() {
-            var data = google.visualization.arrayToDataTable([
-                ['Ngôn ngữ', 'Số lượng người'],
-                ['ASP.NET', 1000],
-                ['PHP', 1170],
-                ['C#', 660],
-                ['C++', 860],
-                ['Java', 1030]
+            // Tạo data table
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Foreign Language');
+            data.addColumn('number', 'Total');
+            data.addRows([
+                ['Tiếng Anh', document.getElementById("1").getAttribute("data-id")],
+                
             ]);
 
             var options = {
-                title: 'Thống kê sinh viên theo kỹ năng',
-                is3D: true,
-
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-skill'));
-            chart.draw(data, options);
-        }
-
-        function drawChart2() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Ngôn ngữ', 'Ứng viên', 'Nhà tuyển dụng'],
-                ['ASP.NET', 1000, 400],
-                ['PHP', 1170, 460],
-                ['C#', 660, 1120],
-                ['C++', 860, 1500],
-                ['Java', 1030, 540]
-            ]);
-
-            var options = {
-                title: 'Cung và cầu nguồn nhân lực',
+                title: 'Ngoại ngữ',
                 legend: { position: 'bottom' },
 
             };
 
-            var chart = new google.visualization.ColumnChart(document.getElementById('line_chart-skill'));
-
+            var chart = new google.visualization.ColumnChart(document.getElementById('piechart_3d-skill'));
             chart.draw(data, options);
         }
 
-        function drawChart3() {
-            var data = google.visualization.arrayToDataTable([
-                ['Ngành', 'Số lượng người'],
-                ['Kinh doanh', 1000],
-                ['Kế toán', 1170],
-                ['Marketing', 660],
-                ['IT', 860],
-                ['Logistic', 1030]
-            ]);
+        
 
-            var options = {
-                title: 'Thống kê sinh viên theo ngành nghề',
-                is3D: true,
-
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-career'));
-            chart.draw(data, options);
-        }
-
-        function drawChart4() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['Ngành', 'Ứng viên', 'Nhà tuyển dụng'],
-                ['Kinh doanh', 1000, 400],
-                ['Kế toán', 1170, 460],
-                ['Marketing', 660, 1120],
-                ['IT', 860, 1500],
-                ['Logistic', 1030, 540]
-            ]);
-
-            var options = {
-                title: 'Cung và cầu nguồn nhân lực',
-                legend: { position: 'bottom' },
-
-            };
-
-            var chart = new google.visualization.ColumnChart(document.getElementById('line_chart-career'));
-
-            chart.draw(data, options);
-        }
-        var skill = document.getElementById("skill");
-        var career = document.getElementById("career");
-        function seeChart() {
-            if (skill.checked) {
-                document.getElementById('c2').style.display = "block";
-                document.getElementById('c1').style.display = "block";
-                document.getElementById('c3').style.display = "none";
-                document.getElementById('c4').style.display = "none";
-
-            }
-            if (career.checked) {
-                document.getElementById('c3').style.display = "block";
-                document.getElementById('c4').style.display = "block";
-                document.getElementById('c1').style.display = "none";
-                document.getElementById('c2').style.display = "none";
-
-            }
-        }
+       
 
     </script>
 </body>

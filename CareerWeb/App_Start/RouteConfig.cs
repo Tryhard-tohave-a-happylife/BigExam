@@ -105,6 +105,13 @@ namespace CareerWeb
                defaults: new { controller = "University", action = "ListOfStudent", id = UrlParameter.Optional },
                namespaces: new[] { "CareerWeb.Controllers" }
            );
+
+            routes.MapRoute(
+               name: "ShowDetailCandidate",
+               url: "ShowDetailCandidate/{UserId}",
+               defaults: new { controller = "Employee", action = "ShowDetailCandidate", id = UrlParameter.Optional },
+               namespaces: new[] { "CareerWeb.Controllers" }
+           );
         }
     }
 }

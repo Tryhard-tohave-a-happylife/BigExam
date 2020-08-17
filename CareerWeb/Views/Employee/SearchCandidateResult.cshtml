@@ -1,28 +1,22 @@
-﻿@using PagedList;
-@using PagedList.Mvc;
-@model  IPagedList<Model.EF.CandidateInfo>
-
+﻿
 @{
     ViewBag.Title = "SearchCandidateResult";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
 }
 
 @section cssInsert{
 
     <link href="~/Assets/Client/Css/Employee/SearchCandidateResult.css" rel="stylesheet" />
-    <link href="~/Content/PagedList.css" rel="stylesheet" />
 }
 
 
-@section scripts{
-    <script src="~/Assets/Client/Js/Employee/SearchCandidateResult.js"></script>
-}
+
 
 <div id="wrap">
     <div id="row">
         <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng</a>
         /<a id="tim-ho-so" class="rower" href="/SearchCandidate">Tìm hồ sơ ứng viên</a>/
-        <span id="ket-qua" class="rower">Kết quả tìm hồ sơ YFMF đang có @Model.TotalItemCount CV được tìm thấy!</span>
+        <span id="ket-qua" class="rower">Kết quả tìm hồ sơ YFMF đang có @ViewBag.ListUser.Count CV được tìm thấy!</span>
     </div>
 
     <div id="main">
@@ -105,9 +99,9 @@
     </div>
 
     <div id="result">
-        <h1>&nbsp;YFMF tìm thấy @Model.TotalItemCount CV ứng viên</h1>
+        <h1>&nbsp;YFMF tìm thấy @ViewBag.ListUser.Count CV ứng viên</h1>
         <div id="job">
-            @foreach (var item in Model)
+            @foreach (var item in ViewBag.ListUser)
             {
                 <div class="candidate">
                     <a class="profile-img" href="#">
@@ -137,14 +131,14 @@
 
                     <div class="final-col">
                         <i>Cập nhập:&nbsp;<span>22/07/2020</span></i>
-                        <div class="save-button" stt="@item.UserId" onclick="saveFile()">Lưu hồ sơ</div>
+                        <div class="save-button">Lưu hồ sơ</div>
                     </div>
                 </div>
             }
         </div>
 
     </div>
-    <div class="pagelist">
-        @Html.PagedListPager(Model, sotrang => Url.Action("SearchCandidateResult", new { page = sotrang }))
-    </div>
 </div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/SearchCandidateResult.js"></script>
+}

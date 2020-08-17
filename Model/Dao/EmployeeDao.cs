@@ -23,6 +23,18 @@ namespace Model.Dao
             return db.Employees.Where(x => x.EnterpriseID == enterpriseId).ToList();
         }
 
+        public List<Employee> ListEmployees()
+        {
+            try
+            {
+                return db.Employees.ToList();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        
         public bool InsertEmployee(Employee employee)
         {
             try
@@ -62,5 +74,6 @@ namespace Model.Dao
                 return false;
             }
         }
+        
     }
 }

@@ -24,6 +24,7 @@ namespace CareerWeb.Controllers
             ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
             ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
             ViewBag.ListOffer = new OfferJobDao().ListOfferJob();
+
             return View();
         }
         public ActionResult ResultForSearchCompany(Guid EnterpriseID)

@@ -63,5 +63,29 @@ namespace Model.Dao
             return db.UserForeignLanguages.Where(x => x.UserID == userID).ToList();
         }
 
+       
+        public List<CountLanguage> Count()
+        {
+            var list = from a in db.UserForeignLanguages
+                       join b in db.Languages
+                       on a.LanguageID equals b.ID
+                       select new CountLanguage()
+                       {   
+                           ID = a.LanguageID,
+                           LanguageName = b.LanguageName,
+                           countOfLanguage = db.UserForeignLanguages.Where(x => x.LanguageID == a.LanguageID).Count()
+                           
+        };
+            return list.ToList();         
+        }
+        
+    }   
+
+        public List<UserForeignLanguage> ReturnList()
+        {
+            return db.UserForeignLanguages.ToList();
+        }
+
     }
+
 }

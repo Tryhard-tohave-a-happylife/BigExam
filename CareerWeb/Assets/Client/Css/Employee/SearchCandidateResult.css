@@ -102,6 +102,7 @@
         #main #search #tim-ho-so:hover {
             color: #f07e1d;
             background-color: #d3cecece;
+            cursor: pointer;
         }
 
 #main #xu-ly {

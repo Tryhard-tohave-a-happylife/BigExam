@@ -1,4 +1,5 @@
-﻿using Model.Dao;
+﻿using PagedList;
+using Model.Dao;
 using Model.EF;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Collections.Generic;
 using PagedList;
 using System.Web.Helpers;
 using Newtonsoft.Json;
+using PagedList;
+
 
 namespace CareerWeb.Controllers
 {
@@ -24,23 +27,32 @@ namespace CareerWeb.Controllers
         public ActionResult SearchCandidate()
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
-            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
             ViewBag.AreaList = new AreaDao().ListArea();
+            ViewBag.Language = new LanguageDao().ReturnList();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
+            ViewBag.JobListSub = new JobMajorDao().ListJobSub();
             return View();
         
         }
 
-        public ActionResult SearchCandidateResult(int? page, String Name = "0", String AreaID = "0", String JobID = "0")
+        public ActionResult SearchCandidateResult(int? page, string KeyWord = "0", int AreaID = 0, int JobID = 0,
+            int experienceID = 0, int salaryID= 0, int languageID= 0, int levelLanguageID= 0)
         {
             ViewBag.JobListMain = new JobMajorDao().ListJobMain();
             ViewBag.AreaList = new AreaDao().ListArea();
-            int areaId = int.Parse(AreaID); 
-            int jobId = int.Parse(JobID);
+            ViewBag.Language = new LanguageDao().ReturnList();
+            ViewBag.ListExperience = new ExperienceDao().ListExperience();
+            ViewBag.ListSalary = new SalaryDao().ListSalary();
+            ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
+            ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
 
 
-            var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            var Model = new UserDao().ListUserFit(KeyWord, AreaID, JobID, experienceID, salaryID, languageID, levelLanguageID).ToPagedList(page ?? 1, 2);
             return View(Model);
-            
+          
 
         }
 
@@ -86,9 +98,23 @@ namespace CareerWeb.Controllers
         }
 
 
-        public ActionResult ShowDetailCandidate()
+        
+        public ActionResult ShowDetailCandidate(Guid UserId)
         {
-            return View(); 
+            ViewBag.ListExperience = new UserExperienceDao().ListByUser(UserId);
+            ViewBag.ListLanguage = new UserForeignLanguageDao().ListByUser(UserId);
+            var showInfo = new UserDao().InfoUser(UserId);
+            var saveName = "";
+            foreach (var item in showInfo)
+            {
+                for (var i = 0; i < item.listJob.Count; i += 1)
+                {
+                    saveName += (item.listJob[i]) + ", ";
+                }
+                saveName.Remove(saveName.Length - 1);
+            }
+            ViewBag.ListFullJobName = saveName;
+            return View(showInfo); 
         }
 
         public ActionResult Interview(Guid userId, Guid offerId)

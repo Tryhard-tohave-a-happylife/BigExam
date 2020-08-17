@@ -1,0 +1,126 @@
+﻿@model List<Model.EF.Article>
+@using Model.Dao
+@{
+    ViewBag.Title = "ListArticleEmployee";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    var cateArtDao = new CategoryArticleDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Employee/ListArticleEmployee.css" rel="stylesheet" />
+}
+<main>
+    <div id="box-contain">
+        <div id="title-site">QUẢN LÝ BÀI VIẾT</div>
+        <div id="introduce-step">
+            <div id="contain-text">Các bước để tạo một bài viết và đăng lên web</div>
+            <div class="text-arrow">
+                <div style="margin-left: 10px; font-style: italic;">Bước 1</div>
+                <img src="~/Assets/Client/Img/Common/arrow-qtstep.png" class="arrow-step" />
+            </div>
+            <div class="each-step">
+                <img src="~/Assets/Client/Img/Common/stepArticle1.png" class="step-img" />
+                <div class="step-text">
+                    Nhân viên doanh nghiệp truy cập trang và đăng bài viết
+                </div>
+            </div>
+            <div class="text-arrow">
+                <div style="margin-left: 10px; font-style: italic;">Bước 2</div>
+                <img src="~/Assets/Client/Img/Common/arrow-qtstep.png" class="arrow-step" />
+            </div>
+            <div class="each-step">
+                <img src="~/Assets/Client/Img/Common/stepArticle2.png" class="step-img" />
+                <div class="step-text">
+                    Admin kiểm tra Bài viết hợp lệ sẽ được kích hoạt
+                </div>
+            </div>
+        </div>
+        <div id="contain-button">
+            <div id="title-list"><i class="fa fa-suitcase" style="margin-right: 8px;"></i>Danh sách bài viết</div>
+            <div id="button-new"><i class="fa fa-plus-square-o" style="margin-right: 8px;"></i>Thêm bài viết</div>
+        </div>
+        <div id="contain-list">
+            @if (Model != null && Model.Count != 0)
+            {
+                foreach(var item in Model)
+                {
+                    <div class="each-article">
+                        <div class="contain-left">
+                            <img src="@item.Image"/>
+                        </div>
+                        <div class="contain-mid">
+                            <div class ="title-article">@item.Title</div>
+                            <div class="category">Thể loại: @cateArtDao.NameCategoryArticle(item.CategoryParent.Value)/@cateArtDao.NameCategoryArticle(item.CategoryID)</div>
+                            <div class="date">
+                                <span class="create">Ngày tạo: @item.CreateDate.Value.ToString("dd/MM/yyy")</span>
+                                <span class="modify">Chỉnh sửa gần nhất: @(item.ModifyDate != null ? item.ModifyDate.Value.ToString("dd/MM/yyyy") : "")</span>
+                            </div>
+                            <div class="status">
+                                Trạng thái: @item.Status
+                            </div>
+                            <div class="view">
+                                Tổng số lượt xem: @item.Views
+                            </div>
+                        </div>
+                        <div class="contain-right">
+                            <div class="edit" data-id="@item.ID" status ="@item.Status">EDIT</div>
+                            <div class="delete" data-id="@item.ID">DELETE</div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div>Bạn chưa tạo bài viết nào</div>
+            }
+        </div>
+    </div>
+    <div id="box-create">
+        @using (Html.BeginForm("AddAndEditArticle", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="each-part">
+                <label for="input-title">Tiêu đề <span>*</span></label>
+                <input id="input-title" name="Title" value="" type="text" />
+            </div>
+            <div class="each-part-small">
+                <label for="input-category-big">Thể loại lớn<span>*</span></label>
+                <select id="input-category-big" name="CategoryBig">
+                    <option value="none">-- Chọn thể loại --</option>
+                    @foreach(var item in ViewBag.ListCategory)
+                    {
+                        <option value="@item.CategoryID">@item.NameCategory</option>
+                    }
+                </select>
+            </div>
+            <div class="each-part-small">
+                <label for="input-category-small">Thể loại nhỏ<span>*</span></label>
+                <select id="input-category-small" name="CategorySmall">
+                </select>
+            </div>
+            <div class="each-part">
+                <label for="input-description">Mô tả <span>*</span></label>
+                <textarea id="input-description" name="Description"></textarea>
+            </div>
+            <div class="each-part">
+                <label>Hình ảnh<span>*</span></label>
+                <img src="" alt="" />
+                <input type="file" name="Image" />
+            </div>
+            <div class="each-part">
+                <label for="input-content">Nội dung <span>*</span></label><br /><br />
+                <textarea id="input-content" name="ContentArticle" class="ckeditor"></textarea>
+            </div>
+            <div id="box-footer">
+                <input type="hidden" value="add" name="typeAction"/>
+                <input type="hidden" value="-1" name="saveID"/>
+                <div id="both-input">Thêm</div>
+                <div id="cancel">Hủy</div>
+            </div>
+        }
+    </div>
+</main>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/ListArticleEmployee.js"></script>
+    }
+
+
+

@@ -8,7 +8,7 @@ namespace Model.EF
     public partial class CareerWeb : DbContext
     {
         public CareerWeb()
-            : base("name=CareerWeb")
+            : base("CareerWeb")
         {
         }
 
@@ -23,14 +23,19 @@ namespace Model.EF
         public virtual DbSet<JobMajor> JobMajors { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<LevelLearning> LevelLearnings { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<OfferJob> OfferJobs { get; set; }
         public virtual DbSet<OfferJobSkill> OfferJobSkills { get; set; }
         public virtual DbSet<PositionEmployee> PositionEmployees { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<ProjectMember> ProjectMembers { get; set; }
+        public virtual DbSet<ProjectSkill> ProjectSkills { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<TypeOfEnterprise> TypeOfEnterprises { get; set; }
         public virtual DbSet<University> Universities { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserCertificate> UserCertificates { get; set; }
+        public virtual DbSet<UserConnection> UserConnections { get; set; }
         public virtual DbSet<UserExperience> UserExperiences { get; set; }
         public virtual DbSet<UserForeignLanguage> UserForeignLanguages { get; set; }
         public virtual DbSet<UserLearning> UserLearnings { get; set; }
@@ -122,6 +127,10 @@ namespace Model.EF
 
             modelBuilder.Entity<OfferJob>()
                 .Property(e => e.ContactEmail)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ProjectMember>()
+                .Property(e => e.Status)
                 .IsUnicode(false);
 
             modelBuilder.Entity<University>()

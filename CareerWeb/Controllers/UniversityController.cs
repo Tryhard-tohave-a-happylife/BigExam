@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Model.Dao;
 
 namespace CareerWeb.Controllers
 {
@@ -12,12 +13,18 @@ namespace CareerWeb.Controllers
         // GET: University
         public ActionResult UniversityHome(Guid UniversityID)
         {
+
             ViewBag.InfoUni = new UniversityDao().FindById(UniversityID);
+
             return View();
         }
         public ActionResult Statistic(Guid UniversityID)
         {
+
+            ViewBag.count = new UserForeignLanguageDao().Count();
+
             ViewBag.InfoUni = new UniversityDao().FindById(UniversityID);
+
             return View();
         }
         public ActionResult ListOfStudent(Guid UniversityID)
