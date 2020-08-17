@@ -13,6 +13,26 @@ namespace CareerWeb
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                 name: "InterviewLetter",
+                 url: "InterviewLetter",
+                 defaults: new { controller = "Manage", action = "InterviewLetter", id = UrlParameter.Optional },
+                 namespaces: new[] { "CareerWeb.Controllers" }
+             );
+
+            routes.MapRoute(
+                 name: "InviteWork",
+                 url: "InviteWork",
+                 defaults: new { controller = "Manage", action = "InviteWork", id = UrlParameter.Optional },
+                 namespaces: new[] { "CareerWeb.Controllers" }
+             );
+
+            routes.MapRoute(
+                 name: "WorkResult",
+                 url: "WorkResult",
+                 defaults: new { controller = "Manage", action = "Result", id = UrlParameter.Optional },
+                 namespaces: new[] { "CareerWeb.Controllers" }
+             );
 
             routes.MapRoute(
                 name: "Tim-kiem-ung-vien",
@@ -25,6 +45,13 @@ namespace CareerWeb
                 name: "ResultForSearchCandidate",
                 url: "SearchCandidateResult",
                 defaults: new { controller = "Employee", action = "SearchCandidateResult", id = UrlParameter.Optional },
+                namespaces: new[] { "CareerWeb.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Interview",
+                url: "Interview",
+                defaults: new { controller = "Employee", action = "Interview", id = UrlParameter.Optional },
                 namespaces: new[] { "CareerWeb.Controllers" }
             );
 

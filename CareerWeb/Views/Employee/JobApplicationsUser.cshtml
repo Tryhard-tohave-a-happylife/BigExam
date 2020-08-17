@@ -10,6 +10,8 @@
 
     <link href="~/Assets/Client/Css/Employee/JobApplicationsUser.css" rel="stylesheet" />
 }
+
+
 <div id="wrap">
     <div id="row">
         <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng : Quản lý</a>
@@ -99,10 +101,10 @@
                                     <td class="status">
                                         @item.Status
                                     </td>
-
+                                 
                                     <td class="action">
-                                        <div class="action-button">
-                                            Xem hồ sơ
+                                        <div class="action-button" id="detail"  user="@item.CandidateID" offer="@item.OfferID" onclick="actionDetail()">
+                                            Chi tiết
                                         </div>
                                     </td>
                                 </tr>

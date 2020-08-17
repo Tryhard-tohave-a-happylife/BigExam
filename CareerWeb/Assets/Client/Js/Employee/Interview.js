@@ -34,7 +34,6 @@ $(document).ready(function () {
 });
 
 
-
 function contactFixed() {
     var pos_body = $("html,body").scrollTop();
     if (pos_body >= 282) {
@@ -47,8 +46,50 @@ function contactFixed() {
 }
 
 
-function deleteConfirm() {
-    confirm("Bạn có chắc sẽ loại ứng viên này ?!");
+function deleteCVConfirm() {
+    var check = confirm("Bạn có chắc sẽ loại ứng viên này ?!");
+    if (check == true) {
+        $.ajax({
+            data: { userId: userId, offerId: offerId },
+            url: '/Employee/FailedCV',
+            dataType: 'json',
+            method: 'POST',
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status == true) {
+                    $("#interview1").css("display", "none");
+                    $("#fail").css("display", "none");
+                    $("#message").css("display", "none");
+                    $("#failmessage").css("display", "block");
+                }
+            }
+        })
+    }
+}
+
+function FailedConfirm() {
+    var check = confirm("Bạn có chắc sẽ loại ứng viên này ?!");
+    if (check == true) {
+        $.ajax({
+            data: { userId: userId, offerId: offerId },
+            url: '/Employee/FailedInterview',
+            dataType: 'json',
+            method: 'POST',
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res.status == true) {
+                    $("#accept").css("display", "none");
+                    $("#deny").css("display", "none");
+                    $("#message2").css("display", "none");
+                    $("#failmessage2").css("display", "block");
+                }
+            }
+        })
+    }
 }
 
 function setUpInterview() {
@@ -90,7 +131,7 @@ function interviewFormCheck() {
 }
 
 function wait_for_responseData(userName, offerName, time, date, employeeName, address, note, status) {
-    if (status == "waiting" || status == "accept") {
+    if (status == "waiting" || status == "accept" || status == "deny" || status == "fail") {
         var array = document.getElementById("waiting1").children;
         array[0].innerHTML += userName;
         array[1].innerHTML += offerName;
@@ -110,6 +151,10 @@ function wait_for_responseData(userName, offerName, time, date, employeeName, ad
         $("#wait-for-response #result").css("display", "block");
         $("#wait-for-response #accept").css("display","inline-block");
         $("#wait-for-response #deny").css("display", "inline-block");
+    }
+    if (status == "deny") {
+        $("#wait-for-response #status").css("display", "none");
+        $("#wait-for-response #denyresult").css("display", "block");
     }
     if (status == "done") {
         $("#interview").css("display", "none");
@@ -153,7 +198,6 @@ function wait_for_response() {
             }
         }
     });
-    console.log($("#wait-for-respose").css("display"));
 }
 
 function recruit_candidate() {
@@ -225,12 +269,12 @@ function wait_for_response2Data(userName, offerName, date, salary, address, note
         array[5].innerHTML += note;
         $(".steps li:first-child").removeClass("active");
         $(".steps li:nth-child(2)").removeClass("active");
-        console.log("here");
         $(".steps li:nth-child(3)").addClass("active");
         $("#process").text(" Tiến trình: Mời làm");
         $("#main h1").text("Tiến trình phỏng vấn ứng viên : Giai đoạn mời làm");
     }
-    if (status == "accept") {
+    
+    else if (status == "accept") {
         var array = document.getElementById("resultboard").children;
         array[0].innerHTML += userName;
         array[1].innerHTML += offerName;
@@ -245,6 +289,25 @@ function wait_for_response2Data(userName, offerName, date, salary, address, note
         $("#elect").css("display", "none");
         $("#finalresult").css("display", "block");
     }
+
+    else if (status == "deny") {
+        var array = document.getElementById("waiting2").children;
+        array[0].innerHTML += userName;
+        array[1].innerHTML += offerName;
+        array[2].innerHTML += date;
+        array[3].innerHTML += salary;
+        array[4].innerHTML += address;
+        array[5].innerHTML += note;
+        console.log("here");
+        $(".steps li:first-child").removeClass("active");
+        $(".steps li:nth-child(2)").removeClass("active");
+        $(".steps li:nth-child(3)").addClass("active");
+        $("#process").text(" Tiến trình: Mời làm");
+        $("#main h1").text("Tiến trình phỏng vấn ứng viên : Giai đoạn mời làm");
+        $("#status2").css("display", "none");
+        $("#denyresult2").css("display", "block");
+    }
+    
 }
 
 function wait_for_response2() {

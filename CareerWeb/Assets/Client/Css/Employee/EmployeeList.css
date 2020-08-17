@@ -53,63 +53,11 @@
                 text-transform: uppercase;
             }
 
-        #wrap #main #tab {
-            margin-top: 15px;
-            height: 35px;
-        }
-
-            #wrap #main #tab ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-
-#main #tab ul li {
-    float: left;
-    display: block;
-    padding: 6px 15px;
-    transform: skew(-25deg, 0);
-    width: 200px;
-    text-align: center;
-    cursor: pointer;
-}
-
-    #main #tab ul li span {
-        display: block;
-        transform: skew(25deg, 0);
-        font-size: 14px;
-        margin: 4px 5px 4px 5px;
-    }
-
 #main #tab-content {
     clear: left;
     padding-top: 20px;
     margin-top: 10px;
     border-top: #f07e1d 2px solid;
-}
-
-    #main #tab-content #tab-appli {
-    }
-
-    #main #tab-content #tab-save {
-    }
-
-.tab {
-    display: none;
-}
-
-.tab-active {
-    display: block;
-}
-
-.list {
-    background-color: #efefef;
-    color: #6c6c6c;
-}
-
-.list-active {
-    background-color: #f07e1d;
-    color: #ffffff;
 }
 
 #tab-content .utility .display-utility {
@@ -139,12 +87,12 @@
     padding: 0 0 0 7px;
 }
 
-#list-candidate {
+#list-employee {
     width: 100%;
     padding-top: 20px;
 }
 
-    #list-candidate table {
+    #list-employee table {
         width: 100%;
         border-collapse: separate;
         border: 1px solid #ddd;
@@ -167,35 +115,33 @@ table tbody td {
     padding: 5px 0px 5px 5px;
 }
 
-table .candidate-rows .candidate {
-    text-align: left;
-    width: 40%;
-}
-
-.candidate img {
-    width: 50px;
-    height: 50px;
-}
-
-.candidate .candidate-details {
+.next, .prev {
+    margin-top: 10px;
     display: inline-block;
-    font-size: 18px;
-    margin-left: 10px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 22px;
+    color: #d1d0d7;
+    text-align: center;
+    border: 1px solid #eefaf9;
+    border-radius: 4px;
+    background-color: #e6e6f6;
+    cursor: pointer;
 }
 
-    .candidate .candidate-details span {
-        line-height: 30px;
-    }
 
-a {
-    text-decoration: none;
+
+.next:hover, .prev:hover {
+    background-color: #f74a4a;
+    color: #ffffff;
 }
 
-.candidate .candidate-details span a {
-    color: #f07e1d;
+.page {
+    text-align: right;
 }
 
-.candidate-rows .action .action-button {
+.employee-rows .action .detail-button {
     background-color: #5bc0de;
     color: #ffffff;
     width: 100px;
@@ -205,54 +151,4 @@ a {
     border-radius: 5px;
     line-height: 40px;
     cursor: pointer;
-}
-
-.candidate-rows .action .detail-button {
-    background-color: #5bc0de;
-    color: #ffffff;
-    width: 70px;
-    height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    line-height: 40px;
-    display: inline-block;
-}
-
-.candidate-rows .action .delete-button {
-    background-color: #5bc0de;
-    color: #ffffff;
-    width: 50px;
-    height: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    line-height: 40px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.next, .prev{
-    margin-top: 10px;
-    display: inline-block;
-    width:35px;
-    height:35px;
-    line-height: 35px;
-    font-size: 22px;
-    color: #d1d0d7;
-    text-align: center;
-    border:1px solid #eefaf9;
-    border-radius: 4px;
-    background-color: #e6e6f6;
-    cursor: pointer;
-}
-
-.next:hover, .prev:hover{
-    background-color: #f74a4a;
-    color: #ffffff;
-}
-
-.page{
-    text-align: right;
-   
 }

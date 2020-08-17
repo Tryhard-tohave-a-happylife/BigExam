@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Model.EF.AppliedCandidate>
 @{
     ViewBag.Title = "WorkList";
     Layout = "~/Views/Shared/LayoutForUser.cshtml";
@@ -24,17 +24,20 @@
                 <th style="width: 180px"><i class="fas fa-exclamation"></i>Trạng thái</th>
                 <th></th>
             </tr>
-            <tr>
-                <td>Bảo vệ</td>
-                <td>Cty Hoàng Long</td>
-                <td>27/07/2020</td>
-                <td>Tuyển dụng hoàn tất</td>
-                <td>
-                    <div class="button" id="result"><i class="far fa-clipboard"></i>Kết quả</div>
-                    <div class="button" id="delete"><i class="far fa-times-circle"></i>Xóa</div>
-                </td>
-            </tr>
-        </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@(new Model.Dao.OfferJobDao().findById(item.OfferID).OfferName)</td>
+                    <td>@(new Model.Dao.EnterpriseDao().EnterpriseName(new Model.Dao.OfferJobDao().findById(item.OfferID).EnterpriseID))</td>
+                    <td>@(new Model.Dao.OfferJobDao().findById(item.OfferID).OfferLimitDate)</td>
+                    <td class="status">@item.Status</td>
+                    <td>
+                        <div class="button" id="result" offer="@item.OfferID" onclick="appliedOfferDetail()"><i class="far fa-clipboard"></i>Kết quả</div>
+                    </td>
+                </tr>
+            }
+            </table>
 
     </div>
 </div>

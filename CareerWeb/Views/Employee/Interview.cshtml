@@ -16,6 +16,8 @@
     var electDisplay = "none";
     var wait_for_response2Display = "none";
     var finalresultDisplay = "none";
+    var buttonDisplay = "block";
+    var failmessageDisplay = "none";
 
 }
 
@@ -50,10 +52,16 @@
 
             </ul>
         </div>
-        @if (ViewBag.CandidateApplied.Status == "Đã xem hồ sơ")
+        @if (ViewBag.CandidateApplied.Status == "Đã xem hồ sơ" || ViewBag.CandidateApplied.Status == "Loại hồ sơ")
         {
             overviewDisplay = "block";
+            if (ViewBag.CandidateApplied.Status == "Loại hồ sơ")
+            {
+                buttonDisplay = "none";
+                failmessageDisplay = "block";
+            }
         }
+         
         
 
         <div id="overview" style="display:@overviewDisplay">
@@ -134,79 +142,91 @@
                     <h3>Thông tin liên hệ</h3>
                     <span><b>Email :&nbsp;</b>@ViewBag.CandidateDetail.UserEmail</span>
                     <span><b>Phone :&nbsp;</b>@ViewBag.CandidateDetail.UserMobile</span>
-                    <div id="interview1" onclick="setUpInterview()">Xét lịch phỏng vấn</div>
-                    <div id="fail">Từ chối hồ sơ</div>
+                    <div id="interview1" style="display:@buttonDisplay" onclick="setUpInterview()">Xét lịch phỏng vấn</div>
+                    <div id="fail" style="display:@buttonDisplay">Từ chối hồ sơ</div>
                     <div id="message">
                         <span><b>Lời nhắn:</b></span>
                         <textarea rows="9" cols="35"></textarea>
                         <div>
-                            <div id="send" onclick="deleteConfirm()">Gửi</div>
+                            <div id="send" onclick="deleteCVConfirm()">Gửi</div>
                             <div id="cancel">Hủy bỏ</div>
                         </div>
+
                     </div>
+                    <div id="failmessage" style="display:@failmessageDisplay">Bạn đã loại ứng viên này =((</div>
                 </div>
             </div>
         </div>
 
 
-        @if (ViewBag.CandidateApplied.Status == "Phỏng vấn")
+        @if (ViewBag.CandidateApplied.Status == "Phỏng vấn" || ViewBag.CandidateApplied.Status == "Trượt pv")
         {
             interviewDisplay = "block";
             wait_for_responseDisplay = "block";
+            if (ViewBag.CandidateApplied.Status == "Trượt pv")
+            {
+                failmessageDisplay = "block";
+                wait_for_responseDisplay = "none";
+            }
         }
 
-        <div id="interview" style="display:@interviewDisplay">
-            <div id="thu-moi">
-                <h4>Mời phỏng vấn</h4>
-                <div id="form">
-                    <form>
-                        <label for="interview-date">Ngày phỏng vấn</label><span class="checknull"></span><br />
-                        <input type="date" maxlength="10" name="ngay" id="interview-date" /><br />
+    <div id="interview" style="display:@interviewDisplay">
+        <div id="thu-moi">
+            <h4>Mời phỏng vấn</h4>
+            <div id="form">
+                <form>
+                    <label for="interview-date">Ngày phỏng vấn</label><span class="checknull"></span><br />
+                    <input type="date" maxlength="10" name="ngay" id="interview-date" /><br />
 
-                        <label for="interview-time">Giờ phỏng vấn</label><span class="checknull"></span><br />
-                        <input type="time" name="gio" id="interview-time" /><br />
+                    <label for="interview-time">Giờ phỏng vấn</label><span class="checknull"></span><br />
+                    <input type="time" name="gio" id="interview-time" /><br />
 
-                        <label for="interview-address">Địa chỉ phỏng vấn</label><span class="checknull"></span><br />
-                        <input type="text" name="diachi" id="interview-address" />
+                    <label for="interview-address">Địa chỉ phỏng vấn</label><span class="checknull"></span><br />
+                    <input type="text" name="diachi" id="interview-address" />
 
-                        <label id="more-information">Thông tin</label>
-                        <textarea cols="70" rows="15" id="note"></textarea>
-                    </form>
+                    <label id="more-information">Thông tin</label>
+                    <textarea cols="70" rows="15" id="note"></textarea>
+                </form>
 
-                    <div id="submit" onclick="interviewFormCheck()">Mời phỏng vấn</div>
-                </div>
-            </div>
-            <div id="wait-for-response" style="display:@wait_for_responseDisplay">
-                <span id="status"><i class="fa fa-hourglass-half"></i>&nbsp;Đang đợi Ứng viên xác nhận tham gia phỏng vấn.</span>
-                <span id="result" style="display:none"><i class="fa fa-check-square-o"></i>&nbsp;Ứng viên @ViewBag.CandidateDetail.UserName đồng ý tham gia phỏng vấn.</span>
-                <h4><i class="fa fa-envelope"></i>&nbsp;Thư mời phỏng vấn</h4>
-                <div>
-                    <ul id="waiting1">
-                        <li><i class="fa fa-user"></i>&nbsp;<b>Ứng viên : </b></li>
-                        <li><i class="fa fa-external-link"></i>&nbsp;<b>Vị trí : </b></li>
-                        <li><i class="fa fa-clock-o"></i>&nbsp;<b>Vào lúc : </b></li>
-                        <li><i class="fa fa-calendar"></i>&nbsp;<b>Ngày phỏng vấn : </b></li>
-                        <li><i class="fa fa-user"></i>&nbsp;<b>Người phỏng vấn : </b></li>
-                        <li><i class="fa fa-globe"></i>&nbsp;<b>Địa chỉ phỏng vấn : </b></li>
-                        <li><i class="fa fa-comments"></i>&nbsp;<b>Nội dung : </b></li>
-                    </ul>
-                </div>
-                <div id="accept" class="button" onclick="recruit_candidate()">Tuyển</div>
-                <div id="deny" class="button">Không tuyển</div>
-                <div id="message2">
-                    <span style="display:block"><b>Lời nhắn:</b></span>
-                    <textarea rows="9" cols="50"></textarea>
-                    <div>
-                        <div id="send2" onclick="deleteConfirm()">Gửi</div>
-                        <div id="cancel2">Hủy bỏ</div>
-                    </div>
-                </div>
+                <div id="submit" onclick="interviewFormCheck()">Mời phỏng vấn</div>
             </div>
         </div>
 
+        <div id="wait-for-response" style="display:@wait_for_responseDisplay">
+            <span id="status"><i class="fa fa-hourglass-half"></i>&nbsp;Đang đợi Ứng viên xác nhận tham gia phỏng vấn.</span>
+            <span id="result" style="display:none"><i class="fa fa-check-square-o"></i>&nbsp;Ứng viên @ViewBag.CandidateDetail.UserName đồng ý tham gia phỏng vấn.</span>
+            <span id="denyresult" style="display:none"><i class="fa fa-check-square-o"></i>&nbsp;Ứng viên @ViewBag.CandidateDetail.UserName từ chối tham gia phỏng vấn.</span>
+            <h4><i class="fa fa-envelope"></i>&nbsp;Thư mời phỏng vấn</h4>
+            <div>
+                <ul id="waiting1">
+                    <li><i class="fa fa-user"></i>&nbsp;<b>Ứng viên : </b></li>
+                    <li><i class="fa fa-external-link"></i>&nbsp;<b>Vị trí : </b></li>
+                    <li><i class="fa fa-clock-o"></i>&nbsp;<b>Vào lúc : </b></li>
+                    <li><i class="fa fa-calendar"></i>&nbsp;<b>Ngày phỏng vấn : </b></li>
+                    <li><i class="fa fa-user"></i>&nbsp;<b>Người phỏng vấn : </b></li>
+                    <li><i class="fa fa-globe"></i>&nbsp;<b>Địa chỉ phỏng vấn : </b></li>
+                    <li><i class="fa fa-comments"></i>&nbsp;<b>Nội dung : </b></li>
+                </ul>
+            </div>
+            <div id="accept" class="button" onclick="recruit_candidate()">Tuyển</div>
+            <div id="deny" class="button">Không tuyển</div>
+            <div id="message2">
+                <span style="display:block"><b>Lời nhắn:</b></span>
+                <textarea rows="9" cols="50"></textarea>
+                <div>
+                    <div id="send2" onclick="FailedConfirm()">Gửi</div>
+                    <div id="cancel2">Hủy bỏ</div>
+                </div>
+            </div>
+
+
+        </div>
+        <div id="failmessage2" style="display:@failmessageDisplay">Bạn đã loại ứng viên này =((</div>
+    </div>
+
         @if (ViewBag.CandidateApplied.Status == "Mời làm" && ViewBag.WorkInvitation != null)
         {
-            if (ViewBag.WorkInvitation.Status == "waiting")
+            if (ViewBag.WorkInvitation.Status != "accept")
             {
                 electDisplay = "block";
                 wait_for_response2Display = "block";
@@ -236,6 +256,7 @@
 
             <div id="wait-for-response2" style="display:@wait_for_response2Display">
                 <span id="status2"><i class="fa fa-hourglass-half"></i>&nbsp;Đang đợi Ứng viên xác nhận công việc.</span>
+                <span id="denyresult2" style="display:none"><i class="fa fa-check-square-o"></i>&nbsp;Ứng viên @ViewBag.CandidateDetail.UserName từ chối công việc.</span>
                 <h4><i class="fa fa-bullhorn"></i>&nbsp;Nhà tuyển dụng mời vào làm việc.</h4>
                 <div>
                     <ul id="waiting2">
@@ -250,12 +271,10 @@
             </div>
         </div>
 
-        @if (ViewBag.WorkInvitation != null)
+        @if (ViewBag.CandidateApplied.Status == "Hoàn tất tuyển dụng")
         {
-            if (ViewBag.WorkInvitation.Status == "accept")
-            {
                 finalresultDisplay = "block";
-            }
+           
         }
         <div id="finalresult" display="@finalresultDisplay">
             <span id="result2"><i class="fa fa-check-square-o"></i>&nbsp;Ứng viên @ViewBag.CandidateDetail.UserName đồng ý công việc.</span>

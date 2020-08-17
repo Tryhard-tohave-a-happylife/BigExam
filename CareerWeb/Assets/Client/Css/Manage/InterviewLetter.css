@@ -238,3 +238,11 @@ i {
         cursor: pointer;
         background-color: rgb(190, 190, 190);
     }
+
+    #result2, #result, #result3{
+        display: none;
+        text-transform: uppercase;
+        font-size: 17px;
+        color: dodgerblue;
+        margin-top:20px;
+    }

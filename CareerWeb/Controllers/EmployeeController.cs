@@ -5,6 +5,9 @@ using System.Linq;
 using System;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using PagedList;
+using System.Web.Helpers;
+using Newtonsoft.Json;
 
 namespace CareerWeb.Controllers
 {
@@ -35,9 +38,9 @@ namespace CareerWeb.Controllers
             int jobId = int.Parse(JobID);
 
 
-            // var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
-            // return View(Model);
-            return View(); //để tạm v cho đỡ lỗi đã, bài t cũng bị
+            var Model = new UserDao().ListUserFit(Name, areaId, jobId).ToPagedList(page ?? 1, 2);
+            return View(Model);
+            
 
         }
 
@@ -57,21 +60,85 @@ namespace CareerWeb.Controllers
 
             return View();
         }
+
+        public ActionResult InterviewSchedule()
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
+
+            Guid enterpriseId = new Guid("4c0bba20-27f2-4838-8cb9-ce3a80ce7784");
+            var interview = new InterviewDao().ListInterviewByEnterprise(enterpriseId);
+            return View(interview);
+        }
+
+        public ActionResult EmployeeList()
+        {
+            /*  var accID = int.Parse(User.Identity.Name);
+                var acc = new AccountDao().FindAccountById(accID);
+                var employee = new EmployeeDao().FindById(acc.UserId);
+                var enterpriseId = employee.EnterpriseID;   */
+
+            Guid enterpriseId = new Guid("ed4a47ea-f261-491e-aff4-6e29d36ece42");
+            var employee = new EmployeeDao().ListEmployee(enterpriseId);
+            return View(employee);
+        }
+
+
         public ActionResult ShowDetailCandidate()
         {
             return View(); 
         }
 
-        public ActionResult Interview()
-        {
-            Guid userid = new Guid("ed4171f6-485b-4279-9a89-ab74678833f1");
-            Guid offerid = new Guid("251e41e2-3a8b-499b-8550-84db430d8bad");
-            
-            ViewBag.CandidateDetail = new UserDao().FindById(userid);
-            ViewBag.OfferDetail = new OfferJobDao().findById(offerid);
-            ViewBag.CandidateApplied = new AppliedCandidateDao().findCandidate(userid, offerid);
-            ViewBag.WorkInvitation = new WorkInvitationDao().findWorkInvitation(userid, offerid);
+        public ActionResult Interview(Guid userId, Guid offerId)
+        {          
+            ViewBag.CandidateDetail = new UserDao().FindById(userId);
+            ViewBag.OfferDetail = new OfferJobDao().findById(offerId);
+            if (new AppliedCandidateDao().findCandidate(userId, offerId).Status == "Đã nộp hồ sơ")
+            {
+                var checkUpdate = new AppliedCandidateDao().UpdateStatus(userId, offerId, "Đã xem hồ sơ");
+            }
+            ViewBag.CandidateApplied = new AppliedCandidateDao().findCandidate(userId, offerId);
+            ViewBag.WorkInvitation = new WorkInvitationDao().findWorkInvitation(userId, offerId);
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult FailedCV(Guid userId, Guid offerId)
+        {
+           
+            var checkUpdate = new AppliedCandidateDao().UpdateStatus(userId, offerId,"Loại hồ sơ");
+            if (checkUpdate == true)
+            {
+                return Json(new
+                {
+                    status = true
+                }) ;
+            }
+            return Json(new
+            {
+                status = false
+            }) ;
+        }
+
+        [HttpPost]
+        public JsonResult FailedInterview(Guid userId, Guid offerId)
+        {
+
+            var checkUpdate1 = new AppliedCandidateDao().UpdateStatus(userId, offerId, "Trượt pv");
+            var checkUpdate2 = new InterviewDao().UpdateStatus(userId, offerId, "fail");
+            if (checkUpdate1 == true)
+            {
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            return Json(new
+            {
+                status = false
+            });
         }
 
         [HttpPost]
@@ -273,6 +340,24 @@ namespace CareerWeb.Controllers
                 having = false
             });
 
+        }
+
+        [HttpPost]
+
+        public JsonResult DeleteEmployee(Guid employeeId)
+        {
+            var check = new EmployeeDao().Delete(employeeId);
+            if (check == false)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+            return Json(new
+            {
+                status = true
+            });
         }
 
 

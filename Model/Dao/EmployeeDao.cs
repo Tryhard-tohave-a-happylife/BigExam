@@ -18,6 +18,10 @@ namespace Model.Dao
         {
             return db.Enterprises.ToList();
         }
+        public List<Employee> ListEmployee(Guid enterpriseId)
+        {
+            return db.Employees.Where(x => x.EnterpriseID == enterpriseId).ToList();
+        }
 
         public bool InsertEmployee(Employee employee)
         {

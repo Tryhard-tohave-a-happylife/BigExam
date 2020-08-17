@@ -264,6 +264,16 @@
     display: none;
 }
 
+#contact #failmessage, #failmessage2{
+    font-size: 18px;
+    color: red;
+    margin-top:20px;
+    margin-bottom: 10px;
+    text-transform : uppercase;
+    font-style:italic;
+    font-weight: 700;
+}
+
     #contact #message textarea {
         transition: all .5s;
         -webkit-box-shadow: 0px 2px 2px 5px #4ac97d;
@@ -447,7 +457,7 @@
     display: none;
 }
 
-    #wait-for-response #status, #wait-for-response #result {
+    #wait-for-response #status, #wait-for-response #result, #denyresult {
         display: block;
         font-size: 22px;
         color: #4855f2;
@@ -640,7 +650,7 @@
     display:none;
 }
 
-    #wait-for-response2 #status2 {
+    #wait-for-response2 #status2, #wait-for-response2 denyresult2 {
         display: block;
         font-size: 22px;
         color: #4855f2;

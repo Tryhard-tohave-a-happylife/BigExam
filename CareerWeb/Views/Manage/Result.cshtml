@@ -1,4 +1,4 @@
-﻿
+﻿@model Model.EF.WorkInvitation
 @{
     ViewBag.Title = "Result";
     Layout = "~/Views/Shared/LayoutForUser.cshtml";
@@ -34,11 +34,13 @@
         <div id="status"><i class="	fas fa-check"></i> <b> Tuyển dụng hoàn tất. </b></div>
         <div id="content">
             <div class="line"></div>
-            <div id="startDate"><i class="far fa-calendar"></i><b> Ngày bắt đầu làm việc:</b> 06/12/2020</div>
-
-            <div id="salary"><i class="far fa-money-bill-alt"></i><b>Mức lương:</b> 1000$</div>
+            <div id="offername"><i class="far fa-money-bill-alt"></i><b>Vị trí:</b> @ViewBag.Offer.OfferName</div>
+            <div id="startDate"><i class="far fa-calendar"></i><b> Ngày bắt đầu làm việc:</b> @Model.StartDay</div>
+            <div id="salary"><i class="far fa-money-bill-alt"></i><b>Mức lương:</b> @Model.Salary</div>
+            <div id="address"><i class="far fa-money-bill-alt"></i><b>Địa chỉ:</b> @Model.Address</div>
         </div>
     </div>
+    <div id="offer" stt="@Model.OfferID"></div>
 </div>
 @section jsInsert{
     <script src="~/Assets/Client/Js/Manage/Result.js"></script>

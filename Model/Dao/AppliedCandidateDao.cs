@@ -47,6 +47,15 @@ namespace Model.Dao
             }
         }
 
+        public List<AppliedCandidate> ListByUser(Guid userId)
+        {
+            var workList = ListCandidate();
+            var result = from appliedCandidate in workList
+                         where appliedCandidate.UserID == userId
+                         select appliedCandidate;
+            return result.ToList();
+        }
+
         public List<AppliedCandidateInfo> AppliedCandidateList(Guid enterpriseId)
         {
             var appliedCandidateList = ListCandidateApply(enterpriseId);

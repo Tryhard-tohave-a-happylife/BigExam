@@ -1,12 +1,15 @@
 ﻿var appliedCandidate = $("#tab-appli .candidate-rows");
+var savedCandidate = $("#tab-save .candidate-rows");
 var displayNum = parseInt(document.getElementById("display").value);
 
 $(document).ready(function () {
 
     pagelist(displayNum, appliedCandidate);
+    pagelist(displayNum, savedCandidate);
     $("#display").change(function () {
         displayNum = parseInt(document.getElementById("display").value);
         pagelist(displayNum, appliedCandidate);
+        pagelist(displayNum, savedCandidate);
     })
     $("#search").keyup(function () {
         
@@ -14,6 +17,14 @@ $(document).ready(function () {
     })
     
 })
+
+function actionDetail() {
+    var element = $(event.target);
+    var userId = element.attr("user");
+    var offerId = element.attr("offer");
+    var dbParam = "userId=" + userId + "&offerId=" + offerId;
+    window.location.href = '/Interview?' + dbParam;
+}
 
 
 
